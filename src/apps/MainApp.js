@@ -1,7 +1,7 @@
 import { Switch, Route } from "react-router-dom";
-import DashboardPage from "../pages/DashboardPage";
-import LandingPage from "../pages/LandingPage";
-import LoginPage from "../pages/LoginPage";
+import LandingPage from "pages/LandingPage";
+import LoginPage from "pages/LoginPage";
+import AuthenticatedApp, { AuthenticatedPaths } from "./AuthenticatedApp";
 
 const MainApp = () => {
   return (
@@ -12,8 +12,8 @@ const MainApp = () => {
       <Route path="/login">
         <LoginPage />
       </Route>
-      <Route path="/dashboard">
-        <DashboardPage />
+      <Route paths={AuthenticatedPaths}>
+        <AuthenticatedApp />
       </Route>
     </Switch>
   );

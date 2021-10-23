@@ -1,0 +1,18 @@
+.app-bar {
+  box-shadow: none !important;
+}
+
+.nav-button {
+  margin-right: 1rem;
+}
+
+@media (min-width: 600px) {
+  .app-bar {
+    width: calc(100% - 260px) !important;
+    margin-left: 260px;
+  }
+
+  .nav-button {
+    display: none !important;
+  }
+}

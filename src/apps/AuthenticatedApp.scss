@@ -1,0 +1,10 @@
+.main {
+  flex-grow: 1;
+  padding: 24px;
+}
+
+@media (min-width: 600px) {
+  .main {
+    width: calc(100% - 260px) !important;
+  }
+}

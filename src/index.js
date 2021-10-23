@@ -5,6 +5,7 @@ import MainApp from "./apps/MainApp";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { StateProvider } from "./store";
+import "semantic-ui-css/semantic.min.css";
 
 ReactDOM.render(
   <React.StrictMode>

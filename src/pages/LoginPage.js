@@ -53,7 +53,7 @@ const LoginPage = () => {
         payload: data.remotes,
       });
 
-      history.push("/dashboard");
+      history.push("/files");
     } catch (error) {
       setError(error);
     }
