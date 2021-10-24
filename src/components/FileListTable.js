@@ -11,7 +11,7 @@ const FileListTable = ({ files }) => {
     return (
       <Table.Row>
         <Table.Cell>
-          <Link className="filepage__file-cell" to={file.target}>
+          <Link className="filelist-table__file-cell" to={file.target}>
             {renderFileIcon(file)}
             <div>{file.name}</div>
           </Link>

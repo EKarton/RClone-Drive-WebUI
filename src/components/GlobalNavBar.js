@@ -1,17 +1,14 @@
-import {
-  Drawer,
-  List,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Toolbar,
-} from "@mui/material";
-import { Box } from "@mui/system";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 import FolderIcon from "@mui/icons-material/Folder";
 import PermMediaIcon from "@mui/icons-material/PermMedia";
-import { useState } from "react";
 import "./GlobalNavBar.scss";
-import { useHistory, useLocation } from "react-router";
+import cx from "classnames";
+import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 
 const NavigationOptions = Object.freeze([
   {
@@ -31,53 +28,34 @@ const NavigationOptions = Object.freeze([
 /**
  * This component represents the global nav bar in all pages
  */
-const GlobalNavBar = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
+const GlobalNavBar = ({ isExpanded }) => {
   const location = useLocation();
-  const history = useHistory();
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const handleListItemClick = (redirectUrl) => () => {
-    history.push(redirectUrl);
-  };
-
-  const drawer = (
-    <div>
-      <Toolbar classes={{ root: "toolbar" }} />
-      <List>
-        {NavigationOptions.map(({ key, text, icon, redirectUrl }) => (
-          <ListItemButton
-            button
-            key={key}
-            selected={location.pathname.includes(redirectUrl)}
-            onClick={handleListItemClick(redirectUrl)}
-          >
-            <ListItemIcon>{icon}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItemButton>
-        ))}
-      </List>
-    </div>
-  );
 
   return (
-    <Box component="nav" aria-label="mailbox folders" className="nav">
-      <Drawer
-        variant="temporary"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{ keepMounted: true }}
-        className="temporary-nav"
-      >
-        {drawer}
-      </Drawer>
-      <Drawer variant="permanent" className="permanent-nav" open>
-        {drawer}
-      </Drawer>
-    </Box>
+    <Drawer
+      variant="permanent"
+      className={cx("global-navbar", {
+        "global-navbar--expanded": isExpanded,
+      })}
+    >
+      <List>
+        {NavigationOptions.map(({ key, text, icon, redirectUrl }) => (
+          <Link className="global-navbar__link" to={redirectUrl}>
+            <ListItem
+              button
+              key={key}
+              selected={location.pathname.includes(redirectUrl)}
+            >
+              <ListItemIcon>{icon}</ListItemIcon>
+              <ListItemText
+                className="global-navbar__listitem-text"
+                primary={text}
+              />
+            </ListItem>
+          </Link>
+        ))}
+      </List>
+    </Drawer>
   );
 };
 

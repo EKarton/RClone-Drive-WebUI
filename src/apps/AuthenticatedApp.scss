@@ -1,10 +1,16 @@
-.main {
-  flex-grow: 1;
-  padding: 24px;
-}
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 
-@media (min-width: 600px) {
-  .main {
-    width: calc(100% - 260px) !important;
+  &__below-appbar {
+    display: flex;
+    height: 100%;
+  }
+
+  &__contents {
+    flex-grow: 1;
+    padding: 24px;
   }
 }

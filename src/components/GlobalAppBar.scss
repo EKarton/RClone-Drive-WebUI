@@ -1,18 +1,28 @@
-.app-bar {
-  box-shadow: none !important;
-}
+.global-app-bar {
+  z-index: 9999 !important;
+  position: relative !important;
+  width: auto;
+  height: auto;
 
-.nav-button {
-  margin-right: 1rem;
-}
+  &__logo {
+    background: url("../assets/images/rclone-icon/logo_on_light__horizontal_color_256px.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-position: left center;
 
-@media (min-width: 600px) {
-  .app-bar {
-    width: calc(100% - 260px) !important;
-    margin-left: 260px;
+    height: 24px;
   }
 
-  .nav-button {
-    display: none !important;
+  &__nav-button {
+    margin-right: 1rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .global-app-bar {
+    &__nav-button {
+      display: none !important;
+    }
   }
 }

@@ -1,36 +1,36 @@
-.toolbar {
-  background: url("../assets/images/rclone-icon/logo_on_light__horizontal_color_256px.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-origin: content-box;
-  background-position: left center;
-  padding-top: 16px;
-  padding-bottom: 16px;
-}
+.global-navbar {
+  width: 240px;
+  flex-shrink: 0;
 
-.temporary-nav {
   & .MuiDrawer-paper {
+    width: 240px;
     box-sizing: border-box;
-    width: 260px;
+    position: relative;
+  }
+
+  &__link {
+    color: inherit;
+  }
+
+  &__listitem-text {
+    white-space: nowrap;
   }
 }
 
-.permanent-nav {
-  & .MuiDrawer-paper {
-    box-sizing: border-box;
-    width: 260px;
-  }
-}
+@media (max-width: 900px) {
+  .global-navbar {
+    width: 57px;
 
-@media (max-width: 600px) {
-  .permanent-nav {
-    display: none;
-  }
-}
+    & .MuiDrawer-paper {
+      width: 57px;
+    }
 
-@media (min-width: 600px) {
-  .nav {
-    width: 260px;
-    flex-shrink: 0;
+    &--expanded {
+      width: 240px;
+
+      & .MuiDrawer-paper {
+        width: 240px;
+      }
+    }
   }
 }

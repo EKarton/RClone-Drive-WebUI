@@ -1,11 +1,9 @@
-import Toolbar from "@mui/material/Toolbar";
-import "./index.scss";
-import GlobalAppBar from "components/GlobalAppBar";
-import { useParams } from "react-router";
-import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { store } from "store";
 import FileListTable from "components/FileListTable";
+import { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router";
+import { store } from "store";
+import "./index.scss";
 
 const FilesPage = () => {
   const { id } = useParams();
@@ -85,13 +83,7 @@ const FilesPage = () => {
     fetchFiles();
   }, [id, path, remote, remotePath, state.auth]);
 
-  return (
-    <>
-      <GlobalAppBar />
-      <Toolbar />
-      <FileListTable remote={remote} files={files} />
-    </>
-  );
+  return <FileListTable remote={remote} files={files} />;
 };
 
 export default FilesPage;
