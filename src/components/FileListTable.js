@@ -30,7 +30,7 @@ const FileListTable = ({ files }) => {
     if (file.isImage && file.fileUrl) {
       return (
         <Icon>
-          <img src={file.fileUrl} width="24px" />
+          <img src={file.fileUrl} width="100%" height="100%" />
         </Icon>
       );
     }
