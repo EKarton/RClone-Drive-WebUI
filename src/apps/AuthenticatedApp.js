@@ -12,10 +12,10 @@ const AuthenticatedApp = () => {
       <GlobalNavBar />
       <Box component="main" className="main">
         <Switch>
-          <Route path="/files">
+          <Route path="/files/:id">
             <FilesPage />
           </Route>
-          <Route path="/pictures">
+          <Route path="/pictures/:id">
             <FilesPage />
           </Route>
         </Switch>

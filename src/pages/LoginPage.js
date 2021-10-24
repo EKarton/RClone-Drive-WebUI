@@ -53,7 +53,7 @@ const LoginPage = () => {
         payload: data.remotes,
       });
 
-      history.push("/files");
+      history.push("/files/Z29vZ2xlZHJpdmUtbWFpbi1lbmNyeXB0ZWQ6");
     } catch (error) {
       setError(error);
     }

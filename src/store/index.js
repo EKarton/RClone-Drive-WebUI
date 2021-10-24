@@ -4,11 +4,12 @@ import reducer from "./reducer";
 
 const initialState = {
   auth: {
-    endpoint: '',
-    username: '',
-    password: '',
+    endpoint: "",
+    username: "",
+    password: "",
   },
   remotes: undefined,
+  selectedRemote: "",
 };
 
 const store = createContext(initialState);
