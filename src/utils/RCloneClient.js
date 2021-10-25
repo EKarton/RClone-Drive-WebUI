@@ -9,8 +9,8 @@ export default class RCloneClient {
         "Content-Type": "application/json",
       },
       auth: {
-        username: username,
-        password: password,
+        username,
+        password,
       },
     });
   }

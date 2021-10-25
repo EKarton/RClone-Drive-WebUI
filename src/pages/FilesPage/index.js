@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
+import StorageIcon from "@mui/icons-material/Storage";
 import { useEffect, useState } from "react";
 import "./index.scss";
 import { useHistory } from "react-router";
@@ -12,7 +12,8 @@ const FilesPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setRemotes(await rCloneClient.fetchRemotes());
+      const data = await rCloneClient.fetchRemotes();
+      setRemotes(data);
     };
 
     fetchData();
@@ -35,7 +36,7 @@ const FilesPage = () => {
         <div>
           <Button
             variant="outlined"
-            startIcon={<DeleteIcon />}
+            startIcon={<StorageIcon />}
             onClick={handleButtonClick(remote)}
           >
             {remote}

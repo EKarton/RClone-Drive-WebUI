@@ -1,14 +1,12 @@
 import FileListTable from "components/FileListTable";
 import Header from "./Header";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { store } from "store";
 import "./index.scss";
 import useRCloneClient from "hooks/useRCloneClient";
 
 const FilesPage = () => {
   const { id } = useParams();
-  const { state } = useContext(store);
   const rCloneClient = useRCloneClient();
   const [files, setFiles] = useState([]);
 
@@ -24,7 +22,7 @@ const FilesPage = () => {
 
           const isImage = file.MimeType === "image/jpeg";
           const imageContents = isImage
-            ? await rCloneClient.fetchFileContents(remote, file.Path, file.Name)
+            ? await rCloneClient.fetchFileContents(remote, path, file.Name)
             : undefined;
 
           return {
@@ -45,7 +43,7 @@ const FilesPage = () => {
     };
 
     fetchFiles();
-  }, [id, path, rCloneClient, remote, remotePath, state.auth]);
+  }, [id, path, rCloneClient, remote, remotePath]);
 
   return (
     <>

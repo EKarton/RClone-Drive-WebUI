@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import RCloneClient from "utils/RCloneClient";
 import useRCloneInfo from "./useRCloneInfo";
 
@@ -8,11 +9,15 @@ export default function useRCloneClient() {
     throw new MissingRCloneInfoError();
   }
 
-  return new RCloneClient(
-    rCloneInfo.endpoint,
-    rCloneInfo.username,
-    rCloneInfo.password
-  );
+  const client = useMemo(() => {
+    return new RCloneClient(
+      rCloneInfo.endpoint,
+      rCloneInfo.username,
+      rCloneInfo.password
+    );
+  }, [rCloneInfo.endpoint, rCloneInfo.username, rCloneInfo.password]);
+
+  return client;
 }
 
 export class MissingRCloneInfoError extends Error {

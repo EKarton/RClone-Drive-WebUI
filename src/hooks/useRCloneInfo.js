@@ -27,8 +27,8 @@ export default function useRCloneInfo() {
   }, [dispatch, state]);
 
   const setInfo = (dispatchType, localStorageKey, newValue) => {
-    dispatch({ type: dispatchType, payload: newValue });
     localStorage.setItem(localStorageKey, newValue);
+    dispatch({ type: dispatchType, payload: newValue });
   };
 
   const setRCloneInfo = (newInfo) => {
@@ -40,6 +40,8 @@ export default function useRCloneInfo() {
   const getValue = (key) => {
     return state?.[key] || localStorage.getItem(key);
   };
+
+  console.log('i am here');
 
   return {
     rCloneInfo: {
