@@ -7,7 +7,7 @@ import "./GlobalAppBar.scss";
 
 const GlobalAppBar = ({ onDrawerButttonClicked }) => {
   return (
-    <AppBar className="global-app-bar">
+    <AppBar color="transparent" className="global-app-bar">
       <Toolbar>
         <IconButton
           color="inherit"
@@ -18,7 +18,7 @@ const GlobalAppBar = ({ onDrawerButttonClicked }) => {
         >
           <MenuIcon />
         </IconButton>
-        <img className="global-app-bar__logo" src={RCloneLogo} />
+        <img className="global-app-bar__logo" src={RCloneLogo} alt="RClone" />
       </Toolbar>
     </AppBar>
   );

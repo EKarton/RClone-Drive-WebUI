@@ -1,6 +1,7 @@
 import GlobalAppBar from "components/GlobalAppBar";
 import GlobalNavBar from "components/GlobalNavBar";
 import FilesPage from "pages/FilesPage";
+import FilesListPage from "pages/FilesListPage";
 import { useState } from "react";
 import { Route, Switch } from "react-router";
 import "./AuthenticatedApp.scss";
@@ -21,8 +22,11 @@ const AuthenticatedApp = () => {
         <GlobalNavBar isExpanded={isExpanded} />
         <div className="app-shell__contents">
           <Switch>
-            <Route path="/files/:id">
+            <Route path="/files" exact>
               <FilesPage />
+            </Route>
+            <Route path="/files/:id">
+              <FilesListPage />
             </Route>
             <Route path="/pictures/:id">
               <FilesPage />

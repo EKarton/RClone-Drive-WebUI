@@ -5,4 +5,10 @@
     align-items: center;
     color: inherit;
   }
+
+  &__image-icon {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
 }

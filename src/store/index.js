@@ -3,13 +3,9 @@ import actionTypes from "./actionTypes";
 import reducer from "./reducer";
 
 const initialState = {
-  auth: {
-    endpoint: "",
-    username: "",
-    password: "",
-  },
-  remotes: undefined,
-  selectedRemote: "",
+  endpoint: undefined,
+  username: undefined,
+  password: undefined,
 };
 
 const store = createContext(initialState);

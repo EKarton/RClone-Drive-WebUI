@@ -6,22 +6,24 @@ import {
   CardHeader,
   TextField,
 } from "@mui/material";
-import axios from "axios";
 import cx from "classnames";
-import { useContext, useState } from "react";
+import useRCloneInfo from "hooks/useRCloneInfo";
+import { useState } from "react";
 import { useHistory } from "react-router";
-import { actionTypes, store } from "../store";
+import RCloneClient from "utils/RCloneClient";
 import "./LoginPage.scss";
 
 /**
  * The login page
  */
 const LoginPage = () => {
-  const { dispatch } = useContext(store);
+  const { setRCloneInfo } = useRCloneInfo();
   const history = useHistory();
+
   const [endpoint, setEndpoint] = useState(null);
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
+
   const [error, setError] = useState(null);
 
   const handleTextEntered = (setFn) => (event) => {
@@ -30,30 +32,11 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
-      const axiosInstance = axios.create({
-        responseType: "json",
-        baseURL: endpoint,
-        headers: {
-          "Content-Type": "application/json",
-        },
-        auth: {
-          username,
-          password,
-        },
-      });
+      // To test if connection is correct, call RClone to fetch remotes
+      await new RCloneClient(endpoint, username, password).fetchRemotes();
 
-      const { data } = await axiosInstance.post("config/listremotes");
-
-      dispatch({
-        type: actionTypes.SET_AUTH,
-        payload: { endpoint, username, password },
-      });
-      dispatch({
-        type: actionTypes.SET_REMOTES,
-        payload: data.remotes,
-      });
-
-      history.push("/files/Z29vZ2xlZHJpdmUtbWFpbi1lbmNyeXB0ZWQ6");
+      setRCloneInfo({ endpoint, username, password });
+      history.push("/files");
     } catch (error) {
       setError(error);
     }

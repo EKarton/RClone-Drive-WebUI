@@ -6,6 +6,7 @@
     width: 240px;
     box-sizing: border-box;
     position: relative;
+    overflow-x: hidden;
   }
 
   &__link {

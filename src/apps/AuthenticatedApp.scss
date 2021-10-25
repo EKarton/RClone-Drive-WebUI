@@ -7,10 +7,12 @@
   &__below-appbar {
     display: flex;
     height: 100%;
+    max-height: calc(100vh - 64px);
   }
 
   &__contents {
     flex-grow: 1;
     padding: 24px;
+    overflow: auto;
   }
 }

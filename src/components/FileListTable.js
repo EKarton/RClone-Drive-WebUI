@@ -5,8 +5,9 @@ import Icon from "@mui/material/Icon";
 import { Table } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import "./FileListTable.scss";
+import { ICON_SIZE } from "utils/constants";
 
-const FileListTable = ({ files }) => {
+const FileListTable = ({ files, iconSize }) => {
   const renderTableRow = (file) => {
     return (
       <Table.Row>
@@ -24,18 +25,22 @@ const FileListTable = ({ files }) => {
 
   const renderFileIcon = (file) => {
     if (file.isDirectory) {
-      return <FolderIcon />;
+      return <FolderIcon fontSize={iconSize} />;
     }
 
     if (file.isImage && file.fileUrl) {
       return (
-        <Icon>
-          <img src={file.fileUrl} width="100%" height="100%" />
+        <Icon fontSize={iconSize}>
+          <img
+            src={file.fileUrl}
+            className="filelist-table__image-icon"
+            alt={file.name}
+          />
         </Icon>
       );
     }
 
-    return <DescriptionIcon />;
+    return <DescriptionIcon fontSize={iconSize} />;
   };
 
   return (
@@ -52,6 +57,10 @@ const FileListTable = ({ files }) => {
   );
 };
 
+FileListTable.defaultProps = {
+  iconSize: ICON_SIZE.LARGE,
+};
+
 FileListTable.propType = {
   files: PropTypes.arrayOf(
     PropTypes.shape({
@@ -63,6 +72,7 @@ FileListTable.propType = {
       isImage: PropTypes.bool.isRequired,
     })
   ),
+  iconSize: PropTypes.oneOf(Object.values(ICON_SIZE)),
 };
 
 export default FileListTable;
