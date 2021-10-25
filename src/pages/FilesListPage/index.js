@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import "./index.scss";
 import useRCloneClient from "hooks/useRCloneClient";
+import { hashRemotePath, unhashRemotePath } from "utils/remote-paths-url";
 
 const FilesPage = () => {
   const { id } = useParams();
   const rCloneClient = useRCloneClient();
   const [files, setFiles] = useState([]);
 
-  const remotePath = Buffer.from(id, "base64").toString("utf-8");
+  const remotePath = unhashRemotePath(id);
   const [remote, path] = remotePath.split(":");
 
   useEffect(() => {
@@ -26,7 +27,7 @@ const FilesPage = () => {
             : undefined;
 
           return {
-            target: `/files/${Buffer.from(newRemotePath).toString("base64")}`,
+            target: `/files/${hashRemotePath(newRemotePath)}`,
             name: file.Name,
             lastUpdatedTime: file.ModTime,
             size: file.Size,

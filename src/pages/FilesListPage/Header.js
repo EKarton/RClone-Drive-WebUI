@@ -1,6 +1,7 @@
 import { Breadcrumbs, Typography } from "@mui/material";
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
+import { hashRemotePath } from "utils/remote-paths-url";
 
 const Header = ({ remote, path }) => {
   const folders = path.split("/");
@@ -31,11 +32,9 @@ const Header = ({ remote, path }) => {
       aria-label="breadcrumb"
     >
       <Link to="/files">My Files</Link>
-      <Link to={Buffer.from(`${remote}:`).toString("base64")}>{remote}</Link>
+      <Link to={hashRemotePath(`${remote}:`)}>{remote}</Link>
       {pastFolders.map((folder, i) => (
-        <Link to={Buffer.from(pastFolderPaths[i]).toString("base64")}>
-          {folder}
-        </Link>
+        <Link to={hashRemotePath(pastFolderPaths[i])}>{folder}</Link>
       ))}
       <Typography color="text.primary">{curFolder}</Typography>
     </Breadcrumbs>
