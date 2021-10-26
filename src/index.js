@@ -4,15 +4,18 @@ import "./index.css";
 import MainApp from "./apps/MainApp";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { StateProvider } from "./store";
+import { StateProvider } from "store/RCloneInfoStore";
 import "semantic-ui-css/semantic.min.css";
+import { FileViewerProvider } from "store/FileViewerStore";
 
 ReactDOM.render(
   <React.StrictMode>
     <StateProvider>
-      <BrowserRouter>
-        <MainApp />
-      </BrowserRouter>
+      <FileViewerProvider>
+        <BrowserRouter>
+          <MainApp />
+        </BrowserRouter>
+      </FileViewerProvider>
     </StateProvider>
   </React.StrictMode>,
   document.getElementById("root")

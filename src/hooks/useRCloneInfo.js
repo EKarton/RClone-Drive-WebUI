@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
-import { actionTypes } from "store";
-import { store } from "store";
+import { actionTypes } from "store/RCloneInfoStore";
+import { store } from "store/RCloneInfoStore";
 
 export default function useRCloneInfo() {
   const { state, dispatch } = useContext(store);
@@ -40,8 +40,6 @@ export default function useRCloneInfo() {
   const getValue = (key) => {
     return state?.[key] || localStorage.getItem(key);
   };
-
-  console.log('i am here');
 
   return {
     rCloneInfo: {

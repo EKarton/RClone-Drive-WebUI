@@ -5,6 +5,7 @@ import FilesListPage from "pages/FilesListPage";
 import { useState } from "react";
 import { Route, Switch } from "react-router";
 import "./AuthenticatedApp.scss";
+import FileViewerDialog from "pages/FileViewerDialog";
 
 export const AuthenticatedPaths = ["/files", "/pictures"];
 
@@ -34,6 +35,7 @@ const AuthenticatedApp = () => {
           </Switch>
         </div>
       </div>
+      <FileViewerDialog />
     </div>
   );
 };

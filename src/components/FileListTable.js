@@ -3,19 +3,25 @@ import FolderIcon from "@mui/icons-material/Folder";
 import DescriptionIcon from "@mui/icons-material/Description";
 import Icon from "@mui/material/Icon";
 import { Table } from "semantic-ui-react";
-import { Link } from "react-router-dom";
 import "./FileListTable.scss";
 import { ICON_SIZE } from "utils/constants";
 
-const FileListTable = ({ files, iconSize }) => {
+const FileListTable = ({ files, iconSize, onFileClicked }) => {
   const renderTableRow = (file) => {
+    const handleFileClicked = () => {
+      onFileClicked(file);
+    };
+
     return (
       <Table.Row>
         <Table.Cell>
-          <Link className="filelist-table__file-cell" to={file.target}>
+          <div
+            className="filelist-table__file-cell"
+            onClick={handleFileClicked}
+          >
             {renderFileIcon(file)}
             <div>{file.name}</div>
-          </Link>
+          </div>
         </Table.Cell>
         <Table.Cell>{file.lastUpdatedTime}</Table.Cell>
         <Table.Cell>{file.isDirectory ? "-" : file.size}</Table.Cell>
@@ -64,7 +70,6 @@ FileListTable.defaultProps = {
 FileListTable.propType = {
   files: PropTypes.arrayOf(
     PropTypes.shape({
-      target: PropTypes.string.isRequired,
       name: PropTypes.string,
       lastUpdatedTime: PropTypes.string,
       size: PropTypes.string,
