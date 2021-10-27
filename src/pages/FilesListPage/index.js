@@ -7,7 +7,7 @@ import useRCloneClient from "hooks/useRCloneClient";
 import { hashRemotePath, unhashRemotePath } from "utils/remote-paths-url";
 import useFileViewer from "hooks/useFileViewer";
 
-const FilesPage = () => {
+const FilesListPage = () => {
   const { id } = useParams();
   const history = useHistory();
   const rCloneClient = useRCloneClient();
@@ -70,4 +70,4 @@ const FilesPage = () => {
   );
 };
 
-export default FilesPage;
+export default FilesListPage;

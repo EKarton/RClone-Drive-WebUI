@@ -49,6 +49,49 @@ export default class RCloneClient {
     return data.list;
   }
 
+  /**
+   * Fetches a list of pictures under a particular path in a remote
+   * It returns a list of objects, where each object has this shape:
+   *
+   * {
+   *   "Path": <the current path of the folder / file >,
+   *   "Name": <the name of the folder or file>,
+   *   "Size": <the size of the folder or file, in bytes>,
+   *   "MimeType": <the type (ex: "image/png")>,
+   *   "ModTime": <the time this folder / file was updated, in ISO 8601 format>,
+   *   "IsDir": <true if it is a directory; else false>,
+   *   "ID": <the id of this object>
+   * }
+   *
+   * @returns {Array<Object>} a list of files
+   */
+  async fetchPictures(remote, path) {
+    const { data } = await this.axiosInstance.post("operations/list", {
+      fs: `${remote}:`,
+      remote: `${path}`,
+      opt: {
+        recurse: true,
+        filesOnly: true,
+      },
+      _filter: {
+        IncludeRule: [
+          "*.png",
+          "*.PNG",
+          "*.jpeg",
+          "*.JPEG",
+          "*.bmp",
+          "*.BMP",
+          "*.gif",
+          "*.GIF",
+          "*.heic",
+          "*.HEIC",
+        ],
+      },
+    });
+
+    return data.list;
+  }
+
   async fetchFileContents(remote, folderPath, fileName) {
     const remotePath = `${remote}:${folderPath}`;
     const url = encodeURI(`[${remotePath}]/${fileName}`);
