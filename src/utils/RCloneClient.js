@@ -77,6 +77,8 @@ export default class RCloneClient {
         IncludeRule: [
           "*.png",
           "*.PNG",
+          "*.jpg",
+          "*.JPG",
           "*.jpeg",
           "*.JPEG",
           "*.bmp",

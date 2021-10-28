@@ -1,17 +1,14 @@
 import { Skeleton } from "@mui/material";
 import useRCloneClient from "hooks/useRCloneClient";
 import { useEffect, useState } from "react";
-import Image from "./Image";
 import { useInView } from "react-intersection-observer";
 import "./LazyImage.scss";
 
-const LazyImage = ({ remote, folderPath, fileName }) => {
+const LazyImage = ({ image, width, height }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     rootMargin: "0px",
   });
-
-  const [height, setHeight] = useState("200px");
 
   const rCloneClient = useRCloneClient();
   const [imageUrl, setImageUrl] = useState();
@@ -24,40 +21,28 @@ const LazyImage = ({ remote, folderPath, fileName }) => {
         setImageUrl(undefined);
 
         const imageBlob = await rCloneClient.fetchFileContents(
-          remote,
-          folderPath,
-          fileName
+          image.remote,
+          image.folderPath,
+          image.fileName
         );
 
-        const imageUrl = window.URL.createObjectURL(new Blob([imageBlob]));
+        const imageUrl = URL.createObjectURL(new Blob([imageBlob]));
         setImageUrl(imageUrl);
       } catch (error) {
         setError(error);
       }
     };
 
-    if (inView && !imageUrl) {
+    if (inView && !imageUrl && image) {
       fetchData();
     }
-  }, [fileName, folderPath, imageUrl, inView, rCloneClient, remote]);
 
-  const reAdjustContainerHeight = (imgElement) => {
-    const renderedImgWidth = imgElement.clientWidth;
-    const actualImgWidth = imgElement.naturalWidth;
-    const actualImgHeight = imgElement.naturalHeight;
-
-    const aspectRatio = actualImgHeight / actualImgWidth;
-
-    setHeight(renderedImgWidth * aspectRatio);
-  };
-
-  const handleImageResized = (e) => {
-    reAdjustContainerHeight(e?.current);
-  };
-
-  const handleImageLoaded = (e) => {
-    reAdjustContainerHeight(e?.target);
-  };
+    return () => {
+      if (imageUrl) {
+        URL.revokeObjectURL(imageUrl);
+      }
+    };
+  }, [image, imageUrl, inView, rCloneClient]);
 
   const renderContent = () => {
     if (error) {
@@ -71,13 +56,13 @@ const LazyImage = ({ remote, folderPath, fileName }) => {
     }
 
     return (
-      <Image
+      <img
         className="lazy-image__img"
         src={imageUrl}
-        alt={fileName}
+        alt={image.fileName}
         loading="lazy"
-        onLoad={handleImageLoaded}
-        onResize={handleImageResized}
+        width={width}
+        height={height}
       />
     );
   };
