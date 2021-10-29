@@ -9,6 +9,10 @@
   height: 200px !important;
 }
 
+.row {
+  display: flex;
+}
+
 @media (max-width: 900px) {
   .pictures-page {
     &__image-list {

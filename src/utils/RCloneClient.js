@@ -49,6 +49,18 @@ export default class RCloneClient {
     return data.list;
   }
 
+  async fetchSubFolders(remote, path) {
+    const { data } = await this.axiosInstance.post("operations/list", {
+      fs: `${remote}:`,
+      remote: `${path}`,
+      opt: {
+        dirsOnly: true,
+      },
+    });
+
+    return data.list;
+  }
+
   /**
    * Fetches a list of pictures under a particular path in a remote
    * It returns a list of objects, where each object has this shape:

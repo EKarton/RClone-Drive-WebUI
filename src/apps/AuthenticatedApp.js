@@ -7,6 +7,7 @@ import { Route, Switch } from "react-router";
 import "./AuthenticatedApp.scss";
 import FileViewerDialog from "pages/FileViewerDialog";
 import PicturesPage from "pages/PicturesPage";
+import PicturesListPage from "pages/PicturesListPage";
 
 export const AuthenticatedPaths = ["/files", "/pictures"];
 
@@ -34,7 +35,7 @@ const AuthenticatedApp = () => {
               <PicturesPage />
             </Route>
             <Route path="/pictures/:id">
-              <FilesPage />
+              <PicturesListPage />
             </Route>
           </Switch>
         </div>

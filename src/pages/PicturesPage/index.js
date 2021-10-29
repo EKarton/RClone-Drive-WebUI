@@ -1,105 +1,60 @@
-import LazyImage from "./LazyImage";
-import "./index.scss";
-import { useEffect, useState } from "react";
+import { Button } from "@mui/material";
+import StorageIcon from "@mui/icons-material/Storage";
 import useRCloneClient from "hooks/useRCloneClient";
-import AutoSizer from "react-virtualized-auto-sizer";
-import { FixedSizeList } from "react-window";
+import FolderBrowserDialog from "./FolderBrowserDialog";
+import { useEffect, useState } from "react";
 
-const StatusTypes = Object.freeze({
-  LOADING: "loading",
-  SUCCESS: "success",
-  ERROR: "error",
-});
-
-const PicturesPage = ({ remote, rootPath }) => {
+const PicturesPage = () => {
   const rCloneClient = useRCloneClient();
-  const [status, setStatus] = useState();
-  const [error, setError] = useState();
-  const [data, setData] = useState([]);
+  const [remotes, setRemotes] = useState();
+
+  const [selectedRemote, setSelectedRemote] = useState();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        setStatus(StatusTypes.LOADING);
-        setError(null);
-
-        const data = await rCloneClient.fetchPictures(remote, rootPath);
-
-        setStatus(StatusTypes.SUCCESS);
-        setData(data.slice(0, 100));
-      } catch (err) {
-        setStatus(StatusTypes.ERROR);
-        setError(err);
-      }
+      const data = await rCloneClient.fetchRemotes();
+      setRemotes(data);
     };
 
     fetchData();
-  }, [rCloneClient, remote, rootPath]);
+  }, [rCloneClient]);
 
-  if (status === StatusTypes.LOADING) {
+  if (!remotes) {
     return null;
   }
 
-  if (status === StatusTypes.ERROR) {
-    return <div>Error! {error}</div>;
-  }
-
-  const parseImageInfo = (fileName) => {
-    const year = parseInt(fileName.substring(0, 4));
-    const month = parseInt(fileName.substring(4, 6));
-    const day = parseInt(fileName.substring(6, 8));
-
-    return { year, month, day };
+  const handleButtonClick = (remote) => () => {
+    setSelectedRemote(remote);
+    setIsDialogOpen(true);
   };
 
-  const images = data
-    .map((item) => {
-      const filePath = item.Path;
-      const fileName = item.Name;
-      const folderPath = filePath.substring(0, filePath.lastIndexOf("/"));
-      const dateTaken = parseImageInfo(fileName);
-
-      return { remote, folderPath, fileName, dateTaken };
-    })
-    .sort((image1, image2) => image2.fileName.localeCompare(image1.fileName));
-
-  const renderCell =
-    (width, height, numImagesPerRow) =>
-    ({ index, style }) => {
-      const image = images[index];
-
-      return (
-        <div style={style}>
-          <LazyImage image={image} width={200} height={200} />
-        </div>
-      );
-    };
+  const handleFolderBrowserClosed = (selectedFolder) => {
+    setIsDialogOpen(false);
+  };
 
   return (
-    <AutoSizer>
-      {({ height, width }) => {
-        const imgWidth = width / 5;
-        const imgHeight = imgWidth;
-
-        return (
-          <FixedSizeList
-            className="List"
-            width={width}
-            height={height}
-            itemCount={images.length}
-            itemSize={200}
+    <div className="filespage">
+      {isDialogOpen && (
+        <FolderBrowserDialog
+          remote={selectedRemote}
+          open={isDialogOpen}
+          onClose={handleFolderBrowserClosed}
+        />
+      )}
+      {remotes.sort().map((remote) => (
+        <div>
+          <Button
+            variant="outlined"
+            startIcon={<StorageIcon />}
+            onClick={handleButtonClick(remote)}
           >
-            {renderCell(imgWidth, imgHeight, 5)}
-          </FixedSizeList>
-        );
-      }}
-    </AutoSizer>
+            {remote}
+          </Button>
+        </div>
+      ))}
+    </div>
   );
-};
-
-PicturesPage.defaultProps = {
-  remote: "googledrive-main-encrypted",
-  rootPath: "Pictures",
 };
 
 export default PicturesPage;

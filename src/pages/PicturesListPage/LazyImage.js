@@ -68,7 +68,7 @@ const LazyImage = ({ image, width, height }) => {
   };
 
   return (
-    <div ref={ref} data-inview={inView} style={{ width: "100%", height }}>
+    <div ref={ref} data-inview={inView} style={{ width, height }}>
       {inView ? renderContent() : null}
     </div>
   );
