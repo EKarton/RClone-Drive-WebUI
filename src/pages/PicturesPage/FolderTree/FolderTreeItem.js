@@ -1,29 +1,9 @@
-import TreeView from "@mui/lab/TreeView";
 import TreeItem from "@mui/lab/TreeItem";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import useRCloneClient from "hooks/useRCloneClient";
 import { useEffect, useState } from "react";
 import { StatusTypes } from "utils/constants";
-
-const FolderTree = ({ remotes, onFolderSelect }) => {
-  const handleNodeSelect = (_e, nodeIds) => {
-    onFolderSelect(nodeIds);
-  };
-
-  return (
-    <TreeView
-      aria-label="file tree navigator"
-      defaultCollapseIcon={<ExpandMoreIcon />}
-      defaultExpandIcon={<ChevronRightIcon />}
-      onNodeSelect={handleNodeSelect}
-    >
-      {remotes.map((remote) => (
-        <FolderTreeItem remote={remote} curPath="" label={remote} />
-      ))}
-    </TreeView>
-  );
-};
 
 const FolderTreeItem = ({ remote, curPath, label }) => {
   const rCloneClient = useRCloneClient();
@@ -97,4 +77,4 @@ const FolderTreeItem = ({ remote, curPath, label }) => {
   );
 };
 
-export default FolderTree;
+export default FolderTreeItem;
