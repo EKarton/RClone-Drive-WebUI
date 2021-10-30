@@ -3,18 +3,21 @@ import StorageIcon from "@mui/icons-material/Storage";
 import useRCloneClient from "hooks/useRCloneClient";
 import FolderBrowserDialog from "./FolderBrowserDialog";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router";
+import { hashRemotePath } from "utils/remote-paths-url";
 
 const PicturesPage = () => {
+  const history = useHistory();
   const rCloneClient = useRCloneClient();
   const [remotes, setRemotes] = useState();
 
   const [selectedRemote, setSelectedRemote] = useState();
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await rCloneClient.fetchRemotes();
-      setRemotes(data);
+      setRemotes(data.sort());
     };
 
     fetchData();
@@ -29,7 +32,20 @@ const PicturesPage = () => {
     setIsDialogOpen(true);
   };
 
-  const handleFolderBrowserClosed = (selectedFolder) => {
+  const renderFolderDialogTitle = () => (
+    <>
+      Select which folder to view pictures on <strong>{selectedRemote}</strong>
+    </>
+  );
+
+  const handleFolderDialogCancelled = () => {
+    setIsDialogOpen(false);
+  };
+
+  const handleFolderDialogSelected = (selectedRemotePath) => {
+    if (selectedRemotePath) {
+      history.push(`/pictures/${hashRemotePath(selectedRemotePath)}`);
+    }
     setIsDialogOpen(false);
   };
 
@@ -37,9 +53,11 @@ const PicturesPage = () => {
     <div className="filespage">
       {isDialogOpen && (
         <FolderBrowserDialog
-          remote={selectedRemote}
+          title={renderFolderDialogTitle()}
+          remotes={[selectedRemote]}
           open={isDialogOpen}
-          onClose={handleFolderBrowserClosed}
+          onCancel={handleFolderDialogCancelled}
+          onOk={handleFolderDialogSelected}
         />
       )}
       {remotes.sort().map((remote) => (

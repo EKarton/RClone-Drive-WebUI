@@ -6,35 +6,26 @@ import useRCloneClient from "hooks/useRCloneClient";
 import { useEffect, useState } from "react";
 import { StatusTypes } from "pages/PicturesListPage";
 
-const FolderTree = ({ remote, onFolderSelect }) => {
-  const handleNodeSelect = (e, nodeIds) => {
+const FolderTree = ({ remotes, onFolderSelect }) => {
+  const handleNodeSelect = (_e, nodeIds) => {
     onFolderSelect(nodeIds);
   };
 
   return (
     <TreeView
-      aria-label="file system navigator"
+      aria-label="file tree navigator"
       defaultCollapseIcon={<ExpandMoreIcon />}
       defaultExpandIcon={<ChevronRightIcon />}
       onNodeSelect={handleNodeSelect}
-      sx={{ height: 240, flexGrow: 1, maxWidth: 400, overflowY: "auto" }}
     >
-      <FolderTreeItem
-        remote={remote}
-        curPath=""
-        label="/"
-        loadSubFoldersImmediately
-      />
+      {remotes.map((remote) => (
+        <FolderTreeItem remote={remote} curPath="" label={remote} />
+      ))}
     </TreeView>
   );
 };
 
-const FolderTreeItem = ({
-  remote,
-  curPath,
-  label,
-  loadSubFoldersImmediately,
-}) => {
+const FolderTreeItem = ({ remote, curPath, label }) => {
   const rCloneClient = useRCloneClient();
 
   const [status, setStatus] = useState(StatusTypes.LOADING);
@@ -51,17 +42,17 @@ const FolderTreeItem = ({
 
         const data = await rCloneClient.fetchSubFolders(remote, curPath);
 
-        setSubFolders(data);
+        setSubFolders(data.sort());
         setStatus(StatusTypes.SUCCESS);
       } catch (err) {
         setError(err);
       }
     };
 
-    if (isExpanded || loadSubFoldersImmediately) {
+    if (isExpanded) {
       fetchFolders();
     }
-  }, [curPath, isExpanded, loadSubFoldersImmediately, rCloneClient, remote]);
+  }, [curPath, isExpanded, rCloneClient, remote]);
 
   const handleTreeItemClicked = () => {
     setIsExpanded(true);
@@ -95,7 +86,7 @@ const FolderTreeItem = ({
 
   return (
     <TreeItem
-      nodeId={curPath}
+      nodeId={`${remote}:${curPath}`}
       label={label}
       onClick={handleTreeItemClicked}
       expandIcon={<ChevronRightIcon />}
@@ -104,10 +95,6 @@ const FolderTreeItem = ({
       {renderSubFolders()}
     </TreeItem>
   );
-};
-
-FolderTreeItem.defaultProps = {
-  loadSubFoldersImmediately: false,
 };
 
 export default FolderTree;

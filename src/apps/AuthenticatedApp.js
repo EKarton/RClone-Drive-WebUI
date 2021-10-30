@@ -31,7 +31,7 @@ const AuthenticatedApp = () => {
             <Route path="/files/:id">
               <FilesListPage />
             </Route>
-            <Route path="/pictures">
+            <Route path="/pictures" exact>
               <PicturesPage />
             </Route>
             <Route path="/pictures/:id">

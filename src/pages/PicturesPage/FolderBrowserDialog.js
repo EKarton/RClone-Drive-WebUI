@@ -8,15 +8,15 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 
-const FolderBrowserDialog = ({ remote, open, onClose }) => {
+const FolderBrowserDialog = ({ remotes, open, onCancel, onOk, title }) => {
   const [selectedFolder, setSelectedFolder] = useState("");
 
   const handleCancel = () => {
-    onClose();
+    onCancel();
   };
 
   const handleOk = () => {
-    onClose(selectedFolder);
+    onOk(selectedFolder);
   };
 
   return (
@@ -26,12 +26,9 @@ const FolderBrowserDialog = ({ remote, open, onClose }) => {
       open={open}
       onClose={handleCancel}
     >
-      <DialogTitle>
-        <div>Select which folder to view pictures from</div>
-        <strong>{remote}</strong>
-      </DialogTitle>
+      <DialogTitle>{title}</DialogTitle>
       <DialogContent dividers>
-        <FolderTree remote={remote} onFolderSelect={setSelectedFolder} />
+        <FolderTree remotes={remotes} onFolderSelect={setSelectedFolder} />
       </DialogContent>
       <DialogActions>
         <Button autoFocus onClick={handleCancel}>
@@ -41,6 +38,10 @@ const FolderBrowserDialog = ({ remote, open, onClose }) => {
       </DialogActions>
     </Dialog>
   );
+};
+
+FolderBrowserDialog.defaultProps = {
+  onCancel: () => {},
 };
 
 export default FolderBrowserDialog;
