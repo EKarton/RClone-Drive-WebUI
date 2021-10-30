@@ -1,10 +1,10 @@
-import LazyImage from "./LazyImage";
+import LazyImage from "../../components/LazyImage";
 import "./index.scss";
 import { useEffect, useState } from "react";
 import useRCloneClient from "hooks/useRCloneClient";
 import AutoSizer from "react-virtualized-auto-sizer";
 import { FixedSizeList } from "react-window";
-import { StatusTypes } from ".";
+import { StatusTypes } from "utils/constants";
 
 const ImageList = ({ remote, rootPath }) => {
   const rCloneClient = useRCloneClient();

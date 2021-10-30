@@ -4,7 +4,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import useRCloneClient from "hooks/useRCloneClient";
 import { useEffect, useState } from "react";
-import { StatusTypes } from "pages/PicturesListPage";
+import { StatusTypes } from "utils/constants";
 
 const FolderTree = ({ remotes, onFolderSelect }) => {
   const handleNodeSelect = (_e, nodeIds) => {

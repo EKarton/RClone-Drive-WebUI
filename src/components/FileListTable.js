@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import FolderIcon from "@mui/icons-material/Folder";
 import DescriptionIcon from "@mui/icons-material/Description";
+import ImageIcon from "@mui/icons-material/Image";
 import Icon from "@mui/material/Icon";
 import { Table } from "semantic-ui-react";
 import "./FileListTable.scss";
@@ -34,16 +35,16 @@ const FileListTable = ({ files, iconSize, onFileClicked }) => {
       return <FolderIcon fontSize={iconSize} />;
     }
 
-    if (file.isImage && file.fileUrl) {
-      return (
-        <Icon fontSize={iconSize}>
-          <img
-            src={file.fileUrl}
-            className="filelist-table__image-icon"
-            alt={file.name}
-          />
-        </Icon>
-      );
+    if (file.isImage) {
+      if (file.preview) {
+        return (
+          <Icon fontSize={iconSize} className="filelist-table__preview-icon">
+            {file.preview}
+          </Icon>
+        );
+      }
+
+      return <ImageIcon fontSize={iconSize} />;
     }
 
     return <DescriptionIcon fontSize={iconSize} />;

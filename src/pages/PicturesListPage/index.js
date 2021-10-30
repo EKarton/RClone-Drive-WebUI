@@ -2,14 +2,8 @@ import "./index.scss";
 import ImageList from "./ImageList";
 import { useParams } from "react-router";
 import { unhashRemotePath } from "utils/remote-paths-url";
-import Header from "../FilesListPage/Header";
+import Header from "../../components/Breadcrumbs";
 import { Link } from "react-router-dom";
-
-export const StatusTypes = Object.freeze({
-  LOADING: "loading",
-  SUCCESS: "success",
-  ERROR: "error",
-});
 
 const PicturesListPage = () => {
   const { id } = useParams();
