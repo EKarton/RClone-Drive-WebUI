@@ -6,6 +6,7 @@ import "./index.scss";
 import useRCloneClient from "hooks/useRCloneClient";
 import { hashRemotePath, unhashRemotePath } from "utils/remote-paths-url";
 import useFileViewer from "hooks/useFileViewer";
+import { Link } from "react-router-dom";
 
 const FilesListPage = () => {
   const { id } = useParams();
@@ -60,7 +61,11 @@ const FilesListPage = () => {
 
   return (
     <>
-      <Header remote={remote} path={path} />
+      <Header
+        remote={remote}
+        path={path}
+        homeLink={<Link to="/files">My Files</Link>}
+      />
       <FileListTable
         remote={remote}
         files={files}

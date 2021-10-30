@@ -12,7 +12,7 @@ const PicturesPage = () => {
   const [remotes, setRemotes] = useState();
 
   const [selectedRemote, setSelectedRemote] = useState();
-  const [isDialogOpen, setIsDialogOpen] = useState(true);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
