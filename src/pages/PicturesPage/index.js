@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { hashRemotePath } from "utils/remote-paths-url";
 
-const PicturesPage = () => {
+export default function PicturesPage() {
   const history = useHistory();
   const rCloneClient = useRCloneClient();
   const [remotes, setRemotes] = useState();
@@ -73,6 +73,4 @@ const PicturesPage = () => {
       ))}
     </div>
   );
-};
-
-export default PicturesPage;
+}

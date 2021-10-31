@@ -116,4 +116,15 @@ export default class RCloneClient {
 
     return data;
   }
+
+  async fetchFileContentsV2(remote, folderPath, fileName) {
+    const remotePath = `${remote}:${folderPath}`;
+    const url = encodeURI(`[${remotePath}]/${fileName}`);
+
+    const response = await this.axiosInstance.get(url, {
+      responseType: "blob",
+    });
+
+    return response;
+  }
 }

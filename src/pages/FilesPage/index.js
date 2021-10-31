@@ -5,7 +5,7 @@ import "./index.scss";
 import { useHistory } from "react-router";
 import useRCloneClient from "hooks/useRCloneClient";
 
-const FilesPage = () => {
+export default function FilesPage() {
   const history = useHistory();
   const rCloneClient = useRCloneClient();
   const [remotes, setRemotes] = useState(undefined);
@@ -45,6 +45,4 @@ const FilesPage = () => {
       ))}
     </div>
   );
-};
-
-export default FilesPage;
+}

@@ -3,7 +3,7 @@ import LandingPage from "pages/LandingPage";
 import LoginPage from "pages/LoginPage";
 import AuthenticatedApp, { AuthenticatedPaths } from "./AuthenticatedApp";
 
-const MainApp = () => {
+export default function MainApp() {
   return (
     <Switch>
       <Route path="/" exact>
@@ -17,6 +17,4 @@ const MainApp = () => {
       </Route>
     </Switch>
   );
-};
-
-export default MainApp;
+}

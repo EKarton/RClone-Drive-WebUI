@@ -1,6 +1,6 @@
 import { actionTypes } from ".";
 
-const reducer = (state, action) => {
+export default function reducer(state, action) {
   switch (action.type) {
     case actionTypes.SET_ENDPOINT: {
       return { ...state, endpoint: action.payload };
@@ -14,6 +14,4 @@ const reducer = (state, action) => {
     default:
       throw new Error(`Unknown action ${action.type}`);
   }
-};
-
-export default reducer;
+}

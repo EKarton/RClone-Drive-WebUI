@@ -3,7 +3,12 @@ import actionTypes from "./actionTypes";
 import reducer from "./reducer";
 
 const initialState = {
-  fileInfo: undefined,
+  fileInfo: {
+    remote: undefined,
+    folderPath: undefined,
+    fileName: undefined,
+    fileType: undefined,
+  },
   isOpen: false,
 };
 

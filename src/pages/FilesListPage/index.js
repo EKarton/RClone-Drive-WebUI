@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import LazyImage from "components/LazyImage";
 import { ImageMimeTypes } from "utils/constants";
 
-const FilesListPage = () => {
+export default function FilesListPage() {
   const { id } = useParams();
   const history = useHistory();
   const rCloneClient = useRCloneClient();
@@ -58,7 +58,7 @@ const FilesListPage = () => {
       return;
     }
 
-    fileViewer.show({ remote, path, name: file.name, mimeType: file.mimeType });
+    fileViewer.show({ remote, folderPath: path, fileName: file.name });
   };
 
   return (
@@ -75,6 +75,4 @@ const FilesListPage = () => {
       />
     </>
   );
-};
-
-export default FilesListPage;
+}

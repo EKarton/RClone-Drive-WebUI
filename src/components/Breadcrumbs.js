@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { hashRemotePath } from "utils/remote-paths-url";
 
-const Header = ({ remote, path, homeLink }) => {
+export default function Header({ remote, path, homeLink }) {
   const folders = path.split("/");
   const pastFolders = folders.slice(0, folders.length - 1);
   const curFolder = folders[folders.length - 1];
@@ -39,6 +39,4 @@ const Header = ({ remote, path, homeLink }) => {
       <Typography color="text.primary">{curFolder}</Typography>
     </Breadcrumbs>
   );
-};
-
-export default Header;
+}

@@ -7,7 +7,7 @@ import { Table } from "semantic-ui-react";
 import "./FileListTable.scss";
 import { ICON_SIZE } from "utils/constants";
 
-const FileListTable = ({ files, iconSize, onFileClicked }) => {
+export default function FileListTable({ files, iconSize, onFileClicked }) {
   const renderTableRow = (file) => {
     const handleFileClicked = () => {
       onFileClicked(file);
@@ -62,7 +62,7 @@ const FileListTable = ({ files, iconSize, onFileClicked }) => {
       <Table.Body>{files.map((file) => renderTableRow(file))}</Table.Body>
     </Table>
   );
-};
+}
 
 FileListTable.defaultProps = {
   iconSize: ICON_SIZE.LARGE,
@@ -80,5 +80,3 @@ FileListTable.propType = {
   ),
   iconSize: PropTypes.oneOf(Object.values(ICON_SIZE)),
 };
-
-export default FileListTable;

@@ -2,36 +2,39 @@ import { CircularProgress, Dialog, DialogContent } from "@mui/material";
 import useRCloneClient from "hooks/useRCloneClient";
 import { useContext, useEffect, useState } from "react";
 import { store, actionTypes } from "store/FileViewerStore";
+import { ImageMimeTypes } from "utils/constants";
 
-export default function ImageViewerDialog() {
+export default function FileViewerDialog() {
   const { state, dispatch } = useContext(store);
   const rCloneClient = useRCloneClient();
-  const [imageUrl, setImageUrl] = useState();
+  const [fileMimeType, setFileMimeType] = useState();
+  const [fileUrl, setFileUrl] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
-      setImageUrl(undefined);
+      setFileUrl(undefined);
 
-      const imageContents = await rCloneClient.fetchFileContents(
+      const response = await rCloneClient.fetchFileContentsV2(
         state.fileInfo.remote,
-        state.fileInfo.path,
-        state.fileInfo.name
+        state.fileInfo.folderPath,
+        state.fileInfo.fileName
       );
 
-      setImageUrl(window.URL.createObjectURL(new Blob([imageContents])));
+      setFileMimeType(response.headers["content-type"]);
+      setFileUrl(window.URL.createObjectURL(new Blob([response.data])));
     };
 
-    if (state && state.fileInfo) {
+    if (state?.fileInfo) {
       fetchData();
     }
   }, [rCloneClient, state]);
 
-  const handleClose = () => {
+  const handleDialogClosed = () => {
     dispatch({ type: actionTypes.HIDE_DIALOG });
   };
 
-  const renderMainContent = () => {
-    if (!imageUrl) {
+  const renderDialogContent = () => {
+    if (!fileUrl) {
       return (
         <DialogContent>
           <CircularProgress />
@@ -39,8 +42,8 @@ export default function ImageViewerDialog() {
       );
     }
 
-    if (state?.fileInfo?.mimeType === "image/jpeg") {
-      return <img src={imageUrl} alt={state?.fileInfo?.name} />;
+    if (ImageMimeTypes.has(fileMimeType)) {
+      return <img src={fileUrl} alt={state?.fileInfo?.fileName} />;
     }
 
     return null;
@@ -50,9 +53,10 @@ export default function ImageViewerDialog() {
     <Dialog
       className="imageviewer-dialog"
       open={state?.isOpen}
-      onClose={handleClose}
+      onClose={handleDialogClosed}
+      maxWidth="sm"
     >
-      {renderMainContent()}
+      {renderDialogContent()}
     </Dialog>
   );
 }

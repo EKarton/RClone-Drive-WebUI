@@ -11,3 +11,7 @@ export const StatusTypes = Object.freeze({
 });
 
 export const ImageMimeTypes = new Set(["image/jpeg", "image/png"]);
+
+export const FileType = Object.freeze({
+  Image: "image",
+});

@@ -28,7 +28,7 @@ const NavigationOptions = Object.freeze([
 /**
  * This component represents the global nav bar in all pages
  */
-const GlobalNavBar = ({ isExpanded }) => {
+export default function GlobalNavBar({ isExpanded }) {
   const location = useLocation();
 
   return (
@@ -57,6 +57,4 @@ const GlobalNavBar = ({ isExpanded }) => {
       </List>
     </Drawer>
   );
-};
-
-export default GlobalNavBar;
+}

@@ -3,7 +3,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import FolderTreeItem from "./FolderTreeItem";
 
-const FolderTree = ({ remotes, onFolderSelect }) => {
+export default function FolderTree({ remotes, onFolderSelect }) {
   const handleNodeSelect = (_e, nodeIds) => {
     onFolderSelect(nodeIds);
   };
@@ -20,6 +20,4 @@ const FolderTree = ({ remotes, onFolderSelect }) => {
       ))}
     </TreeView>
   );
-};
-
-export default FolderTree;
+}

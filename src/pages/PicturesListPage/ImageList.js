@@ -6,7 +6,7 @@ import AutoSizer from "react-virtualized-auto-sizer";
 import { FixedSizeList } from "react-window";
 import { StatusTypes } from "utils/constants";
 
-const ImageList = ({ remote, rootPath }) => {
+export default function ImageList({ remote, rootPath, onImageClicked }) {
   const rCloneClient = useRCloneClient();
   const [status, setStatus] = useState();
   const [error, setError] = useState();
@@ -58,6 +58,10 @@ const ImageList = ({ remote, rootPath }) => {
     })
     .sort((image1, image2) => image2.fileName.localeCompare(image1.fileName));
 
+  const handleImageClicked = (image) => () => {
+    onImageClicked(image);
+  };
+
   const renderCell =
     (width, height, numImagesPerRow) =>
     ({ index, style }) => {
@@ -70,7 +74,9 @@ const ImageList = ({ remote, rootPath }) => {
       return (
         <div className="row" style={style}>
           {selectedImages.map((selectedImage) => (
-            <LazyImage image={selectedImage} width={width} height={height} />
+            <div onClick={handleImageClicked(selectedImage)}>
+              <LazyImage image={selectedImage} width={width} height={height} />
+            </div>
           ))}
         </div>
       );
@@ -83,12 +89,14 @@ const ImageList = ({ remote, rootPath }) => {
         const imgWidth = Math.floor(width / numImagesPerRow);
         const imgHeight = imgWidth;
 
+        const numRows = Math.ceil(images.length / numImagesPerRow);
+
         return (
           <FixedSizeList
             className="List"
             width={width}
             height={height}
-            itemCount={images.length}
+            itemCount={numRows}
             itemSize={imgHeight}
           >
             {renderCell(imgWidth, imgHeight, numImagesPerRow)}
@@ -97,6 +105,4 @@ const ImageList = ({ remote, rootPath }) => {
       }}
     </AutoSizer>
   );
-};
-
-export default ImageList;
+}

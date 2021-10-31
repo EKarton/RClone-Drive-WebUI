@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 import cx from "classnames";
 import "./LazyImage.scss";
 
-const LazyImage = ({ image, width, height, imgClassName }) => {
+export default function LazyImage({ image, width, height, imgClassName }) {
   const { ref, inView } = useInView({
     triggerOnce: true,
     rootMargin: "0px",
@@ -73,6 +73,4 @@ const LazyImage = ({ image, width, height, imgClassName }) => {
       {inView ? renderContent() : null}
     </div>
   );
-};
-
-export default LazyImage;
+}

@@ -11,7 +11,7 @@ import PicturesListPage from "pages/PicturesListPage";
 
 export const AuthenticatedPaths = ["/files", "/pictures"];
 
-const AuthenticatedApp = () => {
+export default function AuthenticatedApp() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleDrawerButtonClicked = () => {
@@ -43,6 +43,4 @@ const AuthenticatedApp = () => {
       <FileViewerDialog />
     </div>
   );
-};
-
-export default AuthenticatedApp;
+}

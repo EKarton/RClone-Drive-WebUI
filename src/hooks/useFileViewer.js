@@ -7,8 +7,8 @@ export default function useFileViewer() {
 
   return {
     show: (fileInfo) => {
-      dispatch({ type: actionTypes.SHOW_DIALOG });
       dispatch({ type: actionTypes.SET_FILE_INFO, payload: fileInfo });
+      dispatch({ type: actionTypes.SHOW_DIALOG });
     },
     hide: () => {
       dispatch({ type: actionTypes.HIDE_DIALOG });

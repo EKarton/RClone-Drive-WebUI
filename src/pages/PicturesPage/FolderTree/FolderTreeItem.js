@@ -5,7 +5,7 @@ import useRCloneClient from "hooks/useRCloneClient";
 import { useEffect, useState } from "react";
 import { StatusTypes } from "utils/constants";
 
-const FolderTreeItem = ({ remote, curPath, label }) => {
+export default function FolderTreeItem({ remote, curPath, label }) {
   const rCloneClient = useRCloneClient();
 
   const [status, setStatus] = useState(StatusTypes.LOADING);
@@ -75,6 +75,4 @@ const FolderTreeItem = ({ remote, curPath, label }) => {
       {renderSubFolders()}
     </TreeItem>
   );
-};
-
-export default FolderTreeItem;
+}

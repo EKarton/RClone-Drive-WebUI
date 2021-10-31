@@ -5,7 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import RCloneLogo from "assets/images/rclone-icon/logo_on_light__horizontal_color_256px.png";
 import "./GlobalAppBar.scss";
 
-const GlobalAppBar = ({ onDrawerButttonClicked }) => {
+export default function GlobalAppBar({ onDrawerButttonClicked }) {
   return (
     <AppBar color="transparent" className="global-app-bar">
       <Toolbar>
@@ -22,6 +22,4 @@ const GlobalAppBar = ({ onDrawerButttonClicked }) => {
       </Toolbar>
     </AppBar>
   );
-};
-
-export default GlobalAppBar;
+}

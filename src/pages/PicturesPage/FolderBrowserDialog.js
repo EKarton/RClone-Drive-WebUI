@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 
-const FolderBrowserDialog = ({ remotes, open, onCancel, onOk, title }) => {
+export default function FolderBrowserDialog ({ remotes, open, onCancel, onOk, title }) {
   const [selectedFolder, setSelectedFolder] = useState("");
 
   const handleCancel = () => {
@@ -43,5 +43,3 @@ const FolderBrowserDialog = ({ remotes, open, onCancel, onOk, title }) => {
 FolderBrowserDialog.defaultProps = {
   onCancel: () => {},
 };
-
-export default FolderBrowserDialog;
