@@ -3,6 +3,8 @@ import useRCloneClient from "hooks/useRCloneClient";
 import { useContext, useEffect, useState } from "react";
 import { store, actionTypes } from "store/FileViewerStore";
 import { ImageMimeTypes } from "utils/constants";
+import PDFDialogContent from "./PDFDialogContent";
+import "./index.scss";
 
 export default function FileViewerDialog() {
   const { state, dispatch } = useContext(store);
@@ -14,14 +16,15 @@ export default function FileViewerDialog() {
     const fetchData = async () => {
       setFileUrl(undefined);
 
+      const { remote, folderPath, fileName } = state.fileInfo;
       const response = await rCloneClient.fetchFileContentsV2(
-        state.fileInfo.remote,
-        state.fileInfo.folderPath,
-        state.fileInfo.fileName
+        remote,
+        folderPath,
+        fileName
       );
 
       setFileMimeType(response.headers["content-type"]);
-      setFileUrl(window.URL.createObjectURL(new Blob([response.data])));
+      setFileUrl(URL.createObjectURL(new Blob([response.data])));
     };
 
     if (state?.fileInfo) {
@@ -46,6 +49,10 @@ export default function FileViewerDialog() {
       return <img src={fileUrl} alt={state?.fileInfo?.fileName} />;
     }
 
+    if (fileMimeType === "application/pdf") {
+      return <PDFDialogContent fileUrl={fileUrl} />;
+    }
+
     return null;
   };
 
@@ -55,6 +62,7 @@ export default function FileViewerDialog() {
       open={state?.isOpen}
       onClose={handleDialogClosed}
       maxWidth="sm"
+      classes={{ paper: "imageviewer-dialog__paper" }}
     >
       {renderDialogContent()}
     </Dialog>
