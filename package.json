@@ -23,7 +23,7 @@
     "react-scripts": "4.0.3",
     "react-virtualized-auto-sizer": "^1.0.6",
     "react-window": "^1.8.6",
-    "sass": "^1.37.5",
+    "sass": "^1.43.3",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.4",
     "web-vitals": "^1.0.1",
