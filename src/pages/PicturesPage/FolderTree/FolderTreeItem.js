@@ -1,9 +1,9 @@
-import TreeItem from "@mui/lab/TreeItem";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import useRCloneClient from "hooks/useRCloneClient";
-import { useEffect, useState } from "react";
-import { StatusTypes } from "utils/constants";
+import TreeItem from '@mui/lab/TreeItem';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import useRCloneClient from 'hooks/useRCloneClient';
+import { useEffect, useState } from 'react';
+import { StatusTypes } from 'utils/constants';
 
 export default function FolderTreeItem({ remote, curPath, label }) {
   const rCloneClient = useRCloneClient();
@@ -56,11 +56,7 @@ export default function FolderTreeItem({ remote, curPath, label }) {
     }
 
     return subFolders.map((subFolder) => (
-      <FolderTreeItem
-        remote={remote}
-        curPath={subFolder.Path}
-        label={subFolder.Name}
-      />
+      <FolderTreeItem remote={remote} curPath={subFolder.Path} label={subFolder.Name} />
     ));
   };
 

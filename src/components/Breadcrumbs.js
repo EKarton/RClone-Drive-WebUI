@@ -1,10 +1,10 @@
-import { Breadcrumbs, Typography } from "@mui/material";
-import { useMemo } from "react";
-import { Link } from "react-router-dom";
-import { hashRemotePath } from "utils/remote-paths-url";
+import { Breadcrumbs, Typography } from '@mui/material';
+import { useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import { hashRemotePath } from 'utils/remote-paths-url';
 
 export default function Header({ remote, path, homeLink }) {
-  const folders = path.split("/");
+  const folders = path.split('/');
   const pastFolders = folders.slice(0, folders.length - 1);
   const curFolder = folders[folders.length - 1];
 
@@ -13,9 +13,7 @@ export default function Header({ remote, path, homeLink }) {
     let prevPath = null;
 
     for (const folder of pastFolders) {
-      const curLink = prevPath
-        ? `${prevPath}/${folder}`
-        : `${remote}:${folder}`;
+      const curLink = prevPath ? `${prevPath}/${folder}` : `${remote}:${folder}`;
 
       pastFolderPaths.push(curLink);
       prevPath = curLink;

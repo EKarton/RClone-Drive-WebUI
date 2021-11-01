@@ -1,14 +1,14 @@
-import { Skeleton } from "@mui/material";
-import useRCloneClient from "hooks/useRCloneClient";
-import { useEffect, useState } from "react";
-import { useInView } from "react-intersection-observer";
-import cx from "classnames";
-import "./LazyImage.scss";
+import { Skeleton } from '@mui/material';
+import useRCloneClient from 'hooks/useRCloneClient';
+import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
+import cx from 'classnames';
+import './LazyImage.scss';
 
 export default function LazyImage({ image, width, height, imgClassName }) {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    rootMargin: "0px",
+    rootMargin: '0px',
   });
 
   const rCloneClient = useRCloneClient();
@@ -51,14 +51,12 @@ export default function LazyImage({ image, width, height, imgClassName }) {
     }
 
     if (!imageUrl) {
-      return (
-        <Skeleton variant="rectangular" className="lazy-image__skeleton" />
-      );
+      return <Skeleton variant="rectangular" className="lazy-image__skeleton" />;
     }
 
     return (
       <img
-        className={cx("lazy-image__img", imgClassName)}
+        className={cx('lazy-image__img', imgClassName)}
         src={imageUrl}
         alt={image.fileName}
         loading="lazy"

@@ -1,11 +1,11 @@
-import PropTypes from "prop-types";
-import FolderIcon from "@mui/icons-material/Folder";
-import DescriptionIcon from "@mui/icons-material/Description";
-import ImageIcon from "@mui/icons-material/Image";
-import Icon from "@mui/material/Icon";
-import { Table } from "semantic-ui-react";
-import "./FileListTable.scss";
-import { ICON_SIZE } from "utils/constants";
+import PropTypes from 'prop-types';
+import FolderIcon from '@mui/icons-material/Folder';
+import DescriptionIcon from '@mui/icons-material/Description';
+import ImageIcon from '@mui/icons-material/Image';
+import Icon from '@mui/material/Icon';
+import { Table } from 'semantic-ui-react';
+import './FileListTable.scss';
+import { ICON_SIZE } from 'utils/constants';
 
 export default function FileListTable({ files, iconSize, onFileClicked }) {
   const renderTableRow = (file) => {
@@ -16,16 +16,13 @@ export default function FileListTable({ files, iconSize, onFileClicked }) {
     return (
       <Table.Row>
         <Table.Cell>
-          <div
-            className="filelist-table__file-cell"
-            onClick={handleFileClicked}
-          >
+          <div className="filelist-table__file-cell" onClick={handleFileClicked}>
             {renderFileIcon(file)}
             <div>{file.name}</div>
           </div>
         </Table.Cell>
         <Table.Cell>{file.lastUpdatedTime}</Table.Cell>
-        <Table.Cell>{file.isDirectory ? "-" : file.size}</Table.Cell>
+        <Table.Cell>{file.isDirectory ? '-' : file.size}</Table.Cell>
       </Table.Row>
     );
   };

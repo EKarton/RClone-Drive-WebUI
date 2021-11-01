@@ -1,6 +1,6 @@
-import { useMemo } from "react";
-import RCloneClient from "utils/RCloneClient";
-import useRCloneInfo from "./useRCloneInfo";
+import { useMemo } from 'react';
+import RCloneClient from 'utils/RCloneClient';
+import useRCloneInfo from './useRCloneInfo';
 
 export default function useRCloneClient() {
   const { rCloneInfo } = useRCloneInfo();
@@ -22,6 +22,6 @@ export default function useRCloneClient() {
 
 export class MissingRCloneInfoError extends Error {
   constructor() {
-    super("Missing RClone info!");
+    super('Missing RClone info!');
   }
 }

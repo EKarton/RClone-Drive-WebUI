@@ -69,7 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-rclone --config ~/.rclone/rclone-archives-readonly.conf rcd --rc-allow-origin "*" --rc-user='local' --rc-pass="1234" --rc-serve
+rclone --config ~/.rclone/rclone-archives-readonly.conf rcd --rc-allow-origin "\*" --rc-user='local' --rc-pass="1234" --rc-serve
 
 rclone --config ~/.rclone/rclone-archives-readonly.conf rcd --rc-web-gui
 

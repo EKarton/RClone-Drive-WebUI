@@ -1,6 +1,6 @@
-import { createContext, useReducer } from "react";
-import actionTypes from "./actionTypes";
-import reducer from "./reducer";
+import { createContext, useReducer } from 'react';
+import actionTypes from './actionTypes';
+import reducer from './reducer';
 
 const initialState = {
   fileInfo: {

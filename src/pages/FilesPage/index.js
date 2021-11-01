@@ -1,9 +1,9 @@
-import { Button } from "@mui/material";
-import StorageIcon from "@mui/icons-material/Storage";
-import { useEffect, useState } from "react";
-import "./index.scss";
-import { useHistory } from "react-router";
-import useRCloneClient from "hooks/useRCloneClient";
+import { Button } from '@mui/material';
+import StorageIcon from '@mui/icons-material/Storage';
+import { useEffect, useState } from 'react';
+import './index.scss';
+import { useHistory } from 'react-router';
+import useRCloneClient from 'hooks/useRCloneClient';
 
 export default function FilesPage() {
   const history = useHistory();
@@ -25,7 +25,7 @@ export default function FilesPage() {
 
   const handleButtonClick = (remote) => () => {
     const path = `${remote}:`;
-    const link = `/files/${Buffer.from(path).toString("base64")}`;
+    const link = `/files/${Buffer.from(path).toString('base64')}`;
 
     history.push(link);
   };
