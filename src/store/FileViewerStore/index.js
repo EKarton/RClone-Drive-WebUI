@@ -7,7 +7,6 @@ const initialState = {
     remote: undefined,
     folderPath: undefined,
     fileName: undefined,
-    fileType: undefined,
   },
   isOpen: false,
 };

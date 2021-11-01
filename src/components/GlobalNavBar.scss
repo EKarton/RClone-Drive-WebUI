@@ -1,9 +1,12 @@
+$maximized-navbar-width: 15rem;
+$minimized-navbar-width: 4rem;
+
 .global-navbar {
-  width: 240px;
+  width: $maximized-navbar-width;
   flex-shrink: 0;
 
   & .MuiDrawer-paper {
-    width: 240px;
+    width: $maximized-navbar-width;
     box-sizing: border-box;
     position: relative;
     overflow-x: hidden;
@@ -20,17 +23,17 @@
 
 @media (max-width: 900px) {
   .global-navbar {
-    width: 57px;
+    width: $minimized-navbar-width;
 
     & .MuiDrawer-paper {
-      width: 57px;
+      width: $minimized-navbar-width;
     }
 
     &--expanded {
-      width: 240px;
+      width: $maximized-navbar-width;
 
       & .MuiDrawer-paper {
-        width: 240px;
+        width: $maximized-navbar-width;
       }
     }
   }

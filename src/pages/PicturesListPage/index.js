@@ -1,11 +1,9 @@
-import "./index.scss";
 import ImageList from "./ImageList";
 import { useParams } from "react-router";
 import { unhashRemotePath } from "utils/remote-paths-url";
 import Header from "../../components/Breadcrumbs";
 import { Link } from "react-router-dom";
 import useFileViewer from "hooks/useFileViewer";
-import { FileType } from "utils/constants";
 
 export default function PicturesListPage() {
   const { id } = useParams();
@@ -15,7 +13,7 @@ export default function PicturesListPage() {
   const [remote, path] = remotePath.split(":");
 
   const handleImageClicked = (image) => {
-    fileViewer.show({ ...image, fileType: FileType.Image });
+    fileViewer.show(image);
   };
 
   return (

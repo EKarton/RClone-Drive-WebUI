@@ -1,10 +1,10 @@
 import LazyImage from "../../components/LazyImage";
-import "./index.scss";
 import { useEffect, useState } from "react";
 import useRCloneClient from "hooks/useRCloneClient";
 import AutoSizer from "react-virtualized-auto-sizer";
 import { FixedSizeList } from "react-window";
 import { StatusTypes } from "utils/constants";
+import "./ImageList.scss";
 
 export default function ImageList({ remote, rootPath, onImageClicked }) {
   const rCloneClient = useRCloneClient();
@@ -72,7 +72,7 @@ export default function ImageList({ remote, rootPath, onImageClicked }) {
       }
 
       return (
-        <div className="row" style={style}>
+        <div className="imagelist__row" style={style}>
           {selectedImages.map((selectedImage) => (
             <div onClick={handleImageClicked(selectedImage)}>
               <LazyImage image={selectedImage} width={width} height={height} />
@@ -93,7 +93,6 @@ export default function ImageList({ remote, rootPath, onImageClicked }) {
 
         return (
           <FixedSizeList
-            className="List"
             width={width}
             height={height}
             itemCount={numRows}
