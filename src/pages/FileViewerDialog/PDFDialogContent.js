@@ -1,6 +1,6 @@
-import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
-import { useState } from "react";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
+import { useState } from 'react';
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 
 export default function PDFDialogContent({ fileUrl }) {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -21,7 +21,7 @@ export default function PDFDialogContent({ fileUrl }) {
     <>
       <Document
         file={fileUrl}
-        options={{ workerSrc: "/pdf.worker.js" }}
+        options={{ workerSrc: '/pdf.worker.js' }}
         onLoadSuccess={handlePdfLoadSuccess}
       >
         {hasLoaded && renderAllPages()}

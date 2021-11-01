@@ -2,6 +2,15 @@
   "name": "rclone-drive-webui",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "clean": "rm -rf ./node_modules && rm -rf ./build",
+    "prepare": "husky install",
+    "start-dev": "react-scripts start",
+    "build": "react-scripts build",
+    "lint": "eslint 'src/**/*.js' && stylelint 'src/**/*.scss' && prettier --check .",
+    "lint:fix": "eslint --fix 'src/**/*.js' && stylelint --fix 'src/**/*.scss' && prettier --write .",
+    "test": "react-scripts test"
+  },
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
@@ -29,17 +38,16 @@
     "web-vitals": "^1.0.1",
     "yarn": "^1.22.17"
   },
-  "scripts": {
-    "start-dev": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "devDependencies": {
+    "lint-staged": "^11.2.6",
+    "stylelint": "^13.12.0",
+    "stylelint-config-standard": "^21.0.0",
+    "@commitlint/cli": "^14.1.0",
+    "@commitlint/config-conventional": "^14.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "prettier": "^2.4.1"
   },
   "browserslist": {
     "production": [

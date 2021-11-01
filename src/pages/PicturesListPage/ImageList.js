@@ -1,10 +1,10 @@
-import LazyImage from "../../components/LazyImage";
-import { useEffect, useState } from "react";
-import useRCloneClient from "hooks/useRCloneClient";
-import AutoSizer from "react-virtualized-auto-sizer";
-import { FixedSizeList } from "react-window";
-import { StatusTypes } from "utils/constants";
-import "./ImageList.scss";
+import LazyImage from '../../components/LazyImage';
+import { useEffect, useState } from 'react';
+import useRCloneClient from 'hooks/useRCloneClient';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { FixedSizeList } from 'react-window';
+import { StatusTypes } from 'utils/constants';
+import './ImageList.scss';
 
 export default function ImageList({ remote, rootPath, onImageClicked }) {
   const rCloneClient = useRCloneClient();
@@ -51,7 +51,7 @@ export default function ImageList({ remote, rootPath, onImageClicked }) {
     .map((item) => {
       const filePath = item.Path;
       const fileName = item.Name;
-      const folderPath = filePath.substring(0, filePath.lastIndexOf("/"));
+      const folderPath = filePath.substring(0, filePath.lastIndexOf('/'));
       const dateTaken = parseImageInfo(fileName);
 
       return { remote, folderPath, fileName, dateTaken };

@@ -1,12 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import MainApp from "./apps/MainApp";
-import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
-import { StateProvider } from "store/RCloneInfoStore";
-import "semantic-ui-css/semantic.min.css";
-import { FileViewerProvider } from "store/FileViewerStore";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import MainApp from './apps/MainApp';
+import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import { StateProvider } from 'store/RCloneInfoStore';
+import 'semantic-ui-css/semantic.min.css';
+import { FileViewerProvider } from 'store/FileViewerStore';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,7 +18,7 @@ ReactDOM.render(
       </FileViewerProvider>
     </StateProvider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

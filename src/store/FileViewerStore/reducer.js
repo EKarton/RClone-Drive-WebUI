@@ -1,4 +1,4 @@
-import { actionTypes } from ".";
+import { actionTypes } from '.';
 
 export default function reducer(state, action) {
   switch (action.type) {

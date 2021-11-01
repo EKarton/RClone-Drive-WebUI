@@ -1,9 +1,9 @@
-import AppBar from "@mui/material/AppBar";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import Toolbar from "@mui/material/Toolbar";
-import RCloneLogo from "assets/images/rclone-icon/logo_on_light__horizontal_color_256px.png";
-import "./GlobalAppBar.scss";
+import AppBar from '@mui/material/AppBar';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import Toolbar from '@mui/material/Toolbar';
+import RCloneLogo from 'assets/images/rclone-icon/logo_on_light__horizontal_color_256px.png';
+import './GlobalAppBar.scss';
 
 export default function GlobalAppBar({ onDrawerButttonClicked }) {
   return (

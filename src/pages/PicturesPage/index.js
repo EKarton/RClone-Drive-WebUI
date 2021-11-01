@@ -1,10 +1,10 @@
-import { Button } from "@mui/material";
-import StorageIcon from "@mui/icons-material/Storage";
-import useRCloneClient from "hooks/useRCloneClient";
-import FolderBrowserDialog from "./FolderBrowserDialog";
-import { useEffect, useState } from "react";
-import { useHistory } from "react-router";
-import { hashRemotePath } from "utils/remote-paths-url";
+import { Button } from '@mui/material';
+import StorageIcon from '@mui/icons-material/Storage';
+import useRCloneClient from 'hooks/useRCloneClient';
+import FolderBrowserDialog from './FolderBrowserDialog';
+import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
+import { hashRemotePath } from 'utils/remote-paths-url';
 
 export default function PicturesPage() {
   const history = useHistory();

@@ -1,15 +1,9 @@
-import FolderTree from "./FolderTree";
-import {
-  Button,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-} from "@mui/material";
-import { useState } from "react";
+import FolderTree from './FolderTree';
+import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
+import { useState } from 'react';
 
-export default function FolderBrowserDialog ({ remotes, open, onCancel, onOk, title }) {
-  const [selectedFolder, setSelectedFolder] = useState("");
+export default function FolderBrowserDialog({ remotes, open, onCancel, onOk, title }) {
+  const [selectedFolder, setSelectedFolder] = useState('');
 
   const handleCancel = () => {
     onCancel();
@@ -21,7 +15,7 @@ export default function FolderBrowserDialog ({ remotes, open, onCancel, onOk, ti
 
   return (
     <Dialog
-      sx={{ "& .MuiDialog-paper": { width: "80%", maxHeight: 435 } }}
+      sx={{ '& .MuiDialog-paper': { width: '80%', maxHeight: 435 } }}
       maxWidth="xs"
       open={open}
       onClose={handleCancel}
@@ -38,7 +32,7 @@ export default function FolderBrowserDialog ({ remotes, open, onCancel, onOk, ti
       </DialogActions>
     </Dialog>
   );
-};
+}
 
 FolderBrowserDialog.defaultProps = {
   onCancel: () => {},

@@ -1,14 +1,14 @@
-import FileListTable from "components/FileListTable";
-import Header from "../../components/Breadcrumbs";
-import { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router";
-import "./index.scss";
-import useRCloneClient from "hooks/useRCloneClient";
-import { hashRemotePath, unhashRemotePath } from "utils/remote-paths-url";
-import useFileViewer from "hooks/useFileViewer";
-import { Link } from "react-router-dom";
-import LazyImage from "components/LazyImage";
-import { ImageMimeTypes } from "utils/constants";
+import FileListTable from 'components/FileListTable';
+import Header from '../../components/Breadcrumbs';
+import { useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router';
+import './index.scss';
+import useRCloneClient from 'hooks/useRCloneClient';
+import { hashRemotePath, unhashRemotePath } from 'utils/remote-paths-url';
+import useFileViewer from 'hooks/useFileViewer';
+import { Link } from 'react-router-dom';
+import LazyImage from 'components/LazyImage';
+import { ImageMimeTypes } from 'utils/constants';
 
 export default function FilesListPage() {
   const { id } = useParams();
@@ -18,7 +18,7 @@ export default function FilesListPage() {
   const fileViewer = useFileViewer();
 
   const remotePath = unhashRemotePath(id);
-  const [remote, path] = remotePath.split(":");
+  const [remote, path] = remotePath.split(':');
 
   useEffect(() => {
     const fetchFiles = async () => {
@@ -63,16 +63,8 @@ export default function FilesListPage() {
 
   return (
     <>
-      <Header
-        remote={remote}
-        path={path}
-        homeLink={<Link to="/files">My Files</Link>}
-      />
-      <FileListTable
-        remote={remote}
-        files={files}
-        onFileClicked={handleFileClicked}
-      />
+      <Header remote={remote} path={path} homeLink={<Link to="/files">My Files</Link>} />
+      <FileListTable remote={remote} files={files} onFileClicked={handleFileClicked} />
     </>
   );
 }

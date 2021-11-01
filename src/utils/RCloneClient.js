@@ -1,12 +1,12 @@
-import axios from "axios";
+import axios from 'axios';
 
 export default class RCloneClient {
   constructor(endpoint, username, password) {
     this.axiosInstance = axios.create({
-      responseType: "json",
+      responseType: 'json',
       baseURL: endpoint,
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       auth: {
         username,
@@ -20,7 +20,7 @@ export default class RCloneClient {
    * @returns {Array<String>} a list of remotes
    */
   async fetchRemotes() {
-    const { data } = await this.axiosInstance.post("config/listremotes");
+    const { data } = await this.axiosInstance.post('config/listremotes');
     return data.remotes;
   }
 
@@ -41,7 +41,7 @@ export default class RCloneClient {
    * @returns {Array<Object>} a list of files
    */
   async fetchFiles(remote, path) {
-    const { data } = await this.axiosInstance.post("operations/list", {
+    const { data } = await this.axiosInstance.post('operations/list', {
       fs: `${remote}:`,
       remote: `${path}`,
     });
@@ -50,7 +50,7 @@ export default class RCloneClient {
   }
 
   async fetchSubFolders(remote, path) {
-    const { data } = await this.axiosInstance.post("operations/list", {
+    const { data } = await this.axiosInstance.post('operations/list', {
       fs: `${remote}:`,
       remote: `${path}`,
       opt: {
@@ -78,7 +78,7 @@ export default class RCloneClient {
    * @returns {Array<Object>} a list of files
    */
   async fetchPictures(remote, path) {
-    const { data } = await this.axiosInstance.post("operations/list", {
+    const { data } = await this.axiosInstance.post('operations/list', {
       fs: `${remote}:`,
       remote: `${path}`,
       opt: {
@@ -87,18 +87,18 @@ export default class RCloneClient {
       },
       _filter: {
         IncludeRule: [
-          "*.png",
-          "*.PNG",
-          "*.jpg",
-          "*.JPG",
-          "*.jpeg",
-          "*.JPEG",
-          "*.bmp",
-          "*.BMP",
-          "*.gif",
-          "*.GIF",
-          "*.heic",
-          "*.HEIC",
+          '*.png',
+          '*.PNG',
+          '*.jpg',
+          '*.JPG',
+          '*.jpeg',
+          '*.JPEG',
+          '*.bmp',
+          '*.BMP',
+          '*.gif',
+          '*.GIF',
+          '*.heic',
+          '*.HEIC',
         ],
       },
     });
@@ -111,7 +111,7 @@ export default class RCloneClient {
     const url = encodeURI(`[${remotePath}]/${fileName}`);
 
     const { data } = await this.axiosInstance.get(url, {
-      responseType: "blob",
+      responseType: 'blob',
     });
 
     return data;
@@ -122,7 +122,7 @@ export default class RCloneClient {
     const url = encodeURI(`[${remotePath}]/${fileName}`);
 
     const response = await this.axiosInstance.get(url, {
-      responseType: "blob",
+      responseType: 'blob',
     });
 
     return response;

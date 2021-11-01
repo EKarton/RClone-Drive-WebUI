@@ -5,10 +5,10 @@ $minimized-navbar-width: 4rem;
   width: $maximized-navbar-width;
   flex-shrink: 0;
 
-  & .MuiDrawer-paper {
+  &__paper {
     width: $maximized-navbar-width;
     box-sizing: border-box;
-    position: relative;
+    position: relative !important;
     overflow-x: hidden;
   }
 
@@ -25,14 +25,14 @@ $minimized-navbar-width: 4rem;
   .global-navbar {
     width: $minimized-navbar-width;
 
-    & .MuiDrawer-paper {
+    &__paper {
       width: $minimized-navbar-width;
     }
 
     &--expanded {
       width: $maximized-navbar-width;
 
-      & .MuiDrawer-paper {
+      &__paper {
         width: $maximized-navbar-width;
       }
     }

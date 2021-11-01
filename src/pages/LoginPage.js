@@ -5,13 +5,13 @@ import {
   CardContent,
   CardHeader,
   TextField,
-} from "@mui/material";
-import cx from "classnames";
-import useRCloneInfo from "hooks/useRCloneInfo";
-import { useState } from "react";
-import { useHistory } from "react-router";
-import RCloneClient from "utils/RCloneClient";
-import "./LoginPage.scss";
+} from '@mui/material';
+import cx from 'classnames';
+import useRCloneInfo from 'hooks/useRCloneInfo';
+import { useState } from 'react';
+import { useHistory } from 'react-router';
+import RCloneClient from 'utils/RCloneClient';
+import './LoginPage.scss';
 
 /**
  * The login page
@@ -36,15 +36,15 @@ const LoginPage = () => {
       await new RCloneClient(endpoint, username, password).fetchRemotes();
 
       setRCloneInfo({ endpoint, username, password });
-      history.push("/files");
+      history.push('/files');
     } catch (error) {
       setError(error);
     }
   };
 
   const cardSubHeader = (
-    <span className={cx({ "login-page__card-subheader--red": error })}>
-      {error ? error.message : "Enter your RClone info to get started"}
+    <span className={cx({ 'login-page__card-subheader--red': error })}>
+      {error ? error.message : 'Enter your RClone info to get started'}
     </span>
   );
 
