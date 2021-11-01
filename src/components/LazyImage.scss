@@ -1,0 +1,12 @@
+.lazy-image {
+  &__img {
+    object-fit: contain;
+    background-color: black;
+    padding: 0.25rem;
+  }
+
+  &__skeleton {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}

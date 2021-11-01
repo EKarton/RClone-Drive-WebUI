@@ -68,3 +68,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+rclone --config ~/.rclone/rclone-archives-readonly.conf rcd --rc-allow-origin "*" --rc-user='local' --rc-pass="1234" --rc-serve
+
+rclone --config ~/.rclone/rclone-archives-readonly.conf rcd --rc-web-gui
+
+npm install @mui/material
+
+{
+"compilerOptions": {
+"baseUrl": "rc"
+},
+"include": ["src"]
+}
+
+http://localhost:3000/files/Z29vZ2xlZHJpdmUtbWFpbi1lbmNyeXB0ZWQ6Lw==
+
+http://localhost:5572/[googledrive-main-encrypted:Pictures/2018/Salesforce%20Internship/August/FutureForce%20Santa%20Cruz]/20180809_122613.jpg

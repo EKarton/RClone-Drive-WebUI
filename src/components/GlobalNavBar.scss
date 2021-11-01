@@ -1,0 +1,40 @@
+$maximized-navbar-width: 15rem;
+$minimized-navbar-width: 4rem;
+
+.global-navbar {
+  width: $maximized-navbar-width;
+  flex-shrink: 0;
+
+  & .MuiDrawer-paper {
+    width: $maximized-navbar-width;
+    box-sizing: border-box;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  &__link {
+    color: inherit;
+  }
+
+  &__listitem-text {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 900px) {
+  .global-navbar {
+    width: $minimized-navbar-width;
+
+    & .MuiDrawer-paper {
+      width: $minimized-navbar-width;
+    }
+
+    &--expanded {
+      width: $maximized-navbar-width;
+
+      & .MuiDrawer-paper {
+        width: $maximized-navbar-width;
+      }
+    }
+  }
+}

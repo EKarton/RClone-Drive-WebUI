@@ -1,0 +1,13 @@
+.filelist-table {
+  &__file-cell {
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+    color: inherit;
+  }
+
+  &__preview-icon {
+    display: flex;
+    align-items: center;
+  }
+}

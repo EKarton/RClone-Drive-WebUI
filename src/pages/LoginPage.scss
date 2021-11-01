@@ -1,0 +1,29 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  &__card {
+    width: 23rem;
+    padding: 1rem;
+  }
+
+  &__card-subheader {
+    font: 1rem;
+
+    &--red {
+      color: red;
+    }
+  }
+
+  &__card-contents {
+    display: flex;
+    row-gap: 1rem;
+    flex-direction: column;
+  }
+
+  &__text-field {
+    display: block;
+  }
+}
