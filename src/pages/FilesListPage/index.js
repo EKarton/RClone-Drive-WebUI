@@ -8,7 +8,8 @@ import { hashRemotePath, unhashRemotePath } from 'utils/remote-paths-url';
 import useFileViewer from 'hooks/useFileViewer';
 import { Link } from 'react-router-dom';
 import LazyImage from 'components/LazyImage';
-import { ImageMimeTypes } from 'utils/constants';
+import { ImageMimeTypes, StatusTypes } from 'utils/constants';
+import { FileListTableSkeleton } from 'components/FileListTableSkeleton';
 
 export default function FilesListPage() {
   const { id } = useParams();
@@ -18,34 +19,46 @@ export default function FilesListPage() {
   const fileViewer = useFileViewer();
 
   const remotePath = unhashRemotePath(id);
+
+  const [status, setStatus] = useState(StatusTypes.LOADING);
+  const [error, setError] = useState();
   const [remote, path] = remotePath.split(':');
 
   useEffect(() => {
     const fetchFiles = async () => {
-      const rawFilesList = await rCloneClient.fetchFiles(remote, path);
-      const fileList = rawFilesList.map((file) => {
-        return {
-          name: file.Name,
-          lastUpdatedTime: file.ModTime,
-          path: file.Path,
-          size: file.Size,
-          mimeType: file.MimeType,
-          isDirectory: file.IsDir,
-          isImage: ImageMimeTypes.has(file.MimeType),
-          preview: (
-            <LazyImage
-              image={{
-                remote,
-                folderPath: path,
-                fileName: file.Name,
-              }}
-              imgClassName="filelist-page__img"
-            />
-          ),
-        };
-      });
+      try {
+        setStatus(StatusTypes.LOADING);
+        setError(null);
 
-      setFiles(fileList);
+        const rawFilesList = await rCloneClient.fetchFiles(remote, path);
+        const fileList = rawFilesList.map((file) => {
+          return {
+            name: file.Name,
+            lastUpdatedTime: file.ModTime,
+            path: file.Path,
+            size: file.Size,
+            mimeType: file.MimeType,
+            isDirectory: file.IsDir,
+            isImage: ImageMimeTypes.has(file.MimeType),
+            preview: (
+              <LazyImage
+                image={{
+                  remote,
+                  folderPath: path,
+                  fileName: file.Name,
+                }}
+                imgClassName="filelist-page__img"
+              />
+            ),
+          };
+        });
+
+        setStatus(StatusTypes.SUCCESS);
+        setFiles(fileList);
+      } catch (err) {
+        setStatus(StatusTypes.ERROR);
+        setError(err);
+      }
     };
 
     fetchFiles();
@@ -61,10 +74,20 @@ export default function FilesListPage() {
     fileViewer.show({ remote, folderPath: path, fileName: file.name });
   };
 
+  const renderTable = () => {
+    if (status !== StatusTypes.SUCCESS) {
+      return <FileListTableSkeleton />;
+    }
+
+    return (
+      <FileListTable remote={remote} files={files} onFileClicked={handleFileClicked} />
+    );
+  };
+
   return (
     <>
       <Header remote={remote} path={path} homeLink={<Link to="/files">My Files</Link>} />
-      <FileListTable remote={remote} files={files} onFileClicked={handleFileClicked} />
+      {renderTable()}
     </>
   );
 }

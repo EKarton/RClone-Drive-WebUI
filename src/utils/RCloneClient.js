@@ -44,6 +44,9 @@ export default class RCloneClient {
     const { data } = await this.axiosInstance.post('operations/list', {
       fs: `${remote}:`,
       remote: `${path}`,
+      _config: {
+        UseListR: true,
+      },
     });
 
     return data.list;
@@ -85,6 +88,9 @@ export default class RCloneClient {
         recurse: true,
         filesOnly: true,
       },
+      _config: {
+        UseListR: true,
+      },
       _filter: {
         IncludeRule: [
           '*.png',
@@ -108,7 +114,7 @@ export default class RCloneClient {
 
   async fetchFileContents(remote, folderPath, fileName) {
     const remotePath = `${remote}:${folderPath}`;
-    const url = encodeURI(`[${remotePath}]/${fileName}`);
+    const url = encodeURI(`[${remotePath}]/${fileName}?cached=true`);
 
     const { data } = await this.axiosInstance.get(url, {
       responseType: 'blob',

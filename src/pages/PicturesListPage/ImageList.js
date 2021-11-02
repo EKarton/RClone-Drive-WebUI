@@ -1,44 +1,10 @@
 import LazyImage from '../../components/LazyImage';
-import { useEffect, useState } from 'react';
-import useRCloneClient from 'hooks/useRCloneClient';
+import Image from 'components/Image';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList } from 'react-window';
-import { StatusTypes } from 'utils/constants';
 import './ImageList.scss';
 
-export default function ImageList({ remote, rootPath, onImageClicked }) {
-  const rCloneClient = useRCloneClient();
-  const [status, setStatus] = useState();
-  const [error, setError] = useState();
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setStatus(StatusTypes.LOADING);
-        setError(null);
-
-        const data = await rCloneClient.fetchPictures(remote, rootPath);
-
-        setStatus(StatusTypes.SUCCESS);
-        setData(data);
-      } catch (err) {
-        setStatus(StatusTypes.ERROR);
-        setError(err);
-      }
-    };
-
-    fetchData();
-  }, [rCloneClient, remote, rootPath]);
-
-  if (status === StatusTypes.LOADING) {
-    return null;
-  }
-
-  if (status === StatusTypes.ERROR) {
-    return <div>Error! {error}</div>;
-  }
-
+export default function ImageList({ images, remote, onImageClicked }) {
   const parseImageInfo = (fileName) => {
     const year = parseInt(fileName.substring(0, 4));
     const month = parseInt(fileName.substring(4, 6));
@@ -47,7 +13,7 @@ export default function ImageList({ remote, rootPath, onImageClicked }) {
     return { year, month, day };
   };
 
-  const images = data
+  const parsedImages = images
     .map((item) => {
       const filePath = item.Path;
       const fileName = item.Name;
@@ -68,13 +34,14 @@ export default function ImageList({ remote, rootPath, onImageClicked }) {
       const selectedImages = [];
 
       for (let i = 0; i < numImagesPerRow; i++) {
-        selectedImages.push(images[numImagesPerRow * index + i]);
+        selectedImages.push(parsedImages[numImagesPerRow * index + i]);
       }
 
       return (
         <div className="imagelist__row" style={style}>
           {selectedImages.map((selectedImage) => (
             <div onClick={handleImageClicked(selectedImage)}>
+              {/* <Image image={selectedImage} /> */}
               <LazyImage image={selectedImage} width={width} height={height} />
             </div>
           ))}
@@ -90,6 +57,8 @@ export default function ImageList({ remote, rootPath, onImageClicked }) {
         const imgHeight = imgWidth;
 
         const numRows = Math.ceil(images.length / numImagesPerRow);
+
+        console.error(width, imgWidth, imgHeight);
 
         return (
           <FixedSizeList

@@ -38,7 +38,9 @@ export default function GlobalNavBar({ isExpanded }) {
         root: cx('global-navbar', {
           'global-navbar--expanded': isExpanded,
         }),
-        paper: 'global-navbar__paper',
+        paper: cx('global-navbar__paper', {
+          'global-navbar__paper--expanded': isExpanded,
+        }),
       }}
     >
       <List>

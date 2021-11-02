@@ -41,6 +41,17 @@ export default function useRCloneInfo() {
     return state?.[key] || localStorage.getItem(key);
   };
 
+  const removeInfo = (dispatchType, localStorageKey) => {
+    localStorage.removeItem(localStorageKey);
+    dispatch({ type: dispatchType, payload: undefined });
+  };
+
+  const clearRCloneInfo = () => {
+    removeInfo(actionTypes.SET_ENDPOINT, 'endpoint');
+    removeInfo(actionTypes.SET_ENDPOINT, 'username');
+    removeInfo(actionTypes.SET_ENDPOINT, 'password');
+  };
+
   return {
     rCloneInfo: {
       endpoint: getValue('endpoint'),
@@ -48,5 +59,6 @@ export default function useRCloneInfo() {
       password: getValue('password'),
     },
     setRCloneInfo,
+    clearRCloneInfo,
   };
 }
