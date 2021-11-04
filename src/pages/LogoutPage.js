@@ -6,13 +6,13 @@ export default function LogoutPage() {
   const history = useHistory();
   const { rCloneInfo, clearRCloneInfo } = useRCloneInfo();
 
-  clearRCloneInfo();
-
   useEffect(() => {
+    clearRCloneInfo();
+
     if (!rCloneInfo.endpoint && !rCloneInfo.password && !rCloneInfo.username) {
       history.push('/');
     }
-  }, [rCloneInfo]);
+  }, [clearRCloneInfo, history, rCloneInfo]);
 
   return <div>Logging out...</div>;
 }

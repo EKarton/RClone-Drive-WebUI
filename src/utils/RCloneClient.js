@@ -13,6 +13,10 @@ export default class RCloneClient {
         password,
       },
     });
+
+    this.endpoint = endpoint;
+    this.username = username;
+    this.password = password;
   }
 
   /**
@@ -114,17 +118,6 @@ export default class RCloneClient {
 
   async fetchFileContents(remote, folderPath, fileName) {
     const remotePath = `${remote}:${folderPath}`;
-    const url = encodeURI(`[${remotePath}]/${fileName}?cached=true`);
-
-    const { data } = await this.axiosInstance.get(url, {
-      responseType: 'blob',
-    });
-
-    return data;
-  }
-
-  async fetchFileContentsV2(remote, folderPath, fileName) {
-    const remotePath = `${remote}:${folderPath}`;
     const url = encodeURI(`[${remotePath}]/${fileName}`);
 
     const response = await this.axiosInstance.get(url, {
@@ -132,5 +125,28 @@ export default class RCloneClient {
     });
 
     return response;
+  }
+
+  async fetchImage(remote, folderPath, fileName) {
+    const path = encodeURI(`[${remote}:${folderPath}]/${fileName}`);
+    const url = `${this.endpoint}/${path}`;
+    const auth = Buffer.from(`${this.username}:${this.password}`).toString('base64');
+
+    const headers = {
+      Authorization: `Basic ${auth}`,
+    };
+
+    const request = new Request(url, { headers, mode: 'cors' });
+    const cache = await caches.open('image-contents');
+
+    const cachedResponse = await cache.match(request);
+    if (cachedResponse) {
+      return cachedResponse.clone();
+    }
+
+    const response = await fetch(request);
+    await cache.put(request, response);
+
+    return response.clone();
   }
 }

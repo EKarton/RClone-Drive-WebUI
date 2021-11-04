@@ -15,13 +15,13 @@ export default function Image({ image, width, height, imgClassName, skeletonClas
         setError(undefined);
         setImageUrl(undefined);
 
-        const imageBlob = await rCloneClient.fetchFileContents(
+        const response = await rCloneClient.fetchImage(
           image.remote,
           image.folderPath,
           image.fileName
         );
 
-        const imageUrl = URL.createObjectURL(new Blob([imageBlob]));
+        const imageUrl = URL.createObjectURL(await response.blob());
         setImageUrl(imageUrl);
       } catch (error) {
         setError(error);
@@ -39,7 +39,7 @@ export default function Image({ image, width, height, imgClassName, skeletonClas
     };
   }, [image, imageUrl, rCloneClient]);
 
-  if (!imageUrl) {
+  if (!imageUrl && !error) {
     return (
       <Skeleton
         variant="rectangular"
@@ -47,6 +47,14 @@ export default function Image({ image, width, height, imgClassName, skeletonClas
         width={width}
         height={height}
       />
+    );
+  }
+
+  if (error) {
+    return (
+      <div width={width} height={height}>
+        Error: {error.message}
+      </div>
     );
   }
 

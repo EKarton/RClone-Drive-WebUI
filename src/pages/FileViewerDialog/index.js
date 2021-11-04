@@ -1,10 +1,12 @@
-import { CircularProgress, Dialog, DialogContent } from '@mui/material';
+import { CircularProgress, Dialog, DialogContent, IconButton } from '@mui/material';
 import useRCloneClient from 'hooks/useRCloneClient';
 import { useContext, useEffect, useState } from 'react';
 import { store, actionTypes } from 'store/FileViewerStore';
 import { ImageMimeTypes } from 'utils/constants';
 import PDFDialogContent from './PDFDialogContent';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import './index.scss';
+import { Link } from 'react-router-dom';
 
 export default function FileViewerDialog() {
   const { state, dispatch } = useContext(store);
@@ -17,14 +19,10 @@ export default function FileViewerDialog() {
       setFileUrl(undefined);
 
       const { remote, folderPath, fileName } = state.fileInfo;
-      const response = await rCloneClient.fetchFileContentsV2(
-        remote,
-        folderPath,
-        fileName
-      );
+      const response = await rCloneClient.fetchImage(remote, folderPath, fileName);
 
-      setFileMimeType(response.headers['content-type']);
-      setFileUrl(URL.createObjectURL(new Blob([response.data])));
+      setFileMimeType(response.headers.get('content-type'));
+      setFileUrl(URL.createObjectURL(await response.blob()));
     };
 
     if (state?.fileInfo) {
@@ -34,6 +32,23 @@ export default function FileViewerDialog() {
 
   const handleDialogClosed = () => {
     dispatch({ type: actionTypes.HIDE_DIALOG });
+  };
+
+  const renderDownloadButton = () => {
+    return (
+      <div className="imageviewer-dialog__header">
+        <div className="imageviewer-dialog__header-content">
+          {state?.fileInfo?.fileName}
+        </div>
+        <div>
+          <Link to={fileUrl} download>
+            <IconButton>
+              <FileDownloadIcon className="imageviewer-dialog__header-content" />
+            </IconButton>
+          </Link>
+        </div>
+      </div>
+    );
   };
 
   const renderDialogContent = () => {
@@ -64,6 +79,7 @@ export default function FileViewerDialog() {
       maxWidth="sm"
       classes={{ paper: 'imageviewer-dialog__paper' }}
     >
+      {renderDownloadButton()}
       {renderDialogContent()}
     </Dialog>
   );
