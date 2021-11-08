@@ -9,7 +9,7 @@ import useFileViewer from 'hooks/useFileViewer';
 import { Link } from 'react-router-dom';
 import LazyImage from 'components/LazyImage';
 import { ImageMimeTypes, StatusTypes } from 'utils/constants';
-import { FileListTableSkeleton } from 'components/FileListTableSkeleton';
+import FileListTableSkeleton from 'components/FileListTableSkeleton';
 
 export default function FilesListPage() {
   const { id } = useParams();

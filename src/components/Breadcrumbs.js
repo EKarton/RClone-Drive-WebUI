@@ -32,7 +32,9 @@ export default function Header({ remote, path, homeLink }) {
       {homeLink}
       <Link to={hashRemotePath(`${remote}:`)}>{remote}</Link>
       {pastFolders.map((folder, i) => (
-        <Link to={hashRemotePath(pastFolderPaths[i])}>{folder}</Link>
+        <Link key={i} to={hashRemotePath(pastFolderPaths[i])}>
+          {folder}
+        </Link>
       ))}
       <Typography color="text.primary">{curFolder}</Typography>
     </Breadcrumbs>

@@ -1,7 +1,7 @@
 import { Table } from 'semantic-ui-react';
 import Skeleton from '@mui/material/Skeleton';
 
-export function FileListTableSkeleton({ numRows }) {
+export default function FileListTableSkeleton({ numRows }) {
   return (
     <Table striped>
       <Table.Header>
@@ -12,9 +12,9 @@ export function FileListTableSkeleton({ numRows }) {
         </Table.Row>
       </Table.Header>
       <Table.Body>
-        {Array.from({ length: numRows }, () => (
-          <Table.Row span>
-            <Table.Cell colspan={3}>
+        {Array.from({ length: numRows }, (i) => (
+          <Table.Row key={i}>
+            <Table.Cell colSpan={3}>
               <Skeleton animation="wave" />
             </Table.Cell>
           </Table.Row>

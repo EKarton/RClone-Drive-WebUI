@@ -9,8 +9,6 @@ import FileViewerDialog from 'pages/FileViewerDialog';
 import PicturesPage from 'pages/PicturesPage';
 import PicturesListPage from 'pages/PicturesListPage';
 
-export const AuthenticatedPaths = ['/files', '/pictures'];
-
 export default function AuthenticatedApp() {
   const [isExpanded, setIsExpanded] = useState(false);
 

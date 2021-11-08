@@ -1,8 +1,9 @@
 import { Switch, Route } from 'react-router-dom';
 import LandingPage from 'pages/LandingPage';
 import LoginPage from 'pages/LoginPage';
-import AuthenticatedApp, { AuthenticatedPaths } from './AuthenticatedApp';
+import AuthenticatedApp from './AuthenticatedApp';
 import LogoutPage from 'pages/LogoutPage';
+import { AuthenticatedPaths } from 'utils/constants';
 
 export default function MainApp() {
   return (

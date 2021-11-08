@@ -1,3 +1,5 @@
+export const AuthenticatedPaths = ['/files', '/pictures'];
+
 export const ICON_SIZE = Object.freeze({
   SMALL: 'small',
   MEDIUM: 'medium',

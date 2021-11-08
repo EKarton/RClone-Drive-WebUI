@@ -1,17 +1,18 @@
 import { CircularProgress, Dialog, DialogContent, IconButton } from '@mui/material';
 import useRCloneClient from 'hooks/useRCloneClient';
 import { useContext, useEffect, useState } from 'react';
-import { store, actionTypes } from 'store/FileViewerStore';
+import { store, actionTypes } from 'contexts/FileViewerStore';
 import { ImageMimeTypes } from 'utils/constants';
 import PDFDialogContent from './PDFDialogContent';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import './index.scss';
-import { Link } from 'react-router-dom';
+import FileSaver from 'file-saver';
 
-export default function FileViewerDialog() {
+const FileViewerDialog = () => {
   const { state, dispatch } = useContext(store);
   const rCloneClient = useRCloneClient();
   const [fileMimeType, setFileMimeType] = useState();
+  const [fileBlob, setFileBlob] = useState();
   const [fileUrl, setFileUrl] = useState();
 
   useEffect(() => {
@@ -19,10 +20,14 @@ export default function FileViewerDialog() {
       setFileUrl(undefined);
 
       const { remote, folderPath, fileName } = state.fileInfo;
-      const response = await rCloneClient.fetchImage(remote, folderPath, fileName);
+      const response = await rCloneClient.fetchFileContents(remote, folderPath, fileName);
 
-      setFileMimeType(response.headers.get('content-type'));
-      setFileUrl(URL.createObjectURL(await response.blob()));
+      const mimeType = response.headers['content-type'];
+      const blob = new Blob([response.data], { type: mimeType });
+
+      setFileMimeType(mimeType);
+      setFileBlob(blob);
+      setFileUrl(URL.createObjectURL(blob));
     };
 
     if (state?.fileInfo) {
@@ -34,6 +39,10 @@ export default function FileViewerDialog() {
     dispatch({ type: actionTypes.HIDE_DIALOG });
   };
 
+  const handleDownloadButtonClicked = () => {
+    FileSaver.saveAs(fileBlob, state?.fileInfo?.fileName);
+  };
+
   const renderDownloadButton = () => {
     return (
       <div className="imageviewer-dialog__header">
@@ -41,11 +50,9 @@ export default function FileViewerDialog() {
           {state?.fileInfo?.fileName}
         </div>
         <div>
-          <Link to={fileUrl} download>
-            <IconButton>
-              <FileDownloadIcon className="imageviewer-dialog__header-content" />
-            </IconButton>
-          </Link>
+          <IconButton onClick={handleDownloadButtonClicked}>
+            <FileDownloadIcon className="imageviewer-dialog__header-content" />
+          </IconButton>
         </div>
       </div>
     );
@@ -83,4 +90,6 @@ export default function FileViewerDialog() {
       {renderDialogContent()}
     </Dialog>
   );
-}
+};
+
+export default FileViewerDialog;

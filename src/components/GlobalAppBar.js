@@ -17,6 +17,7 @@ export default function GlobalAppBar({ onDrawerButttonClicked }) {
           edge="start"
           onClick={onDrawerButttonClicked}
           className="global-app-bar__nav-button"
+          data-testid="nav-button"
         >
           <MenuIcon />
         </IconButton>

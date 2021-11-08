@@ -87,3 +87,12 @@ npm install @mui/material
 http://localhost:3000/files/Z29vZ2xlZHJpdmUtbWFpbi1lbmNyeXB0ZWQ6Lw==
 
 http://localhost:5572/[googledrive-main-encrypted:Pictures/2018/Salesforce%20Internship/August/FutureForce%20Santa%20Cruz]/20180809_122613.jpg
+
+Features:
+
+- [x] Navigate through the directories and files
+- [x] See images and PDFs in detail
+- [x] View list of all pictures recursively under a directory and a remote
+- [ ] Search for files and images across remotes
+- [ ] Copy and move files to / from remotes
+- [ ] Delete files

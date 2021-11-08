@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
-import { actionTypes } from 'store/RCloneInfoStore';
-import { store } from 'store/RCloneInfoStore';
+import { actionTypes } from 'contexts/RCloneInfoStore';
+import { store } from 'contexts/RCloneInfoStore';
 
 export default function useRCloneInfo() {
   const { state, dispatch } = useContext(store);

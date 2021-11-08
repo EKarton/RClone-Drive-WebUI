@@ -4,9 +4,9 @@ import './index.css';
 import MainApp from './apps/MainApp';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { StateProvider } from 'store/RCloneInfoStore';
+import { StateProvider } from 'contexts/RCloneInfoStore';
 import 'semantic-ui-css/semantic.min.css';
-import { FileViewerProvider } from 'store/FileViewerStore';
+import { FileViewerProvider } from 'contexts/FileViewerStore';
 
 ReactDOM.render(
   <React.StrictMode>

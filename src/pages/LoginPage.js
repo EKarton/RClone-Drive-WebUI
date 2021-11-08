@@ -74,6 +74,7 @@ const LoginPage = () => {
             required
             label="Password"
             variant="outlined"
+            type="password"
             className="login-page__text-field"
             onChange={handleTextEntered(setPassword)}
             error={error}

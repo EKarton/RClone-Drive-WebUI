@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import useRCloneClient from 'hooks/useRCloneClient';
 import { Skeleton } from '@mui/material';
 import cx from 'classnames';
 import './Image.scss';
+import useImageFetcher from 'hooks/useImageFetcher';
 
 export default function Image({ image, width, height, imgClassName, skeletonClassName }) {
-  const rCloneClient = useRCloneClient();
+  const imageFetcher = useImageFetcher();
   const [imageUrl, setImageUrl] = useState();
   const [error, setError] = useState();
 
@@ -15,13 +15,13 @@ export default function Image({ image, width, height, imgClassName, skeletonClas
         setError(undefined);
         setImageUrl(undefined);
 
-        const response = await rCloneClient.fetchImage(
+        const response = await imageFetcher.getImage(
           image.remote,
           image.folderPath,
           image.fileName
         );
 
-        const imageUrl = URL.createObjectURL(await response.blob());
+        const imageUrl = URL.createObjectURL(new Blob([response.data]));
         setImageUrl(imageUrl);
       } catch (error) {
         setError(error);
@@ -37,7 +37,7 @@ export default function Image({ image, width, height, imgClassName, skeletonClas
         URL.revokeObjectURL(imageUrl);
       }
     };
-  }, [image, imageUrl, rCloneClient]);
+  }, [image, imageUrl, imageFetcher]);
 
   if (!imageUrl && !error) {
     return (

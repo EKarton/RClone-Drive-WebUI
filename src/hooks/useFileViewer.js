@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { store } from 'store/FileViewerStore';
-import { actionTypes } from 'store/FileViewerStore';
+import { store } from 'contexts/FileViewerStore';
+import { actionTypes } from 'contexts/FileViewerStore';
 
 export default function useFileViewer() {
   const { dispatch } = useContext(store);

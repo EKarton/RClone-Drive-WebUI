@@ -45,7 +45,7 @@ export default function GlobalNavBar({ isExpanded }) {
     >
       <List>
         {NavigationOptions.map(({ key, text, icon, redirectUrl }) => (
-          <Link className="global-navbar__link" to={redirectUrl}>
+          <Link key={key} className="global-navbar__link" to={redirectUrl}>
             <ListItem button key={key} selected={location.pathname.includes(redirectUrl)}>
               <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText className="global-navbar__listitem-text" primary={text} />
