@@ -1,7 +1,6 @@
-import { pdfjs, Document, Page } from 'react-pdf';
+import { Document, Page } from 'react-pdf/dist/umd/entry.webpack';
 import { useState } from 'react';
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+import 'react-pdf/dist/umd/Page/AnnotationLayer.css';
 
 export default function PDFDialogContent({ fileUrl }) {
   const [hasLoaded, setHasLoaded] = useState(false);
