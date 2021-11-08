@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prepare-react-pdf": "cp ./node_modules/pdfjs-dist/build/pdf.worker.js ./public/pdf.worker.js",
     "clean": "rm -rf ./node_modules && rm -rf ./build",
     "prepare": "husky install",
     "start-dev": "react-scripts start",
