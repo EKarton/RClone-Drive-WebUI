@@ -3,7 +3,7 @@ import Skeleton from '@mui/material/Skeleton';
 
 export default function FileListTableSkeleton({ numRows }) {
   return (
-    <Table striped>
+    <Table striped data-testid="fileslisttableskeleton">
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell>Name</Table.HeaderCell>

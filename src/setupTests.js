@@ -7,3 +7,6 @@ import '@testing-library/jest-dom';
 // Mock URL object
 global.URL.createObjectURL = jest.fn();
 global.URL.revokeObjectURL = jest.fn();
+
+// Mock auto-generated IDs
+jest.mock('@mui/utils/useId', () => jest.fn().mockReturnValue('mui-test-id'));

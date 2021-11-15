@@ -42,13 +42,13 @@ const LoginPage = () => {
     }
   };
 
+  const hasError = error !== null;
+
   const cardSubHeader = (
     <span className={cx({ 'login-page__card-subheader--red': error })}>
-      {error ? error?.message : 'Enter your RClone info to get started'}
+      {hasError ? error?.message : 'Enter your RClone info to get started'}
     </span>
   );
-
-  const hasError = error === null;
 
   return (
     <div className="login-page">

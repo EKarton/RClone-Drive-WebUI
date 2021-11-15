@@ -4,40 +4,52 @@ import { useEffect, useState } from 'react';
 import './index.scss';
 import { useHistory } from 'react-router';
 import useRCloneClient from 'hooks/useRCloneClient';
+import { hashRemotePath } from 'utils/remote-paths-url';
 
 export default function FilesPage() {
   const history = useHistory();
   const rCloneClient = useRCloneClient();
+
   const [remotes, setRemotes] = useState(undefined);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await rCloneClient.fetchRemotes();
-      setRemotes(data);
+      try {
+        const data = await rCloneClient.fetchRemotes();
+        // console.error(rCloneClient, data);
+
+        setRemotes(data);
+      } catch (error) {
+        // console.error(error);
+        setError(error);
+      }
     };
 
     fetchData();
   }, [rCloneClient]);
 
-  if (!remotes) {
+  if (!remotes && !error) {
     return null;
   }
 
-  const handleButtonClick = (remote) => () => {
-    const path = `${remote}:`;
-    const link = `/files/${Buffer.from(path).toString('base64')}`;
+  if (error) {
+    return <div>{error.message}</div>;
+  }
 
-    history.push(link);
+  const handleButtonClick = (remote) => () => {
+    history.push(`/files/${hashRemotePath(`${remote}:`)}`);
   };
 
   return (
     <div className="filespage">
       {remotes.sort().map((remote) => (
-        <div>
+        <div key={remote}>
           <Button
             variant="outlined"
             startIcon={<StorageIcon />}
             onClick={handleButtonClick(remote)}
+            data-testid={remote}
           >
             {remote}
           </Button>

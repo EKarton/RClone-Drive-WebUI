@@ -5,10 +5,6 @@ import { useState } from 'react';
 export default function FolderBrowserDialog({ remotes, open, onCancel, onOk, title }) {
   const [selectedFolder, setSelectedFolder] = useState('');
 
-  const handleCancel = () => {
-    onCancel();
-  };
-
   const handleOk = () => {
     onOk(selectedFolder);
   };
@@ -18,22 +14,20 @@ export default function FolderBrowserDialog({ remotes, open, onCancel, onOk, tit
       sx={{ '& .MuiDialog-paper': { width: '80%', maxHeight: 435 } }}
       maxWidth="xs"
       open={open}
-      onClose={handleCancel}
+      onClose={onCancel}
     >
       <DialogTitle>{title}</DialogTitle>
       <DialogContent dividers>
         <FolderTree remotes={remotes} onFolderSelect={setSelectedFolder} />
       </DialogContent>
       <DialogActions>
-        <Button autoFocus onClick={handleCancel}>
+        <Button autoFocus onClick={onCancel}>
           Cancel
         </Button>
-        <Button onClick={handleOk}>Ok</Button>
+        <Button onClick={handleOk} data-testid="ok-button">
+          Ok
+        </Button>
       </DialogActions>
     </Dialog>
   );
 }
-
-FolderBrowserDialog.defaultProps = {
-  onCancel: () => {},
-};

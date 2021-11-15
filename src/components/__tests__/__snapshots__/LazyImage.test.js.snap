@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LazyImage should render nothing if image is not in the view 1`] = `
+<body>
+  <div>
+    <div
+      data-inview="false"
+    />
+  </div>
+</body>
+`;
+
+exports[`LazyImage should render the image component if image is in the view 1`] = `
+<body>
+  <div>
+    <div
+      data-inview="true"
+    />
+  </div>
+</body>
+`;

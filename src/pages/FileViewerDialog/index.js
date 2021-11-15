@@ -8,7 +8,7 @@ import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import './index.scss';
 import FileSaver from 'file-saver';
 
-const FileViewerDialog = () => {
+export default function FileViewerDialog() {
   const { state, dispatch } = useContext(store);
   const rCloneClient = useRCloneClient();
   const [fileMimeType, setFileMimeType] = useState();
@@ -90,6 +90,4 @@ const FileViewerDialog = () => {
       {renderDialogContent()}
     </Dialog>
   );
-};
-
-export default FileViewerDialog;
+}

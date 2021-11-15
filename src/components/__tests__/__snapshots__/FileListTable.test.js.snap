@@ -5,6 +5,7 @@ exports[`FileListTable should match snapshot given icon size is large 1`] = `
   <div>
     <table
       class="ui striped table"
+      data-testid="fileslisttable"
     >
       <thead
         class=""
@@ -219,6 +220,7 @@ exports[`FileListTable should match snapshot given icon size is medium 1`] = `
   <div>
     <table
       class="ui striped table"
+      data-testid="fileslisttable"
     >
       <thead
         class=""
@@ -433,6 +435,7 @@ exports[`FileListTable should match snapshot given icon size is small 1`] = `
   <div>
     <table
       class="ui striped table"
+      data-testid="fileslisttable"
     >
       <thead
         class=""

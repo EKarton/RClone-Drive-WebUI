@@ -52,7 +52,7 @@ export default function FileListTable({ files, iconSize, onFileClicked }) {
   };
 
   return (
-    <Table striped>
+    <Table striped data-testid="fileslisttable">
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell>Name</Table.HeaderCell>
