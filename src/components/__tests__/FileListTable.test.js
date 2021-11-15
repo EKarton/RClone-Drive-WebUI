@@ -23,7 +23,7 @@ const files = [
     size: '',
     isDirectory: false,
     isImage: true,
-    preview: <img />,
+    preview: <img alt="my home" />,
   },
   {
     name: 'My dog.png',

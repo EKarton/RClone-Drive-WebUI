@@ -4,19 +4,19 @@ import './index.css';
 import MainApp from './apps/MainApp';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { StateProvider } from 'contexts/RCloneInfoStore';
-import 'semantic-ui-css/semantic.min.css';
+import { RCloneInfoStateProvider } from 'contexts/RCloneInfoStore';
 import { FileViewerProvider } from 'contexts/FileViewerStore';
+import 'semantic-ui-css/semantic.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <StateProvider>
+    <RCloneInfoStateProvider>
       <FileViewerProvider>
         <BrowserRouter>
           <MainApp />
         </BrowserRouter>
       </FileViewerProvider>
-    </StateProvider>
+    </RCloneInfoStateProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -120,7 +120,9 @@ exports[`FileListTable should match snapshot given icon size is large 1`] = `
                 aria-hidden="true"
                 class="material-icons notranslate MuiIcon-root MuiIcon-fontSizeLarge filelist-table__preview-icon css-1gb9piy-MuiIcon-root"
               >
-                <img />
+                <img
+                  alt="my home"
+                />
               </span>
               <div>
                 My Home.png
@@ -332,7 +334,9 @@ exports[`FileListTable should match snapshot given icon size is medium 1`] = `
                 aria-hidden="true"
                 class="material-icons notranslate MuiIcon-root MuiIcon-fontSizeMedium filelist-table__preview-icon css-kp9ftd-MuiIcon-root"
               >
-                <img />
+                <img
+                  alt="my home"
+                />
               </span>
               <div>
                 My Home.png
@@ -544,7 +548,9 @@ exports[`FileListTable should match snapshot given icon size is small 1`] = `
                 aria-hidden="true"
                 class="material-icons notranslate MuiIcon-root MuiIcon-fontSizeSmall filelist-table__preview-icon css-1yybaem-MuiIcon-root"
               >
-                <img />
+                <img
+                  alt="my home"
+                />
               </span>
               <div>
                 My Home.png

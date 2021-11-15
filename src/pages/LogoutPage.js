@@ -1,18 +1,15 @@
-import useRCloneInfo from 'hooks/useRCloneInfo';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router';
+import useRCloneInfo from 'hooks/useRCloneInfo';
 
 export default function LogoutPage() {
   const history = useHistory();
-  const { rCloneInfo, clearRCloneInfo } = useRCloneInfo();
+  const { clearRCloneInfo } = useRCloneInfo();
 
   useEffect(() => {
     clearRCloneInfo();
-
-    if (!rCloneInfo.endpoint && !rCloneInfo.password && !rCloneInfo.username) {
-      history.push('/');
-    }
-  }, [clearRCloneInfo, history, rCloneInfo]);
+    history.push('/');
+  }, [clearRCloneInfo, history]);
 
   return <div>Logging out...</div>;
 }

@@ -46,13 +46,14 @@ export default function Image({ image, width, height, imgClassName, skeletonClas
         className={cx('image', skeletonClassName)}
         width={width}
         height={height}
+        data-testid="image-spinner"
       />
     );
   }
 
   if (error) {
     return (
-      <div width={width} height={height}>
+      <div width={width} height={height} data-testid="image-error">
         Error: {error.message}
       </div>
     );
@@ -66,6 +67,7 @@ export default function Image({ image, width, height, imgClassName, skeletonClas
       loading="lazy"
       width={width}
       height={height}
+      data-testid="image-content"
     />
   );
 }

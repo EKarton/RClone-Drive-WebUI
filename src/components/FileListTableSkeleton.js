@@ -12,7 +12,7 @@ export default function FileListTableSkeleton({ numRows }) {
         </Table.Row>
       </Table.Header>
       <Table.Body>
-        {Array.from({ length: numRows }, (i) => (
+        {Array.from({ length: numRows }, (_, i) => (
           <Table.Row key={i}>
             <Table.Cell colSpan={3}>
               <Skeleton animation="wave" />

@@ -11,10 +11,10 @@ const initialState = {
 const store = createContext(initialState);
 const { Provider } = store;
 
-const StateProvider = ({ children, defaultState }) => {
+const RCloneInfoStateProvider = ({ children, defaultState }) => {
   const [state, dispatch] = useReducer(reducer, defaultState);
 
   return <Provider value={{ state, dispatch }}>{children}</Provider>;
 };
 
-export { store, StateProvider, actionTypes, initialState };
+export { store, RCloneInfoStateProvider, actionTypes, initialState };
