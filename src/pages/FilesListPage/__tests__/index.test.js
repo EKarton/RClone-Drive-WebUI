@@ -92,6 +92,16 @@ describe('FilesListPage', () => {
     });
   });
 
+  it('should show error message when fetching file list fails', async () => {
+    fetchFilesFn.mockRejectedValue(new Error('Random error'));
+
+    const component = renderComponent();
+
+    await waitFor(() => {
+      expect(component.getByTestId('error-message')).toBeInTheDocument();
+    });
+  });
+
   const renderComponent = () => {
     const component = (
       <Route path="/files/:id">

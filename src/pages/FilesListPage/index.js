@@ -1,28 +1,27 @@
 import FileListTable from 'components/FileListTable';
 import Header from '../../components/Breadcrumbs';
 import { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router';
+import { useHistory } from 'react-router';
 import './index.scss';
 import useRCloneClient from 'hooks/useRCloneClient';
-import { hashRemotePath, unhashRemotePath } from 'utils/remote-paths-url';
+import { hashRemotePath } from 'utils/remote-paths-url';
 import useFileViewer from 'hooks/useFileViewer';
 import { Link } from 'react-router-dom';
 import LazyImage from 'components/LazyImage';
 import { ImageMimeTypes, StatusTypes } from 'utils/constants';
 import FileListTableSkeleton from 'components/FileListTableSkeleton';
+import useRemotePathParams from 'hooks/useRemotePathParams';
 
 export default function FilesListPage() {
-  const { id } = useParams();
+  const { remote, path } = useRemotePathParams();
+
   const history = useHistory();
   const rCloneClient = useRCloneClient();
   const [files, setFiles] = useState([]);
   const fileViewer = useFileViewer();
 
-  const remotePath = unhashRemotePath(id);
-
   const [status, setStatus] = useState(StatusTypes.LOADING);
   const [error, setError] = useState();
-  const [remote, path] = remotePath.split(':');
 
   useEffect(() => {
     const fetchFiles = async () => {
@@ -62,7 +61,7 @@ export default function FilesListPage() {
     };
 
     fetchFiles();
-  }, [id, path, rCloneClient, remote, remotePath]);
+  }, [path, rCloneClient, remote]);
 
   const handleFileClicked = (file) => {
     if (file.isDirectory) {
@@ -75,6 +74,10 @@ export default function FilesListPage() {
   };
 
   const renderTable = () => {
+    if (status === StatusTypes.ERROR) {
+      return <div data-testid="error-message">Error!</div>;
+    }
+
     if (status !== StatusTypes.SUCCESS) {
       return <FileListTableSkeleton />;
     }

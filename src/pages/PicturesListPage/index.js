@@ -1,6 +1,4 @@
 import ImageList from './ImageList';
-import { useParams } from 'react-router';
-import { unhashRemotePath } from 'utils/remote-paths-url';
 import Header from '../../components/Breadcrumbs';
 import { Link } from 'react-router-dom';
 import useFileViewer from 'hooks/useFileViewer';
@@ -8,13 +6,11 @@ import { useEffect, useState } from 'react';
 import useRCloneClient from 'hooks/useRCloneClient';
 import { StatusTypes } from 'utils/constants';
 import ImageListSkeleton from './ImageListSkeleton';
+import useRemotePathParams from 'hooks/useRemotePathParams';
 
 export default function PicturesListPage() {
-  const { id } = useParams();
+  const { remote, path } = useRemotePathParams();
   const fileViewer = useFileViewer();
-
-  const remotePath = unhashRemotePath(id);
-  const [remote, path] = remotePath.split(':');
 
   const rCloneClient = useRCloneClient();
   const [status, setStatus] = useState();

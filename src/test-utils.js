@@ -1,7 +1,7 @@
-import { RCloneInfoStateProvider } from 'contexts/RCloneInfoStore';
-import { initialState as initialState1 } from 'contexts/RCloneInfoStore';
 import { FileViewerProvider } from 'contexts/FileViewerStore';
-import { initialState as initialState2 } from 'contexts/FileViewerStore';
+import { initialState as initialState1 } from 'contexts/FileViewerStore';
+import { RCloneInfoStateProvider } from 'contexts/RCloneInfoStore';
+import { initialState as initialState2 } from 'contexts/RCloneInfoStore';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';

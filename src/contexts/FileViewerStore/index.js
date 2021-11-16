@@ -14,7 +14,7 @@ const initialState = {
 const store = createContext(initialState);
 const { Provider } = store;
 
-const FileViewerProvider = ({ children, defaultState }) => {
+const FileViewerProvider = ({ children, defaultState = initialState }) => {
   const [state, dispatch] = useReducer(reducer, defaultState);
 
   return <Provider value={{ state, dispatch }}>{children}</Provider>;
