@@ -1,4 +1,4 @@
-import LazyImage from '../../components/LazyImage';
+import LazyImage from 'components/LazyImage';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList } from 'react-window';
 import './ImageList.scss';
@@ -32,14 +32,20 @@ export default function ImageList({ images, remote, onImageClicked }) {
     ({ index, style }) => {
       const selectedImages = [];
 
-      for (let i = 0; i < numImagesPerRow; i++) {
+      let i = 0;
+      while (i < numImagesPerRow && numImagesPerRow * index + i < parsedImages.length) {
         selectedImages.push(parsedImages[numImagesPerRow * index + i]);
+        i += 1;
       }
 
       return (
         <div className="imagelist__row" style={style}>
           {selectedImages.map((selectedImage) => (
-            <div key={selectedImage.fileName} onClick={handleImageClicked(selectedImage)}>
+            <div
+              key={selectedImage.fileName}
+              onClick={handleImageClicked(selectedImage)}
+              data-testid={selectedImage.fileName}
+            >
               <LazyImage image={selectedImage} width={width} height={height} />
             </div>
           ))}

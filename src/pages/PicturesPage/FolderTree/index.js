@@ -16,7 +16,7 @@ export default function FolderTree({ remotes, onFolderSelect }) {
       onNodeSelect={handleNodeSelect}
     >
       {remotes.map((remote) => (
-        <FolderTreeItem remote={remote} curPath="" label={remote} />
+        <FolderTreeItem remote={remote} curPath="" label={remote} key={remote} />
       ))}
     </TreeView>
   );

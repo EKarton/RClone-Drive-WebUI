@@ -8,8 +8,8 @@ import { StatusTypes } from 'utils/constants';
 export default function FolderTreeItem({ remote, curPath, label }) {
   const rCloneClient = useRCloneClient();
 
-  const [status, setStatus] = useState(StatusTypes.LOADING);
-  const [subFolders, setSubFolders] = useState(undefined);
+  const [status, setStatus] = useState(null);
+  const [subFolders, setSubFolders] = useState();
   const [error, setError] = useState(null);
 
   const [isExpanded, setIsExpanded] = useState(false);
@@ -17,8 +17,8 @@ export default function FolderTreeItem({ remote, curPath, label }) {
   useEffect(() => {
     const fetchFolders = async () => {
       try {
-        setError(null);
         setStatus(StatusTypes.LOADING);
+        setError(null);
 
         const data = await rCloneClient.fetchSubFolders(remote, curPath);
 
@@ -26,6 +26,7 @@ export default function FolderTreeItem({ remote, curPath, label }) {
         setStatus(StatusTypes.SUCCESS);
       } catch (err) {
         setError(err);
+        setStatus(StatusTypes.ERROR);
       }
     };
 
@@ -39,7 +40,7 @@ export default function FolderTreeItem({ remote, curPath, label }) {
   };
 
   const renderSubFolders = () => {
-    if (!isExpanded) {
+    if (!isExpanded || !status) {
       return <div />;
     }
 
@@ -48,7 +49,7 @@ export default function FolderTreeItem({ remote, curPath, label }) {
     }
 
     if (status === StatusTypes.ERROR) {
-      return <div>Error! {error}</div>;
+      return <div>Error!</div>;
     }
 
     if (subFolders.length === 0) {
@@ -56,7 +57,12 @@ export default function FolderTreeItem({ remote, curPath, label }) {
     }
 
     return subFolders.map((subFolder) => (
-      <FolderTreeItem remote={remote} curPath={subFolder.Path} label={subFolder.Name} />
+      <FolderTreeItem
+        remote={remote}
+        curPath={subFolder.Path}
+        label={subFolder.Name}
+        key={subFolder.Name}
+      />
     ));
   };
 

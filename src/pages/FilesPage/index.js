@@ -17,11 +17,9 @@ export default function FilesPage() {
     const fetchData = async () => {
       try {
         const data = await rCloneClient.fetchRemotes();
-        // console.error(rCloneClient, data);
 
         setRemotes(data);
       } catch (error) {
-        // console.error(error);
         setError(error);
       }
     };

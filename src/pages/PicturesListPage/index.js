@@ -13,7 +13,7 @@ export default function PicturesListPage() {
   const fileViewer = useFileViewer();
 
   const rCloneClient = useRCloneClient();
-  const [status, setStatus] = useState();
+  const [status, setStatus] = useState(StatusTypes.LOADING);
   const [error, setError] = useState();
   const [data, setData] = useState([]);
 
@@ -38,11 +38,15 @@ export default function PicturesListPage() {
 
   const renderImageList = () => {
     if (status === StatusTypes.LOADING) {
-      return <ImageListSkeleton />;
+      return (
+        <div data-testid="imagelistskeleton">
+          <ImageListSkeleton />
+        </div>
+      );
     }
 
     if (status === StatusTypes.ERROR) {
-      return <div>Error! {error}</div>;
+      return <div>Error!</div>;
     }
 
     const handleImageClicked = (image) => {
@@ -50,7 +54,9 @@ export default function PicturesListPage() {
     };
 
     return (
-      <ImageList images={data} remote={remote} onImageClicked={handleImageClicked} />
+      <div data-testid="imagelist">
+        <ImageList images={data} remote={remote} onImageClicked={handleImageClicked} />
+      </div>
     );
   };
 

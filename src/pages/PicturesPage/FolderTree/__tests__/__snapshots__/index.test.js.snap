@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FolderTree should match snapshot given list of remotes 1`] = `
+<body>
+  <div>
+    <ul
+      aria-label="file tree navigator"
+      aria-multiselectable="false"
+      class="MuiTreeView-root css-161j9ok-MuiTreeView-root"
+      role="tree"
+      tabindex="0"
+    >
+      <li
+        class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+        data-testid="googledrive"
+        role="treeitem"
+        tabindex="-1"
+      >
+        <div
+          class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+        >
+          <div
+            class="MuiTreeItem-iconContainer"
+          />
+          <div
+            class="MuiTreeItem-label"
+          >
+            googledrive
+          </div>
+        </div>
+      </li>
+      <li
+        class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+        data-testid="onedrive"
+        role="treeitem"
+        tabindex="-1"
+      >
+        <div
+          class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+        >
+          <div
+            class="MuiTreeItem-iconContainer"
+          />
+          <div
+            class="MuiTreeItem-label"
+          >
+            onedrive
+          </div>
+        </div>
+      </li>
+      <li
+        class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+        data-testid="icloud"
+        role="treeitem"
+        tabindex="-1"
+      >
+        <div
+          class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+        >
+          <div
+            class="MuiTreeItem-iconContainer"
+          />
+          <div
+            class="MuiTreeItem-label"
+          >
+            icloud
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</body>
+`;

@@ -6,8 +6,8 @@ import { Skeleton } from '@mui/material';
 export default function ImageListSkeleton() {
   const renderRow = (numImagesPerRow, style) => (
     <div className="imagelist-skeleton__row" style={style}>
-      {Array.from({ length: numImagesPerRow }, () => (
-        <Skeleton variant="rectangular" className="imagelist-skeleton__img" />
+      {Array.from({ length: numImagesPerRow }, (_, i) => (
+        <Skeleton key={i} variant="rectangular" className="imagelist-skeleton__img" />
       ))}
     </div>
   );
