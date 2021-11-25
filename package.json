@@ -70,8 +70,20 @@
       "^react-pdf/dist/umd/entry.webpack$": "react-pdf"
     },
     "coveragePathIgnorePatterns": [
-      "<rootDir>/index.js",
-      "<rootDir>/reportWebVitals.js"
-    ]
+      "<rootDir>/src/index.js",
+      "<rootDir>/src/reportWebVitals.js"
+    ],
+    "coverageReporters": [
+      "text",
+      "html"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
   }
 }
