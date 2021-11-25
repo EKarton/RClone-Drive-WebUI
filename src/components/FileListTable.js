@@ -4,8 +4,8 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import ImageIcon from '@mui/icons-material/Image';
 import Icon from '@mui/material/Icon';
 import { Table } from 'semantic-ui-react';
-import './FileListTable.scss';
 import { ICON_SIZE } from 'utils/constants';
+import './FileListTable.scss';
 
 export default function FileListTable({ files, iconSize, onFileClicked }) {
   const renderTableRow = (file) => {
@@ -14,9 +14,13 @@ export default function FileListTable({ files, iconSize, onFileClicked }) {
     };
 
     return (
-      <Table.Row>
+      <Table.Row key={file.name}>
         <Table.Cell>
-          <div className="filelist-table__file-cell" onClick={handleFileClicked}>
+          <div
+            className="filelist-table__file-cell"
+            onClick={handleFileClicked}
+            data-testid={file.name}
+          >
             {renderFileIcon(file)}
             <div>{file.name}</div>
           </div>
@@ -48,7 +52,7 @@ export default function FileListTable({ files, iconSize, onFileClicked }) {
   };
 
   return (
-    <Table striped>
+    <Table striped data-testid="fileslisttable">
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell>Name</Table.HeaderCell>
@@ -73,6 +77,7 @@ FileListTable.propType = {
       size: PropTypes.string,
       isDirectory: PropTypes.bool.isRequired,
       isImage: PropTypes.bool.isRequired,
+      preview: PropTypes.node,
     })
   ),
   iconSize: PropTypes.oneOf(Object.values(ICON_SIZE)),

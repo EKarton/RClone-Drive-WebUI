@@ -38,12 +38,14 @@ export default function GlobalNavBar({ isExpanded }) {
         root: cx('global-navbar', {
           'global-navbar--expanded': isExpanded,
         }),
-        paper: 'global-navbar__paper',
+        paper: cx('global-navbar__paper', {
+          'global-navbar__paper--expanded': isExpanded,
+        }),
       }}
     >
       <List>
         {NavigationOptions.map(({ key, text, icon, redirectUrl }) => (
-          <Link className="global-navbar__link" to={redirectUrl}>
+          <Link key={key} className="global-navbar__link" to={redirectUrl}>
             <ListItem button key={key} selected={location.pathname.includes(redirectUrl)}>
               <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText className="global-navbar__listitem-text" primary={text} />

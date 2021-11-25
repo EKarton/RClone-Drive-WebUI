@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileListTableSkeleton should match snapshot 1`] = `
+<body>
+  <div>
+    <table
+      class="ui striped table"
+      data-testid="fileslisttableskeleton"
+    >
+      <thead
+        class=""
+      >
+        <tr
+          class=""
+        >
+          <th
+            class=""
+          >
+            Name
+          </th>
+          <th
+            class=""
+          >
+            Date Modified
+          </th>
+          <th
+            class=""
+          >
+            File Size
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        class=""
+      >
+        <tr
+          class=""
+        >
+          <td
+            class=""
+            colspan="3"
+          >
+            <span
+              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
+            />
+          </td>
+        </tr>
+        <tr
+          class=""
+        >
+          <td
+            class=""
+            colspan="3"
+          >
+            <span
+              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
+            />
+          </td>
+        </tr>
+        <tr
+          class=""
+        >
+          <td
+            class=""
+            colspan="3"
+          >
+            <span
+              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
+            />
+          </td>
+        </tr>
+        <tr
+          class=""
+        >
+          <td
+            class=""
+            colspan="3"
+          >
+            <span
+              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
+            />
+          </td>
+        </tr>
+        <tr
+          class=""
+        >
+          <td
+            class=""
+            colspan="3"
+          >
+            <span
+              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+`;

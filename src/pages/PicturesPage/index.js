@@ -51,21 +51,20 @@ export default function PicturesPage() {
 
   return (
     <div className="filespage">
-      {isDialogOpen && (
-        <FolderBrowserDialog
-          title={renderFolderDialogTitle()}
-          remotes={[selectedRemote]}
-          open={isDialogOpen}
-          onCancel={handleFolderDialogCancelled}
-          onOk={handleFolderDialogSelected}
-        />
-      )}
+      <FolderBrowserDialog
+        title={renderFolderDialogTitle()}
+        remotes={[selectedRemote]}
+        open={isDialogOpen}
+        onCancel={handleFolderDialogCancelled}
+        onOk={handleFolderDialogSelected}
+      />
       {remotes.sort().map((remote) => (
-        <div>
+        <div key={remote}>
           <Button
             variant="outlined"
             startIcon={<StorageIcon />}
             onClick={handleButtonClick(remote)}
+            data-testid={remote}
           >
             {remote}
           </Button>

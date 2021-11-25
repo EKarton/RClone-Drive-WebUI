@@ -1,6 +1,6 @@
-import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
+import { Document, Page } from 'react-pdf/dist/umd/entry.webpack';
 import { useState } from 'react';
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+import 'react-pdf/dist/umd/Page/AnnotationLayer.css';
 
 export default function PDFDialogContent({ fileUrl }) {
   const [hasLoaded, setHasLoaded] = useState(false);

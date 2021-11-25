@@ -1,44 +1,9 @@
-import LazyImage from '../../components/LazyImage';
-import { useEffect, useState } from 'react';
-import useRCloneClient from 'hooks/useRCloneClient';
+import LazyImage from 'components/LazyImage';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList } from 'react-window';
-import { StatusTypes } from 'utils/constants';
 import './ImageList.scss';
 
-export default function ImageList({ remote, rootPath, onImageClicked }) {
-  const rCloneClient = useRCloneClient();
-  const [status, setStatus] = useState();
-  const [error, setError] = useState();
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setStatus(StatusTypes.LOADING);
-        setError(null);
-
-        const data = await rCloneClient.fetchPictures(remote, rootPath);
-
-        setStatus(StatusTypes.SUCCESS);
-        setData(data);
-      } catch (err) {
-        setStatus(StatusTypes.ERROR);
-        setError(err);
-      }
-    };
-
-    fetchData();
-  }, [rCloneClient, remote, rootPath]);
-
-  if (status === StatusTypes.LOADING) {
-    return null;
-  }
-
-  if (status === StatusTypes.ERROR) {
-    return <div>Error! {error}</div>;
-  }
-
+export default function ImageList({ images, remote, onImageClicked }) {
   const parseImageInfo = (fileName) => {
     const year = parseInt(fileName.substring(0, 4));
     const month = parseInt(fileName.substring(4, 6));
@@ -47,7 +12,7 @@ export default function ImageList({ remote, rootPath, onImageClicked }) {
     return { year, month, day };
   };
 
-  const images = data
+  const parsedImages = images
     .map((item) => {
       const filePath = item.Path;
       const fileName = item.Name;
@@ -67,14 +32,20 @@ export default function ImageList({ remote, rootPath, onImageClicked }) {
     ({ index, style }) => {
       const selectedImages = [];
 
-      for (let i = 0; i < numImagesPerRow; i++) {
-        selectedImages.push(images[numImagesPerRow * index + i]);
+      let i = 0;
+      while (i < numImagesPerRow && numImagesPerRow * index + i < parsedImages.length) {
+        selectedImages.push(parsedImages[numImagesPerRow * index + i]);
+        i += 1;
       }
 
       return (
         <div className="imagelist__row" style={style}>
           {selectedImages.map((selectedImage) => (
-            <div onClick={handleImageClicked(selectedImage)}>
+            <div
+              key={selectedImage.fileName}
+              onClick={handleImageClicked(selectedImage)}
+              data-testid={selectedImage.fileName}
+            >
               <LazyImage image={selectedImage} width={width} height={height} />
             </div>
           ))}

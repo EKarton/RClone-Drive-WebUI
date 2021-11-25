@@ -42,9 +42,11 @@ const LoginPage = () => {
     }
   };
 
+  const hasError = error !== null;
+
   const cardSubHeader = (
     <span className={cx({ 'login-page__card-subheader--red': error })}>
-      {error ? error.message : 'Enter your RClone info to get started'}
+      {hasError ? error?.message : 'Enter your RClone info to get started'}
     </span>
   );
 
@@ -60,7 +62,8 @@ const LoginPage = () => {
             placeholder="Ex: http://localhost:5572"
             className="login-page__text-field"
             onChange={handleTextEntered(setEndpoint)}
-            error={error}
+            error={hasError}
+            inputProps={{ 'data-testid': 'endpoint-field' }}
           />
           <TextField
             required
@@ -68,19 +71,22 @@ const LoginPage = () => {
             variant="outlined"
             className="login-page__text-field"
             onChange={handleTextEntered(setUsername)}
-            error={error}
+            error={hasError}
+            inputProps={{ 'data-testid': 'username-field' }}
           />
           <TextField
             required
             label="Password"
             variant="outlined"
+            type="password"
             className="login-page__text-field"
             onChange={handleTextEntered(setPassword)}
-            error={error}
+            error={hasError}
+            inputProps={{ 'data-testid': 'password-field' }}
           />
         </CardContent>
         <CardActions>
-          <Button variant="contained" onClick={handleLogin}>
+          <Button variant="contained" onClick={handleLogin} data-testid="login-button">
             Login
           </Button>
         </CardActions>

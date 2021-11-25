@@ -1,11 +1,12 @@
 import { useContext } from 'react';
-import { store } from 'store/FileViewerStore';
-import { actionTypes } from 'store/FileViewerStore';
+import { store as defaultStore } from 'contexts/FileViewerStore';
+import { actionTypes } from 'contexts/FileViewerStore';
 
-export default function useFileViewer() {
-  const { dispatch } = useContext(store);
+export default function useFileViewer(store = defaultStore) {
+  const { state, dispatch } = useContext(store);
 
   return {
+    ...state,
     show: (fileInfo) => {
       dispatch({ type: actionTypes.SET_FILE_INFO, payload: fileInfo });
       dispatch({ type: actionTypes.SHOW_DIALOG });

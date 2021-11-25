@@ -6,7 +6,7 @@ module.exports = {
   extends: ['react-app', 'react-app/jest', 'plugin:prettier/recommended'],
   plugins: ['prettier'],
   rules: {
-    'no-unused-vars': 'error',
+    'no-unused-vars': 'warn',
     'no-console': ['error', { allow: ['warn', 'error'] }],
   },
 };

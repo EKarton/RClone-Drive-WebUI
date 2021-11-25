@@ -9,7 +9,7 @@
     "build": "react-scripts build",
     "lint": "eslint 'src/**/*.js' && stylelint 'src/**/*.scss' && prettier --check .",
     "lint:fix": "eslint --fix 'src/**/*.js' && stylelint --fix 'src/**/*.scss' && prettier --write .",
-    "test": "react-scripts test"
+    "test": "react-scripts test --watchAll=false --coverage"
   },
   "dependencies": {
     "@emotion/react": "^11.5.0",
@@ -17,11 +17,10 @@
     "@mui/icons-material": "^5.0.4",
     "@mui/lab": "^5.0.0-alpha.53",
     "@mui/material": "^5.0.4",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "axios": "^0.23.0",
     "classnames": "^2.3.1",
+    "file-saver": "^2.0.5",
+    "lru-cache": "^6.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -39,15 +38,20 @@
     "yarn": "^1.22.17"
   },
   "devDependencies": {
-    "lint-staged": "^11.2.6",
-    "stylelint": "^13.12.0",
-    "stylelint-config-standard": "^21.0.0",
     "@commitlint/cli": "^14.1.0",
     "@commitlint/config-conventional": "^14.1.0",
+    "@testing-library/dom": "^8.11.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/user-event": "^13.5.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.4",
-    "prettier": "^2.4.1"
+    "lint-staged": "^11.2.6",
+    "prettier": "^2.4.1",
+    "stylelint": "^13.12.0",
+    "stylelint-config-standard": "^21.0.0"
   },
   "browserslist": {
     "production": [
@@ -60,5 +64,26 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^react-pdf/dist/umd/entry.webpack$": "react-pdf"
+    },
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/index.js",
+      "<rootDir>/src/reportWebVitals.js"
+    ],
+    "coverageReporters": [
+      "text",
+      "html"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
   }
 }

@@ -8,9 +8,6 @@ export default function reducer(state, action) {
     case actionTypes.SHOW_DIALOG: {
       return { ...state, isOpen: true };
     }
-    case actionTypes.SET_DIALOG_VISIBILITY: {
-      return { ...state, isOpen: action.payload };
-    }
     case actionTypes.SET_FILE_INFO: {
       return { ...state, fileInfo: action.payload };
     }

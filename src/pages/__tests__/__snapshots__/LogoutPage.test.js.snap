@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LogoutPage should render page correctly, clearRCloneInfo(), redirect user to home page 1`] = `
+<body>
+  <div>
+    <div>
+      Logging out...
+    </div>
+  </div>
+</body>
+`;

@@ -1,0 +1,366 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FolderTreeItem should make api calls match snapshots when user clicks on subfolders 1`] = `
+<body>
+  <div>
+    <ul
+      aria-multiselectable="false"
+      class="MuiTreeView-root css-161j9ok-MuiTreeView-root"
+      role="tree"
+      tabindex="0"
+    >
+      <li
+        aria-expanded="false"
+        class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+        role="treeitem"
+        tabindex="-1"
+      >
+        <div
+          class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+        >
+          <div
+            class="MuiTreeItem-iconContainer"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ChevronRightIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+              />
+            </svg>
+          </div>
+          <div
+            class="MuiTreeItem-label"
+          >
+            /
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</body>
+`;
+
+exports[`FolderTreeItem should make api calls match snapshots when user clicks on subfolders 2`] = `
+<body>
+  <div>
+    <ul
+      aria-multiselectable="false"
+      class="MuiTreeView-root css-161j9ok-MuiTreeView-root"
+      role="tree"
+      tabindex="0"
+    >
+      <li
+        aria-expanded="true"
+        aria-selected="true"
+        class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+        role="treeitem"
+        tabindex="-1"
+      >
+        <div
+          class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content Mui-expanded Mui-selected Mui-focused"
+        >
+          <div
+            class="MuiTreeItem-iconContainer"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </div>
+          <div
+            class="MuiTreeItem-label"
+          >
+            /
+          </div>
+        </div>
+        <ul
+          class="MuiCollapse-root MuiCollapse-vertical MuiTreeItem-group css-riv8k6-MuiCollapse-root-MuiTreeItem-group"
+          role="group"
+          style="min-height: 0px; height: 0px; transition-duration: 300ms;"
+        >
+          <div
+            class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
+          >
+            <div
+              class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
+            >
+              <li
+                aria-expanded="false"
+                class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+                role="treeitem"
+                tabindex="-1"
+              >
+                <div
+                  class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+                >
+                  <div
+                    class="MuiTreeItem-iconContainer"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      data-testid="ChevronRightIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="MuiTreeItem-label"
+                  >
+                    .rclone
+                  </div>
+                </div>
+              </li>
+              <li
+                aria-expanded="false"
+                class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+                role="treeitem"
+                tabindex="-1"
+              >
+                <div
+                  class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+                >
+                  <div
+                    class="MuiTreeItem-iconContainer"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      data-testid="ChevronRightIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="MuiTreeItem-label"
+                  >
+                    Documents
+                  </div>
+                </div>
+              </li>
+            </div>
+          </div>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</body>
+`;
+
+exports[`FolderTreeItem should make api calls match snapshots when user clicks on subfolders 3`] = `
+<body>
+  <div>
+    <ul
+      aria-multiselectable="false"
+      class="MuiTreeView-root css-161j9ok-MuiTreeView-root"
+      role="tree"
+      tabindex="0"
+    >
+      <li
+        aria-expanded="true"
+        class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+        role="treeitem"
+        tabindex="-1"
+      >
+        <div
+          class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content Mui-expanded"
+        >
+          <div
+            class="MuiTreeItem-iconContainer"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </div>
+          <div
+            class="MuiTreeItem-label"
+          >
+            /
+          </div>
+        </div>
+        <ul
+          class="MuiCollapse-root MuiCollapse-vertical MuiTreeItem-group css-riv8k6-MuiCollapse-root-MuiTreeItem-group"
+          role="group"
+          style="min-height: 0px; height: 0px; transition-duration: 300ms;"
+        >
+          <div
+            class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
+          >
+            <div
+              class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
+            >
+              <li
+                aria-expanded="false"
+                class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+                role="treeitem"
+                tabindex="-1"
+              >
+                <div
+                  class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+                >
+                  <div
+                    class="MuiTreeItem-iconContainer"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      data-testid="ChevronRightIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="MuiTreeItem-label"
+                  >
+                    .rclone
+                  </div>
+                </div>
+              </li>
+              <li
+                aria-expanded="true"
+                aria-selected="true"
+                class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+                role="treeitem"
+                tabindex="-1"
+              >
+                <div
+                  class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content Mui-expanded Mui-selected Mui-focused"
+                >
+                  <div
+                    class="MuiTreeItem-iconContainer"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                      data-testid="ExpandMoreIcon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="MuiTreeItem-label"
+                  >
+                    Documents
+                  </div>
+                </div>
+                <ul
+                  class="MuiCollapse-root MuiCollapse-vertical MuiTreeItem-group css-riv8k6-MuiCollapse-root-MuiTreeItem-group"
+                  role="group"
+                  style="min-height: 0px; height: 0px; transition-duration: 300ms;"
+                >
+                  <div
+                    class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
+                  >
+                    <div
+                      class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
+                    >
+                      <li
+                        aria-expanded="false"
+                        class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+                        role="treeitem"
+                        tabindex="-1"
+                      >
+                        <div
+                          class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+                        >
+                          <div
+                            class="MuiTreeItem-iconContainer"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                              data-testid="ChevronRightIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="MuiTreeItem-label"
+                          >
+                            Work
+                          </div>
+                        </div>
+                      </li>
+                      <li
+                        aria-expanded="false"
+                        class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+                        role="treeitem"
+                        tabindex="-1"
+                      >
+                        <div
+                          class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+                        >
+                          <div
+                            class="MuiTreeItem-iconContainer"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                              data-testid="ChevronRightIcon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="MuiTreeItem-label"
+                          >
+                            Personal
+                          </div>
+                        </div>
+                      </li>
+                    </div>
+                  </div>
+                </ul>
+              </li>
+            </div>
+          </div>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</body>
+`;
