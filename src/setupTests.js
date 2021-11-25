@@ -8,5 +8,12 @@ import '@testing-library/jest-dom';
 global.URL.createObjectURL = jest.fn();
 global.URL.revokeObjectURL = jest.fn();
 
-// Mock auto-generated IDs
+// Mock auto-generated IDs from MUI Material components
 jest.mock('@mui/utils/useId', () => jest.fn().mockReturnValue('mui-test-id'));
+
+// Mock local storage
+global.localStorage = {
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  clear: jest.fn(),
+};

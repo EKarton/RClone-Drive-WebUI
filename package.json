@@ -68,6 +68,10 @@
   "jest": {
     "moduleNameMapper": {
       "^react-pdf/dist/umd/entry.webpack$": "react-pdf"
-    }
+    },
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/index.js",
+      "<rootDir>/reportWebVitals.js"
+    ]
   }
 }
