@@ -1,4 +1,4 @@
-import { customRender } from 'test-utils';
+import { customRender } from 'test-utils/react';
 import LandingPage from '../LandingPage';
 
 describe('LandingPage', () => {

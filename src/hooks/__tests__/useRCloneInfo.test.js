@@ -1,6 +1,6 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 import { RCloneInfoStateProvider } from 'contexts/RCloneInfoStore';
-import { waitFor } from 'test-utils';
+import { waitFor } from 'test-utils/react';
 import useRCloneInfo from '../useRCloneInfo';
 
 describe('useRCloneInfo', () => {

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { customRender } from 'test-utils';
+import { customRender } from 'test-utils/react';
 import Breadcrumb from '../Breadcrumbs';
 
 describe('Breadcrumbs', () => {

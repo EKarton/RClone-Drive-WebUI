@@ -1,7 +1,7 @@
 import useRCloneClient from 'hooks/useRCloneClient';
 import PicturesPage from 'pages/PicturesPage';
-import { customRender, userEvent, waitFor } from 'test-utils';
-import { mockRemotes } from 'utils/mock-files';
+import { customRender, userEvent, waitFor } from 'test-utils/react';
+import { mockRemotes } from 'test-utils/mock-responses';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import FolderBrowserDialog from '../FolderBrowserDialog';
 

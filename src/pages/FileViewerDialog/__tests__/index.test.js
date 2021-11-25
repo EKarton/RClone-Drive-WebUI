@@ -1,6 +1,6 @@
 import FileSaver from 'file-saver';
 import useRCloneClient from 'hooks/useRCloneClient';
-import { customRender, waitFor, userEvent } from 'test-utils';
+import { customRender, waitFor, userEvent } from 'test-utils/react';
 import PDFDialogContent from '../PDFDialogContent';
 import FileViewerDialog from '..';
 

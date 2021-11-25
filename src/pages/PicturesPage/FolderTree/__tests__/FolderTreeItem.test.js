@@ -1,6 +1,6 @@
 import { TreeView } from '@mui/lab';
 import useRCloneClient from 'hooks/useRCloneClient';
-import { customRender, fireEvent, screen, waitFor } from 'test-utils';
+import { customRender, fireEvent, screen, waitFor } from 'test-utils/react';
 import FolderTreeItem from '../FolderTreeItem';
 
 jest.mock('hooks/useRCloneClient');

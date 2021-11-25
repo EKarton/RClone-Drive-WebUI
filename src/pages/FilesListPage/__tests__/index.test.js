@@ -1,8 +1,8 @@
 import useFileViewer from 'hooks/useFileViewer';
 import useRCloneClient from 'hooks/useRCloneClient';
 import { Route } from 'react-router';
-import { customRender, userEvent, waitFor } from 'test-utils';
-import { mockFiles } from 'utils/mock-files';
+import { customRender, userEvent, waitFor } from 'test-utils/react';
+import { mockFiles } from 'test-utils/mock-responses';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import FilesListPage from '..';
 

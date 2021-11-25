@@ -1,4 +1,4 @@
-import { render, userEvent } from 'test-utils';
+import { render, userEvent } from 'test-utils/react';
 import { ICON_SIZE } from 'utils/constants';
 import FileListTable from 'components/FileListTable';
 

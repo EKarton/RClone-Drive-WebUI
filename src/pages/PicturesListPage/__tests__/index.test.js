@@ -2,8 +2,8 @@ import ImageList from '../ImageList';
 import useFileViewer from 'hooks/useFileViewer';
 import useRCloneClient from 'hooks/useRCloneClient';
 import { Route } from 'react-router';
-import { customRender, waitFor } from 'test-utils';
-import { mockPictures } from 'utils/mock-files';
+import { customRender, waitFor } from 'test-utils/react';
+import { mockPictures } from 'test-utils/mock-responses';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import PicturesListPage from '..';
 

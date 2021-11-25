@@ -1,4 +1,4 @@
-import { customRender, userEvent } from 'test-utils';
+import { customRender, userEvent } from 'test-utils/react';
 import GlobalAppBar from 'components/GlobalAppBar';
 
 describe('GlobalAppBar', () => {

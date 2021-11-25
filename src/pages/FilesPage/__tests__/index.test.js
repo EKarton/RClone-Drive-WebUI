@@ -1,5 +1,5 @@
 import useRCloneClient from 'hooks/useRCloneClient';
-import { customRender, userEvent, waitFor } from 'test-utils';
+import { customRender, userEvent, waitFor } from 'test-utils/react';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import FilesPage from '..';
 

@@ -3,7 +3,7 @@ import MainApp from 'apps/MainApp';
 import LandingPage from 'pages/LandingPage';
 import LoginPage from 'pages/LoginPage';
 import LogoutPage from 'pages/LogoutPage';
-import { customRender } from 'test-utils';
+import { customRender } from 'test-utils/react';
 import { AuthenticatedPaths } from 'utils/constants';
 
 jest.mock('pages/LandingPage');

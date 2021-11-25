@@ -1,5 +1,5 @@
-import { customRender, userEvent } from 'test-utils';
-import { mockPictures } from 'utils/mock-files';
+import { customRender, userEvent } from 'test-utils/react';
+import { mockPictures } from 'test-utils/mock-responses';
 import ImageList from '../ImageList';
 
 jest.mock('components/LazyImage', () => () => null);

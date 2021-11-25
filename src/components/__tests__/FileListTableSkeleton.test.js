@@ -1,4 +1,4 @@
-import { render } from 'test-utils';
+import { render } from 'test-utils/react';
 import FileListTableSkeleton from '../FileListTableSkeleton';
 
 describe('FileListTableSkeleton', () => {

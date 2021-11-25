@@ -1,6 +1,6 @@
 const { default: Image } = require('components/Image');
 const { default: useImageFetcher } = require('hooks/useImageFetcher');
-const { customRender, waitFor } = require('test-utils');
+const { customRender, waitFor } = require('test-utils/react');
 
 jest.mock('hooks/useImageFetcher');
 

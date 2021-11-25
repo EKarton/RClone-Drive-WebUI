@@ -4,7 +4,7 @@ import FilesPage from 'pages/FilesPage';
 import PicturesListPage from 'pages/PicturesListPage';
 import PicturesPage from 'pages/PicturesPage';
 import FileViewerDialog from 'pages/FileViewerDialog';
-import { act, customRender } from 'test-utils';
+import { act, customRender } from 'test-utils/react';
 import GlobalAppBar from 'components/GlobalAppBar';
 import GlobalNavBar from 'components/GlobalNavBar';
 

@@ -1,4 +1,4 @@
-import { customRender } from 'test-utils';
+import { customRender } from 'test-utils/react';
 import GlobalNavBar from '../GlobalNavBar';
 
 describe('GlobalNavBar', () => {
