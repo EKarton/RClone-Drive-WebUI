@@ -1,98 +1,51 @@
-# Getting Started with Create React App
+# RClone Drive Web UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Description:
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-```
-rclone --config ~/.rclone/rclone-archives-readonly.conf rcd --rc-allow-origin '*' --rc-user='local' --rc-pass="1234" --rc-serve
-```
-
-rclone --config ~/.rclone/rclone-archives-readonly.conf rcd --rc-web-gui
-
-npm install @mui/material
-
-{
-"compilerOptions": {
-"baseUrl": "rc"
-},
-"include": ["src"]
-}
-
-http://localhost:3000/files/Z29vZ2xlZHJpdmUtbWFpbi1lbmNyeXB0ZWQ6Lw==
-
-http://localhost:5572/[googledrive-main-encrypted:Pictures/2018/Salesforce%20Internship/August/FutureForce%20Santa%20Cruz]/20180809_122613.jpg
-
-Features:
+The RClone Drive Web UI helps RClone users see and move their files between different cloud providers with an easy-to-use interface via a web browser. More particularly, it has the ability to:
 
 - [x] Navigate through the directories and files
-- [x] See images and PDFs in detail
-- [x] View list of all pictures recursively under a directory and a remote
+- [x] See images and files in detail
+- [x] View all pictures recursively under a directory and a remote
 - [ ] Search for files and images across remotes
 - [ ] Copy and move files to / from remotes
 - [ ] Delete files
+
+The RClone Drive Web UI is a front-end project that interfaces with RClone's `RCD` http client. It is built using [React](), [React Context]() and [MUI Material]().
+
+### Walkthrough:
+
+### Setup / Installation
+
+1. Install dependencies by running `yarn install`
+2. Start your RClone instance by running:
+
+   ```
+   rclone rcd --rc-allow-origin '*' --rc-user='local' --rc-pass="1234" --rc-serve
+   ```
+
+   More info is at the [RClone docs](https://rclone.org/commands/rclone_rcd/)
+
+3. Run this app in development mode by running `yarn start`. It should open a web browser on `localhost:3000`
+
+### Useful Scripts:
+
+1. `yarn test`
+
+   Runs all test cases
+
+2. `yarn build`
+
+   Builds the app in production mode
+
+### Usage:
+
+Please note that this project is used for educational purposes and is not intended to be used commercially. We are not liable for any damages/changes done by this project.
+
+### Credits:
+
+Emilio Kartono, who made the entire project
+
+### License:
+
+This project is protected under the GNU licence. Please refer to the LICENSE.txt for more information.
