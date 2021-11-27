@@ -21,7 +21,7 @@ export default function RemoteCard({ remote, onClick, ...props }) {
       return 'Unable to get remote details';
     }
 
-    return `${infoResult.data?.type}`;
+    return `Type: ${infoResult.data?.type}`;
   };
 
   const renderSpaceUsed = () => {
