@@ -11,7 +11,7 @@ The RClone Drive Web UI helps RClone users see and move their files between diff
 - [ ] Copy and move files to / from remotes
 - [ ] Delete files
 
-The RClone Drive Web UI is a front-end project that interfaces with RClone's `RCD` http client. It is built using [React](), [React Context]() and [MUI Material]().
+The RClone Drive Web UI is a front-end project that interfaces with RClone's [Remote Control](https://rclone.org/rc/) http client. It is built using [React](), [React Context]() and [MUI Material]().
 
 ### Walkthrough:
 
@@ -26,7 +26,7 @@ The RClone Drive Web UI is a front-end project that interfaces with RClone's `RC
 
    More info is at the [RClone docs](https://rclone.org/commands/rclone_rcd/)
 
-3. Run this app in development mode by running `yarn start`. It should open a web browser on `localhost:3000`
+3. Run this app in development mode by running `yarn start-dev`. It should open a web browser on `localhost:3000`
 
 ### Useful Scripts:
 

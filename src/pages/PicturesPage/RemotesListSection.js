@@ -1,13 +1,9 @@
 import { useCallback } from 'react';
-import './index.scss';
-import { useHistory } from 'react-router';
-import useFetchRCloneData from 'hooks/useFetchRCloneData';
-import { hashRemotePath } from 'utils/remote-paths-url';
 import RemoteCardList from 'components/RemoteCardList';
+import useFetchRCloneData from 'hooks/useFetchRCloneData';
 import { StatusTypes } from 'utils/constants';
 
-export default function FilesPage() {
-  const history = useHistory();
+export default function RemotesListSection({ onRemoteCardClicked }) {
   const fetchRemotes = useCallback((c) => c.fetchRemotes(), []);
   const remotesResult = useFetchRCloneData(fetchRemotes);
 
@@ -16,11 +12,11 @@ export default function FilesPage() {
   }
 
   if (remotesResult.status === StatusTypes.ERROR) {
-    return <div>{remotesResult.error.message}</div>;
+    return null;
   }
 
   const handleRemoteCardClicked = (remote) => {
-    history.push(`/files/${hashRemotePath(`${remote}:`)}`);
+    onRemoteCardClicked(remote);
   };
 
   return (

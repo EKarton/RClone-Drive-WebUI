@@ -7,10 +7,12 @@ import useRCloneClient from 'hooks/useRCloneClient';
 import { StatusTypes } from 'utils/constants';
 import ImageListSkeleton from './ImageListSkeleton';
 import useRemotePathParams from 'hooks/useRemotePathParams';
+import useRecentlyViewedImages from 'hooks/useRecentlyViewedImages';
 
 export default function PicturesListPage() {
   const { remote, path } = useRemotePathParams();
   const fileViewer = useFileViewer();
+  const recentlyViewedImages = useRecentlyViewedImages();
 
   const rCloneClient = useRCloneClient();
   const [status, setStatus] = useState(StatusTypes.LOADING);
@@ -38,11 +40,7 @@ export default function PicturesListPage() {
 
   const renderImageList = () => {
     if (status === StatusTypes.LOADING) {
-      return (
-        <div data-testid="imagelistskeleton">
-          <ImageListSkeleton />
-        </div>
-      );
+      return <ImageListSkeleton data-testid="imagelistskeleton" />;
     }
 
     if (status === StatusTypes.ERROR) {
@@ -50,13 +48,17 @@ export default function PicturesListPage() {
     }
 
     const handleImageClicked = (image) => {
+      recentlyViewedImages.addImage(image);
       fileViewer.show(image);
     };
 
     return (
-      <div data-testid="imagelist">
-        <ImageList images={data} remote={remote} onImageClicked={handleImageClicked} />
-      </div>
+      <ImageList
+        images={data}
+        remote={remote}
+        onImageClicked={handleImageClicked}
+        data-testid="imagelist"
+      />
     );
   };
 

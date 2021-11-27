@@ -1,0 +1,21 @@
+.recently-viewed-image {
+  height: 144px;
+  width: 100%;
+
+  &__wrapper {
+    display: flex;
+    justify-content: stretch;
+    align-content: stretch;
+    grid-gap: 1rem;
+    overflow: clip;
+  }
+
+  &__img-wrapper {
+    height: 100%;
+    flex-grow: 1;
+  }
+
+  &__img-skeleton {
+    height: 100% !important;
+  }
+}

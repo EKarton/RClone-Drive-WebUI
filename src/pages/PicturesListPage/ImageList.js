@@ -3,7 +3,7 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList } from 'react-window';
 import './ImageList.scss';
 
-export default function ImageList({ images, remote, onImageClicked }) {
+export default function ImageList({ images, remote, onImageClicked, ...otherProps }) {
   const parseImageInfo = (fileName) => {
     const year = parseInt(fileName.substring(0, 4));
     const month = parseInt(fileName.substring(4, 6));
@@ -54,7 +54,7 @@ export default function ImageList({ images, remote, onImageClicked }) {
     };
 
   return (
-    <AutoSizer>
+    <AutoSizer {...otherProps}>
       {({ height, width }) => {
         const numImagesPerRow = width < 1920 ? 3 : 5;
         const imgWidth = Math.floor(width / numImagesPerRow);
