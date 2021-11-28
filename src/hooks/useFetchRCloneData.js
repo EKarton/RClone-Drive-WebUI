@@ -2,6 +2,26 @@ import { useEffect, useReducer } from 'react';
 import { StatusTypes } from 'utils/constants';
 import useRCloneClient from './useRCloneClient';
 
+/**
+ * A custom hook used to get information from RClone
+ * Note:
+ * - You should only use these for READ operations, not WRITE operations
+ * - You should wrap the rCloneClientFn in a useCallback() function to
+ *   prevent an infinite loop of re-renders
+ *
+ * The rCloneClientFn function passes an instance of the RCloneClient
+ * in the parameters
+ *
+ * It returns an object with this shape:
+ * {
+ *    status: StatusTypes.LOADING | StatusTypes.SUCCESS | StatusTypes.ERROR,
+ *    data?: any
+ *    error?: Error
+ * }
+ *
+ * @param {Function} rCloneClientFn a callback function
+ * @returns {object} the result with the shape above
+ */
 const useFetchRCloneData = (rCloneClientFn) => {
   const rCloneClient = useRCloneClient();
 
@@ -46,15 +66,12 @@ function reducer(_state, action) {
         error: null,
       };
 
-    case StatusTypes.ERROR:
+    default:
       return {
         status: StatusTypes.ERROR,
         data: null,
         error: action.payload,
       };
-
-    default:
-      throw new Error(`Unknown type ${action.type}`);
   }
 }
 
