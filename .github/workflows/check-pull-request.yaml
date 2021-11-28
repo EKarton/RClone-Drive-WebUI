@@ -45,8 +45,8 @@ jobs:
       - name: Cache dependencies
         uses: actions/cache@v2
         with:
-          - path: '**/node_modules'
-            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          path: '**/node_modules'
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
         run: yarn install
@@ -69,8 +69,8 @@ jobs:
       - name: Cache dependencies
         uses: actions/cache@v2
         with:
-          - path: '**/node_modules'
-            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          path: '**/node_modules'
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
         run: yarn install
