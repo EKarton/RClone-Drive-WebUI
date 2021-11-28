@@ -10,7 +10,6 @@ export default function FolderTreeItem({ remote, curPath, label }) {
 
   const [status, setStatus] = useState(null);
   const [subFolders, setSubFolders] = useState();
-  const [error, setError] = useState(null);
 
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -18,14 +17,12 @@ export default function FolderTreeItem({ remote, curPath, label }) {
     const fetchFolders = async () => {
       try {
         setStatus(StatusTypes.LOADING);
-        setError(null);
 
         const data = await rCloneClient.fetchSubFolders(remote, curPath);
 
         setSubFolders(data.sort());
         setStatus(StatusTypes.SUCCESS);
       } catch (err) {
-        setError(err);
         setStatus(StatusTypes.ERROR);
       }
     };
