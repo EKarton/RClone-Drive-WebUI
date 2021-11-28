@@ -1,0 +1,81 @@
+name: Check the pull request automatically
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-linting:
+    name: Checks for linting errors
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v2
+
+      - name: Setup Node JS
+        uses: actions/setup@v2
+        with:
+          node-version: '14.15'
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          - path: '**/node_modules'
+            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run linting
+        run: yarn lint
+
+  run-tests:
+    name: Runs all tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v2
+
+      - name: Setup Node JS
+        uses: actions/setup@v2
+        with:
+          node-version: '14.15'
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          - path: '**/node_modules'
+            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run all test cases
+        run: yarn test
+
+  build:
+    name: Builds the app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v2
+
+      - name: Setup Node JS
+        uses: actions/setup@v2
+        with:
+          node-version: '14.15'
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          - path: '**/node_modules'
+            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build the app
+        run: yarn build

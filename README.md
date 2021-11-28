@@ -1,5 +1,7 @@
 # RClone Drive Web UI
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e431cc05-9841-4b26-9092-78783424de4b/deploy-status)](https://app.netlify.com/sites/silly-mirzakhani-2a7996/deploys)
+
 ### Description:
 
 The RClone Drive Web UI helps RClone users see and move their files between different cloud providers with an easy-to-use interface via a web browser. More particularly, it has the ability to:
