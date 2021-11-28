@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { store as defaultStore } from 'contexts/RecentlyViewedImages';
-import { actionTypes } from 'contexts/RecentlyViewedImages';
+import { store as defaultStore } from 'contexts/RecentPictures';
+import { actionTypes } from 'contexts/RecentPictures';
 
 export default function useRecentlyViewedImages(store = defaultStore) {
   const { state, dispatch } = useContext(store);

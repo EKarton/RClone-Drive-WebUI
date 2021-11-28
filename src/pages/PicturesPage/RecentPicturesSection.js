@@ -1,11 +1,12 @@
+import { Card, CardActionArea } from '@mui/material';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import Image from 'components/Image';
 import useFileViewer from 'hooks/useFileViewer';
 import useRecentlyViewedImages from 'hooks/useRecentlyViewedImages';
-import './RecentlyViewedImages.scss';
+import './RecentPicturesSection.scss';
 
-export default function RecentlyViewedImages() {
-  const { recentPictures } = useRecentlyViewedImages();
+export default function RecentPicturesSection() {
+  const { recentPictures, addImage } = useRecentlyViewedImages();
   const fileViewer = useFileViewer();
 
   if (recentPictures.length === 0) {
@@ -13,6 +14,7 @@ export default function RecentlyViewedImages() {
   }
 
   const handleImageClicked = (image) => () => {
+    addImage(image);
     fileViewer.show(image);
   };
 
@@ -28,18 +30,19 @@ export default function RecentlyViewedImages() {
             return (
               <div style={{ width, height }} className="recently-viewed-image__wrapper">
                 {imagesToShow.map((image) => (
-                  <div
-                    key={image.fileName}
-                    className="recently-viewed-image__img-wrapper"
-                    onClick={handleImageClicked(image)}
-                    data-testid={image.fileName}
-                  >
-                    <Image
-                      image={image}
-                      imgClassName="recently-viewed-image__img-image"
-                      skeletonClassName="recently-viewed-image__img-skeleton"
-                    />
-                  </div>
+                  <Card className="recently-viewed-image__card" key={image.fileName}>
+                    <CardActionArea
+                      className="recently-viewed-image__card-area"
+                      onClick={handleImageClicked(image)}
+                      data-testid={image.fileName}
+                    >
+                      <Image
+                        image={image}
+                        imgClassName="recently-viewed-image__img-image"
+                        skeletonClassName="recently-viewed-image__img-skeleton"
+                      />
+                    </CardActionArea>
+                  </Card>
                 ))}
               </div>
             );

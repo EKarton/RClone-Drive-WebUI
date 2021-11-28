@@ -1,5 +1,6 @@
 import { FileViewerProvider } from 'contexts/FileViewerStore';
 import { RCloneInfoStateProvider } from 'contexts/RCloneInfoStore';
+import { RecentPicturesProvider } from 'contexts/RecentPictures';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
@@ -7,7 +8,7 @@ import { Router } from 'react-router';
 
 const customRender = (
   component,
-  { initialFileViewerState, initialRCloneInfoState } = {},
+  { initialFileViewerState, initialRCloneInfoState, initialRecentPicturesState } = {},
   { route = '/' } = {}
 ) => {
   const history = createMemoryHistory({ initialEntries: [route] });
@@ -15,7 +16,9 @@ const customRender = (
   const renderedComponent = render(
     <RCloneInfoStateProvider defaultState={initialRCloneInfoState}>
       <FileViewerProvider defaultState={initialFileViewerState}>
-        <Router history={history}>{component}</Router>
+        <RecentPicturesProvider defaultState={initialRecentPicturesState}>
+          <Router history={history}>{component}</Router>
+        </RecentPicturesProvider>
       </FileViewerProvider>
     </RCloneInfoStateProvider>
   );

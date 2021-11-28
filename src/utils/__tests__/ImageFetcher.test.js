@@ -1,4 +1,4 @@
-import ImageFetcher from './ImageFetcher';
+import ImageFetcher from '../ImageFetcher';
 
 describe('ImageFetcher', () => {
   describe('getImage()', () => {

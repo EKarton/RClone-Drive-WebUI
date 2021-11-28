@@ -20,7 +20,6 @@ const useFetchRCloneData = (rCloneClientFn) => {
 
         dispatchResult({ type: StatusTypes.SUCCESS, payload: data });
       } catch (err) {
-        console.error(err);
         dispatchResult({ type: StatusTypes.ERROR, payload: err });
       }
     };

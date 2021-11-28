@@ -14,7 +14,7 @@ export default function RemoteCard({ remote, onClick, ...props }) {
 
   const renderRemoteInfo = () => {
     if (infoResult.status === StatusTypes.LOADING) {
-      return <Skeleton />;
+      return <Skeleton data-testid="remote-info-skeleton" />;
     }
 
     if (infoResult.status === StatusTypes.ERROR) {
@@ -26,15 +26,15 @@ export default function RemoteCard({ remote, onClick, ...props }) {
 
   const renderSpaceUsed = () => {
     if (sizeResult.status === StatusTypes.LOADING) {
-      return <Skeleton />;
+      return <Skeleton data-testid="remote-space-skeleton" />;
     }
 
     if (sizeResult.status === StatusTypes.ERROR) {
       return 'Unable to get space information';
     }
 
-    const totalSpace = prettyBytes(sizeResult.data?.total || 0);
-    const spaceUsed = prettyBytes(sizeResult.data?.used || 0);
+    const totalSpace = prettyBytes(sizeResult.data?.total);
+    const spaceUsed = prettyBytes(sizeResult.data?.used);
 
     return `${spaceUsed} / ${totalSpace} used`;
   };

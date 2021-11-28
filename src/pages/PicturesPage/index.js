@@ -2,7 +2,7 @@ import FolderBrowserDialog from './FolderBrowserDialog';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { hashRemotePath } from 'utils/remote-paths-url';
-import RecentlyViewedImages from './RecentlyViewedImages';
+import RecentPicturesSection from './RecentPicturesSection';
 import RemotesListSection from './RemotesListSection';
 import './index.scss';
 
@@ -43,7 +43,7 @@ export default function PicturesPage() {
         onCancel={handleFolderDialogCancelled}
         onOk={handleFolderDialogSelected}
       />
-      <RecentlyViewedImages />
+      <RecentPicturesSection />
       <RemotesListSection onRemoteCardClicked={handleRemoteCardClicked} />
     </div>
   );

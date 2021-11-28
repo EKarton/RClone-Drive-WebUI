@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RemotesListSection should match snapshot given fetching list of remotes were successful 1`] = `
+<body>
+  <div />
+</body>
+`;
+
+exports[`RemotesListSection should show an error page when fetching remotes failed 1`] = `
+<body>
+  <div>
+    <div>
+      Error!
+    </div>
+  </div>
+</body>
+`;

@@ -6,15 +6,10 @@ const initialState = {
   recentPictures: JSON.parse(localStorage.getItem('recently_viewed_pictures')) || [],
 };
 
-console.error(initialState);
-
 const store = createContext(initialState);
 const { Provider } = store;
 
-const RecentlyViewedPicturesStateProvider = ({
-  children,
-  defaultState = initialState,
-}) => {
+const RecentPicturesProvider = ({ children, defaultState = initialState }) => {
   const [state, dispatch] = useReducer(reducer, defaultState);
 
   useEffect(() => {
@@ -25,4 +20,4 @@ const RecentlyViewedPicturesStateProvider = ({
   return <Provider value={{ state, dispatch }}>{children}</Provider>;
 };
 
-export { store, RecentlyViewedPicturesStateProvider, actionTypes, initialState };
+export { store, RecentPicturesProvider, actionTypes, initialState };

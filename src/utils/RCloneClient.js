@@ -141,8 +141,8 @@ export default class RCloneClient {
    *   "used": number
    *  }
    *
-   * @param {*} remote
-   * @returns
+   * @param {string} remote the remote
+   * @returns {object} the space info
    */
   async fetchRemoteSpaceInfo(remote) {
     const { data } = await this.axiosInstance.post('operations/about', {
@@ -152,6 +152,11 @@ export default class RCloneClient {
     return data;
   }
 
+  /**
+   * Returns the remote info
+   * @param {string} remote the remote
+   * @returns {object} the info of the remote
+   */
   async fetchRemoteInfo(remote) {
     const { data } = await this.axiosInstance.post('config/get', {
       name: remote,
