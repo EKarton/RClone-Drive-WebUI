@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RemoteCardList should render all remotes correctly given a list of remotes 1`] = `
+<body>
+  <div>
+    <div
+      class="remote-card-list"
+    >
+      <div>
+        googledrive
+      </div>
+      <div>
+        icloud
+      </div>
+      <div>
+        onedrive
+      </div>
+    </div>
+  </div>
+</body>
+`;

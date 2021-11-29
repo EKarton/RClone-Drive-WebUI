@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecentPicturesSection should render correctly if screen width is < 800 1`] = `
+<body>
+  <div>
+    <h4>
+      Recently Viewed Pictures
+    </h4>
+    <div
+      class="recently-viewed-image"
+    >
+      <div
+        style="overflow: visible; height: 0px; width: 0px;"
+      >
+        <div
+          class="recently-viewed-image__wrapper"
+          style="width: 800px; height: 800px;"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+          >
+            <button
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              data-testid="20100918_091219.jpg"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+          >
+            <button
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              data-testid="20101009_105344.jpg"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+          >
+            <button
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              data-testid="20100918_091229.jpg"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+          >
+            <button
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              data-testid="20100918_091209.jpg"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="resize-triggers"
+      >
+        <div
+          class="expand-trigger"
+        >
+          <div
+            style="width: 801px; height: 801px;"
+          />
+        </div>
+        <div
+          class="contract-trigger"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`RecentPicturesSection should render correctly if screen width is > 1920 1`] = `
+<body>
+  <div>
+    <h4>
+      Recently Viewed Pictures
+    </h4>
+    <div
+      class="recently-viewed-image"
+    >
+      <div
+        style="overflow: visible; height: 0px; width: 0px;"
+      >
+        <div
+          class="recently-viewed-image__wrapper"
+          style="width: 2000px; height: 800px;"
+        >
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+          >
+            <button
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              data-testid="20100918_091219.jpg"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+          >
+            <button
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              data-testid="20101009_105344.jpg"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+          >
+            <button
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              data-testid="20100918_091229.jpg"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+          >
+            <button
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              data-testid="20100918_091209.jpg"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+          >
+            <button
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              data-testid="20101009_1053283.jpg"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+          >
+            <button
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              data-testid="20100918_0912434.jpg"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+              />
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="resize-triggers"
+      >
+        <div
+          class="expand-trigger"
+        >
+          <div
+            style="width: 2001px; height: 801px;"
+          />
+        </div>
+        <div
+          class="contract-trigger"
+        />
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`RecentPicturesSection should render nothing when there are no recent pictures 1`] = `
+<body>
+  <div />
+</body>
+`;

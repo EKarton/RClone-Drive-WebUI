@@ -112,6 +112,13 @@ export default class RCloneClient {
     return data.list;
   }
 
+  /**
+   * Returns the file contents of a particular file in a remote
+   * @param {string} remote the name of the remote
+   * @param {string} folderPath the folder path
+   * @param {string} fileName the file name
+   * @returns {string} the blob contents of the file
+   */
   async fetchFileContents(remote, folderPath, fileName) {
     const remotePath = `${remote}:${folderPath}`;
     const url = encodeURI(`[${remotePath}]/${fileName}`);
@@ -121,5 +128,40 @@ export default class RCloneClient {
     });
 
     return response;
+  }
+
+  /**
+   * Returns the space info of a remote
+   * The response returned is:
+   * {
+   *   "free": number,
+   *   "other": number,
+   *   "total": number,
+   *   "trashed": number,
+   *   "used": number
+   *  }
+   *
+   * @param {string} remote the remote
+   * @returns {object} the space info
+   */
+  async fetchRemoteSpaceInfo(remote) {
+    const { data } = await this.axiosInstance.post('operations/about', {
+      fs: `${remote}:`,
+    });
+
+    return data;
+  }
+
+  /**
+   * Returns the remote info
+   * @param {string} remote the remote
+   * @returns {object} the info of the remote
+   */
+  async fetchRemoteInfo(remote) {
+    const { data } = await this.axiosInstance.post('config/get', {
+      name: remote,
+    });
+
+    return data;
   }
 }

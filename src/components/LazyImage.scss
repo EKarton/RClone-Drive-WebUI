@@ -1,19 +1,16 @@
 .lazy-image {
   &__img {
     object-fit: cover;
-    // background-color: #121212;
     padding: 0.125rem;
   }
 
   &__skeleton-wrapper {
-    // background-color: #121212;
     width: 100% !important;
     height: 100% !important;
     padding: 0.125rem;
   }
 
   &__skeleton {
-    // background-color: #212121 !important;
     width: 100% !important;
     height: 100% !important;
   }

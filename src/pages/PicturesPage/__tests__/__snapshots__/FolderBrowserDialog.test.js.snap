@@ -42,7 +42,7 @@ exports[`FolderBrowserDialog should render FolderTree and call handleOk() once c
           class="MuiDialogActions-root MuiDialogActions-spacing css-hlj6pa-MuiDialogActions-root"
         >
           <button
-            class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-focusVisible css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+            class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-focusVisible  css-1e6y48t-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
@@ -61,7 +61,7 @@ exports[`FolderBrowserDialog should render FolderTree and call handleOk() once c
             </span>
           </button>
           <button
-            class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+            class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root  css-1e6y48t-MuiButtonBase-root-MuiButton-root"
             data-testid="ok-button"
             tabindex="0"
             type="button"

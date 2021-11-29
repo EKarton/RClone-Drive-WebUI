@@ -3,7 +3,7 @@ import { FixedSizeList } from 'react-window';
 import './ImageListSkeleton.scss';
 import { Skeleton } from '@mui/material';
 
-export default function ImageListSkeleton() {
+export default function ImageListSkeleton({ ...otherProps }) {
   const renderRow = (numImagesPerRow, style) => (
     <div className="imagelist-skeleton__row" style={style}>
       {Array.from({ length: numImagesPerRow }, (_, i) => (
@@ -13,7 +13,7 @@ export default function ImageListSkeleton() {
   );
 
   return (
-    <AutoSizer>
+    <AutoSizer {...otherProps}>
       {({ height, width }) => {
         const numImagesPerRow = width < 1920 ? 3 : 5;
         const imgWidth = Math.floor(width / numImagesPerRow);

@@ -50,25 +50,21 @@ exports[`PicturesListPage should match snapshots when the api call loads and suc
       </ol>
     </nav>
     <div
-      data-testid="imagelistskeleton"
+      style="overflow: visible; height: 0px; width: 0px;"
+    />
+    <div
+      class="resize-triggers"
     >
       <div
-        style="overflow: visible; height: 0px; width: 0px;"
-      />
-      <div
-        class="resize-triggers"
+        class="expand-trigger"
       >
         <div
-          class="expand-trigger"
-        >
-          <div
-            style="width: 1px; height: 1px;"
-          />
-        </div>
-        <div
-          class="contract-trigger"
+          style="width: 1px; height: 1px;"
         />
       </div>
+      <div
+        class="contract-trigger"
+      />
     </div>
   </div>
 </body>
@@ -124,8 +120,22 @@ exports[`PicturesListPage should match snapshots when the api call loads and suc
       </ol>
     </nav>
     <div
-      data-testid="imagelist"
+      style="overflow: visible; height: 0px; width: 0px;"
     />
+    <div
+      class="resize-triggers"
+    >
+      <div
+        class="expand-trigger"
+      >
+        <div
+          style="width: 1px; height: 1px;"
+        />
+      </div>
+      <div
+        class="contract-trigger"
+      />
+    </div>
   </div>
 </body>
 `;

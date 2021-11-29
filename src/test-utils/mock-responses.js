@@ -146,3 +146,18 @@ export const mockPictures = {
     },
   ],
 };
+
+export const mockOperationsAboutResponse = {
+  free: 34895095753,
+  other: 21017116,
+  total: 161061273600,
+  trashed: 0,
+  used: 126145160731,
+};
+
+export const mockConfigGetResponse = {
+  password: '1234',
+  password2: '5678',
+  remote: 'googledrive-main:Encrypted',
+  type: 'crypt',
+};

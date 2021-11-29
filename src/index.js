@@ -6,15 +6,18 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { RCloneInfoStateProvider } from 'contexts/RCloneInfoStore';
 import { FileViewerProvider } from 'contexts/FileViewerStore';
+import { RecentPicturesProvider } from 'contexts/RecentPictures';
 import 'semantic-ui-css/semantic.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
     <RCloneInfoStateProvider>
       <FileViewerProvider>
-        <BrowserRouter>
-          <MainApp />
-        </BrowserRouter>
+        <RecentPicturesProvider>
+          <BrowserRouter>
+            <MainApp />
+          </BrowserRouter>
+        </RecentPicturesProvider>
       </FileViewerProvider>
     </RCloneInfoStateProvider>
   </React.StrictMode>,

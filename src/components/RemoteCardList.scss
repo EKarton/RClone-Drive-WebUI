@@ -1,0 +1,9 @@
+.remote-card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  &__item {
+    flex-grow: 1;
+  }
+}

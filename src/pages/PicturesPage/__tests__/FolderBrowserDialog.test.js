@@ -1,4 +1,4 @@
-import { act, customRender, userEvent, waitFor } from 'test-utils/react';
+import { act, customRender, userEvent } from 'test-utils/react';
 import { mockRemotes } from 'test-utils/mock-responses';
 import FolderBrowserDialog from '../FolderBrowserDialog';
 import FolderTree from '../FolderTree';

@@ -1,33 +1,18 @@
-import { Button } from '@mui/material';
-import StorageIcon from '@mui/icons-material/Storage';
-import useRCloneClient from 'hooks/useRCloneClient';
 import FolderBrowserDialog from './FolderBrowserDialog';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { hashRemotePath } from 'utils/remote-paths-url';
+import RecentPicturesSection from './RecentPicturesSection';
+import RemotesListSection from './RemotesListSection';
+import './index.scss';
 
 export default function PicturesPage() {
   const history = useHistory();
-  const rCloneClient = useRCloneClient();
-  const [remotes, setRemotes] = useState();
 
   const [selectedRemote, setSelectedRemote] = useState();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await rCloneClient.fetchRemotes();
-      setRemotes(data.sort());
-    };
-
-    fetchData();
-  }, [rCloneClient]);
-
-  if (!remotes) {
-    return null;
-  }
-
-  const handleButtonClick = (remote) => () => {
+  const handleRemoteCardClicked = (remote) => {
     setSelectedRemote(remote);
     setIsDialogOpen(true);
   };
@@ -50,7 +35,7 @@ export default function PicturesPage() {
   };
 
   return (
-    <div className="filespage">
+    <div className="pictures-page">
       <FolderBrowserDialog
         title={renderFolderDialogTitle()}
         remotes={[selectedRemote]}
@@ -58,18 +43,8 @@ export default function PicturesPage() {
         onCancel={handleFolderDialogCancelled}
         onOk={handleFolderDialogSelected}
       />
-      {remotes.sort().map((remote) => (
-        <div key={remote}>
-          <Button
-            variant="outlined"
-            startIcon={<StorageIcon />}
-            onClick={handleButtonClick(remote)}
-            data-testid={remote}
-          >
-            {remote}
-          </Button>
-        </div>
-      ))}
+      <RecentPicturesSection />
+      <RemotesListSection onRemoteCardClicked={handleRemoteCardClicked} />
     </div>
   );
 }

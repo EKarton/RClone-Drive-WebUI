@@ -1,6 +1,8 @@
 import axios from 'axios';
-import RCloneClient from './RCloneClient';
-import { mockRemotes, mockFiles, mockPictures } from '../test-utils/mock-responses';
+import { mockRemotes, mockFiles, mockPictures } from 'test-utils/mock-responses';
+import { mockConfigGetResponse } from 'test-utils/mock-responses';
+import { mockOperationsAboutResponse } from 'test-utils/mock-responses';
+import RCloneClient from '../RCloneClient';
 
 jest.mock('axios');
 
@@ -119,6 +121,34 @@ describe('RCloneClient', () => {
         responseType: 'blob',
       });
       expect(response).toEqual('data');
+    });
+  });
+
+  describe('fetchRemoteSpaceInfo()', () => {
+    it('should return data and call axios.post() correctly', async () => {
+      axios.post.mockResolvedValue({ data: mockOperationsAboutResponse });
+
+      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const response = await client.fetchRemoteSpaceInfo('googledrive');
+
+      expect(axios.post).toBeCalledWith('operations/about', {
+        fs: 'googledrive:',
+      });
+      expect(response).toEqual(mockOperationsAboutResponse);
+    });
+  });
+
+  describe('fetchRemoteInfo()', () => {
+    it('should return data and call axios.post() correctly', async () => {
+      axios.post.mockResolvedValue({ data: mockConfigGetResponse });
+
+      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const response = await client.fetchRemoteInfo('googledrive');
+
+      expect(axios.post).toBeCalledWith('config/get', {
+        name: 'googledrive',
+      });
+      expect(response).toEqual(mockConfigGetResponse);
     });
   });
 });

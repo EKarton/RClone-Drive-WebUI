@@ -2,7 +2,7 @@ import ImageList from '../ImageList';
 import useFileViewer from 'hooks/useFileViewer';
 import useRCloneClient from 'hooks/useRCloneClient';
 import { Route } from 'react-router';
-import { customRender, waitFor } from 'test-utils/react';
+import { act, customRender, waitFor } from 'test-utils/react';
 import { mockPictures } from 'test-utils/mock-responses';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import PicturesListPage from '..';
@@ -16,7 +16,7 @@ describe('PicturesListPage', () => {
   const route = `/pictures/${hashRemotePath(`${remote}:`)}`;
 
   const fetchPicturesFn = jest.fn();
-  const showFn = jest.fn();
+  const fileViewerShowFn = jest.fn();
 
   beforeEach(() => {
     useRCloneClient.mockReturnValue({
@@ -24,7 +24,7 @@ describe('PicturesListPage', () => {
     });
 
     useFileViewer.mockReturnValue({
-      show: showFn,
+      show: fileViewerShowFn,
     });
 
     ImageList.mockReturnValue(null);
@@ -46,7 +46,6 @@ describe('PicturesListPage', () => {
     const component = renderComponent();
 
     await waitFor(() => {
-      expect(component.getByTestId('imagelistskeleton')).toBeInTheDocument();
       expect(component.baseElement).toMatchSnapshot();
     });
 
@@ -54,7 +53,6 @@ describe('PicturesListPage', () => {
     jest.runAllTimers();
 
     await waitFor(() => {
-      expect(component.getByTestId('imagelist')).toBeInTheDocument();
       expect(component.baseElement).toMatchSnapshot();
     });
   });
@@ -71,20 +69,22 @@ describe('PicturesListPage', () => {
   });
 
   it('should call fileViewer.show() when someone clicks on an image', async () => {
+    jest.useFakeTimers();
+
     fetchPicturesFn.mockResolvedValue(mockPictures.list);
 
     const fileInfo = { remote, folderPath: 'Pictures', fileName: 'image.png' };
+
     ImageList.mockImplementation(({ onImageClicked }) => {
-      onImageClicked(fileInfo);
+      setTimeout(() => onImageClicked(fileInfo), 10000);
       return null;
     });
 
-    const component = renderComponent();
+    renderComponent();
 
-    await waitFor(() => {
-      expect(component.getByTestId('imagelist')).toBeInTheDocument();
-      expect(showFn).toBeCalledWith(fileInfo);
-    });
+    act(() => jest.runAllTimers());
+
+    await waitFor(() => expect(fileViewerShowFn).toBeCalledWith(fileInfo));
   });
 
   const renderComponent = () => {

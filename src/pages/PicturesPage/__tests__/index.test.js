@@ -1,120 +1,87 @@
-import useRCloneClient from 'hooks/useRCloneClient';
 import PicturesPage from 'pages/PicturesPage';
-import { customRender, userEvent, waitFor } from 'test-utils/react';
-import { mockRemotes } from 'test-utils/mock-responses';
+import { act, customRender, waitFor } from 'test-utils/react';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import FolderBrowserDialog from '../FolderBrowserDialog';
+import RemotesListSection from '../RemotesListSection';
+import RecentPicturesSection from '../RecentPicturesSection';
 
 jest.mock('../FolderBrowserDialog');
-jest.mock('hooks/useRCloneClient');
+jest.mock('../RecentPicturesSection');
+jest.mock('../RemotesListSection');
 
 describe('PicturesPage', () => {
-  const fetchRemotesFn = jest.fn();
-
   beforeEach(() => {
     FolderBrowserDialog.mockReturnValue(null);
-
-    useRCloneClient.mockReturnValue({
-      fetchRemotes: fetchRemotesFn,
-    });
-  });
-
-  it('should match snapshot when api call succeeds', async () => {
-    // Mock the timer
-    jest.useFakeTimers();
-
-    // Mock api call that takes 10000ms
-    fetchRemotesFn.mockImplementation(() => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(mockRemotes.remotes);
-        }, 10000);
-      });
-    });
-
-    const component = customRender(<PicturesPage />);
-
-    await waitFor(() => {
-      expect(component.baseElement).toMatchSnapshot();
-    });
-
-    // Resolve api call
-    jest.runAllTimers();
-
-    await waitFor(() => {
-      expect(component.baseElement.querySelector('.filespage')).toBeInTheDocument();
-      expect(component.baseElement).toMatchSnapshot();
-    });
+    RecentPicturesSection.mockReturnValue(null);
+    RemotesListSection.mockReturnValue(null);
   });
 
   it('should open FolderBrowserDialog when user clicks on a remote', async () => {
-    fetchRemotesFn.mockResolvedValue(mockRemotes.remotes);
+    // Mock user clicking on a remote
+    jest.useFakeTimers();
 
-    const component = customRender(<PicturesPage />);
+    RemotesListSection.mockImplementation(({ onRemoteCardClicked }) => {
+      setTimeout(() => onRemoteCardClicked('googledrive'), 10000);
+      return null;
+    });
+
+    customRender(<PicturesPage />);
+
+    act(() => jest.runAllTimers());
 
     await waitFor(() => {
-      expect(component.baseElement.querySelector('.filespage')).toBeInTheDocument();
-
-      userEvent.click(component.getByTestId('googledrive'));
-
       expect(FolderBrowserDialog.mock.calls[1][0].open).toBeTruthy();
     });
   });
 
   it('should redirect to correct page when user selected a remote in the FolderBrowserDialog component', async () => {
-    let onOkFn = null;
+    jest.useFakeTimers();
 
     FolderBrowserDialog.mockImplementationOnce(({ onOk }) => {
-      onOkFn = onOk;
+      setTimeout(() => onOk('googledrive:Pictures'), 10000);
       return null;
     });
 
-    fetchRemotesFn.mockResolvedValue(mockRemotes.remotes);
-
     const component = customRender(<PicturesPage />);
 
-    await waitFor(() => {
-      onOkFn('googledrive:Pictures');
+    act(() => jest.runAllTimers());
 
+    await waitFor(() => {
       const expectedPath = `/pictures/${hashRemotePath('googledrive:Pictures')}`;
       expect(component.history.location.pathname).toEqual(expectedPath);
     });
   });
 
   it('should close the dialog when user selects nothing in the FolderBrowserDialog component', async () => {
-    let onOkFn = null;
+    jest.useFakeTimers();
 
     FolderBrowserDialog.mockImplementationOnce(({ onOk }) => {
-      onOkFn = onOk;
+      setTimeout(() => onOk(''), 10000);
       return null;
     });
 
-    fetchRemotesFn.mockResolvedValue(mockRemotes.remotes);
-
     customRender(<PicturesPage />);
 
-    await waitFor(() => {
-      onOkFn('');
+    act(() => jest.runAllTimers());
 
+    await waitFor(() => {
       expect(FolderBrowserDialog.mock.calls[0][0].open).toBeFalsy();
     });
   });
 
   it('should close the dialog when user closes the dialog', async () => {
-    let onCancelFn = null;
+    jest.useFakeTimers();
 
     FolderBrowserDialog.mockImplementationOnce(({ onCancel }) => {
-      onCancelFn = onCancel;
+      setTimeout(() => onCancel(), 10000);
       return null;
     });
 
-    fetchRemotesFn.mockResolvedValue(mockRemotes.remotes);
-
     customRender(<PicturesPage />);
 
-    await waitFor(() => {
-      onCancelFn();
+    act(() => jest.runAllTimers());
 
+    await waitFor(() => {
       expect(FolderBrowserDialog.mock.calls[0][0].open).toBeFalsy();
     });
   });

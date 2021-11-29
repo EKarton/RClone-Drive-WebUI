@@ -67,7 +67,7 @@ exports[`LoginPage should match snapshot 1`] = `
                 class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-dhh0px"
+                  class="css-173wfxe"
                 >
                   <span>
                     RClone RC Endpoint
@@ -109,7 +109,7 @@ exports[`LoginPage should match snapshot 1`] = `
                 class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-dhh0px"
+                  class="css-173wfxe"
                 >
                   <span>
                     Username
@@ -151,7 +151,7 @@ exports[`LoginPage should match snapshot 1`] = `
                 class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-dhh0px"
+                  class="css-173wfxe"
                 >
                   <span>
                     Password
@@ -166,7 +166,7 @@ exports[`LoginPage should match snapshot 1`] = `
           class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
         >
           <button
-            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-sghohy-MuiButtonBase-root-MuiButton-root"
+            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-sghohy-MuiButtonBase-root-MuiButton-root"
             data-testid="login-button"
             tabindex="0"
             type="button"
