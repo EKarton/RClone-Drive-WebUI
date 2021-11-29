@@ -234,7 +234,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
         <li>
           <button
             aria-label="Show path"
-            class="MuiButtonBase-root css-h14a49-MuiButtonBase-root"
+            class="MuiButtonBase-root css-znp1u4-MuiButtonBase-root"
             tabindex="0"
             type="button"
           >

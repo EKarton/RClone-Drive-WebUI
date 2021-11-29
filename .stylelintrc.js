@@ -3,5 +3,5 @@
  * Refer to https://stylelint.io/user-guide/configure/ for more info
  */
 module.exports = {
-  extends: ['stylelint-config-standard'],
+  extends: ['stylelint-config-standard-scss'],
 };
