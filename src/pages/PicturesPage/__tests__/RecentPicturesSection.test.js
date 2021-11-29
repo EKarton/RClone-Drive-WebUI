@@ -150,4 +150,26 @@ describe('RecentPicturesSection', () => {
 
     expect(baseElement).toMatchSnapshot();
   });
+
+  it('should render fillers when there are less than the max. number of images', () => {
+    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
+      configurable: true,
+      value: 800,
+    });
+
+    useRecentlyViewedImages.mockReturnValue({
+      recentPictures: [
+        {
+          folderPath: 'Pictures/2010/Tomas',
+          fileName: '20100918_091219.jpg',
+          remote: 'googledrive-main-encrypted',
+        },
+      ],
+      addImage: jest.fn(),
+    });
+
+    const component = customRender(<RecentPicturesSection />);
+
+    expect(component.getAllByTestId('image-fillers').length).toEqual(3);
+  });
 });

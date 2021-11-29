@@ -27,6 +27,8 @@ export default function RecentPicturesSection() {
             const numImagesToShow = width < 1920 ? 4 : 6;
             const imagesToShow = recentPictures.slice(0, numImagesToShow);
 
+            const numFillers = Math.max(0, numImagesToShow - imagesToShow.length);
+
             return (
               <div style={{ width, height }} className="recently-viewed-image__wrapper">
                 {imagesToShow.map((image) => (
@@ -43,6 +45,13 @@ export default function RecentPicturesSection() {
                       />
                     </CardActionArea>
                   </Card>
+                ))}
+                {Array.from({ length: numFillers }, (_, i) => (
+                  <div
+                    key={i}
+                    className="recently-viewed-image__card"
+                    data-testid="image-fillers"
+                  />
                 ))}
               </div>
             );
