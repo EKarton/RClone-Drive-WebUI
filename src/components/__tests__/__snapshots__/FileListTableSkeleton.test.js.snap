@@ -4,7 +4,7 @@ exports[`FileListTableSkeleton should match snapshot 1`] = `
 <body>
   <div>
     <table
-      class="ui striped table"
+      class="ui striped table file-list-table-skeleton"
       data-testid="fileslisttableskeleton"
     >
       <thead

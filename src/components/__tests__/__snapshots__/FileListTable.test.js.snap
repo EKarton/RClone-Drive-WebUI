@@ -4,7 +4,7 @@ exports[`FileListTable should match snapshot given icon size is large 1`] = `
 <body>
   <div>
     <table
-      class="ui striped table"
+      class="ui striped table filelist-table"
       data-testid="fileslisttable"
     >
       <thead
@@ -137,7 +137,9 @@ exports[`FileListTable should match snapshot given icon size is large 1`] = `
           </td>
           <td
             class=""
-          />
+          >
+            12.3 kB
+          </td>
         </tr>
         <tr
           class=""
@@ -172,7 +174,9 @@ exports[`FileListTable should match snapshot given icon size is large 1`] = `
           </td>
           <td
             class=""
-          />
+          >
+            2.34 kB
+          </td>
         </tr>
         <tr
           class=""
@@ -207,7 +211,9 @@ exports[`FileListTable should match snapshot given icon size is large 1`] = `
           </td>
           <td
             class=""
-          />
+          >
+            23.5 kB
+          </td>
         </tr>
       </tbody>
     </table>
@@ -219,7 +225,7 @@ exports[`FileListTable should match snapshot given icon size is medium 1`] = `
 <body>
   <div>
     <table
-      class="ui striped table"
+      class="ui striped table filelist-table"
       data-testid="fileslisttable"
     >
       <thead
@@ -352,7 +358,9 @@ exports[`FileListTable should match snapshot given icon size is medium 1`] = `
           </td>
           <td
             class=""
-          />
+          >
+            12.3 kB
+          </td>
         </tr>
         <tr
           class=""
@@ -387,7 +395,9 @@ exports[`FileListTable should match snapshot given icon size is medium 1`] = `
           </td>
           <td
             class=""
-          />
+          >
+            2.34 kB
+          </td>
         </tr>
         <tr
           class=""
@@ -422,7 +432,9 @@ exports[`FileListTable should match snapshot given icon size is medium 1`] = `
           </td>
           <td
             class=""
-          />
+          >
+            23.5 kB
+          </td>
         </tr>
       </tbody>
     </table>
@@ -434,7 +446,7 @@ exports[`FileListTable should match snapshot given icon size is small 1`] = `
 <body>
   <div>
     <table
-      class="ui striped table"
+      class="ui striped table filelist-table"
       data-testid="fileslisttable"
     >
       <thead
@@ -567,7 +579,9 @@ exports[`FileListTable should match snapshot given icon size is small 1`] = `
           </td>
           <td
             class=""
-          />
+          >
+            12.3 kB
+          </td>
         </tr>
         <tr
           class=""
@@ -602,7 +616,9 @@ exports[`FileListTable should match snapshot given icon size is small 1`] = `
           </td>
           <td
             class=""
-          />
+          >
+            2.34 kB
+          </td>
         </tr>
         <tr
           class=""
@@ -637,7 +653,9 @@ exports[`FileListTable should match snapshot given icon size is small 1`] = `
           </td>
           <td
             class=""
-          />
+          >
+            23.5 kB
+          </td>
         </tr>
       </tbody>
     </table>

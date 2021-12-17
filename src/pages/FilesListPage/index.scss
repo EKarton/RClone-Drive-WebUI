@@ -1,4 +1,11 @@
 .filelist-page {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    row-gap: 1rem;
+  }
+
   &__img {
     width: 100%;
     height: 100%;

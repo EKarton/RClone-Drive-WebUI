@@ -20,7 +20,7 @@ const files = [
   {
     name: 'My Home.png',
     lastUpdatedTime: '2021-11-01T21:08:16.736Z',
-    size: '',
+    size: 12345,
     isDirectory: false,
     isImage: true,
     preview: <img alt="my home" />,
@@ -28,14 +28,14 @@ const files = [
   {
     name: 'My dog.png',
     lastUpdatedTime: '2021-01-01T21:08:16.736Z',
-    size: '',
+    size: 2342,
     isDirectory: false,
     isImage: true,
   },
   {
     name: 'My Script.sh',
     lastUpdatedTime: '2021-10-01T21:08:16.736Z',
-    size: '',
+    size: 23489,
     isDirectory: false,
     isImage: false,
   },

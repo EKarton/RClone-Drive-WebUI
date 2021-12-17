@@ -164,4 +164,13 @@ export default class RCloneClient {
 
     return data;
   }
+
+  async uploadFiles(remote, folderPath, data) {
+    const formData = new FormData();
+    formData.append('file', data);
+
+    const url = `operations/uploadfile?fs=${remote}:&remote=${folderPath}`;
+
+    await this.axiosInstance.post(url.toString(), formData);
+  }
 }

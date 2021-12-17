@@ -6,6 +6,7 @@ import Icon from '@mui/material/Icon';
 import { Table } from 'semantic-ui-react';
 import { ICON_SIZE } from 'utils/constants';
 import './FileListTable.scss';
+import prettyBytes from 'pretty-bytes';
 
 export default function FileListTable({ files, iconSize, onFileClicked }) {
   const renderTableRow = (file) => {
@@ -26,7 +27,7 @@ export default function FileListTable({ files, iconSize, onFileClicked }) {
           </div>
         </Table.Cell>
         <Table.Cell>{file.lastUpdatedTime}</Table.Cell>
-        <Table.Cell>{file.isDirectory ? '-' : file.size}</Table.Cell>
+        <Table.Cell>{file.isDirectory ? '-' : prettyBytes(file.size)}</Table.Cell>
       </Table.Row>
     );
   };
@@ -52,7 +53,7 @@ export default function FileListTable({ files, iconSize, onFileClicked }) {
   };
 
   return (
-    <Table striped data-testid="fileslisttable">
+    <Table striped data-testid="fileslisttable" className="filelist-table">
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell>Name</Table.HeaderCell>

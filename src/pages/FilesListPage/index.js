@@ -11,6 +11,7 @@ import { ImageMimeTypes, StatusTypes } from 'utils/constants';
 import FileListTableSkeleton from 'components/FileListTableSkeleton';
 import useRemotePathParams from 'hooks/useRemotePathParams';
 import useFetchRCloneData from 'hooks/useFetchRCloneData';
+import AddFilesDropSection from './AddFilesDropSection';
 
 export default function FilesListPage() {
   const { remote, path } = useRemotePathParams();
@@ -18,7 +19,7 @@ export default function FilesListPage() {
   const fileViewer = useFileViewer();
 
   const fetchFiles = useCallback((c) => c.fetchFiles(remote, path), [remote, path]);
-  const { status, data } = useFetchRCloneData(fetchFiles);
+  const { status, data, refetchData } = useFetchRCloneData(fetchFiles);
 
   const handleFileClicked = (file) => {
     if (file.isDirectory) {
@@ -28,6 +29,10 @@ export default function FilesListPage() {
     }
 
     fileViewer.show({ remote, folderPath: path, fileName: file.name });
+  };
+
+  const handleUploadedFiles = () => {
+    refetchData();
   };
 
   const renderTable = () => {
@@ -60,14 +65,24 @@ export default function FilesListPage() {
     }));
 
     return (
-      <FileListTable remote={remote} files={fileList} onFileClicked={handleFileClicked} />
+      <AddFilesDropSection
+        remote={remote}
+        folderPath={path}
+        onUploadedFiles={handleUploadedFiles}
+      >
+        <FileListTable
+          remote={remote}
+          files={fileList}
+          onFileClicked={handleFileClicked}
+        />
+      </AddFilesDropSection>
     );
   };
 
   return (
-    <>
+    <div className="filelist-page__container">
       <Header remote={remote} path={path} homeLink={<Link to="/files">My Files</Link>} />
       {renderTable()}
-    </>
+    </div>
   );
 }

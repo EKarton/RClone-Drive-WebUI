@@ -42,7 +42,7 @@ export default function FileViewerDialog() {
       }
     };
 
-    if (fileInfo?.remote && fileInfo?.folderPath && fileInfo?.fileName) {
+    if (fileInfo) {
       fetchData();
     }
   }, [fileInfo, rCloneClient]);

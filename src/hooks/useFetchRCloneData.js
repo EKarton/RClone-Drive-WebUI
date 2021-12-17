@@ -47,7 +47,20 @@ const useFetchRCloneData = (rCloneClientFn) => {
     fetchData();
   }, [rCloneClient, rCloneClientFn]);
 
-  return result;
+  return {
+    ...result,
+    refetchData: async () => {
+      try {
+        dispatchResult({ type: StatusTypes.LOADING });
+
+        const data = await rCloneClientFn(rCloneClient);
+
+        dispatchResult({ type: StatusTypes.SUCCESS, payload: data });
+      } catch (err) {
+        dispatchResult({ type: StatusTypes.ERROR, payload: err });
+      }
+    },
+  };
 };
 
 function reducer(_state, action) {
