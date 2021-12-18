@@ -12,11 +12,15 @@ import FileListTableSkeleton from 'components/FileListTableSkeleton';
 import useRemotePathParams from 'hooks/useRemotePathParams';
 import useFetchRCloneData from 'hooks/useFetchRCloneData';
 import AddFilesDropSection from './AddFilesDropSection';
+import useRCloneClient from 'hooks/useRCloneClient';
+import FileSaver from 'file-saver';
+import { getNewFilename } from 'utils/filename-utils';
 
 export default function FilesListPage() {
   const { remote, path } = useRemotePathParams();
   const history = useHistory();
   const fileViewer = useFileViewer();
+  const rCloneClient = useRCloneClient();
 
   const fetchFiles = useCallback((c) => c.fetchFiles(remote, path), [remote, path]);
   const { status, data, refetchData } = useFetchRCloneData(fetchFiles);
@@ -31,7 +35,35 @@ export default function FilesListPage() {
     fileViewer.show({ remote, folderPath: path, fileName: file.name });
   };
 
-  const handleUploadedFiles = () => {
+  const handleFileDownload = async (file) => {
+    const fileName = file.name;
+    const response = await rCloneClient.fetchFileContents(remote, path, fileName);
+
+    const mimeType = response.headers['content-type'];
+    const blob = new Blob([response.data], { type: mimeType });
+
+    FileSaver.saveAs(blob, fileName);
+  };
+
+  const handleFileDelete = async (file) => {
+    if (file.isDirectory) {
+      await rCloneClient.deleteDirectory(remote, path, file.name);
+    } else {
+      await rCloneClient.deleteFile(remote, path, file.name);
+    }
+
+    refetchData();
+  };
+
+  const handleFileCopy = async (file) => {
+    const fileName = file.name;
+    const existingFileNames = data.map((file) => file.Name);
+    const newFileName = getNewFilename(fileName, existingFileNames);
+
+    const src = { remote, folderPath: path, fileName };
+    const target = { remote, folderPath: path, fileName: newFileName };
+
+    await rCloneClient.copyFile(src, target);
     refetchData();
   };
 
@@ -68,12 +100,15 @@ export default function FilesListPage() {
       <AddFilesDropSection
         remote={remote}
         folderPath={path}
-        onUploadedFiles={handleUploadedFiles}
+        onUploadedFiles={refetchData}
       >
         <FileListTable
           remote={remote}
           files={fileList}
           onFileClicked={handleFileClicked}
+          onFileDownload={handleFileDownload}
+          onFileDelete={handleFileDelete}
+          onFileCopy={handleFileCopy}
         />
       </AddFilesDropSection>
     );

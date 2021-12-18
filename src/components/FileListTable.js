@@ -1,59 +1,11 @@
 import PropTypes from 'prop-types';
-import FolderIcon from '@mui/icons-material/Folder';
-import DescriptionIcon from '@mui/icons-material/Description';
-import ImageIcon from '@mui/icons-material/Image';
-import Icon from '@mui/material/Icon';
 import { Table } from 'semantic-ui-react';
 import { ICON_SIZE } from 'utils/constants';
-import './FileListTable.scss';
-import prettyBytes from 'pretty-bytes';
+import FileListTableRow from './FileListTableRow';
 
-export default function FileListTable({ files, iconSize, onFileClicked }) {
-  const renderTableRow = (file) => {
-    const handleFileClicked = () => {
-      onFileClicked(file);
-    };
-
-    return (
-      <Table.Row key={file.name}>
-        <Table.Cell>
-          <div
-            className="filelist-table__file-cell"
-            onClick={handleFileClicked}
-            data-testid={file.name}
-          >
-            {renderFileIcon(file)}
-            <div>{file.name}</div>
-          </div>
-        </Table.Cell>
-        <Table.Cell>{file.lastUpdatedTime}</Table.Cell>
-        <Table.Cell>{file.isDirectory ? '-' : prettyBytes(file.size)}</Table.Cell>
-      </Table.Row>
-    );
-  };
-
-  const renderFileIcon = (file) => {
-    if (file.isDirectory) {
-      return <FolderIcon fontSize={iconSize} />;
-    }
-
-    if (file.isImage) {
-      if (file.preview) {
-        return (
-          <Icon fontSize={iconSize} className="filelist-table__preview-icon">
-            {file.preview}
-          </Icon>
-        );
-      }
-
-      return <ImageIcon fontSize={iconSize} />;
-    }
-
-    return <DescriptionIcon fontSize={iconSize} />;
-  };
-
+export default function FileListTable({ files, ...props }) {
   return (
-    <Table striped data-testid="fileslisttable" className="filelist-table">
+    <Table striped data-testid="fileslisttable">
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell>Name</Table.HeaderCell>
@@ -61,7 +13,11 @@ export default function FileListTable({ files, iconSize, onFileClicked }) {
           <Table.HeaderCell>File Size</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
-      <Table.Body>{files.map((file) => renderTableRow(file))}</Table.Body>
+      <Table.Body>
+        {files.map((file) => (
+          <FileListTableRow file={file} {...props} />
+        ))}
+      </Table.Body>
     </Table>
   );
 }

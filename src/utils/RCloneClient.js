@@ -173,4 +173,31 @@ export default class RCloneClient {
 
     await this.axiosInstance.post(url.toString(), formData);
   }
+
+  async deleteDirectory(remote, folderPath, folderName) {
+    await this.axiosInstance.post('operations/purge', {
+      fs: `${remote}:`,
+      remote: this.getRemoteString(folderPath, folderName),
+    });
+  }
+
+  async deleteFile(remote, folderPath, fileName) {
+    await this.axiosInstance.post('operations/deletefile', {
+      fs: `${remote}:`,
+      remote: this.getRemoteString(folderPath, fileName),
+    });
+  }
+
+  async copyFile(source, target) {
+    await this.axiosInstance.post('operations/copyfile', {
+      srcFs: `${source.remote}:`,
+      srcRemote: this.getRemoteString(source.folderPath, source.fileName),
+      dstFs: `${target.remote}:`,
+      dstRemote: this.getRemoteString(target.folderPath, target.fileName),
+    });
+  }
+
+  getRemoteString(folderPath, name) {
+    return folderPath ? `${folderPath}/${name}` : name;
+  }
 }

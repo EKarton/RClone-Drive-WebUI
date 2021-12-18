@@ -9,7 +9,7 @@ import './AddFilesDropSection.scss';
  */
 export default function AddFilesDropSection(props) {
   const { remote, folderPath, children, onUploadedFiles } = props;
-  const client = useRCloneClient();
+  const rCloneClient = useRCloneClient();
   const [isDraggingFile, setIsDraggingFile] = useState(false);
 
   const handleDrop = async (e) => {
@@ -19,16 +19,16 @@ export default function AddFilesDropSection(props) {
     const dataTransfer = e.dataTransfer;
     const pendingUploads = [];
 
-    if (!dataTransfer.items) {
+    if (dataTransfer.items) {
       for (const item of dataTransfer.items) {
         if (item.kind === 'file') {
           const file = item.getAsFile();
-          pendingUploads.push(client.uploadFiles(remote, folderPath, file));
+          pendingUploads.push(rCloneClient.uploadFiles(remote, folderPath, file));
         }
       }
     } else {
       for (const file of dataTransfer.files) {
-        pendingUploads.push(client.uploadFiles(remote, folderPath, file));
+        pendingUploads.push(rCloneClient.uploadFiles(remote, folderPath, file));
       }
     }
 
