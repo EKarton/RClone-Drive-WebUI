@@ -1,4 +1,4 @@
-import { Dialog, DialogContent, IconButton } from '@mui/material';
+import { Dialog, DialogContent, DialogContentText, IconButton } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import useRCloneClient from 'hooks/useRCloneClient';
 import { useEffect, useState } from 'react';
@@ -8,6 +8,7 @@ import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import './index.scss';
 import FileSaver from 'file-saver';
 import useFileViewer from 'hooks/useFileViewer';
+import { TextDialogContent } from './TextDialogContent';
 
 export default function FileViewerDialog() {
   const { fileInfo, isOpen, hide } = useFileViewer();
@@ -88,7 +89,7 @@ export default function FileViewerDialog() {
       return <PDFDialogContent fileUrl={fileUrl} />;
     }
 
-    return null;
+    return <TextDialogContent fileBlob={fileBlob} />;
   };
 
   return (

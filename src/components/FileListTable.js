@@ -2,15 +2,22 @@ import PropTypes from 'prop-types';
 import { Table } from 'semantic-ui-react';
 import { ICON_SIZE } from 'utils/constants';
 import FileListTableRow from './FileListTableRow';
+import './FileListTable.scss';
 
 export default function FileListTable({ files, ...props }) {
   return (
-    <Table striped data-testid="fileslisttable">
+    <Table striped data-testid="file-list-table">
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell>Name</Table.HeaderCell>
-          <Table.HeaderCell>Date Modified</Table.HeaderCell>
-          <Table.HeaderCell>File Size</Table.HeaderCell>
+          <Table.HeaderCell className="file-list-table__header-cell">
+            Name
+          </Table.HeaderCell>
+          <Table.HeaderCell className="file-list-table__header-cell">
+            Date Modified
+          </Table.HeaderCell>
+          <Table.HeaderCell className="file-list-table__header-cell">
+            File Size
+          </Table.HeaderCell>
         </Table.Row>
       </Table.Header>
       <Table.Body>

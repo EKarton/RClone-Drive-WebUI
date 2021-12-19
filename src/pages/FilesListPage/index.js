@@ -1,6 +1,6 @@
 import FileListTable from 'components/FileListTable';
-import Header from '../../components/Breadcrumbs';
-import { useCallback } from 'react';
+import Header from 'components/Breadcrumbs';
+import { useCallback, useState } from 'react';
 import { useHistory } from 'react-router';
 import './index.scss';
 import { hashRemotePath } from 'utils/remote-paths-url';
@@ -15,6 +15,7 @@ import AddFilesDropSection from './AddFilesDropSection';
 import useRCloneClient from 'hooks/useRCloneClient';
 import FileSaver from 'file-saver';
 import { getNewFilename } from 'utils/filename-utils';
+import RenameFileDialog from './RenameFileModal';
 
 export default function FilesListPage() {
   const { remote, path } = useRemotePathParams();
@@ -24,6 +25,12 @@ export default function FilesListPage() {
 
   const fetchFiles = useCallback((c) => c.fetchFiles(remote, path), [remote, path]);
   const { status, data, refetchData } = useFetchRCloneData(fetchFiles);
+
+  /**
+   * Things for the rename file modal
+   */
+  const [isRenameFileModalOpen, setRenameFileModalOpen] = useState(false);
+  const [fileToRename, setFileToRename] = useState({});
 
   const handleFileClicked = (file) => {
     if (file.isDirectory) {
@@ -118,6 +125,7 @@ export default function FilesListPage() {
     <div className="filelist-page__container">
       <Header remote={remote} path={path} homeLink={<Link to="/files">My Files</Link>} />
       {renderTable()}
+      <RenameFileDialog open={isRenameFileModalOpen} />
     </div>
   );
 }
