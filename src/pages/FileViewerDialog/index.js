@@ -1,4 +1,4 @@
-import { Dialog, DialogContent, DialogContentText, IconButton } from '@mui/material';
+import { Dialog, DialogContent, IconButton } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import useRCloneClient from 'hooks/useRCloneClient';
 import { useEffect, useState } from 'react';
