@@ -1,10 +1,40 @@
 import PropTypes from 'prop-types';
 import { Table } from 'semantic-ui-react';
 import { ICON_SIZE } from 'utils/constants';
-import FileListTableRow from './FileListTableRow';
-import './FileListTable.scss';
+import Row from './Row';
+import './index.scss';
 
-export default function FileListTable({ files, ...props }) {
+export default function FileListTable({
+  files,
+  onFileClicked,
+  onFileRename,
+  onFileCopy,
+  onFileDelete,
+  onFileDownload,
+  onFileMove,
+}) {
+  const renderRow = (file) => {
+    const handleFileClicked = () => onFileClicked(file);
+    const handleFileRename = () => onFileRename(file);
+    const handleFileCopy = () => onFileCopy(file);
+    const handleFileDelete = () => onFileDelete(file);
+    const handleFileDownload = () => onFileDownload(file);
+    const handleFileMove = () => onFileMove(file);
+
+    return (
+      <Row
+        key={file.name}
+        file={file}
+        onFileClicked={handleFileClicked}
+        onFileRename={handleFileRename}
+        onFileCopy={handleFileCopy}
+        onFileDelete={handleFileDelete}
+        onFileDownload={handleFileDownload}
+        onFileMove={handleFileMove}
+      />
+    );
+  };
+
   return (
     <Table striped data-testid="file-list-table">
       <Table.Header>
@@ -20,11 +50,7 @@ export default function FileListTable({ files, ...props }) {
           </Table.HeaderCell>
         </Table.Row>
       </Table.Header>
-      <Table.Body>
-        {files.map((file) => (
-          <FileListTableRow file={file} {...props} />
-        ))}
-      </Table.Body>
+      <Table.Body>{files.map((file) => renderRow(file))}</Table.Body>
     </Table>
   );
 }

@@ -26,10 +26,7 @@ export default function FilesListPage() {
   const fetchFiles = useCallback((c) => c.fetchFiles(remote, path), [remote, path]);
   const { status, data, refetchData } = useFetchRCloneData(fetchFiles);
 
-  /**
-   * Things for the rename file modal
-   */
-  const [isRenameFileModalOpen, setRenameFileModalOpen] = useState(false);
+  const [isRenameFileModalOpen, setIsRenameFileModalOpen] = useState(false);
   const [fileToRename, setFileToRename] = useState({});
 
   const handleFileClicked = (file) => {
@@ -74,6 +71,28 @@ export default function FilesListPage() {
     refetchData();
   };
 
+  const handleRequestFileRename = (file) => {
+    setIsRenameFileModalOpen(true);
+    setFileToRename(file.name);
+  };
+
+  const handleFileModalCancelled = () => {
+    setIsRenameFileModalOpen(false);
+    setFileToRename(null);
+  };
+
+  const handleFileModalRename = async (newFileName) => {
+    const src = { remote, folderPath: path, fileName: fileToRename };
+    const target = { remote, folderPath: path, fileName: newFileName };
+    await rCloneClient.moveFile(src, target);
+
+    setIsRenameFileModalOpen(false);
+    setFileToRename(null);
+    refetchData();
+  };
+
+  const handleRequestFileMove = (file) => {};
+
   const renderTable = () => {
     if (status === StatusTypes.ERROR) {
       return <div data-testid="error-message">Error!</div>;
@@ -116,6 +135,8 @@ export default function FilesListPage() {
           onFileDownload={handleFileDownload}
           onFileDelete={handleFileDelete}
           onFileCopy={handleFileCopy}
+          onFileRename={handleRequestFileRename}
+          onFileMove={handleRequestFileMove}
         />
       </AddFilesDropSection>
     );
@@ -125,7 +146,12 @@ export default function FilesListPage() {
     <div className="filelist-page__container">
       <Header remote={remote} path={path} homeLink={<Link to="/files">My Files</Link>} />
       {renderTable()}
-      <RenameFileDialog open={isRenameFileModalOpen} />
+      <RenameFileDialog
+        open={isRenameFileModalOpen}
+        fileName={fileToRename}
+        onCancel={handleFileModalCancelled}
+        onRename={handleFileModalRename}
+      />
     </div>
   );
 }

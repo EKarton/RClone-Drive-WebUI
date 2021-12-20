@@ -1,0 +1,25 @@
+.filelist-table-row {
+  position: relative;
+  cursor: context-menu;
+
+  &--highlight {
+    box-shadow: 0 0 0 1px #4183c4;
+    background-color: #4183c44d !important;
+  }
+
+  &__table-cell {
+    vertical-align: middle;
+  }
+
+  &__file-cell {
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+    color: inherit;
+  }
+
+  &__preview-icon {
+    display: flex;
+    align-items: center;
+  }
+}

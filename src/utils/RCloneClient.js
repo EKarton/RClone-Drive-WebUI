@@ -197,6 +197,15 @@ export default class RCloneClient {
     });
   }
 
+  async moveFile(source, target) {
+    await this.axiosInstance.post('operations/movefile', {
+      srcFs: `${source.remote}:`,
+      srcRemote: this.getRemoteString(source.folderPath, source.fileName),
+      dstFs: `${target.remote}:`,
+      dstRemote: this.getRemoteString(target.folderPath, target.fileName),
+    });
+  }
+
   getRemoteString(folderPath, name) {
     return folderPath ? `${folderPath}/${name}` : name;
   }
