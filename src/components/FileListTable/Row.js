@@ -11,7 +11,7 @@ import FileIcon from './FileIcon';
 export default function Row({
   file,
   iconSize,
-  onFileClicked,
+  onFileOpen,
   onFileRename,
   onFileCopy,
   onFileDelete,
@@ -31,7 +31,7 @@ export default function Row({
   };
 
   const handleDoubleClick = () => {
-    onFileClicked(file);
+    onFileOpen();
   };
 
   const handleContextMenuOpened = (e) => {
@@ -84,7 +84,7 @@ export default function Row({
         onClose={handleContextMenuClosed}
         menuPosition={contextMenuPos}
         menuButtonEvents={{
-          onOpen: handleContextMenuClicked(onFileClicked),
+          onOpen: handleContextMenuClicked(onFileOpen),
           onDownload: handleContextMenuClicked(onFileDownload),
           onMove: handleContextMenuClicked(onFileMove),
           onCopy: handleContextMenuClicked(onFileCopy),

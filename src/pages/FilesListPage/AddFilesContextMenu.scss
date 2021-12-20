@@ -1,0 +1,9 @@
+.add-files-context-menu {
+  display: flex;
+  flex-direction: column;
+
+  &__area {
+    min-height: 4rem;
+    flex-grow: 1;
+  }
+}

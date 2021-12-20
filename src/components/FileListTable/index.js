@@ -6,7 +6,7 @@ import './index.scss';
 
 export default function FileListTable({
   files,
-  onFileClicked,
+  onFileOpen,
   onFileRename,
   onFileCopy,
   onFileDelete,
@@ -14,7 +14,7 @@ export default function FileListTable({
   onFileMove,
 }) {
   const renderRow = (file) => {
-    const handleFileClicked = () => onFileClicked(file);
+    const handleFileOpen = () => onFileOpen(file);
     const handleFileRename = () => onFileRename(file);
     const handleFileCopy = () => onFileCopy(file);
     const handleFileDelete = () => onFileDelete(file);
@@ -25,7 +25,7 @@ export default function FileListTable({
       <Row
         key={file.name}
         file={file}
-        onFileClicked={handleFileClicked}
+        onFileOpen={handleFileOpen}
         onFileRename={handleFileRename}
         onFileCopy={handleFileCopy}
         onFileDelete={handleFileDelete}
@@ -36,7 +36,7 @@ export default function FileListTable({
   };
 
   return (
-    <Table striped data-testid="file-list-table">
+    <Table striped data-testid="file-list-table" className="file-list-table">
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell className="file-list-table__header-cell">

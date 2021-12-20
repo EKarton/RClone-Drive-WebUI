@@ -1,7 +1,11 @@
-.imageviewer-dialog {
+.fileviewer-dialog {
   &__paper {
     max-height: 100%;
     max-width: 100%;
+  }
+
+  &__root {
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
   &__header {
@@ -12,9 +16,16 @@
     top: 0;
     left: 0;
     width: 100vw;
+    padding: 1rem;
   }
 
   &__header-content {
     color: white;
   }
+}
+
+.react-pdf__Page__canvas {
+  margin: 0 auto;
+  width: 100% !important;
+  height: auto !important;
 }

@@ -5,19 +5,21 @@ import { StatusTypes } from 'utils/constants';
 import FolderTree from 'pages/PicturesPage/FolderTree';
 
 export default function MoveFileDialog({ open, onCancel, onOk }) {
-  const [selectedRemote, setSelectedRemote] = useState('');
-  const [selectedFolderPath, setSelectedFolderPath] = useState('');
+  const [remotePath, setRemotePath] = useState('');
 
   const fetchRemotes = useCallback((c) => c.fetchRemotes(), []);
   const { status, data } = useFetchRCloneData(fetchRemotes);
 
-  const handleSelectedItem = ({ remote, folderPath }) => {
-    setSelectedRemote(remote);
-    setSelectedFolderPath(folderPath);
+  const handleSelectedItem = (remotePath) => {
+    setRemotePath(remotePath);
   };
 
   const handleOk = () => {
-    onOk({ remote: selectedRemote, folderPath: selectedFolderPath });
+    if (!remotePath) {
+      onCancel();
+    }
+
+    onOk(remotePath);
   };
 
   const renderFolderTree = () => {
@@ -39,7 +41,7 @@ export default function MoveFileDialog({ open, onCancel, onOk }) {
       open={open}
       onClose={onCancel}
     >
-      <DialogTitle>Move File/Directory</DialogTitle>
+      <DialogTitle>Move File / Directory</DialogTitle>
       <DialogContent dividers>{renderFolderTree()}</DialogContent>
       <DialogActions>
         <Button autoFocus onClick={onCancel}>

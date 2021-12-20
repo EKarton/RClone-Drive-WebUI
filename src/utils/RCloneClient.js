@@ -227,6 +227,13 @@ export default class RCloneClient {
     });
   }
 
+  async mkdir(remote, folderPath) {
+    await this.axiosInstance.post('operations/mkdir', {
+      fs: `${remote}:`,
+      remote: folderPath,
+    });
+  }
+
   getRemoteString(folderPath, name) {
     return folderPath ? `${folderPath}/${name}` : name;
   }

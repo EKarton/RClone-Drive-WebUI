@@ -27,8 +27,7 @@ export default function PicturesPage() {
     setIsDialogOpen(false);
   };
 
-  const handleFolderDialogSelected = ({ remote, folderPath }) => {
-    const remotePath = `${remote}:${folderPath}`;
+  const handleFolderDialogSelected = (remotePath) => {
     history.push(`/pictures/${hashRemotePath(remotePath)}`);
     setIsDialogOpen(false);
   };

@@ -1,11 +1,9 @@
 import FileListTable from 'components/FileListTable';
-import Header from 'components/Breadcrumbs';
 import { useCallback, useState } from 'react';
 import { useHistory } from 'react-router';
 import './index.scss';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import useFileViewer from 'hooks/useFileViewer';
-import { Link } from 'react-router-dom';
 import LazyImage from 'components/LazyImage';
 import { ImageMimeTypes, StatusTypes } from 'utils/constants';
 import FileListTableSkeleton from 'components/FileListTableSkeleton';
@@ -17,6 +15,8 @@ import FileSaver from 'file-saver';
 import { getNewFilename } from 'utils/filename-utils';
 import RenameFileDialog from './RenameFileDialog';
 import MoveFileDialog from './MoveFileDialog';
+import Header from './Header';
+import AddFilesContextArea from './AddFilesContextArea';
 
 export default function FilesListPage() {
   const { remote, path } = useRemotePathParams();
@@ -33,7 +33,7 @@ export default function FilesListPage() {
   const [isMoveFileModalOpen, setIsMoveFileModalOpen] = useState(false);
   const [fileToMove, setFileToMove] = useState({});
 
-  const handleFileClicked = (file) => {
+  const handleFileOpen = (file) => {
     if (file.isDirectory) {
       const newRemotePath = `${remote}:${file.path}`;
       history.push(`/files/${hashRemotePath(newRemotePath)}`);
@@ -110,19 +110,13 @@ export default function FilesListPage() {
     setFileToMove(undefined);
   };
 
-  const handleMoveFileDialogOk = async ({
-    remote: newRemote,
-    folderPath: newFolderPath,
-  }) => {
+  const handleMoveFileDialogOk = async (remotePath) => {
+    const [newRemote, newPath] = remotePath.split(':');
     const src = { remote, folderPath: path, fileName: fileToMove.name };
-    const target = {
-      remote: newRemote,
-      folderPath: newFolderPath,
-      fileName: fileToMove.name,
-    };
+    const target = { remote: newRemote, folderPath: newPath, fileName: fileToMove.name };
 
     if (fileToMove.isDirectory) {
-      await rCloneClient.move(src, target, true, true);
+      await rCloneClient.move(src, target, true, false);
       await rCloneClient.deleteDirectory(remote, path, fileToMove.name);
     } else {
       await rCloneClient.moveFile(src, target);
@@ -162,29 +156,40 @@ export default function FilesListPage() {
       ),
     }));
 
+    const existingFolderNames = fileList
+      .filter((f) => f.isDirectory)
+      .map((dir) => dir.name);
+
     return (
       <AddFilesDropSection
         remote={remote}
         folderPath={path}
         onUploadedFiles={refetchData}
       >
-        <FileListTable
+        <AddFilesContextArea
           remote={remote}
-          files={fileList}
-          onFileClicked={handleFileClicked}
-          onFileDownload={handleFileDownload}
-          onFileDelete={handleFileDelete}
-          onFileCopy={handleFileCopy}
-          onFileRename={handleRequestFileRename}
-          onFileMove={handleRequestFileMove}
-        />
+          path={path}
+          existingFolderNames={existingFolderNames}
+          onNewFolderCreated={refetchData}
+        >
+          <FileListTable
+            remote={remote}
+            files={fileList}
+            onFileOpen={handleFileOpen}
+            onFileDownload={handleFileDownload}
+            onFileDelete={handleFileDelete}
+            onFileCopy={handleFileCopy}
+            onFileRename={handleRequestFileRename}
+            onFileMove={handleRequestFileMove}
+          />
+        </AddFilesContextArea>
       </AddFilesDropSection>
     );
   };
 
   return (
     <div className="filelist-page__container">
-      <Header remote={remote} path={path} homeLink={<Link to="/files">My Files</Link>} />
+      <Header remote={remote} path={path} />
       {renderTable()}
       <RenameFileDialog
         open={isRenameFileModalOpen}

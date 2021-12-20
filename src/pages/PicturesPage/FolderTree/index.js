@@ -5,12 +5,7 @@ import FolderTreeItem from './FolderTreeItem';
 
 export default function FolderTree({ remotes, onSelect }) {
   const handleNodeSelect = (_e, nodeIds) => {
-    if (!nodeIds) {
-      return;
-    }
-
-    const [remote, folderPath] = nodeIds.split(':');
-    onSelect({ remote, folderPath });
+    onSelect(nodeIds);
   };
 
   return (

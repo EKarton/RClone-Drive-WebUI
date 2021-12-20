@@ -8,3 +8,17 @@ export function getNewFilename(fileName, existingFileNames) {
 
   return newFileName;
 }
+
+export function getNewFolderName(existingFolderNames) {
+  const existingFoldersSet = new Set(existingFolderNames);
+
+  let newFolderNum = 0;
+  let newFolderName = 'New Folder';
+
+  while (existingFoldersSet.has(newFolderName)) {
+    newFolderNum += 1;
+    newFolderName = `New Folder ${newFolderNum}`;
+  }
+
+  return newFolderName;
+}

@@ -5,10 +5,14 @@ import { useEffect, useState } from 'react';
 import { ImageMimeTypes } from 'utils/constants';
 import PDFDialogContent from './PDFDialogContent';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
+import ZoomInIcon from '@mui/icons-material/ZoomIn';
+import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 import './index.scss';
 import FileSaver from 'file-saver';
 import useFileViewer from 'hooks/useFileViewer';
 import { TextDialogContent } from './TextDialogContent';
+
+const MaxWidths = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 export default function FileViewerDialog() {
   const { fileInfo, isOpen, hide } = useFileViewer();
@@ -18,6 +22,8 @@ export default function FileViewerDialog() {
   const [fileMimeType, setFileMimeType] = useState();
   const [fileBlob, setFileBlob] = useState();
   const [fileUrl, setFileUrl] = useState();
+
+  const [maxWidthIdx, setMaxWidthIdx] = useState(2);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,14 +58,36 @@ export default function FileViewerDialog() {
     FileSaver.saveAs(fileBlob, fileInfo?.fileName);
   };
 
+  const handleZoomInButtonClicked = () => {
+    setMaxWidthIdx(Math.min(maxWidthIdx + 1, MaxWidths.length - 1));
+  };
+
+  const handleZoomOutButtonClicked = () => {
+    setMaxWidthIdx(Math.max(0, maxWidthIdx - 1));
+  };
+
   const renderDownloadButton = () => {
     return (
-      <div className="imageviewer-dialog__header">
-        <div className="imageviewer-dialog__header-content">{fileInfo?.fileName}</div>
+      <div className="fileviewer-dialog__header">
+        <div className="fileviewer-dialog__header-content">
+          {fileInfo?.fileName} skjdfnkasnf sdkfj askjfnkasj fksa dfkjsnadfkjnaskfjn
+        </div>
         <div>
+          <IconButton onClick={handleZoomInButtonClicked}>
+            <ZoomInIcon
+              className="fileviewer-dialog__header-content"
+              data-testid="zoom-in-button"
+            />
+          </IconButton>
+          <IconButton onClick={handleZoomOutButtonClicked}>
+            <ZoomOutIcon
+              className="fileviewer-dialog__header-content"
+              data-testid="zoom-out-button"
+            />
+          </IconButton>
           <IconButton onClick={handleDownloadButtonClicked}>
             <FileDownloadIcon
-              className="imageviewer-dialog__header-content"
+              className="fileviewer-dialog__header-content"
               data-testid="download-button"
             />
           </IconButton>
@@ -94,11 +122,11 @@ export default function FileViewerDialog() {
 
   return (
     <Dialog
-      className="imageviewer-dialog"
+      className="fileviewer-dialog"
       open={isOpen}
       onClose={hide}
-      maxWidth="sm"
-      classes={{ paper: 'imageviewer-dialog__paper' }}
+      maxWidth={MaxWidths[maxWidthIdx]}
+      classes={{ paper: 'fileviewer-dialog__paper', root: 'fileviewer-dialog__root' }}
     >
       {renderDownloadButton()}
       {renderDialogContent()}
