@@ -27,10 +27,9 @@ export default function PicturesPage() {
     setIsDialogOpen(false);
   };
 
-  const handleFolderDialogSelected = (selectedRemotePath) => {
-    if (selectedRemotePath) {
-      history.push(`/pictures/${hashRemotePath(selectedRemotePath)}`);
-    }
+  const handleFolderDialogSelected = ({ remote, folderPath }) => {
+    const remotePath = `${remote}:${folderPath}`;
+    history.push(`/pictures/${hashRemotePath(remotePath)}`);
     setIsDialogOpen(false);
   };
 

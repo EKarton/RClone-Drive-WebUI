@@ -206,6 +206,27 @@ export default class RCloneClient {
     });
   }
 
+  async move(source, target, createEmptySrcDirs, deleteEmptySrcDirs) {
+    const srcRemote = this.getRemoteString(source.folderPath, source.fileName);
+    const targetRemote = this.getRemoteString(target.folderPath, target.fileName);
+
+    await this.axiosInstance.post('sync/move', {
+      srcFs: `${source.remote}:${srcRemote}`,
+      dstFs: `${target.remote}:${targetRemote}`,
+      createEmptySrcDirs,
+      deleteEmptySrcDirs,
+    });
+  }
+
+  async moveV2(srcRemotePath, targetRemotePath, createEmptySrcDirs, deleteEmptySrcDirs) {
+    await this.axiosInstance.post('sync/move', {
+      srcFs: srcRemotePath,
+      dstFs: targetRemotePath,
+      createEmptySrcDirs,
+      deleteEmptySrcDirs,
+    });
+  }
+
   getRemoteString(folderPath, name) {
     return folderPath ? `${folderPath}/${name}` : name;
   }

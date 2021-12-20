@@ -15,7 +15,8 @@ import AddFilesDropSection from './AddFilesDropSection';
 import useRCloneClient from 'hooks/useRCloneClient';
 import FileSaver from 'file-saver';
 import { getNewFilename } from 'utils/filename-utils';
-import RenameFileDialog from './RenameFileModal';
+import RenameFileDialog from './RenameFileDialog';
+import MoveFileDialog from './MoveFileDialog';
 
 export default function FilesListPage() {
   const { remote, path } = useRemotePathParams();
@@ -28,6 +29,9 @@ export default function FilesListPage() {
 
   const [isRenameFileModalOpen, setIsRenameFileModalOpen] = useState(false);
   const [fileToRename, setFileToRename] = useState({});
+
+  const [isMoveFileModalOpen, setIsMoveFileModalOpen] = useState(false);
+  const [fileToMove, setFileToMove] = useState({});
 
   const handleFileClicked = (file) => {
     if (file.isDirectory) {
@@ -73,7 +77,7 @@ export default function FilesListPage() {
 
   const handleRequestFileRename = (file) => {
     setIsRenameFileModalOpen(true);
-    setFileToRename(file.name);
+    setFileToRename(file);
   };
 
   const handleFileModalCancelled = () => {
@@ -82,16 +86,52 @@ export default function FilesListPage() {
   };
 
   const handleFileModalRename = async (newFileName) => {
-    const src = { remote, folderPath: path, fileName: fileToRename };
+    const src = { remote, folderPath: path, fileName: fileToRename.name };
     const target = { remote, folderPath: path, fileName: newFileName };
-    await rCloneClient.moveFile(src, target);
+
+    if (fileToRename.isDirectory) {
+      await rCloneClient.move(src, target, true);
+    } else {
+      await rCloneClient.moveFile(src, target);
+    }
 
     setIsRenameFileModalOpen(false);
     setFileToRename(null);
     refetchData();
   };
 
-  const handleRequestFileMove = (file) => {};
+  const handleRequestFileMove = (file) => {
+    setIsMoveFileModalOpen(true);
+    setFileToMove(file);
+  };
+
+  const handleMoveFileDialogCancelled = () => {
+    setIsMoveFileModalOpen(false);
+    setFileToMove(undefined);
+  };
+
+  const handleMoveFileDialogOk = async ({
+    remote: newRemote,
+    folderPath: newFolderPath,
+  }) => {
+    const src = { remote, folderPath: path, fileName: fileToMove.name };
+    const target = {
+      remote: newRemote,
+      folderPath: newFolderPath,
+      fileName: fileToMove.name,
+    };
+
+    if (fileToMove.isDirectory) {
+      await rCloneClient.move(src, target, true, true);
+      await rCloneClient.deleteDirectory(remote, path, fileToMove.name);
+    } else {
+      await rCloneClient.moveFile(src, target);
+    }
+
+    setIsMoveFileModalOpen(false);
+    setFileToMove(undefined);
+    refetchData();
+  };
 
   const renderTable = () => {
     if (status === StatusTypes.ERROR) {
@@ -148,9 +188,14 @@ export default function FilesListPage() {
       {renderTable()}
       <RenameFileDialog
         open={isRenameFileModalOpen}
-        fileName={fileToRename}
+        fileName={fileToRename?.name}
         onCancel={handleFileModalCancelled}
         onRename={handleFileModalRename}
+      />
+      <MoveFileDialog
+        open={isMoveFileModalOpen}
+        onCancel={handleMoveFileDialogCancelled}
+        onOk={handleMoveFileDialogOk}
       />
     </div>
   );
