@@ -1,5 +1,5 @@
 import FileListTable from 'components/FileListTable';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { useHistory } from 'react-router';
 import './index.scss';
 import { hashRemotePath } from 'utils/remote-paths-url';
@@ -8,24 +8,22 @@ import LazyImage from 'components/LazyImage';
 import { ImageMimeTypes, StatusTypes } from 'utils/constants';
 import FileListTableSkeleton from 'components/FileListTableSkeleton';
 import useRemotePathParams from 'hooks/useRemotePathParams';
-import useFetchRCloneData from 'hooks/useFetchRCloneData';
 import AddFilesDropSection from './AddFilesDropSection';
-import useRCloneClient from 'hooks/useRCloneClient';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import FileSaver from 'file-saver';
 import { getNewFilename } from 'utils/filename-utils';
 import RenameFileDialog from './RenameFileDialog';
 import MoveFileDialog from './MoveFileDialog';
 import Header from './Header';
 import AddFilesContextArea from './AddFilesContextArea';
+import { useFetchFiles } from 'hooks/rclone/fetch-data/useFetchFiles';
 
 export default function FilesListPage() {
   const { remote, path } = useRemotePathParams();
   const history = useHistory();
   const fileViewer = useFileViewer();
   const rCloneClient = useRCloneClient();
-
-  const fetchFiles = useCallback((c) => c.fetchFiles(remote, path), [remote, path]);
-  const { status, data, refetchData } = useFetchRCloneData(fetchFiles);
+  const { status, data, refetchData } = useFetchFiles(remote, path);
 
   const [isRenameFileModalOpen, setIsRenameFileModalOpen] = useState(false);
   const [fileToRename, setFileToRename] = useState({});

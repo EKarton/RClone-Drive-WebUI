@@ -1,4 +1,4 @@
-import useRCloneClient, { MissingRCloneInfoError } from 'hooks/useRCloneClient';
+import useRCloneClient, { MissingRCloneInfoError } from 'hooks/rclone/useRCloneClient';
 import useRCloneInfo from '../useRCloneInfo';
 
 jest.mock('../useRCloneInfo');

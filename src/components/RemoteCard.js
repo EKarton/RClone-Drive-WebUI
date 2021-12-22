@@ -2,15 +2,12 @@ import { Card, CardContent, Skeleton, Typography, CardActionArea } from '@mui/ma
 import { StatusTypes } from 'utils/constants';
 import prettyBytes from 'pretty-bytes';
 import './RemoteCard.scss';
-import useFetchRCloneData from 'hooks/useFetchRCloneData';
-import { useCallback } from 'react';
+import useFetchRemoteSpaceInfo from 'hooks/rclone/fetch-data/useFetchRemoteSpaceInfo';
+import useFetchRemoteInfo from 'hooks/rclone/fetch-data/useFetchRemoteInfo';
 
 export default function RemoteCard({ remote, onClick, ...props }) {
-  const fetchSpace = useCallback((c) => c.fetchRemoteSpaceInfo(remote), [remote]);
-  const fetchInfo = useCallback((c) => c.fetchRemoteInfo(remote), [remote]);
-
-  const sizeResult = useFetchRCloneData(fetchSpace);
-  const infoResult = useFetchRCloneData(fetchInfo);
+  const sizeResult = useFetchRemoteSpaceInfo(remote);
+  const infoResult = useFetchRemoteInfo(remote);
 
   const renderRemoteInfo = () => {
     if (infoResult.status === StatusTypes.LOADING) {

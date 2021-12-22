@@ -1,21 +1,19 @@
-import { useCallback } from 'react';
 import { useHistory } from 'react-router';
-import useFetchRCloneData from 'hooks/useFetchRCloneData';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import RemoteCardList from 'components/RemoteCardList';
 import { StatusTypes } from 'utils/constants';
+import useFetchRemotes from 'hooks/rclone/fetch-data/useFetchRemotes';
 
 export default function RemotesListSection() {
   const history = useHistory();
-  const fetchRemotes = useCallback((c) => c.fetchRemotes(), []);
-  const remotesResult = useFetchRCloneData(fetchRemotes);
+  const { status, data: remotes, error } = useFetchRemotes();
 
-  if (remotesResult.status === StatusTypes.LOADING) {
+  if (status === StatusTypes.LOADING) {
     return null;
   }
 
-  if (remotesResult.status === StatusTypes.ERROR) {
-    return <div>{remotesResult.error.message}</div>;
+  if (status === StatusTypes.ERROR) {
+    return <div>{error.message}</div>;
   }
 
   const handleRemoteCardClicked = (remote) => {
@@ -25,7 +23,7 @@ export default function RemotesListSection() {
   return (
     <>
       <h4>Your Remotes</h4>
-      <RemoteCardList remotes={remotesResult.data} onClick={handleRemoteCardClicked} />
+      <RemoteCardList remotes={remotes} onClick={handleRemoteCardClicked} />
     </>
   );
 }

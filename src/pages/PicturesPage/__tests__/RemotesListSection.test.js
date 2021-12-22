@@ -1,4 +1,4 @@
-import useRCloneClient from 'hooks/useRCloneClient';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { customRender, waitFor } from 'test-utils/react';
 import RemoteCardList from 'components/RemoteCardList';
 import RemotesListSection from '../RemotesListSection';

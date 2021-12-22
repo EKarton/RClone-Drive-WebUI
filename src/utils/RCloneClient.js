@@ -1,5 +1,20 @@
 import axios from 'axios';
 
+const ImageIncludeRules = [
+  '*.png',
+  '*.PNG',
+  '*.jpg',
+  '*.JPG',
+  '*.jpeg',
+  '*.JPEG',
+  '*.bmp',
+  '*.BMP',
+  '*.gif',
+  '*.GIF',
+  '*.heic',
+  '*.HEIC',
+];
+
 export default class RCloneClient {
   constructor(endpoint, username, password) {
     this.axiosInstance = axios.create({
@@ -19,8 +34,8 @@ export default class RCloneClient {
    * Fetches and returns a list of remotes
    * @returns {Array<String>} a list of remotes
    */
-  async fetchRemotes() {
-    const { data } = await this.axiosInstance.post('config/listremotes');
+  async fetchRemotes(opts) {
+    const { data } = await this.axiosInstance.post('config/listremotes', undefined, opts);
     return data.remotes;
   }
 
@@ -40,26 +55,28 @@ export default class RCloneClient {
    *
    * @returns {Array<Object>} a list of files
    */
-  async fetchFiles(remote, path) {
-    const { data } = await this.axiosInstance.post('operations/list', {
+  async fetchFiles(remote, path, opts) {
+    const postData = {
       fs: `${remote}:`,
       remote: `${path}`,
       _config: {
         UseListR: true,
       },
-    });
+    };
+    const { data } = await this.axiosInstance.post('operations/list', postData, opts);
 
     return data.list;
   }
 
-  async fetchSubFolders(remote, path) {
-    const { data } = await this.axiosInstance.post('operations/list', {
+  async fetchSubFolders(remote, path, opts) {
+    const postData = {
       fs: `${remote}:`,
       remote: `${path}`,
       opt: {
         dirsOnly: true,
       },
-    });
+    };
+    const { data } = await this.axiosInstance.post('operations/list', postData, opts);
 
     return data.list;
   }
@@ -80,8 +97,8 @@ export default class RCloneClient {
    *
    * @returns {Array<Object>} a list of files
    */
-  async fetchPictures(remote, path) {
-    const { data } = await this.axiosInstance.post('operations/list', {
+  async fetchPictures(remote, path, opts) {
+    const postData = {
       fs: `${remote}:`,
       remote: `${path}`,
       opt: {
@@ -92,22 +109,11 @@ export default class RCloneClient {
         UseListR: true,
       },
       _filter: {
-        IncludeRule: [
-          '*.png',
-          '*.PNG',
-          '*.jpg',
-          '*.JPG',
-          '*.jpeg',
-          '*.JPEG',
-          '*.bmp',
-          '*.BMP',
-          '*.gif',
-          '*.GIF',
-          '*.heic',
-          '*.HEIC',
-        ],
+        IncludeRule: ImageIncludeRules,
       },
-    });
+    };
+
+    const { data } = await this.axiosInstance.post('operations/list', postData, opts);
 
     return data.list;
   }
@@ -119,12 +125,14 @@ export default class RCloneClient {
    * @param {string} fileName the file name
    * @returns {string} the blob contents of the file
    */
-  async fetchFileContents(remote, folderPath, fileName) {
+  async fetchFileContents(remote, folderPath, fileName, opts = {}) {
+    const { cancelToken } = opts;
     const remotePath = `${remote}:${folderPath}`;
     const url = encodeURI(`[${remotePath}]/${fileName}`);
 
     const response = await this.axiosInstance.get(url, {
       responseType: 'blob',
+      cancelToken,
     });
 
     return response;
@@ -144,10 +152,11 @@ export default class RCloneClient {
    * @param {string} remote the remote
    * @returns {object} the space info
    */
-  async fetchRemoteSpaceInfo(remote) {
-    const { data } = await this.axiosInstance.post('operations/about', {
+  async fetchRemoteSpaceInfo(remote, opts) {
+    const postPayload = {
       fs: `${remote}:`,
-    });
+    };
+    const { data } = await this.axiosInstance.post('operations/about', postPayload, opts);
 
     return data;
   }
@@ -157,10 +166,11 @@ export default class RCloneClient {
    * @param {string} remote the remote
    * @returns {object} the info of the remote
    */
-  async fetchRemoteInfo(remote) {
-    const { data } = await this.axiosInstance.post('config/get', {
+  async fetchRemoteInfo(remote, opts) {
+    const postPayload = {
       name: remote,
-    });
+    };
+    const { data } = await this.axiosInstance.post('config/get', postPayload, opts);
 
     return data;
   }

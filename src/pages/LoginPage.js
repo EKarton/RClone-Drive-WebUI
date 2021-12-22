@@ -7,7 +7,7 @@ import {
   TextField,
 } from '@mui/material';
 import cx from 'classnames';
-import useRCloneInfo from 'hooks/useRCloneInfo';
+import useRCloneInfo from 'hooks/rclone/useRCloneInfo';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import RCloneClient from 'utils/RCloneClient';

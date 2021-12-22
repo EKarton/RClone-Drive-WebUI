@@ -1,5 +1,5 @@
 import RemoteCard from 'components/RemoteCard';
-import useRCloneClient from 'hooks/useRCloneClient';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import {
   mockConfigGetResponse,
   mockOperationsAboutResponse,

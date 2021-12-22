@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import AddFilesContextMenu from './AddFilesContextMenu';
 import './AddFilesContextArea.scss';
-import useRCloneClient from 'hooks/useRCloneClient';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { getNewFolderName } from 'utils/filename-utils';
 
 export default function AddFilesContextArea({

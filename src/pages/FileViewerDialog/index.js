@@ -1,6 +1,6 @@
 import { Dialog, DialogContent, IconButton } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
-import useRCloneClient from 'hooks/useRCloneClient';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { useEffect, useState } from 'react';
 import { ImageMimeTypes } from 'utils/constants';
 import PDFDialogContent from './PDFDialogContent';

@@ -1,5 +1,5 @@
 import useFileViewer from 'hooks/useFileViewer';
-import useRCloneClient from 'hooks/useRCloneClient';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { Route } from 'react-router';
 import { customRender, userEvent, waitFor } from 'test-utils/react';
 import { mockFiles } from 'test-utils/mock-responses';

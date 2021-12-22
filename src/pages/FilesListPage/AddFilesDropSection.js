@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import useRCloneClient from 'hooks/useRCloneClient';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import './AddFilesDropSection.scss';
 
 /**

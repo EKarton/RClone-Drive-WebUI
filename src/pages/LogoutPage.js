@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useHistory } from 'react-router';
-import useRCloneInfo from 'hooks/useRCloneInfo';
+import useRCloneInfo from 'hooks/rclone/useRCloneInfo';
 
 export default function LogoutPage() {
   const history = useHistory();

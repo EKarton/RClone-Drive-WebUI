@@ -1,6 +1,6 @@
 import ImageList from '../ImageList';
 import useFileViewer from 'hooks/useFileViewer';
-import useRCloneClient from 'hooks/useRCloneClient';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { Route } from 'react-router';
 import { act, customRender, waitFor } from 'test-utils/react';
 import { mockPictures } from 'test-utils/mock-responses';
