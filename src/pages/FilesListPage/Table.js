@@ -7,12 +7,12 @@ import { ImageMimeTypes, StatusTypes } from 'utils/constants';
 import FileListTableSkeleton from 'components/FileListTableSkeleton';
 import AddFilesDropSection from './AddFilesDropSection';
 import AddFilesContextArea from './AddFilesContextArea';
-import { useFetchFiles } from 'hooks/rclone/fetch-data/useFetchFiles';
-import { useMoveFileDialog } from 'contexts/FileMover';
-import { useFileDownloader } from 'hooks/useFileDownloader';
-import { useFileRemover } from 'hooks/useFileRemover';
-import { useFileCopier } from 'hooks/useFileCopier';
-import { useRenameFileDialog } from 'contexts/FileRenamer';
+import useFetchFiles from 'hooks/rclone/fetch-data/useFetchFiles';
+import useMoveFileDialog from 'hooks/useMoveFileDialog';
+import useFileDownloader from 'hooks/useFileDownloader';
+import useFileRemover from 'hooks/useFileRemover';
+import useFileCopier from 'hooks/useFileCopier';
+import useRenameFileDialog from 'hooks/useRenameFileDialog';
 
 export default function Table({ remote, path }) {
   const history = useHistory();
@@ -65,8 +65,8 @@ export default function Table({ remote, path }) {
           onFileDownload={(file) => downloadFile(file)}
           onFileDelete={(file) => deleteFile(file).then(refetchData)}
           onFileCopy={(file) => copyFile(file).then(refetchData)}
-          onFileRename={(file) => renameFileDialog.renameFile(file)}
-          onFileMove={(file) => moveFileDialog.moveFile(file)}
+          onFileRename={(file) => renameFileDialog.renameFile(file).then(refetchData)}
+          onFileMove={(file) => moveFileDialog.moveFile(file).then(refetchData)}
         />
       </AddFilesContextArea>
     </AddFilesDropSection>

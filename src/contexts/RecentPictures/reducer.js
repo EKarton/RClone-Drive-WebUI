@@ -30,6 +30,25 @@ export default function reducer(state, action) {
 
       return { ...state, recentPictures: newList };
     }
+    case actionTypes.REMOVE_IMAGES: {
+      const remotePaths = action.payload.map(({ remote, folderPath, fileName }) => {
+        return `${remote}:${folderPath}/${fileName}`;
+      });
+
+      const remotePathsSet = new Set(remotePaths);
+
+      const newList = state.recentPictures.filter((file) => {
+        const { remote, folderPath, fileName } = file;
+        const remotePathStr = `${remote}:${folderPath}/${fileName}`;
+
+        if (remotePathsSet.has(remotePathStr)) {
+          return false;
+        }
+        return true;
+      });
+
+      return { ...state, recentPictures: newList };
+    }
     default:
       throw new Error(`Unknown action ${action.type}`);
   }

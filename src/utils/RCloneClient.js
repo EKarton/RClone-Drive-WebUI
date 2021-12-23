@@ -161,6 +161,17 @@ export default class RCloneClient {
     return data;
   }
 
+  async fetchFileInfo(remote, path, opts) {
+    const postPayload = {
+      fs: `${remote}:`,
+      remote: path,
+    };
+
+    const { data } = await this.axiosInstance.post('operations/stat', postPayload, opts);
+
+    return data.item;
+  }
+
   /**
    * Returns the remote info
    * @param {string} remote the remote
@@ -195,6 +206,23 @@ export default class RCloneClient {
     await this.axiosInstance.post('operations/deletefile', {
       fs: `${remote}:`,
       remote: this.getRemoteString(folderPath, fileName),
+    });
+  }
+
+  /**
+   * Copies the contents in a source directory to a target directory
+   * @param {object} source the source directory
+   * @param {object} target the target directory
+   * @param {boolean} createEmptySrcDirs true if it creates empty sub-directories in the source path; else false
+   */
+  async copyDirectoryContents(source, target, createEmptySrcDirs) {
+    const srcPath = this.getRemoteString(source.folderPath, source.fileName);
+    const targetPath = this.getRemoteString(target.folderPath, target.fileName);
+
+    await this.axiosInstance.post('sync/copy', {
+      srcFs: `${source.remote}:${srcPath}`,
+      dstFs: `${target.remote}:${targetPath}`,
+      createEmptySrcDirs: `${createEmptySrcDirs}`,
     });
   }
 

@@ -7,8 +7,12 @@ import './AddFilesDropSection.scss';
 /**
  * This component is responsible for adding files to a remote via drag-and-drop
  */
-export default function AddFilesDropSection(props) {
-  const { remote, folderPath, children, onUploadedFiles } = props;
+export default function AddFilesDropSection({
+  remote,
+  folderPath,
+  children,
+  onUploadedFiles,
+}) {
   const rCloneClient = useRCloneClient();
   const [isDraggingFile, setIsDraggingFile] = useState(false);
 

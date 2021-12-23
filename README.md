@@ -42,7 +42,7 @@ The RClone Drive Web UI is a front-end project that interfaces with RClone's [Re
 
 ### Usage:
 
-Please note that this project is used for educational purposes and is not intended to be used commercially. We are not liable for any damages/changes done by this project.
+Please note that this project is used for educational purposes and is not intended to be used commercially. We are not liable for any damages/changes/lost data done by this project.
 
 ### Credits:
 
