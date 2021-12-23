@@ -2,25 +2,25 @@ import actionTypes from './actionTypes';
 
 export default function reducer(state, action) {
   switch (action.type) {
-    case actionTypes.REQUEST_FILE_MOVE: {
+    case actionTypes.REQUEST_FILE_RENAME: {
       return {
         ...state,
         isOpen: true,
-        fileToMove: action.payload,
+        fileToRename: action.payload,
       };
     }
-    case actionTypes.COMPLETE_FILE_MOVE: {
+    case actionTypes.COMPLETE_FILE_RENAME: {
       return {
         ...state,
         isOpen: false,
-        fileToMove: undefined,
+        fileToRename: undefined,
       };
     }
-    case actionTypes.CANCEL_FILE_MOVE: {
+    case actionTypes.CANCEL_FILE_RENAME: {
       return {
         ...state,
         isOpen: false,
-        fileToMove: undefined,
+        fileToRename: undefined,
       };
     }
     default:

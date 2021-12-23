@@ -69,9 +69,7 @@ export default function FileViewerDialog() {
   const renderDownloadButton = () => {
     return (
       <div className="fileviewer-dialog__header">
-        <div className="fileviewer-dialog__header-content">
-          {fileInfo?.fileName} skjdfnkasnf sdkfj askjfnkasj fksa dfkjsnadfkjnaskfjn
-        </div>
+        <div className="fileviewer-dialog__header-content">{fileInfo?.fileName}</div>
         <div>
           <IconButton onClick={handleZoomInButtonClicked}>
             <ZoomInIcon

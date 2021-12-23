@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import AddFilesContextMenu from './AddFilesContextMenu';
+import { ListItemIcon, ListItemText, Menu, MenuItem } from '@mui/material';
+import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder';
+import UploadFileIcon from '@mui/icons-material/UploadFile';
 import './AddFilesContextArea.scss';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { getNewFolderName } from 'utils/filename-utils';
@@ -7,37 +9,40 @@ import { getNewFolderName } from 'utils/filename-utils';
 export default function AddFilesContextArea({
   remote,
   path,
-  existingFolderNames,
   children,
   onNewFolderCreated,
 }) {
   const rCloneClient = useRCloneClient();
-
-  const [isContextMenuOpen, setIsContextMenuOpen] = useState(false);
-  const [contextMenuPos, setContextMenuPos] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [menuPos, setMenuPos] = useState(null);
 
   const handleContextMenuOpened = (e) => {
     e.preventDefault();
 
-    setContextMenuPos({ left: e.clientX - 2, top: e.clientY - 4 });
-    setIsContextMenuOpen(true);
+    setMenuPos({ left: e.clientX - 2, top: e.clientY - 4 });
+    setIsMenuOpen(true);
   };
 
   const handleContextMenuClosed = () => {
-    setContextMenuPos(undefined);
-    setIsContextMenuOpen(false);
+    setMenuPos(undefined);
+    setIsMenuOpen(false);
   };
 
   const handleContextMenuClicked = (func) => () => {
-    setContextMenuPos(undefined);
-    setIsContextMenuOpen(false);
+    setMenuPos(undefined);
+    setIsMenuOpen(false);
     func();
   };
 
   const handleCreateNewFolder = async () => {
+    const files = await rCloneClient.fetchFiles(remote, path);
+    const existingFolderNames = files.filter((f) => f.IsDir).map((dir) => dir.Name);
+
     const newFolderName = getNewFolderName(existingFolderNames);
     const newPath = path ? `${path}/${newFolderName}` : newFolderName;
+
     await rCloneClient.mkdir(remote, newPath);
+
     onNewFolderCreated();
   };
 
@@ -50,13 +55,25 @@ export default function AddFilesContextArea({
         className="add-files-context-area__region"
         onContextMenu={handleContextMenuOpened}
       ></div>
-      <AddFilesContextMenu
-        open={isContextMenuOpen}
+      <Menu
+        open={isMenuOpen}
         onClose={handleContextMenuClosed}
-        menuPosition={contextMenuPos}
-        onNewFolder={handleContextMenuClicked(handleCreateNewFolder)}
-        onUploadFile={handleContextMenuClicked(handleUploadFile)}
-      />
+        anchorReference="anchorPosition"
+        anchorPosition={menuPos}
+      >
+        <MenuItem onClick={handleContextMenuClicked(handleCreateNewFolder)}>
+          <ListItemIcon>
+            <CreateNewFolderIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>New Folder</ListItemText>
+        </MenuItem>
+        <MenuItem onClick={handleContextMenuClicked(handleUploadFile)}>
+          <ListItemIcon>
+            <UploadFileIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>Upload File</ListItemText>
+        </MenuItem>
+      </Menu>
     </div>
   );
 }
