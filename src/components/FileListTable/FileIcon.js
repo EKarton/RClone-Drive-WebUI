@@ -3,16 +3,24 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import ImageIcon from '@mui/icons-material/Image';
 import Icon from '@mui/material/Icon';
 import './FileIcon.scss';
+import LazyImage from 'components/LazyImage';
 
 export default function FileIcon({ file, iconSize }) {
   if (file.isDirectory) {
     return <FolderIcon fontSize={iconSize} />;
   }
 
-  if (file.isImage && file.preview) {
+  if (file.isImage) {
     return (
       <Icon fontSize={iconSize} className="file-icon__preview-icon">
-        {file.preview}
+        <LazyImage
+          image={{
+            remote: file.remote,
+            folderPath: file.path,
+            fileName: file.name,
+          }}
+          imgClassName="file-icon__img"
+        />
       </Icon>
     );
   }

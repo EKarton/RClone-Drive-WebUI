@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useReducer, useRef } from 'react';
+import { useEffect, useReducer } from 'react';
 import { StatusTypes } from 'utils/constants';
 import useRCloneClient from '../useRCloneClient';
 
@@ -24,7 +24,6 @@ import useRCloneClient from '../useRCloneClient';
  * @returns {object} the result with the shape above
  */
 const useFetchData = (rCloneClientFn) => {
-  const cancelSource = useRef(null);
   const rCloneClient = useRCloneClient();
 
   const [result, dispatchResult] = useReducer(reducer, {
@@ -34,11 +33,13 @@ const useFetchData = (rCloneClientFn) => {
   });
 
   useEffect(() => {
+    const cancelSource = axios.CancelToken.source();
+
     const fetchData = async () => {
       try {
         dispatchResult({ type: StatusTypes.LOADING });
 
-        const data = await rCloneClientFn(rCloneClient, cancelSource.current.token);
+        const data = await rCloneClientFn(rCloneClient, cancelSource.token);
 
         dispatchResult({ type: StatusTypes.SUCCESS, payload: data });
       } catch (err) {
@@ -48,16 +49,12 @@ const useFetchData = (rCloneClientFn) => {
       }
     };
 
-    cancelSource.current = axios.CancelToken.source();
-
-    if (result.status === StatusTypes.LOADING) {
-      fetchData();
-    }
+    fetchData();
 
     return () => {
-      cancelSource.current.cancel();
+      cancelSource.cancel();
     };
-  }, [rCloneClient, rCloneClientFn, result.status]);
+  }, [rCloneClient, rCloneClientFn]);
 
   return {
     ...result,
