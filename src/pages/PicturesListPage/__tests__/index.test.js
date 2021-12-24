@@ -7,7 +7,7 @@ import { mockPictures } from 'test-utils/mock-responses';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import PicturesListPage from '..';
 
-jest.mock('hooks/useRCloneClient');
+jest.mock('hooks/rclone/useRCloneClient');
 jest.mock('hooks/useFileViewer');
 jest.mock('../ImageList');
 
