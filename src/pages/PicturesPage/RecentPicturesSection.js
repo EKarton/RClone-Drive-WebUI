@@ -36,7 +36,7 @@ export default function RecentPicturesSection() {
 
             try {
               const opts = { cancelToken: cancelSource.token };
-              const details = await rCloneClient.fetchFileInfo(remote, path, opts);
+              const details = await rCloneClient.fetchFullPathInfo(remote, path, opts);
 
               return details !== null;
             } catch (err) {

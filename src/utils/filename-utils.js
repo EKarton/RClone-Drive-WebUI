@@ -1,3 +1,19 @@
+/**
+ * Returns the full path of a directory path and a base name
+ * @param {string} directoryPath the directory path
+ * @param {string} baseName the base name
+ * @returns {string} the full path
+ */
+export function getFullPath(directoryPath, baseName) {
+  return directoryPath ? `${directoryPath}/${baseName}` : baseName;
+}
+
+/**
+ * Gets a new file name that is not an existing file name
+ * @param {string} fileName the file name
+ * @param {string[]} existingFileNames a list of existing file names
+ * @returns {string} the new file name
+ */
 export function getNewFilename(fileName, existingFileNames) {
   const existingFileNamesSet = new Set(existingFileNames);
 
@@ -9,6 +25,11 @@ export function getNewFilename(fileName, existingFileNames) {
   return newFileName;
 }
 
+/**
+ * Gets a new folder name that is not an existing folder name
+ * @param {string[]} existingFolderNames a list of existing folder names
+ * @returns {string} a new folder name
+ */
 export function getNewFolderName(existingFolderNames) {
   const existingFoldersSet = new Set(existingFolderNames);
 

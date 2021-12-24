@@ -1,4 +1,5 @@
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
+import { getFullPath } from 'utils/filename-utils';
 
 export default function useFileCopier() {
   const rCloneClient = useRCloneClient();
@@ -14,7 +15,7 @@ export default function useFileCopier() {
       const directoryContents = await rCloneClient.fetchFiles(remote, file.path);
 
       if (directoryContents.length === 0) {
-        const newFilePath = rCloneClient.getRemoteString(folderPath, newFileName);
+        const newFilePath = getFullPath(folderPath, newFileName);
         await rCloneClient.mkdir(remote, newFilePath);
       } else {
         await rCloneClient.copyDirectoryContents(src, target, true);
