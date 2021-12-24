@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Image should render an error message when api call to fetch image fails 1`] = `
+exports[`Image should render error message when api call fails 1`] = `
 <body>
   <div>
     <div
@@ -9,25 +9,13 @@ exports[`Image should render an error message when api call to fetch image fails
       width="20px"
     >
       Error: 
-      Random error
+      Image not found
     </div>
   </div>
 </body>
 `;
 
-exports[`Image should render image when api call to fetch image succeeds 1`] = `
-<body>
-  <div>
-    <span
-      class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse image css-58ftfq-MuiSkeleton-root"
-      data-testid="image-spinner"
-      style="width: 20px; height: 20px;"
-    />
-  </div>
-</body>
-`;
-
-exports[`Image should render image when api call to fetch image succeeds 2`] = `
+exports[`Image should render image when api call finishes 1`] = `
 <body>
   <div>
     <img
@@ -38,6 +26,18 @@ exports[`Image should render image when api call to fetch image succeeds 2`] = `
       loading="lazy"
       src="blob://data"
       width="20px"
+    />
+  </div>
+</body>
+`;
+
+exports[`Image should render spinner when api call is in flight 1`] = `
+<body>
+  <div>
+    <span
+      class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse image css-58ftfq-MuiSkeleton-root"
+      data-testid="image-spinner"
+      style="width: 20px; height: 20px;"
     />
   </div>
 </body>

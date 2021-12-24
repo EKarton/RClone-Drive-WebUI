@@ -1,43 +1,18 @@
 import RemoteCard from 'components/RemoteCard';
-import useRCloneClient from 'hooks/rclone/useRCloneClient';
-import {
-  mockConfigGetResponse,
-  mockOperationsAboutResponse,
-} from 'test-utils/mock-responses';
+import { mockOperationsAboutResponse } from 'test-utils/mock-responses';
+import { mockConfigGetResponse } from 'test-utils/mock-responses';
 import { customRender, waitFor } from 'test-utils/react';
+import { StatusTypes } from 'utils/constants';
+import useFetchRemoteSpaceInfo from 'hooks/rclone/fetch-data/useFetchRemoteSpaceInfo';
+import useFetchRemoteInfo from 'hooks/rclone/fetch-data/useFetchRemoteInfo';
 
-jest.mock('hooks/useRCloneClient');
+jest.mock('hooks/rclone/fetch-data/useFetchRemoteSpaceInfo');
+jest.mock('hooks/rclone/fetch-data/useFetchRemoteInfo');
 
 describe('RemoteCard', () => {
-  const fetchRemoteSpaceInfoFn = jest.fn();
-  const fetchRemoteInfoFn = jest.fn();
-
-  beforeEach(() => {
-    fetchRemoteSpaceInfoFn.mockReset();
-    fetchRemoteInfoFn.mockReset();
-
-    useRCloneClient.mockReturnValue({
-      fetchRemoteSpaceInfo: fetchRemoteSpaceInfoFn,
-      fetchRemoteInfo: fetchRemoteInfoFn,
-    });
-  });
-
-  it('should render correctly when api call is loading and has succeeded', async () => {
-    // Mock the timer
-    jest.useFakeTimers();
-
-    // Simulate api call that takes 10000 ms
-    fetchRemoteSpaceInfoFn.mockImplementation(() => {
-      return new Promise((resolve) => {
-        setTimeout(() => resolve(mockOperationsAboutResponse), 10000);
-      });
-    });
-
-    fetchRemoteInfoFn.mockImplementation(() => {
-      return new Promise((resolve) => {
-        setTimeout(() => resolve(mockConfigGetResponse), 10000);
-      });
-    });
+  it('should render spinners when api call is in flight', async () => {
+    useFetchRemoteSpaceInfo.mockReturnValue({ status: StatusTypes.LOADING });
+    useFetchRemoteInfo.mockReturnValue({ status: StatusTypes.LOADING });
 
     const component = customRender(<RemoteCard remote="googledrive" />);
 
@@ -46,9 +21,19 @@ describe('RemoteCard', () => {
       expect(component.queryByTestId('remote-space-skeleton')).toBeInTheDocument();
       expect(component.baseElement).toMatchSnapshot();
     });
+  });
 
-    // Resolve all api calls
-    jest.runAllTimers();
+  it('should render data correctly when api call finishes', async () => {
+    useFetchRemoteSpaceInfo.mockReturnValue({
+      status: StatusTypes.SUCCESS,
+      data: mockOperationsAboutResponse,
+    });
+    useFetchRemoteInfo.mockReturnValue({
+      status: StatusTypes.SUCCESS,
+      data: mockConfigGetResponse,
+    });
+
+    const component = customRender(<RemoteCard remote="googledrive" />);
 
     await waitFor(() => {
       expect(component.queryByTestId('remote-info-skeleton')).not.toBeInTheDocument();
@@ -57,9 +42,15 @@ describe('RemoteCard', () => {
     });
   });
 
-  it('should render correctly when api call fails', async () => {
-    fetchRemoteSpaceInfoFn.mockRejectedValue(new Error('Random error'));
-    fetchRemoteInfoFn.mockRejectedValue(new Error('Random error'));
+  it('should render error messages correctly when api calls fail', async () => {
+    useFetchRemoteSpaceInfo.mockReturnValue({
+      status: StatusTypes.ERROR,
+      error: new Error('404 not found'),
+    });
+    useFetchRemoteInfo.mockReturnValue({
+      status: StatusTypes.ERROR,
+      error: new Error('404 not found'),
+    });
 
     const component = customRender(<RemoteCard remote="googledrive" />);
 

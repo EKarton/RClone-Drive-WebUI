@@ -5,12 +5,12 @@ import Icon from '@mui/material/Icon';
 import './FileIcon.scss';
 import LazyImage from 'components/LazyImage';
 
-export default function FileIcon({ file, iconSize }) {
+export default function FileIcon({ file, iconSize, showPreview }) {
   if (file.isDirectory) {
     return <FolderIcon fontSize={iconSize} />;
   }
 
-  if (file.isImage) {
+  if (file.isImage && showPreview) {
     return (
       <Icon fontSize={iconSize} className="file-icon__preview-icon">
         <LazyImage

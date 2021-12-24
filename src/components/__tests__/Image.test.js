@@ -1,39 +1,21 @@
-const { default: Image } = require('components/Image');
-const { default: useImageFetcher } = require('hooks/rclone/useImageFetcher');
-const { customRender, waitFor } = require('test-utils/react');
+import Image from 'components/Image';
+import useFetchImage from 'hooks/rclone/fetch-data/useFetchImage';
+import { customRender, waitFor } from 'test-utils/react';
+import { StatusTypes } from 'utils/constants';
 
-jest.mock('hooks/useImageFetcher');
+jest.mock('hooks/rclone/fetch-data/useFetchImage');
 
 describe('Image', () => {
-  const getImageFn = jest.fn();
+  const imageProps = {
+    remote: 'googledrive',
+    folderPath: 'Pictures/2020',
+    fileName: 'dog.png',
+  };
 
-  beforeEach(() => {
-    useImageFetcher.mockReturnValue({
-      getImage: getImageFn,
+  it('should render spinner when api call is in flight', async () => {
+    useFetchImage.mockReturnValue({
+      status: StatusTypes.LOADING,
     });
-  });
-
-  it('should render image when api call to fetch image succeeds', async () => {
-    // Mock the timer
-    jest.useFakeTimers();
-
-    // Simulate api call that takes 10000 ms
-    getImageFn.mockImplementation(() => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({ data: '123' });
-        }, 10000);
-      });
-    });
-
-    // Mock the URL.createObjectUrl() function
-    URL.createObjectURL.mockReturnValue('blob://data');
-
-    const imageProps = {
-      remote: 'googledrive',
-      folderPath: 'Pictures/2020',
-      fileName: 'dog.png',
-    };
 
     const component = customRender(
       <Image image={imageProps} width="20px" height="20px" />
@@ -43,8 +25,17 @@ describe('Image', () => {
       expect(component.getByTestId('image-spinner')).toBeInTheDocument();
       expect(component.baseElement).toMatchSnapshot();
     });
+  });
 
-    jest.runAllTimers();
+  it('should render image when api call finishes', async () => {
+    useFetchImage.mockReturnValue({
+      status: StatusTypes.SUCCESS,
+      data: 'blob://data',
+    });
+
+    const component = customRender(
+      <Image image={imageProps} width="20px" height="20px" />
+    );
 
     await waitFor(() => {
       expect(component.getByTestId('image-content')).toBeInTheDocument();
@@ -52,15 +43,11 @@ describe('Image', () => {
     });
   });
 
-  it('should render an error message when api call to fetch image fails', async () => {
-    // Simulate failed api call
-    getImageFn.mockRejectedValue(new Error('Random error'));
-
-    const imageProps = {
-      remote: 'googledrive',
-      folderPath: 'Pictures/2020',
-      fileName: 'dog.png',
-    };
+  it('should render error message when api call fails', async () => {
+    useFetchImage.mockReturnValue({
+      status: StatusTypes.ERROR,
+      error: new Error('Image not found'),
+    });
 
     const component = customRender(
       <Image image={imageProps} width="20px" height="20px" />
