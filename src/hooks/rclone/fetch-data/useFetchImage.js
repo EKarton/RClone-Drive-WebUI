@@ -34,7 +34,7 @@ export default function useFetchImage(image) {
         });
       } catch (error) {
         if (!axios.isCancel(error)) {
-          setResult({ status: StatusTypes.SUCCESS, data: undefined, error });
+          setResult({ status: StatusTypes.ERROR, data: undefined, error });
         }
       }
     };

@@ -1,6 +1,6 @@
 import RCloneClient from 'utils/RCloneClient';
-import useRCloneClient from '../rclone/useRCloneClient';
-import useImageFetcher from '../rclone/useImageFetcher';
+import useRCloneClient from '../useRCloneClient';
+import useImageFetcher from '../useImageFetcher';
 
 jest.mock('../useRCloneClient');
 
