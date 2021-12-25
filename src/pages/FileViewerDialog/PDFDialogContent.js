@@ -1,6 +1,7 @@
 import { Document, Page } from 'react-pdf/dist/umd/entry.webpack';
 import { useState } from 'react';
 import 'react-pdf/dist/umd/Page/AnnotationLayer.css';
+import './PDFDialogContent.scss';
 
 export default function PDFDialogContent({ fileUrl }) {
   const [hasLoaded, setHasLoaded] = useState(false);

@@ -5,7 +5,7 @@
   }
 
   &__root {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(0 0 0 / 50%);
   }
 
   &__header {
@@ -22,10 +22,4 @@
   &__header-content {
     color: white;
   }
-}
-
-.react-pdf__Page__canvas {
-  margin: 0 auto;
-  width: 100% !important;
-  height: auto !important;
 }
