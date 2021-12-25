@@ -221,6 +221,10 @@ export default class RCloneClient {
 
     const { data } = await this.axiosInstance.post('operations/stat', requestBody, opts);
 
+    if (data.item === null) {
+      throw new Error(`Cannot find full path ${fullPath}`);
+    }
+
     return data.item;
   }
 

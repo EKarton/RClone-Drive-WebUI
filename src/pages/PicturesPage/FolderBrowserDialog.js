@@ -30,7 +30,7 @@ export default function FolderBrowserDialog({ remotes, open, onCancel, onOk, tit
         <FolderTree remotes={remotes} onSelect={handleFolderTreeSelected} />
       </DialogContent>
       <DialogActions>
-        <Button autoFocus onClick={onCancel}>
+        <Button autoFocus onClick={onCancel} data-testid="cancel-button">
           Cancel
         </Button>
         <Button onClick={handleOk} data-testid="ok-button">

@@ -1,8 +1,8 @@
-import useRCloneInfo from 'hooks/useRCloneInfo';
+import useRCloneInfo from 'hooks/rclone/useRCloneInfo';
 import LogoutPage from 'pages/LogoutPage';
 import { customRender } from 'test-utils/react';
 
-jest.mock('hooks/useRCloneInfo');
+jest.mock('hooks/rclone/useRCloneInfo');
 
 describe('LogoutPage', () => {
   const clearRCloneInfoFn = jest.fn();

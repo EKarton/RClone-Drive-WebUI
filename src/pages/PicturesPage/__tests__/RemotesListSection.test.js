@@ -4,7 +4,7 @@ import RemoteCardList from 'components/RemoteCardList';
 import RemotesListSection from '../RemotesListSection';
 
 jest.mock('components/RemoteCardList');
-jest.mock('hooks/useRCloneClient');
+jest.mock('hooks/rclone/useRCloneClient');
 
 describe('RemotesListSection', () => {
   const fetchRemotesFn = jest.fn();

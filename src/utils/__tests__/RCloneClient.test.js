@@ -158,6 +158,15 @@ describe('RCloneClient', () => {
       expect(axios.post).toBeCalledWith('operations/stat', expectedBody, {});
       expect(response).toEqual(mockPictures.list[0]);
     });
+
+    it('should throw an error when item is null', async () => {
+      axios.post.mockResolvedValue({ data: { item: null } });
+
+      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const pendingResponse = client.fetchFullPathInfo('googledrive', 'Pictures/2021');
+
+      await expect(pendingResponse).rejects.toThrowError();
+    });
   });
 
   describe('fetchRemoteInfo()', () => {
