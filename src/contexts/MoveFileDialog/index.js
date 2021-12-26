@@ -2,17 +2,14 @@ import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import MoveFileDialog from 'pages/FilesListPage/MoveFileDialog';
 import { createContext, useRef, useState } from 'react';
 
-export const MoveFileDialogContext = createContext({ moveFile: Promise.reject });
+export const MoveFileDialogContext = createContext();
 
 export function FileMoverProvider({ children }) {
   const rCloneClient = useRCloneClient();
   const [isOpen, setIsOpen] = useState(false);
   const [fileToMove, setFileToMove] = useState(undefined);
 
-  const awaitingPromiseRef = useRef({
-    resolve: () => {},
-    reject: () => {},
-  });
+  const awaitingPromiseRef = useRef();
 
   const handleOk = async (remoteFolderPath) => {
     const [newRemote, newFolderPath] = remoteFolderPath.split(':');
@@ -38,18 +35,14 @@ export function FileMoverProvider({ children }) {
     setIsOpen(false);
     setFileToMove(undefined);
 
-    if (awaitingPromiseRef.current) {
-      awaitingPromiseRef.current.resolve();
-    }
+    awaitingPromiseRef.current?.resolve();
   };
 
   const handleCancel = () => {
     setIsOpen(false);
     setFileToMove(undefined);
 
-    if (awaitingPromiseRef.current) {
-      awaitingPromiseRef.current.reject();
-    }
+    awaitingPromiseRef.current?.reject();
   };
 
   const moveFile = (file) => {

@@ -10,8 +10,5 @@ export default function useRecentlyViewedImages(store = defaultStore) {
     addImage: (fileInfo) => {
       dispatch({ type: actionTypes.ADD_IMAGE, payload: fileInfo });
     },
-    removeImages: (files) => {
-      dispatch({ type: actionTypes.REMOVE_IMAGES, payload: files });
-    },
   };
 }

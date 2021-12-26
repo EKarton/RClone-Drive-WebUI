@@ -83,22 +83,4 @@ describe('useRecentlyViewedImages()', () => {
       payload: imageToAdd,
     });
   });
-
-  it('should call dispatch() corrrectly when removeImages() is called', () => {
-    const { result } = renderHook(() => useRecentlyViewedImages(mockStore), {
-      wrapper: MockStateProvider,
-    });
-
-    const imageToRemove = {
-      folderPath: 'Pictures/2010',
-      fileName: '20100918_091219.jpg',
-      remote: 'googledrive-main-encrypted',
-    };
-    result.current.removeImages([imageToRemove]);
-
-    expect(dispatchFn).toBeCalledWith({
-      type: actionTypes.REMOVE_IMAGES,
-      payload: [imageToRemove],
-    });
-  });
 });
