@@ -2,14 +2,13 @@ import { createContext, useEffect, useReducer } from 'react';
 import actionTypes from './actionTypes';
 import reducer from './reducer';
 
-const initialState = {
+export const InitialState = {
   recentPictures: JSON.parse(localStorage.getItem('recently_viewed_pictures')) || [],
 };
 
-const store = createContext(initialState);
-const { Provider } = store;
+export const RecentPicturesContext = createContext(InitialState);
 
-const RecentPicturesProvider = ({ children, defaultState = initialState }) => {
+export const RecentPicturesProvider = ({ children, defaultState = InitialState }) => {
   const [state, dispatch] = useReducer(reducer, defaultState);
 
   useEffect(() => {
@@ -17,7 +16,11 @@ const RecentPicturesProvider = ({ children, defaultState = initialState }) => {
     localStorage.setItem('recently_viewed_pictures', stringedList);
   }, [state.recentPictures]);
 
-  return <Provider value={{ state, dispatch }}>{children}</Provider>;
+  return (
+    <RecentPicturesContext.Provider value={{ state, dispatch }}>
+      {children}
+    </RecentPicturesContext.Provider>
+  );
 };
 
-export { store, RecentPicturesProvider, actionTypes, initialState };
+export { actionTypes };
