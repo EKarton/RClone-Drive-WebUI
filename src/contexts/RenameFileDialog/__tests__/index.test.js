@@ -2,7 +2,7 @@ import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import useRenameFileDialog from 'hooks/useRenameFileDialog';
 import { useState } from 'react';
 import { render, userEvent, waitFor, fireEvent } from 'test-utils/react';
-import { FileRenamerProvider } from '../index';
+import { RenameFileDialogProvider } from '../index';
 
 jest.mock('hooks/rclone/useRCloneClient');
 
@@ -98,7 +98,7 @@ describe('RenameFileDialog', () => {
     });
   });
 
-  it('should throw an error when useMoveFileDialog() is used outside of FileMoverProvider', () => {
+  it('should throw an error when useMoveFileDialog() is used outside of MoveFileDialogProvider', () => {
     jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const MockComponent = () => {
@@ -111,9 +111,9 @@ describe('RenameFileDialog', () => {
 
   const renderComponent = (fileToRename) => {
     return render(
-      <FileRenamerProvider>
+      <RenameFileDialogProvider>
         <MockPage fileToRename={fileToRename} />
-      </FileRenamerProvider>
+      </RenameFileDialogProvider>
     );
   };
 

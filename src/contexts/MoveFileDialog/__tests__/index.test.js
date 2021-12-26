@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { mockFiles, mockRemotes } from 'test-utils/mock-responses';
 import { render, userEvent, fireEvent, waitFor, screen } from 'test-utils/react';
 import { StatusTypes } from 'utils/constants';
-import { FileMoverProvider } from '../index';
+import { MoveFileDialogProvider } from '../index';
 
 jest.mock('hooks/rclone/fetch-data/useFetchRemotes');
 jest.mock('hooks/rclone/useRCloneClient');
@@ -117,7 +117,7 @@ describe('MoveFileDialog', () => {
     });
   });
 
-  it('should throw an error when useMoveFileDialog() is used outside of FileMoverProvider', () => {
+  it('should throw an error when useMoveFileDialog() is used outside of MoveFileDialogProvider', () => {
     jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const MockComponent = () => {
@@ -130,9 +130,9 @@ describe('MoveFileDialog', () => {
 
   const renderComponent = (fileToMove) => {
     return render(
-      <FileMoverProvider>
+      <MoveFileDialogProvider>
         <MockPage fileToMove={fileToMove} />
-      </FileMoverProvider>
+      </MoveFileDialogProvider>
     );
   };
 

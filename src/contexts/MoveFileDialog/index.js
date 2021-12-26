@@ -4,7 +4,7 @@ import { createContext, useRef, useState } from 'react';
 
 export const MoveFileDialogContext = createContext();
 
-export function FileMoverProvider({ children }) {
+export function MoveFileDialogProvider({ children }) {
   const rCloneClient = useRCloneClient();
   const [isOpen, setIsOpen] = useState(false);
   const [fileToMove, setFileToMove] = useState(undefined);

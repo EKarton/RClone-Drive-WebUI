@@ -5,7 +5,9 @@ export default function useRenameFileDialog() {
   const context = useContext(RenameFileDialogContext);
 
   if (context === undefined) {
-    throw new Error('useRenameFileDialog() must be used within a FileRenamerProvider');
+    throw new Error(
+      'useRenameFileDialog() must be used within a RenameFileDialogContext'
+    );
   }
 
   return context;
