@@ -3,6 +3,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import './AddFilesDropSection.scss';
+import { getFullPath } from 'utils/filename-utils';
 
 /**
  * This component is responsible for adding files to a remote via drag-and-drop
@@ -20,23 +21,71 @@ export default function AddFilesDropSection({
     e.preventDefault();
     setIsDraggingFile(false);
 
-    const dataTransfer = e.dataTransfer;
-    const pendingUploads = [];
+    const readEntriesPromise = (directoryReader) => {
+      return new Promise((resolve, reject) => {
+        directoryReader.readEntries(resolve, reject);
+      });
+    };
 
-    if (dataTransfer.items) {
-      for (const item of dataTransfer.items) {
-        if (item.kind === 'file') {
-          const file = item.getAsFile();
-          pendingUploads.push(rCloneClient.uploadFiles(remote, folderPath, file));
+    const readAllDirectoryEntries = async (directoryReader) => {
+      const entries = [];
+      let readEntries = await readEntriesPromise(directoryReader);
+
+      while (readEntries.length > 0) {
+        entries.push(...readEntries);
+        readEntries = await readEntriesPromise(directoryReader);
+      }
+
+      return entries;
+    };
+
+    const readFileFromFileEntry = (fileEntry) => {
+      return new Promise((resolve, reject) => {
+        fileEntry.file(resolve, reject);
+      });
+    };
+
+    const getFileEntries = async (dataTransferItemList) => {
+      const queue = [];
+      const fileEntries = [];
+
+      for (let i = 0; i < dataTransferItemList.length; i++) {
+        queue.push(dataTransferItemList[i].webkitGetAsEntry());
+      }
+
+      while (queue.length > 0) {
+        const entry = queue.shift();
+        if (entry.isFile) {
+          fileEntries.push(entry);
+        } else if (entry.isDirectory) {
+          queue.push(...(await readAllDirectoryEntries(entry.createReader())));
         }
       }
-    } else {
-      for (const file of dataTransfer.files) {
-        pendingUploads.push(rCloneClient.uploadFiles(remote, folderPath, file));
-      }
+
+      return fileEntries;
+    };
+
+    const fileEntries = await getFileEntries(e.dataTransfer.items);
+    const pendingUploads = [];
+
+    for (const fileEntry of fileEntries) {
+      const fullPath = fileEntry.fullPath;
+      const dirPath = fullPath
+        .split('/')
+        .filter((item) => item.length > 0)
+        .slice(0, -1)
+        .join('/');
+
+      const dirPathInRemote = getFullPath(folderPath, dirPath);
+
+      const pendingUpload = readFileFromFileEntry(fileEntry).then((file) => {
+        return rCloneClient.uploadFiles(remote, dirPathInRemote, file);
+      });
+
+      pendingUploads.push(pendingUpload);
     }
 
-    await Promise.all(pendingUploads);
+    await Promise.allSettled(pendingUploads);
     onUploadedFiles();
   };
 
