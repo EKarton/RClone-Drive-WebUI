@@ -15,6 +15,7 @@ export default function RenameFileDialog({ open, fileName, onCancel, onRename })
 
   const handleRename = () => {
     if (newFileName === null || newFileName === fileName) {
+      onCancel();
       return;
     }
 
@@ -29,6 +30,7 @@ export default function RenameFileDialog({ open, fileName, onCancel, onRename })
       fullWidth
       aria-labelledby="rename-file-dialog-title"
       aria-describedby="rename-file-dialog-description"
+      data-testid="rename-file-dialog"
     >
       <DialogTitle id="rename-file-dialog-title">Rename File / Directory</DialogTitle>
       <DialogContent>
@@ -38,11 +40,16 @@ export default function RenameFileDialog({ open, fileName, onCancel, onRename })
           variant="outlined"
           defaultValue={fileName}
           onChange={handleTextChanged}
+          data-testid="rename-textbox"
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={onCancel}>Cancel</Button>
-        <Button onClick={handleRename}>Ok</Button>
+        <Button onClick={onCancel} data-testid="cancel">
+          Cancel
+        </Button>
+        <Button onClick={handleRename} data-testid="ok">
+          Ok
+        </Button>
       </DialogActions>
     </Dialog>
   );

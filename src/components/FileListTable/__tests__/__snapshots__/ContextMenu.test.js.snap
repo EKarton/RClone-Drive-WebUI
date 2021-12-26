@@ -9,6 +9,7 @@ exports[`ContextMenu should match snapshot given it is open 1`] = `
   />
   <div
     class="MuiModal-root MuiPopover-root MuiMenu-root css-10nakn3-MuiModal-root-MuiPopover-root-MuiMenu-root"
+    data-testid="filetable-context-menu"
     role="presentation"
   >
     <div
@@ -32,6 +33,7 @@ exports[`ContextMenu should match snapshot given it is open 1`] = `
       >
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root Mui-focusVisible css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="open"
           role="menuitem"
           tabindex="0"
         >
@@ -65,6 +67,7 @@ exports[`ContextMenu should match snapshot given it is open 1`] = `
         </li>
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="download"
           role="menuitem"
           tabindex="-1"
         >
@@ -101,6 +104,7 @@ exports[`ContextMenu should match snapshot given it is open 1`] = `
         />
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="move"
           role="menuitem"
           tabindex="-1"
         >
@@ -134,6 +138,7 @@ exports[`ContextMenu should match snapshot given it is open 1`] = `
         </li>
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="copy"
           role="menuitem"
           tabindex="-1"
         >
@@ -167,6 +172,7 @@ exports[`ContextMenu should match snapshot given it is open 1`] = `
         </li>
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="rename"
           role="menuitem"
           tabindex="-1"
         >
@@ -203,6 +209,7 @@ exports[`ContextMenu should match snapshot given it is open 1`] = `
         />
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="delete"
           role="menuitem"
           tabindex="-1"
         >

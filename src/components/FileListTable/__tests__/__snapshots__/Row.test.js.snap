@@ -177,6 +177,7 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
   </div>
   <div
     class="MuiModal-root MuiPopover-root MuiMenu-root css-10nakn3-MuiModal-root-MuiPopover-root-MuiMenu-root"
+    data-testid="filetable-context-menu"
     role="presentation"
   >
     <div
@@ -200,6 +201,7 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
       >
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root Mui-focusVisible css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="open"
           role="menuitem"
           tabindex="0"
         >
@@ -233,6 +235,7 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
         </li>
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="download"
           role="menuitem"
           tabindex="-1"
         >
@@ -269,6 +272,7 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
         />
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="move"
           role="menuitem"
           tabindex="-1"
         >
@@ -302,6 +306,7 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
         </li>
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="copy"
           role="menuitem"
           tabindex="-1"
         >
@@ -335,6 +340,7 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
         </li>
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="rename"
           role="menuitem"
           tabindex="-1"
         >
@@ -371,6 +377,7 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
         />
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="delete"
           role="menuitem"
           tabindex="-1"
         >
@@ -457,6 +464,7 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
   <div
     aria-hidden="true"
     class="MuiModal-root MuiPopover-root MuiMenu-root css-10nakn3-MuiModal-root-MuiPopover-root-MuiMenu-root"
+    data-testid="filetable-context-menu"
     role="presentation"
   >
     <div
@@ -480,6 +488,7 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
       >
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root Mui-focusVisible css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="open"
           role="menuitem"
           tabindex="0"
         >
@@ -513,6 +522,7 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
         </li>
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="download"
           role="menuitem"
           tabindex="-1"
         >
@@ -549,6 +559,7 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
         />
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="move"
           role="menuitem"
           tabindex="-1"
         >
@@ -582,6 +593,7 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
         </li>
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="copy"
           role="menuitem"
           tabindex="-1"
         >
@@ -615,6 +627,7 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
         </li>
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="rename"
           role="menuitem"
           tabindex="-1"
         >
@@ -651,6 +664,7 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
         />
         <li
           class="MuiMenuItem-root MuiMenuItem-gutters MuiButtonBase-root css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root"
+          data-testid="delete"
           role="menuitem"
           tabindex="-1"
         >

@@ -18,40 +18,41 @@ export default function ContextMenu({
       onClose={onClose}
       anchorReference="anchorPosition"
       anchorPosition={menuPosition}
+      data-testid="filetable-context-menu"
     >
-      <MenuItem onClick={onOpen}>
+      <MenuItem onClick={onOpen} data-testid="open">
         <ListItemIcon>
           <FileOpenIcon fontSize="small" />
         </ListItemIcon>
         <ListItemText>Open</ListItemText>
       </MenuItem>
-      <MenuItem onClick={onDownload}>
+      <MenuItem onClick={onDownload} data-testid="download">
         <ListItemIcon>
           <DownloadIcon fontSize="small" />
         </ListItemIcon>
         <ListItemText>Download</ListItemText>
       </MenuItem>
       <Divider />
-      <MenuItem onClick={onMove}>
+      <MenuItem onClick={onMove} data-testid="move">
         <ListItemIcon>
           <DriveFileMoveIcon fontSize="small" />
         </ListItemIcon>
         <ListItemText>Move to</ListItemText>
       </MenuItem>
-      <MenuItem onClick={onCopy}>
+      <MenuItem onClick={onCopy} data-testid="copy">
         <ListItemIcon>
           <ContentCopyIcon fontSize="small" />
         </ListItemIcon>
         <ListItemText>Copy</ListItemText>
       </MenuItem>
-      <MenuItem onClick={onRename}>
+      <MenuItem onClick={onRename} data-testid="rename">
         <ListItemIcon>
           <DriveFileRenameOutlineIcon fontSize="small" />
         </ListItemIcon>
         <ListItemText>Rename</ListItemText>
       </MenuItem>
       <Divider />
-      <MenuItem onClick={onDelete}>
+      <MenuItem onClick={onDelete} data-testid="delete">
         <ListItemIcon>
           <DeleteIcon fontSize="small" />
         </ListItemIcon>

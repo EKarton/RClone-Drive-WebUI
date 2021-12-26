@@ -29,7 +29,7 @@ export default function Table({ remote, path }) {
     return <div data-testid="error-message">Error!</div>;
   }
 
-  if (status !== StatusTypes.SUCCESS) {
+  if (status === StatusTypes.LOADING) {
     return <FileListTableSkeleton />;
   }
 

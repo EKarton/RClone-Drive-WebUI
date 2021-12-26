@@ -7,7 +7,7 @@ export default function FileListTableSkeleton({ numRows }) {
   return (
     <Table
       striped
-      data-testid="fileslisttableskeleton"
+      data-testid="files-list-table-skeleton"
       className="file-list-table-skeleton"
     >
       <Table.Header>

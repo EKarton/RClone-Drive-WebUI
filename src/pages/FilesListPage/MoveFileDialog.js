@@ -13,7 +13,7 @@ export default function MoveFileDialog({ open, onCancel, onOk }) {
   };
 
   const handleOk = () => {
-    if (!remotePath) {
+    if (remotePath === '') {
       onCancel();
     }
 
@@ -38,11 +38,12 @@ export default function MoveFileDialog({ open, onCancel, onOk }) {
       maxWidth="xs"
       open={open}
       onClose={onCancel}
+      data-testid="move-file-dialog"
     >
       <DialogTitle>Move File / Directory</DialogTitle>
       <DialogContent dividers>{renderFolderTree()}</DialogContent>
       <DialogActions>
-        <Button autoFocus onClick={onCancel}>
+        <Button autoFocus onClick={onCancel} data-testid="cancel-button">
           Cancel
         </Button>
         <Button onClick={handleOk} data-testid="ok-button">
