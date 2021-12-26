@@ -6,15 +6,15 @@ jest.mock('hooks/rclone/useRCloneClient');
 
 describe('AddFilesDropSection', () => {
   const uploadFiles = jest.fn();
+
   beforeEach(() => {
     uploadFiles.mockResolvedValue();
-
     useRCloneClient.mockReturnValue({
       uploadFiles,
     });
   });
 
-  it('should upload files recursively given content were drag-and-dropped to drop section', async () => {
+  it('should upload files recursively given content were drag and dropped to drop section', async () => {
     const dataTransferItems = createDataTransferItems([
       {
         isFile: true,
@@ -35,11 +35,10 @@ describe('AddFilesDropSection', () => {
     ]);
 
     const component = renderComponent();
-    fireEvent.drop(component.getByTestId('add-files-drop-section'), {
-      dataTransfer: {
-        items: dataTransferItems,
-      },
-    });
+    const dropSection = component.getByTestId('add-files-drop-section');
+    fireEvent.dragEnter(dropSection);
+    fireEvent.drop(dropSection, { dataTransfer: { items: dataTransferItems } });
+    fireEvent.dragEnd(dropSection);
 
     await waitFor(() => {
       expect(uploadFiles).toBeCalledWith(

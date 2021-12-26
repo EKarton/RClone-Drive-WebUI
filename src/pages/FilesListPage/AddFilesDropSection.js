@@ -57,7 +57,7 @@ export default function AddFilesDropSection({
         const entry = queue.shift();
         if (entry.isFile) {
           fileEntries.push(entry);
-        } else if (entry.isDirectory) {
+        } else {
           queue.push(...(await readAllDirectoryEntries(entry.createReader())));
         }
       }
