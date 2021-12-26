@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { actionTypes } from 'contexts/FileViewerDialog';
 import reducer from 'contexts/FileViewerDialog/reducer';
-import useFileViewer from '../useFileViewer';
+import useFileViewerDialog from '../useFileViewerDialog';
 import { createContext, useReducer } from 'react';
 
 describe('useFileViewer', () => {
@@ -17,7 +17,7 @@ describe('useFileViewer', () => {
   };
 
   it('should not throw an error given default store', () => {
-    renderHook(() => useFileViewer());
+    renderHook(() => useFileViewerDialog());
   });
 
   it('should call dispatch() correctly when called useFileViewer.show()', () => {
@@ -27,7 +27,7 @@ describe('useFileViewer', () => {
       fileName: 'iamge.png',
     };
 
-    const { result } = renderHook(() => useFileViewer(mockStore), {
+    const { result } = renderHook(() => useFileViewerDialog(mockStore), {
       wrapper: MockStateProvider,
     });
 
@@ -41,7 +41,7 @@ describe('useFileViewer', () => {
   });
 
   it('should call dispatch() correctly when called useFileViewer.hide()', () => {
-    const { result } = renderHook(() => useFileViewer(mockStore), {
+    const { result } = renderHook(() => useFileViewerDialog(mockStore), {
       wrapper: MockStateProvider,
     });
 

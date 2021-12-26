@@ -2,7 +2,7 @@ import FileListTable from 'components/FileListTable';
 import { useHistory } from 'react-router';
 import './index.scss';
 import { hashRemotePath } from 'utils/remote-paths-url';
-import useFileViewer from 'hooks/utils/useFileViewer';
+import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
 import { ImageMimeTypes, StatusTypes } from 'utils/constants';
 import FileListTableSkeleton from 'components/FileListTableSkeleton';
 import AddFilesDropSection from './AddFilesDropSection';
@@ -16,7 +16,7 @@ import useRenameFileDialog from 'hooks/utils/useRenameFileDialog';
 
 export default function Table({ remote, path }) {
   const history = useHistory();
-  const fileViewer = useFileViewer();
+  const fileViewer = useFileViewerDialog();
   const moveFileDialog = useMoveFileDialog();
   const renameFileDialog = useRenameFileDialog();
   const downloadFile = useFileDownloader();

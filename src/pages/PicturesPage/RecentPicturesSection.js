@@ -1,7 +1,7 @@
 import { Card, CardActionArea } from '@mui/material';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import Image from 'components/Image';
-import useFileViewer from 'hooks/utils/useFileViewer';
+import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
 import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
 import './RecentPicturesSection.scss';
 import { useEffect, useState } from 'react';
@@ -16,7 +16,7 @@ import getExistingPictures from '../../utils/getExistingPictures';
 export default function RecentPicturesSection() {
   const { recentPictures, addImage } = useRecentlyViewedImages();
   const rCloneClient = useRCloneClient();
-  const fileViewer = useFileViewer();
+  const fileViewer = useFileViewerDialog();
 
   const [existingPictures, setExistingPictures] = useState([]);
 

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ImageListSkeleton should match snapshot given width is 800 1`] = `
+exports[`LazyImageListSkeleton should match snapshot given width is 800 1`] = `
 <body>
   <div>
     <div
@@ -89,7 +89,7 @@ exports[`ImageListSkeleton should match snapshot given width is 800 1`] = `
 </body>
 `;
 
-exports[`ImageListSkeleton should match snapshot given width is 2000 1`] = `
+exports[`LazyImageListSkeleton should match snapshot given width is 2000 1`] = `
 <body>
   <div>
     <div

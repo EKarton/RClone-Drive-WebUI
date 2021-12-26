@@ -1,7 +1,7 @@
 import { customRender } from 'test-utils/react';
-import ImageListSkeleton from '../ImageListSkeleton';
+import LazyImageListSkeleton from '../LazyImageListSkeleton';
 
-describe('ImageListSkeleton', () => {
+describe('LazyImageListSkeleton', () => {
   // Derived from https://github.com/bvaughn/react-virtualized/issues/493#issuecomment-447014986
   const originalOffsetHeight = Object.getOwnPropertyDescriptor(
     HTMLElement.prototype,
@@ -30,7 +30,7 @@ describe('ImageListSkeleton', () => {
       value: width,
     });
 
-    const { baseElement } = customRender(<ImageListSkeleton />);
+    const { baseElement } = customRender(<LazyImageListSkeleton />);
 
     expect(baseElement).toMatchSnapshot();
   });

@@ -1,80 +1,98 @@
-import { customRender, userEvent } from 'test-utils/react';
+import LazyImageList from 'components/LazyImageList';
+import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
+import { act, customRender, waitFor } from 'test-utils/react';
 import { mockPictures } from 'test-utils/mock-responses';
+import { hashRemotePath } from 'utils/remote-paths-url';
 import ImageList from '../ImageList';
+import useFetchPictures from 'hooks/fetch-data/useFetchPictures';
+import { StatusTypes } from 'utils/constants';
+import { FileViewerDialogProvider } from 'contexts/FileViewerDialog/index';
 
-jest.mock('components/LazyImage', () => () => null);
+jest.mock('hooks/fetch-data/useFetchPictures');
+jest.mock('hooks/utils/useFileViewerDialog');
+jest.mock('components/LazyImageList');
 
 describe('ImageList', () => {
-  // Derived from https://github.com/bvaughn/react-virtualized/issues/493#issuecomment-447014986
-  const originalOffsetHeight = Object.getOwnPropertyDescriptor(
-    HTMLElement.prototype,
-    'offsetHeight'
-  );
-  const originalOffsetWidth = Object.getOwnPropertyDescriptor(
-    HTMLElement.prototype,
-    'offsetWidth'
-  );
+  const remote = 'googledrive';
+  const fetchPicturesFn = jest.fn();
+  const fileViewerShowFn = jest.fn();
 
-  beforeAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
-      configurable: true,
-      value: 800,
-    });
-  });
-
-  afterAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', originalOffsetHeight);
-    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', originalOffsetWidth);
-  });
-
-  it.each([800, 2000])('should match snapshot given width is %s', (width) => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
-      configurable: true,
-      value: width,
+  beforeEach(() => {
+    useFetchPictures.mockReturnValue({
+      status: StatusTypes.SUCCESS,
+      data: mockPictures.list,
     });
 
-    const remote = 'gdrive';
-    const onImageClicked = jest.fn();
+    useFileViewerDialog.mockReturnValue({
+      show: fileViewerShowFn,
+    });
 
-    const { baseElement } = customRender(
-      <ImageList
-        images={mockPictures.list}
-        remote={remote}
-        onImageClicked={onImageClicked}
-      />
-    );
+    LazyImageList.mockReturnValue(null);
+  });
+
+  it('should match snapshots when the api call succeeds', async () => {
+    const { baseElement } = renderComponent();
 
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('should call onImageClicked() correctly when clicked on an image', () => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
-      configurable: true,
-      value: 800,
+  it('should render skeleton when api is being loaded', async () => {
+    useFetchPictures.mockReturnValue({
+      status: StatusTypes.LOADING,
     });
 
-    const remote = 'gdrive';
-    const onImageClicked = jest.fn();
+    const { baseElement } = renderComponent();
 
-    const component = customRender(
-      <ImageList
-        images={mockPictures.list}
-        remote={remote}
-        onImageClicked={onImageClicked}
-      />
-    );
+    expect(baseElement).toMatchSnapshot();
+  });
 
-    userEvent.click(component.getByTestId('20120517_171428.JPG'));
+  it('should render error page when fetching data was not successful', async () => {
+    useFetchPictures.mockReturnValue({
+      status: StatusTypes.ERROR,
+      error: new Error('Error!'),
+    });
 
-    expect(onImageClicked).toBeCalledWith({
-      remote,
-      folderPath: 'Pictures/2012',
-      fileName: '20120517_171428.JPG',
-      dateTaken: {
-        year: 2012,
-        month: 5,
-        day: 17,
-      },
+    const component = renderComponent();
+
+    await waitFor(() => {
+      expect(component.getByText('Error!')).toBeInTheDocument();
     });
   });
+
+  it('should call fileViewer.show() when someone clicks on an image', async () => {
+    jest.useFakeTimers();
+
+    fetchPicturesFn.mockResolvedValue(mockPictures.list);
+
+    const fileInfo = { remote, folderPath: 'Pictures', fileName: 'image.png' };
+
+    LazyImageList.mockImplementation(({ onImageClicked }) => {
+      setTimeout(() => onImageClicked(fileInfo), 10000);
+      return null;
+    });
+
+    renderComponent();
+
+    act(() => jest.runAllTimers());
+
+    await waitFor(() => expect(fileViewerShowFn).toBeCalledWith(fileInfo));
+  });
+
+  const renderComponent = () => {
+    const route = `/pictures/${hashRemotePath(`${remote}:`)}`;
+
+    const initialRCloneInfoState = {
+      endpoint: 'http://localhost:5572',
+      username: 'local',
+      password: '1234',
+    };
+
+    const component = (
+      <FileViewerDialogProvider>
+        <ImageList remote={remote} path="" />
+      </FileViewerDialogProvider>
+    );
+
+    return customRender(component, { initialRCloneInfoState }, { route });
+  };
 });

@@ -5,6 +5,7 @@ import { hashRemotePath } from 'utils/remote-paths-url';
 import RecentPicturesSection from './RecentPicturesSection';
 import RemotesListSection from './RemotesListSection';
 import './index.scss';
+import { FileViewerDialogProvider } from 'contexts/FileViewerDialog/index';
 
 /**
  * Represents the Pictures page with the list of remotes
@@ -36,16 +37,18 @@ export default function PicturesPage() {
   };
 
   return (
-    <div className="pictures-page">
-      <FolderBrowserDialog
-        title={renderFolderDialogTitle()}
-        remotes={[selectedRemote]}
-        open={isDialogOpen}
-        onCancel={handleFolderDialogCancelled}
-        onOk={handleFolderDialogSelected}
-      />
-      <RecentPicturesSection />
-      <RemotesListSection onRemoteCardClicked={handleRemoteCardClicked} />
-    </div>
+    <FileViewerDialogProvider>
+      <div className="pictures-page">
+        <FolderBrowserDialog
+          title={renderFolderDialogTitle()}
+          remotes={[selectedRemote]}
+          open={isDialogOpen}
+          onCancel={handleFolderDialogCancelled}
+          onOk={handleFolderDialogSelected}
+        />
+        <RecentPicturesSection />
+        <RemotesListSection onRemoteCardClicked={handleRemoteCardClicked} />
+      </div>
+    </FileViewerDialogProvider>
   );
 }

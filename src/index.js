@@ -5,20 +5,17 @@ import MainApp from './apps/MainApp';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { RCloneInfoProvider } from 'contexts/RCloneInfo';
-import { FileViewerProvider } from 'contexts/FileViewerDialog';
 import { RecentPicturesProvider } from 'contexts/RecentPicturesList';
 import 'semantic-ui-css/semantic.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
     <RCloneInfoProvider>
-      <FileViewerProvider>
-        <RecentPicturesProvider>
-          <BrowserRouter>
-            <MainApp />
-          </BrowserRouter>
-        </RecentPicturesProvider>
-      </FileViewerProvider>
+      <RecentPicturesProvider>
+        <BrowserRouter>
+          <MainApp />
+        </BrowserRouter>
+      </RecentPicturesProvider>
     </RCloneInfoProvider>
   </React.StrictMode>,
   document.getElementById('root')

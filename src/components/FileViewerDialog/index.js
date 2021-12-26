@@ -9,13 +9,11 @@ import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 import './index.scss';
 import FileSaver from 'file-saver';
-import useFileViewer from 'hooks/utils/useFileViewer';
 import TextDialogContent from './TextDialogContent';
 
 const MaxWidths = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-export default function FileViewerDialog() {
-  const { fileInfo, isOpen, hide } = useFileViewer();
+export default function FileViewerDialog({ open, fileInfo, onClose }) {
   const rCloneClient = useRCloneClient();
 
   const [maxWidthIdx, setMaxWidthIdx] = useState(2);
@@ -131,8 +129,8 @@ export default function FileViewerDialog() {
   return (
     <Dialog
       className="fileviewer-dialog"
-      open={isOpen}
-      onClose={hide}
+      open={open}
+      onClose={onClose}
       maxWidth={MaxWidths[maxWidthIdx]}
       classes={{ paper: 'fileviewer-dialog__paper', root: 'fileviewer-dialog__root' }}
     >

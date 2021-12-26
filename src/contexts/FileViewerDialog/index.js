@@ -1,23 +1,26 @@
-import { createContext, useReducer } from 'react';
-import actionTypes from './actionTypes';
-import reducer from './reducer';
+import FileViewerDialog from 'components/FileViewerDialog';
+import { createContext, useState } from 'react';
 
-const initialState = {
-  fileInfo: {
-    remote: undefined,
-    folderPath: undefined,
-    fileName: undefined,
-  },
-  isOpen: false,
-};
+export const FileViewerDialogContext = createContext();
 
-const store = createContext(initialState);
-const { Provider } = store;
+export function FileViewerDialogProvider({ children }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [fileInfo, setFileInfo] = useState();
 
-const FileViewerProvider = ({ children, defaultState = initialState }) => {
-  const [state, dispatch] = useReducer(reducer, defaultState);
+  const handleClose = () => {
+    setFileInfo(undefined);
+    setIsOpen(false);
+  };
 
-  return <Provider value={{ state, dispatch }}>{children}</Provider>;
-};
+  const show = (file) => {
+    setFileInfo(file);
+    setIsOpen(true);
+  };
 
-export { store, FileViewerProvider, actionTypes, initialState };
+  return (
+    <FileViewerDialogContext.Provider value={{ show }}>
+      <FileViewerDialog open={isOpen} fileInfo={fileInfo} onClose={handleClose} />
+      {children}
+    </FileViewerDialogContext.Provider>
+  );
+}

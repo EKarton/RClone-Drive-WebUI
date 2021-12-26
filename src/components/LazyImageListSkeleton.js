@@ -1,9 +1,9 @@
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList } from 'react-window';
-import './ImageListSkeleton.scss';
+import './LazyImageListSkeleton.scss';
 import { Skeleton } from '@mui/material';
 
-export default function ImageListSkeleton({ ...otherProps }) {
+export default function LazyImageListSkeleton({ ...otherProps }) {
   const renderRow = (numImagesPerRow, style) => (
     <div className="imagelist-skeleton__row" style={style}>
       {Array.from({ length: numImagesPerRow }, (_, i) => (

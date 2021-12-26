@@ -2,7 +2,7 @@ import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
 import useFileCopier from 'hooks/utils/useFileCopier';
 import useFileDownloader from 'hooks/utils/useFileDownloader';
 import useFileRemover from 'hooks/utils/useFileRemover';
-import useFileViewer from 'hooks/utils/useFileViewer';
+import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
 import useMoveFileDialog from 'hooks/utils/useMoveFileDialog';
 import useRenameFileDialog from 'hooks/utils/useRenameFileDialog';
 import { Route, Switch } from 'react-router-dom';
@@ -14,7 +14,7 @@ import Table from '../Table';
 
 jest.mock('hooks/fetch-data/useFetchFiles');
 jest.mock('hooks/rclone/useRCloneClient');
-jest.mock('hooks/utils/useFileViewer');
+jest.mock('hooks/utils/useFileViewerDialog');
 jest.mock('hooks/utils/useMoveFileDialog');
 jest.mock('hooks/utils/useFileDownloader');
 jest.mock('hooks/utils/useFileRemover');
@@ -40,7 +40,7 @@ describe('Table', () => {
     deleteFile.mockResolvedValue();
     copyFile.mockResolvedValue();
 
-    useFileViewer.mockReturnValue({ show });
+    useFileViewerDialog.mockReturnValue({ show });
     useMoveFileDialog.mockReturnValue({ moveFile });
     useRenameFileDialog.mockReturnValue({ renameFile });
     useFileDownloader.mockReturnValue(downloadFile);

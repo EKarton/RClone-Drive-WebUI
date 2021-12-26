@@ -1,5 +1,5 @@
 import Image from 'components/Image';
-import useFileViewer from 'hooks/utils/useFileViewer';
+import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
 import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
 import { customRender, userEvent, waitFor } from 'test-utils/react';
 import RecentPicturesSection from '../RecentPicturesSection';
@@ -44,7 +44,7 @@ const recentPicturesList = [
 ];
 
 jest.mock('components/Image');
-jest.mock('hooks/utils/useFileViewer');
+jest.mock('hooks/utils/useFileViewerDialog');
 jest.mock('hooks/utils/useRecentlyViewedImages');
 jest.mock('hooks/rclone/useRCloneClient');
 jest.mock('utils/getExistingPictures');
@@ -83,7 +83,7 @@ describe('RecentPicturesSection', () => {
 
     getExistingPictures.mockResolvedValue(recentPicturesList);
 
-    useFileViewer.mockReturnValue({
+    useFileViewerDialog.mockReturnValue({
       show: fileViewerShowFn,
     });
   });

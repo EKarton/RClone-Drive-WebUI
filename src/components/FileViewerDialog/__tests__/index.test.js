@@ -11,13 +11,10 @@ jest.mock('../PDFDialogContent');
 jest.mock('../TextDialogContent');
 
 describe('FileViewerDialog', () => {
-  const initialFileViewerState = {
-    fileInfo: {
-      remote: 'gdrive',
-      folderPath: 'Pictures',
-      fileName: 'profile.png',
-    },
-    isOpen: true,
+  const defaultFileInfo = {
+    remote: 'gdrive',
+    folderPath: 'Pictures',
+    fileName: 'profile.png',
   };
 
   const fetchFileContents = jest.fn();
@@ -36,27 +33,28 @@ describe('FileViewerDialog', () => {
   it('should match snapshot when api is not resolved yet', () => {
     fetchFileContents.mockImplementation(() => {
       return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve('data');
-        }, 10000000000);
+        setTimeout(() => resolve('data'), 10000000000);
       });
     });
 
-    const component = customRender(<FileViewerDialog />, { initialFileViewerState });
+    const component = renderComponent();
 
     expect(fetchFileContents).toBeCalledWith('gdrive', 'Pictures', 'profile.png');
     expect(component.baseElement).toMatchSnapshot();
   });
 
-  it('should not show dialog and not make api call when no file info is set', () => {
-    const emptyFileViewerState = {
-      fileInfo: undefined,
-      isOpen: true,
-    };
+  it('should match snapshot when fetching file fails', async () => {
+    fetchFileContents.mockRejectedValue(new Error('Error!'));
 
-    customRender(<FileViewerDialog />, {
-      initialFileViewerState: emptyFileViewerState,
+    const component = renderComponent();
+
+    await waitFor(() => {
+      expect(component.getByTestId('error-message')).toBeInTheDocument();
     });
+  });
+
+  it('should not make api call when dialog is open but no file info is set', () => {
+    renderComponent(null);
 
     expect(fetchFileContents).not.toBeCalled();
   });
@@ -67,7 +65,7 @@ describe('FileViewerDialog', () => {
       headers: { 'content-type': 'image/jpeg' },
     });
 
-    const component = customRender(<FileViewerDialog />, { initialFileViewerState });
+    const component = renderComponent();
 
     await waitFor(() => {
       expect(component.getByTestId('image-content')).toBeInTheDocument();
@@ -81,7 +79,7 @@ describe('FileViewerDialog', () => {
       headers: { 'content-type': 'application/pdf' },
     });
 
-    customRender(<FileViewerDialog />, { initialFileViewerState });
+    renderComponent();
 
     await waitFor(() => {
       expect(PDFDialogContent).toBeCalled();
@@ -94,7 +92,7 @@ describe('FileViewerDialog', () => {
       headers: { 'content-type': 'application/octet-stream' },
     });
 
-    const component = customRender(<FileViewerDialog />, { initialFileViewerState });
+    const component = renderComponent();
 
     await waitFor(() => {
       expect(component.baseElement).toMatchSnapshot();
@@ -107,8 +105,7 @@ describe('FileViewerDialog', () => {
       headers: { 'content-type': 'image/jpeg' },
     });
 
-    const component = customRender(<FileViewerDialog />, { initialFileViewerState });
-
+    const component = renderComponent();
     userEvent.click(component.getByTestId('download-button'));
 
     await waitFor(() => {
@@ -122,7 +119,7 @@ describe('FileViewerDialog', () => {
       headers: { 'content-type': 'image/jpeg' },
     });
 
-    const component = customRender(<FileViewerDialog />, { initialFileViewerState });
+    const component = renderComponent();
     userEvent.click(component.getByTestId('zoom-in-button'));
 
     await waitFor(() => {
@@ -136,7 +133,7 @@ describe('FileViewerDialog', () => {
       headers: { 'content-type': 'image/jpeg' },
     });
 
-    const component = customRender(<FileViewerDialog />, { initialFileViewerState });
+    const component = renderComponent();
     userEvent.click(component.getByTestId('zoom-out-button'));
 
     await waitFor(() => {
@@ -144,13 +141,14 @@ describe('FileViewerDialog', () => {
     });
   });
 
-  it('should match snapshot when fetching file fails', async () => {
-    fetchFileContents.mockRejectedValue(new Error('Error!'));
+  const renderComponent = (fileInfo = defaultFileInfo) => {
+    const onClose = jest.fn();
+    const component = customRender(
+      <FileViewerDialog open fileInfo={fileInfo} onClose={onClose} />
+    );
 
-    const component = customRender(<FileViewerDialog />, { initialFileViewerState });
+    component.onClose = onClose;
 
-    await waitFor(() => {
-      expect(component.getByTestId('error-message')).toBeInTheDocument();
-    });
-  });
+    return component;
+  };
 });
