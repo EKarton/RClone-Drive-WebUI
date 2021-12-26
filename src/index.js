@@ -4,14 +4,14 @@ import './index.css';
 import MainApp from './apps/MainApp';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { RCloneInfoStateProvider } from 'contexts/RCloneInfoStore';
-import { FileViewerProvider } from 'contexts/FileViewerStore';
-import { RecentPicturesProvider } from 'contexts/RecentPictures';
+import { RCloneInfoProvider } from 'contexts/RCloneInfo';
+import { FileViewerProvider } from 'contexts/FileViewerDialog';
+import { RecentPicturesProvider } from 'contexts/RecentPicturesList';
 import 'semantic-ui-css/semantic.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <RCloneInfoStateProvider>
+    <RCloneInfoProvider>
       <FileViewerProvider>
         <RecentPicturesProvider>
           <BrowserRouter>
@@ -19,7 +19,7 @@ ReactDOM.render(
           </BrowserRouter>
         </RecentPicturesProvider>
       </FileViewerProvider>
-    </RCloneInfoStateProvider>
+    </RCloneInfoProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,8 +1,8 @@
-import { store, actionTypes, RCloneInfoStateProvider } from 'contexts/RCloneInfoStore';
+import { store, actionTypes, RCloneInfoProvider } from 'contexts/RCloneInfo';
 import { useContext, useEffect } from 'react';
 import { render } from 'test-utils/react';
 
-describe('RCloneInfoStateProvider', () => {
+describe('RCloneInfoProvider', () => {
   it('should call localStorage.setItem() correctly when endpoint, username, and password changes', () => {
     const MockComponent = () => {
       const { dispatch } = useContext(store);
@@ -17,9 +17,9 @@ describe('RCloneInfoStateProvider', () => {
     };
 
     render(
-      <RCloneInfoStateProvider>
+      <RCloneInfoProvider>
         <MockComponent />
-      </RCloneInfoStateProvider>
+      </RCloneInfoProvider>
     );
 
     expect(localStorage.getItem('endpoint')).toEqual('google.com');

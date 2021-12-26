@@ -1,5 +1,5 @@
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
-import RenameFileDialog from 'pages/FilesListPage/RenameFileDialog';
+import RenameFileDialog from 'components/RenameFileDialog';
 import { createContext, useRef, useState } from 'react';
 
 export const RenameFileDialogContext = createContext();

@@ -7,8 +7,12 @@ import './RecentPicturesSection.scss';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
-import getExistingPictures from './getExistingPictures';
+import getExistingPictures from '../../utils/getExistingPictures';
 
+/**
+ * Represents the list of recently viewed images
+ * in the Pictures page
+ */
 export default function RecentPicturesSection() {
   const { recentPictures, addImage } = useRecentlyViewedImages();
   const rCloneClient = useRCloneClient();

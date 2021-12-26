@@ -1,7 +1,7 @@
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 import { useState } from 'react';
 import { StatusTypes } from 'utils/constants';
-import FolderTree from 'pages/PicturesPage/FolderTree';
+import FolderTree from 'components/FolderTree';
 import useFetchRemotes from 'hooks/fetch-data/useFetchRemotes';
 
 export default function MoveFileDialog({ open, onCancel, onOk }) {

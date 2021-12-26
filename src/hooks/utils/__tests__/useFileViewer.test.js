@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { actionTypes } from 'contexts/FileViewerStore';
-import reducer from 'contexts/FileViewerStore/reducer';
+import { actionTypes } from 'contexts/FileViewerDialog';
+import reducer from 'contexts/FileViewerDialog/reducer';
 import useFileViewer from '../useFileViewer';
 import { createContext, useReducer } from 'react';
 

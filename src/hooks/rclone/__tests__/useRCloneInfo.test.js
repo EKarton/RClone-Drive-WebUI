@@ -1,12 +1,10 @@
 import { act, renderHook } from '@testing-library/react-hooks';
-import { RCloneInfoStateProvider } from 'contexts/RCloneInfoStore';
+import { RCloneInfoProvider } from 'contexts/RCloneInfo';
 import { waitFor } from 'test-utils/react';
 import useRCloneInfo from '../useRCloneInfo';
 
 describe('useRCloneInfo', () => {
-  const wrapper = ({ children }) => (
-    <RCloneInfoStateProvider>{children}</RCloneInfoStateProvider>
-  );
+  const wrapper = ({ children }) => <RCloneInfoProvider>{children}</RCloneInfoProvider>;
 
   it('should not crash given default store', () => {
     renderHook(() => useRCloneInfo(), { wrapper });

@@ -6,6 +6,9 @@ import RecentPicturesSection from './RecentPicturesSection';
 import RemotesListSection from './RemotesListSection';
 import './index.scss';
 
+/**
+ * Represents the Pictures page with the list of remotes
+ */
 export default function PicturesPage() {
   const history = useHistory();
 

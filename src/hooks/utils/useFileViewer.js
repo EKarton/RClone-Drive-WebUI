@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { store as defaultStore } from 'contexts/FileViewerStore';
-import { actionTypes } from 'contexts/FileViewerStore';
+import { store as defaultStore } from 'contexts/FileViewerDialog';
+import { actionTypes } from 'contexts/FileViewerDialog';
 
 /**
  * A custom hook used to interface with the file viewer

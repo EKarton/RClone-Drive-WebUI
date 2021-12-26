@@ -3,7 +3,7 @@ import useFileViewer from 'hooks/utils/useFileViewer';
 import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
 import { customRender, userEvent, waitFor } from 'test-utils/react';
 import RecentPicturesSection from '../RecentPicturesSection';
-import getExistingPictures from '../getExistingPictures';
+import getExistingPictures from 'utils/getExistingPictures';
 
 const recentPicturesList = [
   {
@@ -47,7 +47,7 @@ jest.mock('components/Image');
 jest.mock('hooks/utils/useFileViewer');
 jest.mock('hooks/utils/useRecentlyViewedImages');
 jest.mock('hooks/rclone/useRCloneClient');
-jest.mock('../getExistingPictures');
+jest.mock('utils/getExistingPictures');
 
 describe('RecentPicturesSection', () => {
   // Derived from https://github.com/bvaughn/react-virtualized/issues/493#issuecomment-447014986

@@ -2,16 +2,15 @@ import { createContext, useEffect, useReducer } from 'react';
 import actionTypes from './actionTypes';
 import reducer from './reducer';
 
-const initialState = {
+export const InitialState = {
   endpoint: localStorage.getItem('endpoint'),
   username: localStorage.getItem('username'),
   password: localStorage.getItem('password'),
 };
 
-const store = createContext(initialState);
-const { Provider } = store;
+export const RCloneInfoContext = createContext(InitialState);
 
-const RCloneInfoStateProvider = ({ children, defaultState = initialState }) => {
+export const RCloneInfoProvider = ({ children, defaultState = InitialState }) => {
   const [state, dispatch] = useReducer(reducer, defaultState);
 
   useEffect(() => {
@@ -26,7 +25,16 @@ const RCloneInfoStateProvider = ({ children, defaultState = initialState }) => {
     localStorage.setItem('password', state.password);
   }, [state.password]);
 
-  return <Provider value={{ state, dispatch }}>{children}</Provider>;
+  return (
+    <RCloneInfoContext.Provider value={{ state, dispatch }}>
+      {children}
+    </RCloneInfoContext.Provider>
+  );
 };
 
-export { store, RCloneInfoStateProvider, actionTypes, initialState };
+export {
+  RCloneInfoContext as store,
+  // RCloneInfoProvider as RCloneInfoProvider,
+  actionTypes,
+  InitialState as initialState,
+};

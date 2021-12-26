@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { actionTypes } from 'contexts/RCloneInfoStore';
-import { store as defaultStore } from 'contexts/RCloneInfoStore';
+import { actionTypes } from 'contexts/RCloneInfo';
+import { store as defaultStore } from 'contexts/RCloneInfo';
 
 /**
  * Returns the RClone info
