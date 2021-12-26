@@ -74,6 +74,7 @@ exports[`FilesListPage should match snapshot 1`] = `
       </div>
       <div
         class="add-files-drop-section"
+        data-testid="add-files-drop-section"
       >
         <div
           class="add-files-context-area"
@@ -416,6 +417,7 @@ exports[`FilesListPage should match snapshot 1`] = `
           </table>
           <div
             class="add-files-context-area__region"
+            data-testid="add-files-context-area__region"
           />
         </div>
       </div>

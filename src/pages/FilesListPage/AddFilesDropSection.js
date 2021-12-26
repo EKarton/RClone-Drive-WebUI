@@ -60,6 +60,7 @@ export default function AddFilesDropSection({
       onDragEnter={handleDragEnter}
       onDragLeave={handleDragLeave}
       onDragEnd={handleDragLeave}
+      data-testid="add-files-drop-section"
     >
       {children}
       {isDraggingFile && <div className="add-files-drop-section__overlay"></div>}

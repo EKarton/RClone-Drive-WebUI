@@ -4,13 +4,14 @@ import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import './AddFilesContextArea.scss';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
-import { getNewFolderName } from 'utils/filename-utils';
+import { getFullPath, getNewFolderName } from 'utils/filename-utils';
 
 export default function AddFilesContextArea({
   remote,
   path,
   children,
   onNewFolderCreated,
+  onUploadedFile,
 }) {
   const rCloneClient = useRCloneClient();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,14 +40,16 @@ export default function AddFilesContextArea({
     const existingFolderNames = files.filter((f) => f.IsDir).map((dir) => dir.Name);
 
     const newFolderName = getNewFolderName(existingFolderNames);
-    const newPath = path ? `${path}/${newFolderName}` : newFolderName;
+    const newPath = getFullPath(path, newFolderName);
 
     await rCloneClient.mkdir(remote, newPath);
 
     onNewFolderCreated();
   };
 
-  const handleUploadFile = () => {};
+  const handleUploadFile = () => {
+    onUploadedFile();
+  };
 
   return (
     <div className="add-files-context-area">
@@ -54,6 +57,7 @@ export default function AddFilesContextArea({
       <div
         className="add-files-context-area__region"
         onContextMenu={handleContextMenuOpened}
+        data-testid="add-files-context-area__region"
       ></div>
       <Menu
         open={isMenuOpen}
@@ -61,13 +65,19 @@ export default function AddFilesContextArea({
         anchorReference="anchorPosition"
         anchorPosition={menuPos}
       >
-        <MenuItem onClick={handleContextMenuClicked(handleCreateNewFolder)}>
+        <MenuItem
+          onClick={handleContextMenuClicked(handleCreateNewFolder)}
+          data-testid="new-folder"
+        >
           <ListItemIcon>
             <CreateNewFolderIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>New Folder</ListItemText>
         </MenuItem>
-        <MenuItem onClick={handleContextMenuClicked(handleUploadFile)}>
+        <MenuItem
+          onClick={handleContextMenuClicked(handleUploadFile)}
+          data-testid="upload-file"
+        >
           <ListItemIcon>
             <UploadFileIcon fontSize="small" />
           </ListItemIcon>
