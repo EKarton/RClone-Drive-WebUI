@@ -9,7 +9,7 @@ import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 import './index.scss';
 import FileSaver from 'file-saver';
-import useFileViewer from 'hooks/useFileViewer';
+import useFileViewer from 'hooks/utils/useFileViewer';
 import TextDialogContent from './TextDialogContent';
 
 const MaxWidths = ['xs', 'sm', 'md', 'lg', 'xl'];

@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
-import useFileRemover from 'hooks/useFileRemover';
+import useFileRemover from '../useFileRemover';
 
 jest.mock('hooks/rclone/useRCloneClient');
 

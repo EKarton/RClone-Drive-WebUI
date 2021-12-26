@@ -1,11 +1,11 @@
-import useFetchRemotes from 'hooks/rclone/fetch-data/useFetchRemotes';
+import useFetchRemotes from 'hooks/fetch-data/useFetchRemotes';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { mockFiles, mockRemotes } from 'test-utils/mock-responses';
 import { customRender, userEvent, fireEvent, screen, waitFor } from 'test-utils/react';
 import { StatusTypes } from 'utils/constants';
 import MoveFileDialog from '../MoveFileDialog';
 
-jest.mock('hooks/rclone/fetch-data/useFetchRemotes');
+jest.mock('hooks/fetch-data/useFetchRemotes');
 jest.mock('hooks/rclone/useRCloneClient');
 
 describe('MoveFileDialog', () => {

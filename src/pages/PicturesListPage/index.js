@@ -1,12 +1,12 @@
 import ImageList from './ImageList';
 import Header from 'components/Breadcrumbs';
 import { Link } from 'react-router-dom';
-import useFileViewer from 'hooks/useFileViewer';
+import useFileViewer from 'hooks/utils/useFileViewer';
 import { StatusTypes } from 'utils/constants';
 import ImageListSkeleton from './ImageListSkeleton';
-import useRemotePathParams from 'hooks/useRemotePathParams';
-import useRecentlyViewedImages from 'hooks/useRecentlyViewedImages';
-import useFetchPictures from 'hooks/rclone/fetch-data/useFetchPictures';
+import useRemotePathParams from 'hooks/utils/useRemotePathParams';
+import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
+import useFetchPictures from 'hooks/fetch-data/useFetchPictures';
 
 export default function PicturesListPage() {
   const { remote, path } = useRemotePathParams();

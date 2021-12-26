@@ -3,11 +3,11 @@ import { mockOperationsAboutResponse } from 'test-utils/mock-responses';
 import { mockConfigGetResponse } from 'test-utils/mock-responses';
 import { customRender, waitFor } from 'test-utils/react';
 import { StatusTypes } from 'utils/constants';
-import useFetchRemoteSpaceInfo from 'hooks/rclone/fetch-data/useFetchRemoteSpaceInfo';
-import useFetchRemoteInfo from 'hooks/rclone/fetch-data/useFetchRemoteInfo';
+import useFetchRemoteSpaceInfo from 'hooks/fetch-data/useFetchRemoteSpaceInfo';
+import useFetchRemoteInfo from 'hooks/fetch-data/useFetchRemoteInfo';
 
-jest.mock('hooks/rclone/fetch-data/useFetchRemoteSpaceInfo');
-jest.mock('hooks/rclone/fetch-data/useFetchRemoteInfo');
+jest.mock('hooks/fetch-data/useFetchRemotespaceInfo');
+jest.mock('hooks/fetch-data/useFetchRemoteInfo');
 
 describe('RemoteCard', () => {
   it('should render spinners when api call is in flight', async () => {

@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 import FileSaver from 'file-saver';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
-import useFileDownloader from 'hooks/useFileDownloader';
+import useFileDownloader from '../useFileDownloader';
 
 jest.mock('hooks/rclone/useRCloneClient');
 jest.mock('file-saver');

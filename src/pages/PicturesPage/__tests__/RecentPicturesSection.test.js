@@ -1,6 +1,6 @@
 import Image from 'components/Image';
-import useFileViewer from 'hooks/useFileViewer';
-import useRecentlyViewedImages from 'hooks/useRecentlyViewedImages';
+import useFileViewer from 'hooks/utils/useFileViewer';
+import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
 import { customRender, userEvent, waitFor } from 'test-utils/react';
 import RecentPicturesSection from '../RecentPicturesSection';
 import getExistingPictures from '../getExistingPictures';
@@ -44,8 +44,8 @@ const recentPicturesList = [
 ];
 
 jest.mock('components/Image');
-jest.mock('hooks/useFileViewer');
-jest.mock('hooks/useRecentlyViewedImages');
+jest.mock('hooks/utils/useFileViewer');
+jest.mock('hooks/utils/useRecentlyViewedImages');
 jest.mock('hooks/rclone/useRCloneClient');
 jest.mock('../getExistingPictures');
 

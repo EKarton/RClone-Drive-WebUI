@@ -1,5 +1,5 @@
 import ImageList from '../ImageList';
-import useFileViewer from 'hooks/useFileViewer';
+import useFileViewer from 'hooks/utils/useFileViewer';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { Route } from 'react-router';
 import { act, customRender, waitFor } from 'test-utils/react';
@@ -8,7 +8,7 @@ import { hashRemotePath } from 'utils/remote-paths-url';
 import PicturesListPage from '..';
 
 jest.mock('hooks/rclone/useRCloneClient');
-jest.mock('hooks/useFileViewer');
+jest.mock('hooks/utils/useFileViewer');
 jest.mock('../ImageList');
 
 describe('PicturesListPage', () => {

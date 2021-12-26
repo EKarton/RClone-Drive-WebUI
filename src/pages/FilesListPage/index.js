@@ -1,4 +1,4 @@
-import useRemotePathParams from 'hooks/useRemotePathParams';
+import useRemotePathParams from 'hooks/utils/useRemotePathParams';
 import Header from './Header';
 import Table from './Table';
 import './index.scss';

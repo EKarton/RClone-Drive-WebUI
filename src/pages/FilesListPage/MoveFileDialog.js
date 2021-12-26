@@ -2,7 +2,7 @@ import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/
 import { useState } from 'react';
 import { StatusTypes } from 'utils/constants';
 import FolderTree from 'pages/PicturesPage/FolderTree';
-import useFetchRemotes from 'hooks/rclone/fetch-data/useFetchRemotes';
+import useFetchRemotes from 'hooks/fetch-data/useFetchRemotes';
 
 export default function MoveFileDialog({ open, onCancel, onOk }) {
   const [remotePath, setRemotePath] = useState('');

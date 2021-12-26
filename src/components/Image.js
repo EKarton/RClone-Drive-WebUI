@@ -1,7 +1,7 @@
 import { Skeleton } from '@mui/material';
 import cx from 'classnames';
 import './Image.scss';
-import useFetchImage from 'hooks/rclone/fetch-data/useFetchImage';
+import useFetchImage from 'hooks/fetch-data/useFetchImage';
 import { StatusTypes } from 'utils/constants';
 
 export default function Image({ image, width, height, imgClassName, skeletonClassName }) {

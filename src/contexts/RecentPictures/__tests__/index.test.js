@@ -1,4 +1,4 @@
-import useRecentlyViewedImages from 'hooks/useRecentlyViewedImages';
+import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
 import { userEvent, render, waitFor } from 'test-utils/react';
 import { RecentPicturesProvider } from '..';
 

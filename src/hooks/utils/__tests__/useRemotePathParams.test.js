@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { createMemoryHistory } from 'history';
 import { Router, Route, Switch } from 'react-router';
-import useRemotePathParams from 'hooks/useRemotePathParams';
+import useRemotePathParams from '../useRemotePathParams';
 
 describe('useRemotePathParams()', () => {
   it('should return correct values given url contains remote and full path', () => {

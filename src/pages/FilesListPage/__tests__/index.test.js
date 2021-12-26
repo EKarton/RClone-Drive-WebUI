@@ -1,11 +1,11 @@
 import FilesListPage from '../index';
-import useFetchFiles from 'hooks/rclone/fetch-data/useFetchFiles';
+import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
 import { mockFiles } from 'test-utils/mock-responses';
 import { customRender } from 'test-utils/react';
 import { StatusTypes } from 'utils/constants';
 import { Route, Switch } from 'react-router';
 
-jest.mock('hooks/rclone/fetch-data/useFetchFiles');
+jest.mock('hooks/fetch-data/useFetchFiles');
 jest.mock('hooks/rclone/useRCloneClient');
 
 describe('FilesListPage', () => {

@@ -1,6 +1,6 @@
 import RemoteCardList from 'components/RemoteCardList';
 import { StatusTypes } from 'utils/constants';
-import useFetchRemotes from 'hooks/rclone/fetch-data/useFetchRemotes';
+import useFetchRemotes from 'hooks/fetch-data/useFetchRemotes';
 
 export default function RemotesListSection({ onRemoteCardClicked }) {
   const { status, data: remotes } = useFetchRemotes();

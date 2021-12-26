@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { actionTypes } from 'contexts/FileViewerStore';
 import reducer from 'contexts/FileViewerStore/reducer';
-import useFileViewer from 'hooks/useFileViewer';
+import useFileViewer from '../useFileViewer';
 import { createContext, useReducer } from 'react';
 
 describe('useFileViewer', () => {

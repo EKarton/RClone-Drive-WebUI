@@ -1,5 +1,5 @@
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
-import useRenameFileDialog from 'hooks/useRenameFileDialog';
+import useRenameFileDialog from 'hooks/utils/useRenameFileDialog';
 import { useState } from 'react';
 import { render, userEvent, waitFor, fireEvent } from 'test-utils/react';
 import { RenameFileDialogProvider } from '../index';

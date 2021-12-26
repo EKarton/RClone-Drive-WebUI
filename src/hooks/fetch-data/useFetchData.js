@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useReducer } from 'react';
 import { StatusTypes } from 'utils/constants';
-import useRCloneClient from '../useRCloneClient';
+import useRCloneClient from '../rclone/useRCloneClient';
 
 /**
  * A custom hook used to get information from RClone

@@ -73,18 +73,24 @@ describe('FolderTreeItem', () => {
       </TreeView>
     );
 
-    await waitFor(() => expect(screen.getByText('/')).toBeInTheDocument());
-    expect(baseElement).toMatchSnapshot();
+    await waitFor(() => {
+      expect(screen.getByText('/')).toBeInTheDocument();
+      expect(baseElement).toMatchSnapshot();
+    });
 
     fireEvent.click(screen.getByText('/'));
 
-    await waitFor(() => expect(screen.getByText('Documents')).toBeInTheDocument());
-    expect(baseElement).toMatchSnapshot();
+    await waitFor(() => {
+      expect(screen.getByText('Documents')).toBeInTheDocument();
+      expect(baseElement).toMatchSnapshot();
+    });
 
     fireEvent.click(screen.getByText('Documents'));
 
-    await waitFor(() => expect(screen.getByText('Personal')).toBeInTheDocument());
-    expect(baseElement).toMatchSnapshot();
+    await waitFor(() => {
+      expect(screen.getByText('Personal')).toBeInTheDocument();
+      expect(baseElement).toMatchSnapshot();
+    });
   });
 
   it('should render loading and then display data when api is loading and has succeeded', async () => {

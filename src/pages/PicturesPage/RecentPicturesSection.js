@@ -1,8 +1,8 @@
 import { Card, CardActionArea } from '@mui/material';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import Image from 'components/Image';
-import useFileViewer from 'hooks/useFileViewer';
-import useRecentlyViewedImages from 'hooks/useRecentlyViewedImages';
+import useFileViewer from 'hooks/utils/useFileViewer';
+import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
 import './RecentPicturesSection.scss';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
