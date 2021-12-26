@@ -1,9 +1,15 @@
 import { Table } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 import Skeleton from '@mui/material/Skeleton';
+import './FileListTableSkeleton.scss';
 
 export default function FileListTableSkeleton({ numRows }) {
   return (
-    <Table striped data-testid="fileslisttableskeleton">
+    <Table
+      striped
+      data-testid="files-list-table-skeleton"
+      className="file-list-table-skeleton"
+    >
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell>Name</Table.HeaderCell>
@@ -26,4 +32,8 @@ export default function FileListTableSkeleton({ numRows }) {
 
 FileListTableSkeleton.defaultProps = {
   numRows: 5,
+};
+
+FileListTableSkeleton.propType = {
+  numRows: PropTypes.number,
 };

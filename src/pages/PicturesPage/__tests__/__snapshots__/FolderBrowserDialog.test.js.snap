@@ -43,6 +43,7 @@ exports[`FolderBrowserDialog should render FolderTree and call handleOk() once c
         >
           <button
             class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root Mui-focusVisible  css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+            data-testid="cancel-button"
             tabindex="0"
             type="button"
           >

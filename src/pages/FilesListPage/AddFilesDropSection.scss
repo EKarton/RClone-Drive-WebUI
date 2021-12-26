@@ -1,0 +1,21 @@
+.add-files-drop-section {
+  position: relative;
+  flex: 1;
+
+  &--on-hover {
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px #4183c4;
+  }
+
+  &__overlay {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background-color: #4183c4;
+    opacity: 0.2;
+  }
+}

@@ -3,6 +3,7 @@ import useFileViewer from 'hooks/useFileViewer';
 import useRecentlyViewedImages from 'hooks/useRecentlyViewedImages';
 import { customRender, userEvent, waitFor } from 'test-utils/react';
 import RecentPicturesSection from '../RecentPicturesSection';
+import getExistingPictures from '../getExistingPictures';
 
 const recentPicturesList = [
   {
@@ -45,6 +46,8 @@ const recentPicturesList = [
 jest.mock('components/Image');
 jest.mock('hooks/useFileViewer');
 jest.mock('hooks/useRecentlyViewedImages');
+jest.mock('hooks/rclone/useRCloneClient');
+jest.mock('../getExistingPictures');
 
 describe('RecentPicturesSection', () => {
   // Derived from https://github.com/bvaughn/react-virtualized/issues/493#issuecomment-447014986
@@ -77,6 +80,8 @@ describe('RecentPicturesSection', () => {
       recentPictures: recentPicturesList,
       addImage: addImageFn,
     });
+
+    getExistingPictures.mockResolvedValue(recentPicturesList);
 
     useFileViewer.mockReturnValue({
       show: fileViewerShowFn,
@@ -126,7 +131,7 @@ describe('RecentPicturesSection', () => {
     });
   });
 
-  it('should call addImage() and fileViewer.show() correctly if user clicks on an image', () => {
+  it('should call addImage() and fileViewer.show() correctly if user clicks on an image', async () => {
     Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
       configurable: true,
       value: 2000,
@@ -134,13 +139,19 @@ describe('RecentPicturesSection', () => {
 
     const component = customRender(<RecentPicturesSection />);
 
+    await waitFor(() => {
+      expect(component.getByTestId(recentPicturesList[0].fileName)).toBeInTheDocument();
+    });
+
     userEvent.click(component.getByTestId(recentPicturesList[0].fileName));
 
-    expect(addImageFn).toBeCalledWith(recentPicturesList[0]);
-    expect(fileViewerShowFn).toBeCalledWith(recentPicturesList[0]);
+    await waitFor(() => {
+      expect(addImageFn).toBeCalledWith(recentPicturesList[0]);
+      expect(fileViewerShowFn).toBeCalledWith(recentPicturesList[0]);
+    });
   });
 
-  it('should render nothing when there are no recent pictures', () => {
+  it('should render nothing when there are no recent pictures', async () => {
     useRecentlyViewedImages.mockReturnValue({
       recentPictures: [],
       addImage: jest.fn(),
@@ -148,28 +159,36 @@ describe('RecentPicturesSection', () => {
 
     const { baseElement } = customRender(<RecentPicturesSection />);
 
-    expect(baseElement).toMatchSnapshot();
+    await waitFor(() => {
+      expect(baseElement).toMatchSnapshot();
+    });
   });
 
-  it('should render fillers when there are less than the max. number of images', () => {
+  it('should render fillers when there are less than the max. number of images', async () => {
     Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
       configurable: true,
       value: 800,
     });
 
+    const recentPictures = [
+      {
+        folderPath: 'Pictures/2010/Tomas',
+        fileName: '20100918_091219.jpg',
+        remote: 'googledrive-main-encrypted',
+      },
+    ];
+
     useRecentlyViewedImages.mockReturnValue({
-      recentPictures: [
-        {
-          folderPath: 'Pictures/2010/Tomas',
-          fileName: '20100918_091219.jpg',
-          remote: 'googledrive-main-encrypted',
-        },
-      ],
+      recentPictures,
       addImage: jest.fn(),
     });
 
+    getExistingPictures.mockResolvedValue(recentPictures);
+
     const component = customRender(<RecentPicturesSection />);
 
-    expect(component.getAllByTestId('image-fillers').length).toEqual(3);
+    await waitFor(() => {
+      expect(component.getAllByTestId('image-fillers').length).toEqual(3);
+    });
   });
 });

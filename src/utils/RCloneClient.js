@@ -1,5 +1,24 @@
 import axios from 'axios';
+import { getFullPath } from './filename-utils';
 
+const ImageIncludeRules = [
+  '*.png',
+  '*.PNG',
+  '*.jpg',
+  '*.JPG',
+  '*.jpeg',
+  '*.JPEG',
+  '*.bmp',
+  '*.BMP',
+  '*.gif',
+  '*.GIF',
+  '*.heic',
+  '*.HEIC',
+];
+
+/**
+ * A class used to handle all requests to RClone
+ */
 export default class RCloneClient {
   constructor(endpoint, username, password) {
     this.axiosInstance = axios.create({
@@ -17,19 +36,19 @@ export default class RCloneClient {
 
   /**
    * Fetches and returns a list of remotes
-   * @returns {Array<String>} a list of remotes
+   * @returns {Promise<string[]>} a list of remotes
    */
-  async fetchRemotes() {
-    const { data } = await this.axiosInstance.post('config/listremotes');
+  async fetchRemotes(opts = {}) {
+    const { data } = await this.axiosInstance.post('config/listremotes', undefined, opts);
     return data.remotes;
   }
 
   /**
-   * Fetches a list of files and folders under a particular path in a remote
+   * Fetches a list of files and folders under a directory path in a remote
    * It returns a list of objects, where each object has this shape:
    *
    * {
-   *   "Path": <the current path of the folder / file >,
+   *   "Path": <the full file path of the folder / file >,
    *   "Name": <the name of the folder or file>,
    *   "Size": <the size of the folder or file, in bytes>,
    *   "MimeType": <the type (ex: "inode/directory")>,
@@ -38,34 +57,58 @@ export default class RCloneClient {
    *   "ID": <the id of this object>
    * }
    *
-   * @returns {Array<Object>} a list of files
+   * @param {string} remote the remote
+   * @param {string} directoryPath the directory path
+   * @param {object} opts the set of axios options
+   * @returns {Promise<object[]>} a list of files
    */
-  async fetchFiles(remote, path) {
-    const { data } = await this.axiosInstance.post('operations/list', {
+  async fetchFiles(remote, directoryPath, opts = {}) {
+    const postData = {
       fs: `${remote}:`,
-      remote: `${path}`,
+      remote: `${directoryPath}`,
       _config: {
         UseListR: true,
       },
-    });
-
-    return data.list;
-  }
-
-  async fetchSubFolders(remote, path) {
-    const { data } = await this.axiosInstance.post('operations/list', {
-      fs: `${remote}:`,
-      remote: `${path}`,
-      opt: {
-        dirsOnly: true,
-      },
-    });
+    };
+    const { data } = await this.axiosInstance.post('operations/list', postData, opts);
 
     return data.list;
   }
 
   /**
-   * Fetches a list of pictures under a particular path in a remote
+   * Fetches a list of folders under a directory path in a remote
+   * It returns a list of objects, where each object has this shape:
+   *
+   * {
+   *   "Path": <the full file path of the folder >,
+   *   "Name": <the name of the folder or file>,
+   *   "Size": <the size of the folder or file, in bytes>,
+   *   "MimeType": <the type (ex: "inode/directory")>,
+   *   "ModTime": <the time this folder / file was updated, in ISO 8601 format>,
+   *   "IsDir": true,
+   *   "ID": <the id of this object>
+   * }
+   *
+   * @param {string} remote the remote
+   * @param {string} directoryPath the directory path
+   * @param {object} opts the set of axios options
+   * @returns {Promise<object[]>} a list of files
+   */
+  async fetchSubFolders(remote, directoryPath, opts = {}) {
+    const requestBody = {
+      fs: `${remote}:`,
+      remote: `${directoryPath}`,
+      opt: {
+        dirsOnly: true,
+      },
+    };
+    const { data } = await this.axiosInstance.post('operations/list', requestBody, opts);
+
+    return data.list;
+  }
+
+  /**
+   * Fetches a list of pictures under a directory path in a remote
    * It returns a list of objects, where each object has this shape:
    *
    * {
@@ -74,16 +117,18 @@ export default class RCloneClient {
    *   "Size": <the size of the folder or file, in bytes>,
    *   "MimeType": <the type (ex: "image/png")>,
    *   "ModTime": <the time this folder / file was updated, in ISO 8601 format>,
-   *   "IsDir": <true if it is a directory; else false>,
+   *   "IsDir": false,
    *   "ID": <the id of this object>
    * }
    *
-   * @returns {Array<Object>} a list of files
+   * @param {string} remote the remote
+   * @param {string} directoryPath the directory path
+   * @returns {Promise<object[]>} a list of files
    */
-  async fetchPictures(remote, path) {
-    const { data } = await this.axiosInstance.post('operations/list', {
+  async fetchPictures(remote, directoryPath, opts = {}) {
+    const requestBody = {
       fs: `${remote}:`,
-      remote: `${path}`,
+      remote: `${directoryPath}`,
       opt: {
         recurse: true,
         filesOnly: true,
@@ -92,39 +137,31 @@ export default class RCloneClient {
         UseListR: true,
       },
       _filter: {
-        IncludeRule: [
-          '*.png',
-          '*.PNG',
-          '*.jpg',
-          '*.JPG',
-          '*.jpeg',
-          '*.JPEG',
-          '*.bmp',
-          '*.BMP',
-          '*.gif',
-          '*.GIF',
-          '*.heic',
-          '*.HEIC',
-        ],
+        IncludeRule: ImageIncludeRules,
       },
-    });
+    };
+
+    const { data } = await this.axiosInstance.post('operations/list', requestBody, opts);
 
     return data.list;
   }
 
   /**
-   * Returns the file contents of a particular file in a remote
+   * Returns the file contents of a file in a remote
+   *
    * @param {string} remote the name of the remote
-   * @param {string} folderPath the folder path
+   * @param {string} directoryPath the folder path
    * @param {string} fileName the file name
-   * @returns {string} the blob contents of the file
+   * @returns {Promise<string>} the blob contents of the file
    */
-  async fetchFileContents(remote, folderPath, fileName) {
-    const remotePath = `${remote}:${folderPath}`;
+  async fetchFileContents(remote, directoryPath, fileName, opts = {}) {
+    const { cancelToken } = opts;
+    const remotePath = `${remote}:${directoryPath}`;
     const url = encodeURI(`[${remotePath}]/${fileName}`);
 
     const response = await this.axiosInstance.get(url, {
       responseType: 'blob',
+      cancelToken,
     });
 
     return response;
@@ -141,27 +178,236 @@ export default class RCloneClient {
    *   "used": number
    *  }
    *
+   * All numbers are in bytes
+   *
    * @param {string} remote the remote
-   * @returns {object} the space info
+   * @returns {Promise<object>} the space info
    */
-  async fetchRemoteSpaceInfo(remote) {
-    const { data } = await this.axiosInstance.post('operations/about', {
+  async fetchRemoteSpaceInfo(remote, opts = {}) {
+    const requestBody = {
       fs: `${remote}:`,
-    });
+    };
+    const { data } = await this.axiosInstance.post('operations/about', requestBody, opts);
 
     return data;
   }
 
   /**
-   * Returns the remote info
+   * Returns information about a full path in a remote
+   * It returns information in this shape:
+   * {
+   *   "Path": string,
+   *   "Name": string,
+   *   "Size": integer,
+   *   "MimeType": string,
+   *   "ModTime": string,
+   *   "IsDir": boolean,
+   *   "ID": string
+   * }
+   *
+   * If the full path doesn't exist in the remote, it will return null.
+   * If the remote does not exist, it will throw an exception
+   *
    * @param {string} remote the remote
-   * @returns {object} the info of the remote
+   * @param {string} fullPath the file path
+   * @param {string} opts options
+   * @returns {Promise<object>} information about the file
    */
-  async fetchRemoteInfo(remote) {
-    const { data } = await this.axiosInstance.post('config/get', {
+  async fetchFullPathInfo(remote, fullPath, opts = {}) {
+    const requestBody = {
+      fs: `${remote}:`,
+      remote: fullPath,
+    };
+
+    const { data } = await this.axiosInstance.post('operations/stat', requestBody, opts);
+
+    if (data.item === null) {
+      throw new Error(`Cannot find full path ${fullPath}`);
+    }
+
+    return data.item;
+  }
+
+  /**
+   * Returns the remote info
+   * It will return an object with this shape:
+   * {
+   *    "scope": string,
+   *    "type": string
+   * }
+   *
+   * Depending on the type of remote, it may include more information.
+   * For instance, with GDrives, it may return an object with this shape:
+   * {
+   *    "scope": string,
+   *    "team_drive": string,
+   *    "token": object,
+   *    "type": "drive"
+   * }
+   *
+   * @param {string} remote the remote
+   * @returns {Promise<object>} the info of the remote
+   */
+  async fetchRemoteInfo(remote, opts = {}) {
+    const requestBody = {
       name: remote,
-    });
+    };
+    const { data } = await this.axiosInstance.post('config/get', requestBody, opts);
 
     return data;
+  }
+
+  /**
+   * Uploads a file to a folder
+   *
+   * @param {string} remote the remote
+   * @param {string} folderPath the path to the folder
+   * @param {File} data the file data
+   */
+  async uploadFiles(remote, folderPath, data) {
+    const formData = new FormData();
+    formData.append('file', data);
+
+    const url = `operations/uploadfile?fs=${remote}:&remote=${folderPath}`;
+
+    await this.axiosInstance.post(url, formData);
+  }
+
+  /**
+   * Deletes a directory from a remote
+   * @param {string} remote string
+   * @param {string} directoryPath the folder path
+   * @param {string} baseName the name of the folder to delete
+   */
+  async deleteDirectory(remote, directoryPath, baseName) {
+    await this.axiosInstance.post('operations/purge', {
+      fs: `${remote}:`,
+      remote: getFullPath(directoryPath, baseName),
+    });
+  }
+
+  async deleteFile(remote, folderPath, fileName) {
+    await this.axiosInstance.post('operations/deletefile', {
+      fs: `${remote}:`,
+      remote: getFullPath(folderPath, fileName),
+    });
+  }
+
+  /**
+   * Copies the contents in a source directory to a target directory
+   * @param {object} source the source directory
+   * @param {object} target the target directory
+   * @param {boolean} createEmptySrcDirs true if it creates empty sub-directories in the source path; else false
+   */
+  async copyDirectoryContents(source, target, createEmptySrcDirs) {
+    const srcPath = getFullPath(source.folderPath, source.fileName);
+    const targetPath = getFullPath(target.folderPath, target.fileName);
+
+    await this.axiosInstance.post('sync/copy', {
+      srcFs: `${source.remote}:${srcPath}`,
+      dstFs: `${target.remote}:${targetPath}`,
+      createEmptySrcDirs,
+    });
+  }
+
+  /**
+   * Copies a file to a new path / remote
+   * The source path must be of this shape:
+   * {
+   *    remote: string (the src remote),
+   *    folderPath: string (the folder path of the src file)
+   *    fileName: string (the src file name),
+   * }
+   *
+   * The target path must be of this shape:
+   * {
+   *    remote: string (the new remote),
+   *    folderPath: string (the new folder path of the file)
+   *    fileName: string (the new file name)
+   * }
+   *
+   * @param {object} source the source file, with the shape above
+   * @param {object} target the target file, with the shape above
+   */
+  async copyFile(source, target) {
+    await this.axiosInstance.post('operations/copyfile', {
+      srcFs: `${source.remote}:`,
+      srcRemote: getFullPath(source.folderPath, source.fileName),
+      dstFs: `${target.remote}:`,
+      dstRemote: getFullPath(target.folderPath, target.fileName),
+    });
+  }
+
+  /**
+   * Moves a file to a new path / remote
+   * The source path must be of this shape:
+   * {
+   *    remote: string (the src remote),
+   *    folderPath: string (the folder path of the src file)
+   *    fileName: string (the src file name),
+   * }
+   *
+   * The target path must be of this shape:
+   * {
+   *    remote: string (the new remote),
+   *    folderPath: string (the new folder path of the file)
+   *    fileName: string (the new file name)
+   * }
+   *
+   * @param {object} source the source file, with the shape above
+   * @param {object} target the target file, with the shape above
+   */
+  async moveFile(source, target) {
+    await this.axiosInstance.post('operations/movefile', {
+      srcFs: `${source.remote}:`,
+      srcRemote: getFullPath(source.folderPath, source.fileName),
+      dstFs: `${target.remote}:`,
+      dstRemote: getFullPath(target.folderPath, target.fileName),
+    });
+  }
+
+  /**
+   * Moves a directory from one path to another path
+   * The source path must be of this shape:
+   * {
+   *    remote: string (the src remote),
+   *    folderPath: string (the folder path of the src file)
+   *    fileName: string (the name of the folder),
+   * }
+   *
+   * The target path must be of this shape:
+   * {
+   *    remote: string (the new remote),
+   *    folderPath: string (the new folder path of the folder)
+   *    fileName: string (the new folder name)
+   * }
+   *
+   * If the target's folder path does not exist, it will make one
+   *
+   * @param {object} source the source file, with the shape above
+   * @param {object} target the target file, with the shape above
+   */
+  async move(source, target, createEmptySrcDirs, deleteEmptySrcDirs) {
+    const srcRemote = getFullPath(source.folderPath, source.fileName);
+    const targetRemote = getFullPath(target.folderPath, target.fileName);
+
+    await this.axiosInstance.post('sync/move', {
+      srcFs: `${source.remote}:${srcRemote}`,
+      dstFs: `${target.remote}:${targetRemote}`,
+      createEmptySrcDirs,
+      deleteEmptySrcDirs,
+    });
+  }
+
+  /**
+   * Makes a directory in a remote
+   * @param {string} remote the remote
+   * @param {string} fullPath the full path of the new folder
+   */
+  async mkdir(remote, fullPath) {
+    await this.axiosInstance.post('operations/mkdir', {
+      fs: `${remote}:`,
+      remote: fullPath,
+    });
   }
 }

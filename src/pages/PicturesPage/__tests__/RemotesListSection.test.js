@@ -1,10 +1,10 @@
-import useRCloneClient from 'hooks/useRCloneClient';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { customRender, waitFor } from 'test-utils/react';
 import RemoteCardList from 'components/RemoteCardList';
 import RemotesListSection from '../RemotesListSection';
 
 jest.mock('components/RemoteCardList');
-jest.mock('hooks/useRCloneClient');
+jest.mock('hooks/rclone/useRCloneClient');
 
 describe('RemotesListSection', () => {
   const fetchRemotesFn = jest.fn();

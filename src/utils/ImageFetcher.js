@@ -4,7 +4,7 @@ export default class ImageFetcher {
     this.cache = cache;
   }
 
-  async getImage(remote, folderPath, fileName) {
+  async getImage(remote, folderPath, fileName, opts) {
     const key = `${remote}:${folderPath}/${fileName}`;
 
     if (this.cache.has(key)) {
@@ -14,7 +14,8 @@ export default class ImageFetcher {
     const response = await this.rCloneClient.fetchFileContents(
       remote,
       folderPath,
-      fileName
+      fileName,
+      opts
     );
 
     this.cache.set(key, response);

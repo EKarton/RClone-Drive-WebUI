@@ -1,45 +1,13 @@
-import { useEffect, useState } from 'react';
 import { Skeleton } from '@mui/material';
 import cx from 'classnames';
 import './Image.scss';
-import useImageFetcher from 'hooks/useImageFetcher';
+import useFetchImage from 'hooks/rclone/fetch-data/useFetchImage';
+import { StatusTypes } from 'utils/constants';
 
 export default function Image({ image, width, height, imgClassName, skeletonClassName }) {
-  const imageFetcher = useImageFetcher();
-  const [imageUrl, setImageUrl] = useState();
-  const [error, setError] = useState();
+  const { status, data: imageUrl, error } = useFetchImage(image);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setError(undefined);
-        setImageUrl(undefined);
-
-        const response = await imageFetcher.getImage(
-          image.remote,
-          image.folderPath,
-          image.fileName
-        );
-
-        const imageUrl = URL.createObjectURL(new Blob([response.data]));
-        setImageUrl(imageUrl);
-      } catch (error) {
-        setError(error);
-      }
-    };
-
-    if (!imageUrl && image) {
-      fetchData();
-    }
-
-    return () => {
-      if (imageUrl) {
-        URL.revokeObjectURL(imageUrl);
-      }
-    };
-  }, [image, imageUrl, imageFetcher]);
-
-  if (!imageUrl && !error) {
+  if (status === StatusTypes.LOADING) {
     return (
       <Skeleton
         variant="rectangular"
@@ -51,7 +19,7 @@ export default function Image({ image, width, height, imgClassName, skeletonClas
     );
   }
 
-  if (error) {
+  if (status === StatusTypes.ERROR) {
     return (
       <div width={width} height={height} data-testid="image-error">
         Error: {error.message}

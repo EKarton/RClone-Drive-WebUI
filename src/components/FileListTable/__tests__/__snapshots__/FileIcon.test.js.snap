@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileIcon should match snapshot given file is a directory 1`] = `
+<body>
+  <div>
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="FolderIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+      />
+    </svg>
+  </div>
+</body>
+`;
+
+exports[`FileIcon should match snapshot given file is a pdf 1`] = `
+<body>
+  <div>
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="DescriptionIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"
+      />
+    </svg>
+  </div>
+</body>
+`;
+
+exports[`FileIcon should match snapshot given file is an image and it is not showing previews 1`] = `
+<body>
+  <div>
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="ImageIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
+      />
+    </svg>
+  </div>
+</body>
+`;
+
+exports[`FileIcon should show an image given file is an image and it is showing previews 1`] = `
+<body>
+  <div>
+    <span
+      aria-hidden="true"
+      class="material-icons notranslate MuiIcon-root MuiIcon-fontSizeMedium file-icon__preview-icon css-kp9ftd-MuiIcon-root"
+    />
+  </div>
+</body>
+`;

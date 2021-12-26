@@ -4,6 +4,6 @@
  */
 module.exports = {
   '*.{js,scss,json,md,yaml,yml,html}': ['yarn prettier --write'],
-  '*.{js}': ['yarn prettier --write'],
-  '*.{scss}': ['yarn prettier --write'],
+  '*.js': ['yarn prettier --write'],
+  '*.scss': ['yarn prettier --write'],
 };

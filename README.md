@@ -10,8 +10,8 @@ The RClone Drive Web UI helps RClone users see and move their files between diff
 - [x] See images and files in detail
 - [x] View all pictures recursively under a directory and a remote
 - [ ] Search for files and images across remotes
-- [ ] Copy and move files to / from remotes
-- [ ] Delete files
+- [x] Copy and move files to / from remotes
+- [x] Delete files
 
 The RClone Drive Web UI is a front-end project that interfaces with RClone's [Remote Control](https://rclone.org/rc/) http client. It is built using [React](), [React Context]() and [MUI Material]().
 
@@ -20,11 +20,19 @@ The RClone Drive Web UI is a front-end project that interfaces with RClone's [Re
 ### Setup / Installation
 
 1. Install dependencies by running `yarn install`
-2. Start your RClone instance by running:
+2. Start your RClone instance:
 
-   ```
-   rclone rcd --rc-allow-origin '*' --rc-user='local' --rc-pass="1234" --rc-serve
-   ```
+   1. If your RClone config is in its [default location](https://rclone.org/docs/#:~:text=The%20exact%20default%20is%20a%20bit%20complex%20to%20describe%2C%20due%20to%20changes%20introduced%20through%20different%20versions%20of%20rclone%20while%20preserving%20backwards%20compatibility%2C%20but%20in%20most%20cases%20it%20is%20as%20simple%20as%3A), run:
+
+      ```
+      rclone rcd --rc-allow-origin '*' --rc-user='local' --rc-pass="1234" --rc-serve
+      ```
+
+   2. Else, if it is in a different location, run:
+
+      ```
+      rclone rcd --rc-allow-origin '*' --rc-user='local' --rc-pass="1234" --rc-serve --config <Path to RClone config>
+      ```
 
    More info is at the [RClone docs](https://rclone.org/commands/rclone_rcd/)
 
@@ -42,7 +50,7 @@ The RClone Drive Web UI is a front-end project that interfaces with RClone's [Re
 
 ### Usage:
 
-Please note that this project is used for educational purposes and is not intended to be used commercially. We are not liable for any damages/changes done by this project.
+Please note that this project is used for educational purposes and is not intended to be used commercially. We are not liable for any damages/changes/lost data done by this project.
 
 ### Credits:
 

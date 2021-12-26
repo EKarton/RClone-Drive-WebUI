@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextDialogContent should match snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="MuiDialogContent-root css-ypiqx9-MuiDialogContent-root"
+    >
+      <p
+        class="MuiDialogContentText-root MuiTypography-root MuiTypography-body1 text-dialog-content css-qfso29-MuiTypography-root-MuiDialogContentText-root"
+      >
+        1234
+      </p>
+    </div>
+  </div>
+</body>
+`;

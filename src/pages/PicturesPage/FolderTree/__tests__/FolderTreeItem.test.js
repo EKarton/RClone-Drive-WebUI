@@ -1,9 +1,9 @@
 import { TreeView } from '@mui/lab';
-import useRCloneClient from 'hooks/useRCloneClient';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { customRender, fireEvent, screen, waitFor } from 'test-utils/react';
 import FolderTreeItem from '../FolderTreeItem';
 
-jest.mock('hooks/useRCloneClient');
+jest.mock('hooks/rclone/useRCloneClient');
 
 // Sub-folders under the '/' directory
 const TopLevelFolders = [

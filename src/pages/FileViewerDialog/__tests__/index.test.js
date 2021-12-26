@@ -1,12 +1,14 @@
 import FileSaver from 'file-saver';
-import useRCloneClient from 'hooks/useRCloneClient';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { customRender, waitFor, userEvent } from 'test-utils/react';
 import PDFDialogContent from '../PDFDialogContent';
+import TextDialogContent from '../TextDialogContent';
 import FileViewerDialog from '..';
 
-jest.mock('hooks/useRCloneClient');
+jest.mock('hooks/rclone/useRCloneClient');
 jest.mock('file-saver');
 jest.mock('../PDFDialogContent');
+jest.mock('../TextDialogContent');
 
 describe('FileViewerDialog', () => {
   const initialFileViewerState = {
@@ -28,6 +30,7 @@ describe('FileViewerDialog', () => {
     URL.createObjectURL.mockReturnValue('blob://data');
 
     PDFDialogContent.mockReturnValue(null);
+    TextDialogContent.mockReturnValue(null);
   });
 
   it('should match snapshot when api is not resolved yet', () => {
@@ -88,7 +91,7 @@ describe('FileViewerDialog', () => {
   it('should match snapshot when fileInfo is an unknown file type', async () => {
     fetchFileContents.mockResolvedValue({
       data: '1234',
-      headers: { 'content-type': 'application/json' },
+      headers: { 'content-type': 'application/octet-stream' },
     });
 
     const component = customRender(<FileViewerDialog />, { initialFileViewerState });
@@ -110,6 +113,34 @@ describe('FileViewerDialog', () => {
 
     await waitFor(() => {
       expect(FileSaver.saveAs).toBeCalled();
+    });
+  });
+
+  it('should match snapshot when user zooms into the dialog', async () => {
+    fetchFileContents.mockResolvedValue({
+      data: '1234',
+      headers: { 'content-type': 'image/jpeg' },
+    });
+
+    const component = customRender(<FileViewerDialog />, { initialFileViewerState });
+    userEvent.click(component.getByTestId('zoom-in-button'));
+
+    await waitFor(() => {
+      expect(component.baseElement).toMatchSnapshot();
+    });
+  });
+
+  it('should match snapshot when user zooms out of the dialog', async () => {
+    fetchFileContents.mockResolvedValue({
+      data: '1234',
+      headers: { 'content-type': 'image/jpeg' },
+    });
+
+    const component = customRender(<FileViewerDialog />, { initialFileViewerState });
+    userEvent.click(component.getByTestId('zoom-out-button'));
+
+    await waitFor(() => {
+      expect(component.baseElement).toMatchSnapshot();
     });
   });
 

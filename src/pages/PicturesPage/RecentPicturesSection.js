@@ -4,12 +4,32 @@ import Image from 'components/Image';
 import useFileViewer from 'hooks/useFileViewer';
 import useRecentlyViewedImages from 'hooks/useRecentlyViewedImages';
 import './RecentPicturesSection.scss';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
+import getExistingPictures from './getExistingPictures';
 
 export default function RecentPicturesSection() {
   const { recentPictures, addImage } = useRecentlyViewedImages();
+  const rCloneClient = useRCloneClient();
   const fileViewer = useFileViewer();
 
-  if (recentPictures.length === 0) {
+  const [existingPictures, setExistingPictures] = useState([]);
+
+  useEffect(() => {
+    const cancelSource = axios.CancelToken.source();
+    const cancelToken = cancelSource.token;
+
+    getExistingPictures(recentPictures, rCloneClient, cancelToken).then((pictures) => {
+      setExistingPictures(pictures);
+    });
+
+    return () => {
+      cancelSource.cancel();
+    };
+  }, [rCloneClient, recentPictures]);
+
+  if (existingPictures.length === 0) {
     return null;
   }
 
@@ -25,7 +45,7 @@ export default function RecentPicturesSection() {
         <AutoSizer>
           {({ height, width }) => {
             const numImagesToShow = width < 1920 ? 4 : 6;
-            const imagesToShow = recentPictures.slice(0, numImagesToShow);
+            const imagesToShow = existingPictures.slice(0, numImagesToShow);
 
             const numFillers = Math.max(0, numImagesToShow - imagesToShow.length);
 

@@ -3,10 +3,19 @@ import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/
 import { useState } from 'react';
 
 export default function FolderBrowserDialog({ remotes, open, onCancel, onOk, title }) {
-  const [selectedFolder, setSelectedFolder] = useState('');
+  const [remotePath, setRemotePath] = useState('');
+
+  const handleFolderTreeSelected = (remotePath) => {
+    setRemotePath(remotePath);
+  };
 
   const handleOk = () => {
-    onOk(selectedFolder);
+    if (!remotePath) {
+      onCancel();
+      return;
+    }
+
+    onOk(remotePath);
   };
 
   return (
@@ -18,10 +27,10 @@ export default function FolderBrowserDialog({ remotes, open, onCancel, onOk, tit
     >
       <DialogTitle>{title}</DialogTitle>
       <DialogContent dividers>
-        <FolderTree remotes={remotes} onFolderSelect={setSelectedFolder} />
+        <FolderTree remotes={remotes} onSelect={handleFolderTreeSelected} />
       </DialogContent>
       <DialogActions>
-        <Button autoFocus onClick={onCancel}>
+        <Button autoFocus onClick={onCancel} data-testid="cancel-button">
           Cancel
         </Button>
         <Button onClick={handleOk} data-testid="ok-button">

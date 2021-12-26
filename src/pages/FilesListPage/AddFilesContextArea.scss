@@ -1,0 +1,10 @@
+.add-files-context-area {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__region {
+    min-height: 6rem;
+    flex-grow: 1;
+  }
+}

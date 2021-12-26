@@ -3,9 +3,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import FolderTreeItem from './FolderTreeItem';
 
-export default function FolderTree({ remotes, onFolderSelect }) {
+export default function FolderTree({ remotes, onSelect }) {
   const handleNodeSelect = (_e, nodeIds) => {
-    onFolderSelect(nodeIds);
+    onSelect(nodeIds);
   };
 
   return (

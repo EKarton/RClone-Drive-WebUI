@@ -1,7 +1,11 @@
-.imageviewer-dialog {
+.fileviewer-dialog {
   &__paper {
     max-height: 100%;
     max-width: 100%;
+  }
+
+  &__root {
+    background-color: rgb(0 0 0 / 50%);
   }
 
   &__header {
@@ -12,6 +16,7 @@
     top: 0;
     left: 0;
     width: 100vw;
+    padding: 1rem;
   }
 
   &__header-content {

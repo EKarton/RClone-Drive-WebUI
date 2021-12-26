@@ -1,21 +1,18 @@
 import ImageList from './ImageList';
-import Header from '../../components/Breadcrumbs';
+import Header from 'components/Breadcrumbs';
 import { Link } from 'react-router-dom';
 import useFileViewer from 'hooks/useFileViewer';
-import { useCallback } from 'react';
 import { StatusTypes } from 'utils/constants';
 import ImageListSkeleton from './ImageListSkeleton';
 import useRemotePathParams from 'hooks/useRemotePathParams';
 import useRecentlyViewedImages from 'hooks/useRecentlyViewedImages';
-import useFetchRCloneData from 'hooks/useFetchRCloneData';
+import useFetchPictures from 'hooks/rclone/fetch-data/useFetchPictures';
 
 export default function PicturesListPage() {
   const { remote, path } = useRemotePathParams();
   const fileViewer = useFileViewer();
   const recentlyViewedImages = useRecentlyViewedImages();
-
-  const fetchPictures = useCallback((c) => c.fetchPictures(remote, path), [remote, path]);
-  const { status, data } = useFetchRCloneData(fetchPictures);
+  const { status, data } = useFetchPictures(remote, path);
 
   const renderImageList = () => {
     if (status === StatusTypes.LOADING) {

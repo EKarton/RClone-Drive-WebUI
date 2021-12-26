@@ -15,20 +15,18 @@ describe('FolderTree', () => {
 
   it('should match snapshot given list of remotes', () => {
     const { baseElement } = customRender(
-      <FolderTree remotes={mockRemotes.remotes} onFolderSelect={jest.fn()} />
+      <FolderTree remotes={mockRemotes.remotes} onSelect={jest.fn()} />
     );
 
     expect(baseElement).toMatchSnapshot();
   });
 
   it('should call onFolderSelect() given user clicks on a FolderTreeItem', async () => {
-    const onFolderSelect = jest.fn();
-    customRender(
-      <FolderTree remotes={mockRemotes.remotes} onFolderSelect={onFolderSelect} />
-    );
+    const onSelect = jest.fn();
+    customRender(<FolderTree remotes={mockRemotes.remotes} onSelect={onSelect} />);
 
     fireEvent.click(screen.getByText(mockRemotes.remotes[0]));
 
-    expect(onFolderSelect).toBeCalledWith(mockRemotes.remotes[0]);
+    expect(onSelect).toBeCalledWith(mockRemotes.remotes[0]);
   });
 });

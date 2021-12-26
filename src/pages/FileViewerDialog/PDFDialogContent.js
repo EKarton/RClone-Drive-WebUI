@@ -1,6 +1,7 @@
 import { Document, Page } from 'react-pdf/dist/umd/entry.webpack';
 import { useState } from 'react';
 import 'react-pdf/dist/umd/Page/AnnotationLayer.css';
+import './PDFDialogContent.scss';
 
 export default function PDFDialogContent({ fileUrl }) {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -18,14 +19,12 @@ export default function PDFDialogContent({ fileUrl }) {
   };
 
   return (
-    <>
-      <Document
-        file={fileUrl}
-        options={{ workerSrc: '/pdf.worker.js' }}
-        onLoadSuccess={handlePdfLoadSuccess}
-      >
-        {hasLoaded && renderAllPages()}
-      </Document>
-    </>
+    <Document
+      file={fileUrl}
+      options={{ workerSrc: '/pdf.worker.js' }}
+      onLoadSuccess={handlePdfLoadSuccess}
+    >
+      {hasLoaded && renderAllPages()}
+    </Document>
   );
 }
