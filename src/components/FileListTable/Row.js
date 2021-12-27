@@ -1,8 +1,9 @@
+import TableCell from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow';
 import cx from 'classnames';
 import prettyBytes from 'pretty-bytes';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { Table } from 'semantic-ui-react';
 import { ICON_SIZE } from 'utils/constants';
 import ContextMenu from './ContextMenu';
 import FileIcon from './FileIcon';
@@ -56,7 +57,7 @@ export default function Row({
 
   return (
     <>
-      <Table.Row
+      <TableRow
         className={cx('filelist-table-row', {
           'filelist-table-row--highlight': isRowHighlighted,
         })}
@@ -66,19 +67,19 @@ export default function Row({
         onDoubleClick={handleDoubleClick}
         tabIndex="0"
       >
-        <Table.Cell className="filelist-table-row__table-cell">
+        <TableCell className="filelist-table-row__table-cell">
           <div className="filelist-table-row__file-cell" data-testid={file.name}>
             <FileIcon file={file} iconSize={iconSize} />
             <div>{file.name}</div>
           </div>
-        </Table.Cell>
-        <Table.Cell className="filelist-table-row__table-cell">
+        </TableCell>
+        <TableCell className="filelist-table-row__table-cell">
           {file.lastUpdatedTime}
-        </Table.Cell>
-        <Table.Cell className="filelist-table-row__table-cell">
+        </TableCell>
+        <TableCell className="filelist-table-row__table-cell">
           {file.isDirectory ? '-' : prettyBytes(file.size)}
-        </Table.Cell>
-      </Table.Row>
+        </TableCell>
+      </TableRow>
       <ContextMenu
         open={isContextMenuOpen}
         onClose={handleContextMenuClosed}

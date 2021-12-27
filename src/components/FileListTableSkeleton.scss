@@ -1,3 +1,11 @@
 .file-list-table-skeleton {
-  margin: 0 !important;
+  margin-bottom: 0 !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(34 36 38 / 15%);
+
+  &__row {
+    &:last-child td {
+      border: 0;
+    }
+  }
 }

@@ -4,6 +4,14 @@
   align-items: center;
   height: 100%;
 
+  &__header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    padding: 1rem;
+    text-align: right;
+  }
+
   &__card {
     width: 23rem;
     padding: 1rem;

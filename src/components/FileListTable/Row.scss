@@ -2,6 +2,10 @@
   position: relative;
   cursor: context-menu;
 
+  &:last-child td {
+    border: 0;
+  }
+
   &--highlight {
     box-shadow: 0 0 0 1px #4183c4;
     background-color: #4183c44d !important;

@@ -3,37 +3,44 @@
 exports[`FileListTable should match snapshot given files 1`] = `
 <body>
   <div>
-    <table
-      class="ui striped table file-list-table"
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root file-list-table css-11xur9t-MuiPaper-root-MuiTableContainer-root"
       data-testid="file-list-table"
     >
-      <thead
-        class=""
+      <table
+        class="MuiTable-root css-rqglhn-MuiTable-root"
       >
-        <tr
-          class=""
+        <thead
+          class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
         >
-          <th
-            class="file-list-table__header-cell"
+          <tr
+            class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
           >
-            Name
-          </th>
-          <th
-            class="file-list-table__header-cell"
-          >
-            Date Modified
-          </th>
-          <th
-            class="file-list-table__header-cell"
-          >
-            File Size
-          </th>
-        </tr>
-      </thead>
-      <tbody
-        class=""
-      />
-    </table>
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+              scope="col"
+            >
+              Name
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+              scope="col"
+            >
+              Date Modified
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+              scope="col"
+            >
+              File Size
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="MuiTableBody-root file-list-table__body css-apqrd9-MuiTableBody-root"
+        />
+      </table>
+    </div>
   </div>
 </body>
 `;

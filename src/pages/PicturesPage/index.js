@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router';
+import RemotesListSection from 'components/RemotesListSection';
 import { FileViewerDialogProvider } from 'contexts/FileViewerDialog/index';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import FolderBrowserDialog from './FolderBrowserDialog';
 import RecentPicturesSection from './RecentPicturesSection';
-import RemotesListSection from './RemotesListSection';
 import './index.scss';
 
 /**

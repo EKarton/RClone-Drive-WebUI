@@ -3,98 +3,105 @@
 exports[`FileListTableSkeleton should match snapshot 1`] = `
 <body>
   <div>
-    <table
-      class="ui striped table file-list-table-skeleton"
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root file-list-table-skeleton css-11xur9t-MuiPaper-root-MuiTableContainer-root"
       data-testid="files-list-table-skeleton"
     >
-      <thead
-        class=""
+      <table
+        class="MuiTable-root css-rqglhn-MuiTable-root"
       >
-        <tr
-          class=""
+        <thead
+          class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
         >
-          <th
-            class=""
+          <tr
+            class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
           >
-            Name
-          </th>
-          <th
-            class=""
-          >
-            Date Modified
-          </th>
-          <th
-            class=""
-          >
-            File Size
-          </th>
-        </tr>
-      </thead>
-      <tbody
-        class=""
-      >
-        <tr
-          class=""
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
+              scope="col"
+            >
+              Name
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
+              scope="col"
+            >
+              Date Modified
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
+              scope="col"
+            >
+              File Size
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
-          <td
-            class=""
-            colspan="3"
+          <tr
+            class="MuiTableRow-root file-list-table-skeleton__row css-1q1u3t4-MuiTableRow-root"
           >
-            <span
-              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
-            />
-          </td>
-        </tr>
-        <tr
-          class=""
-        >
-          <td
-            class=""
-            colspan="3"
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+              colspan="3"
+            >
+              <span
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
+              />
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root file-list-table-skeleton__row css-1q1u3t4-MuiTableRow-root"
           >
-            <span
-              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
-            />
-          </td>
-        </tr>
-        <tr
-          class=""
-        >
-          <td
-            class=""
-            colspan="3"
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+              colspan="3"
+            >
+              <span
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
+              />
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root file-list-table-skeleton__row css-1q1u3t4-MuiTableRow-root"
           >
-            <span
-              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
-            />
-          </td>
-        </tr>
-        <tr
-          class=""
-        >
-          <td
-            class=""
-            colspan="3"
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+              colspan="3"
+            >
+              <span
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
+              />
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root file-list-table-skeleton__row css-1q1u3t4-MuiTableRow-root"
           >
-            <span
-              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
-            />
-          </td>
-        </tr>
-        <tr
-          class=""
-        >
-          <td
-            class=""
-            colspan="3"
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+              colspan="3"
+            >
+              <span
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
+              />
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root file-list-table-skeleton__row css-1q1u3t4-MuiTableRow-root"
           >
-            <span
-              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
-            />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+              colspan="3"
+            >
+              <span
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </body>
 `;

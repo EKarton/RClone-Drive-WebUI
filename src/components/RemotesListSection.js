@@ -1,9 +1,11 @@
+import Typography from '@mui/material/Typography';
 import RemoteCardList from 'components/RemoteCardList';
 import useFetchRemotes from 'hooks/fetch-data/useFetchRemotes';
 import { StatusTypes } from 'utils/constants';
+import './RemotesListSection.scss';
 
 /**
- * Represents the list of remotes in the Pictures page
+ * Represents the list of remotes with header
  */
 export default function RemotesListSection({ onRemoteCardClicked }) {
   const { status, data: remotes } = useFetchRemotes();
@@ -22,7 +24,14 @@ export default function RemotesListSection({ onRemoteCardClicked }) {
 
   return (
     <>
-      <h4>Your Remotes</h4>
+      <Typography
+        variant="h7"
+        component="div"
+        color="text.primary"
+        className="remotes-list-section__header-text"
+      >
+        Your Remotes
+      </Typography>
       <RemoteCardList remotes={remotes} onClick={handleRemoteCardClicked} />
     </>
   );

@@ -4,8 +4,33 @@ exports[`LoginPage should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="login-page"
+      class="login-page MuiBox-root css-ip5c54"
     >
+      <div
+        class="login-page__header"
+      >
+        <span
+          class="MuiSwitch-root MuiSwitch-sizeSmall css-dnh7b9-MuiSwitch-root"
+        >
+          <span
+            class="MuiSwitch-switchBase MuiSwitch-colorPrimary MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase"
+          >
+            <input
+              class="MuiSwitch-input PrivateSwitchBase-input css-1m9pwf3"
+              type="checkbox"
+            />
+            <span
+              class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+            />
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </span>
+          <span
+            class="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+          />
+        </span>
+      </div>
       <div
         class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root login-page__card css-1v5z4dq-MuiPaper-root-MuiCard-root"
       >
