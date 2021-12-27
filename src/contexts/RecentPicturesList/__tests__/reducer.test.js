@@ -1,5 +1,5 @@
-import reducer from '../reducer';
 import actionTypes from '../actionTypes';
+import reducer from '../reducer';
 
 describe('reducer()', () => {
   it('should add an image to the front of the list when adding a new image', () => {

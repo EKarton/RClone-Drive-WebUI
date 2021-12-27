@@ -1,6 +1,6 @@
-import useRCloneClient from 'hooks/rclone/useRCloneClient';
-import MoveFileDialog from 'components/MoveFileDialog';
 import { createContext, useRef, useState } from 'react';
+import MoveFileDialog from 'components/MoveFileDialog';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
 
 export const MoveFileDialogContext = createContext();
 

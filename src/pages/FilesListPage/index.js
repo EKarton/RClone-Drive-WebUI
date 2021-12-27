@@ -1,10 +1,10 @@
+import { FileViewerDialogProvider } from 'contexts/FileViewerDialog';
+import { MoveFileDialogProvider } from 'contexts/MoveFileDialog';
+import { RenameFileDialogProvider } from 'contexts/RenameFileDialog';
 import useRemotePathParams from 'hooks/utils/useRemotePathParams';
 import Header from './Header';
 import Table from './Table';
 import './index.scss';
-import { FileViewerDialogProvider } from 'contexts/FileViewerDialog';
-import { MoveFileDialogProvider } from 'contexts/MoveFileDialog';
-import { RenameFileDialogProvider } from 'contexts/RenameFileDialog';
 
 export default function FilesListPage() {
   const { remote, path } = useRemotePathParams();

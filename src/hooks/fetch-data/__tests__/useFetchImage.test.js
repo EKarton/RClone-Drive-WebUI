@@ -1,8 +1,8 @@
 import { act, renderHook } from '@testing-library/react-hooks';
-import useImageFetcher from 'hooks/rclone/useImageFetcher';
-import { waitFor } from 'test-utils/react';
-import { StatusTypes } from 'utils/constants';
 import axios from 'axios';
+import useImageFetcher from 'hooks/rclone/useImageFetcher';
+import { StatusTypes } from 'utils/constants';
+import { waitFor } from 'test-utils/react';
 import useFetchImage from '../useFetchImage';
 
 jest.mock('hooks/rclone/useImageFetcher');

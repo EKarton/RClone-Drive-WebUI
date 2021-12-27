@@ -1,7 +1,7 @@
 import Image from 'components/Image';
 import useFetchImage from 'hooks/fetch-data/useFetchImage';
-import { customRender, waitFor } from 'test-utils/react';
 import { StatusTypes } from 'utils/constants';
+import { customRender, waitFor } from 'test-utils/react';
 
 jest.mock('hooks/fetch-data/useFetchImage');
 

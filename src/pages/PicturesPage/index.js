@@ -1,11 +1,11 @@
-import FolderBrowserDialog from './FolderBrowserDialog';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
+import { FileViewerDialogProvider } from 'contexts/FileViewerDialog/index';
 import { hashRemotePath } from 'utils/remote-paths-url';
+import FolderBrowserDialog from './FolderBrowserDialog';
 import RecentPicturesSection from './RecentPicturesSection';
 import RemotesListSection from './RemotesListSection';
 import './index.scss';
-import { FileViewerDialogProvider } from 'contexts/FileViewerDialog/index';
 
 /**
  * Represents the Pictures page with the list of remotes

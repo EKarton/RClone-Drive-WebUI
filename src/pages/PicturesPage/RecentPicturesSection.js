@@ -1,13 +1,13 @@
 import { Card, CardActionArea } from '@mui/material';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import Image from 'components/Image';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
 import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
-import './RecentPicturesSection.scss';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import getExistingPictures from '../../utils/getExistingPictures';
+import './RecentPicturesSection.scss';
 
 /**
  * Represents the list of recently viewed images

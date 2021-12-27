@@ -1,11 +1,11 @@
 import AuthenticatedApp from 'apps/AuthenticatedApp';
+import GlobalAppBar from 'components/GlobalAppBar';
+import GlobalNavBar from 'components/GlobalNavBar';
 import FilesListPage from 'pages/FilesListPage';
 import FilesPage from 'pages/FilesPage';
 import PicturesListPage from 'pages/PicturesListPage';
 import PicturesPage from 'pages/PicturesPage';
 import { act, customRender } from 'test-utils/react';
-import GlobalAppBar from 'components/GlobalAppBar';
-import GlobalNavBar from 'components/GlobalNavBar';
 
 jest.mock('pages/FilesListPage');
 jest.mock('pages/FilesPage');

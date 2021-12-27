@@ -1,6 +1,6 @@
 import RemoteCardList from 'components/RemoteCardList';
-import { StatusTypes } from 'utils/constants';
 import useFetchRemotes from 'hooks/fetch-data/useFetchRemotes';
+import { StatusTypes } from 'utils/constants';
 
 /**
  * Represents the list of remotes in the Pictures page

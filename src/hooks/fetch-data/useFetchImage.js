@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
+import { useEffect, useRef, useState } from 'react';
 import useImageFetcher from 'hooks/rclone/useImageFetcher';
 import { StatusTypes } from 'utils/constants';
 

@@ -1,6 +1,6 @@
 import { customRender } from 'test-utils/react';
-import FileListTable from '../index';
 import Row from '../Row';
+import FileListTable from '../index';
 
 jest.mock('../Row');
 

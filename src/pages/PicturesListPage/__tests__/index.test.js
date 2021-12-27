@@ -1,11 +1,11 @@
-import LazyImageList from 'components/LazyImageList';
 import { Route } from 'react-router';
-import { customRender, waitFor } from 'test-utils/react';
-import { mockPictures } from 'test-utils/mock-responses';
-import { hashRemotePath } from 'utils/remote-paths-url';
-import PicturesListPage from '..';
+import LazyImageList from 'components/LazyImageList';
 import useFetchPictures from 'hooks/fetch-data/useFetchPictures';
 import { StatusTypes } from 'utils/constants';
+import { hashRemotePath } from 'utils/remote-paths-url';
+import { mockPictures } from 'test-utils/mock-responses';
+import { customRender, waitFor } from 'test-utils/react';
+import PicturesListPage from '..';
 
 jest.mock('hooks/fetch-data/useFetchPictures');
 jest.mock('components/LazyImageList');

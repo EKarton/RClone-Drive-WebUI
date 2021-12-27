@@ -1,7 +1,7 @@
-import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
-import { FileViewerDialogProvider } from '../index';
-import { render, userEvent, act, waitFor } from 'test-utils/react';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
+import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
+import { render, userEvent, act, waitFor } from 'test-utils/react';
+import { FileViewerDialogProvider } from '../index';
 
 jest.mock('hooks/rclone/useRCloneClient');
 

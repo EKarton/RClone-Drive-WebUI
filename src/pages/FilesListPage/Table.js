@@ -1,18 +1,18 @@
-import FileListTable from 'components/FileListTable';
 import { useHistory } from 'react-router';
-import './index.scss';
-import { hashRemotePath } from 'utils/remote-paths-url';
-import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
-import { ImageMimeTypes, StatusTypes } from 'utils/constants';
+import FileListTable from 'components/FileListTable';
 import FileListTableSkeleton from 'components/FileListTableSkeleton';
-import AddFilesDropSection from './AddFilesDropSection';
-import AddFilesContextArea from './AddFilesContextArea';
 import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
-import useMoveFileDialog from 'hooks/utils/useMoveFileDialog';
+import useFileCopier from 'hooks/utils/useFileCopier';
 import useFileDownloader from 'hooks/utils/useFileDownloader';
 import useFileRemover from 'hooks/utils/useFileRemover';
-import useFileCopier from 'hooks/utils/useFileCopier';
+import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
+import useMoveFileDialog from 'hooks/utils/useMoveFileDialog';
 import useRenameFileDialog from 'hooks/utils/useRenameFileDialog';
+import { ImageMimeTypes, StatusTypes } from 'utils/constants';
+import { hashRemotePath } from 'utils/remote-paths-url';
+import AddFilesContextArea from './AddFilesContextArea';
+import AddFilesDropSection from './AddFilesDropSection';
+import './index.scss';
 
 export default function Table({ remote, path }) {
   const history = useHistory();

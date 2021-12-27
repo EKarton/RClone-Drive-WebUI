@@ -1,9 +1,9 @@
 import LazyImageList from 'components/LazyImageList';
-import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
-import { StatusTypes } from 'utils/constants';
 import LazyImageListSkeleton from 'components/LazyImageListSkeleton';
-import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
 import useFetchPictures from 'hooks/fetch-data/useFetchPictures';
+import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
+import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
+import { StatusTypes } from 'utils/constants';
 
 export default function ImageList({ remote, path }) {
   const fileViewer = useFileViewerDialog();

@@ -1,6 +1,6 @@
-import FolderTree from 'components/FolderTree';
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 import { useState } from 'react';
+import FolderTree from 'components/FolderTree';
 
 /**
  * Represents the dialog that appears when a user clicks on a remote

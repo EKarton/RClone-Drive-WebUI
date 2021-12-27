@@ -1,7 +1,7 @@
+import { Skeleton } from '@mui/material';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList } from 'react-window';
 import './LazyImageListSkeleton.scss';
-import { Skeleton } from '@mui/material';
 
 export default function LazyImageListSkeleton({ ...otherProps }) {
   const renderRow = (numImagesPerRow, style) => (

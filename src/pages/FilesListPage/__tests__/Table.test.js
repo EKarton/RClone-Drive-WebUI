@@ -1,3 +1,4 @@
+import { Route, Switch } from 'react-router-dom';
 import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
 import useFileCopier from 'hooks/utils/useFileCopier';
 import useFileDownloader from 'hooks/utils/useFileDownloader';
@@ -5,11 +6,10 @@ import useFileRemover from 'hooks/utils/useFileRemover';
 import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
 import useMoveFileDialog from 'hooks/utils/useMoveFileDialog';
 import useRenameFileDialog from 'hooks/utils/useRenameFileDialog';
-import { Route, Switch } from 'react-router-dom';
-import { mockFiles } from 'test-utils/mock-responses';
-import { customRender, fireEvent, userEvent } from 'test-utils/react';
 import { StatusTypes } from 'utils/constants';
 import { hashRemotePath } from 'utils/remote-paths-url';
+import { mockFiles } from 'test-utils/mock-responses';
+import { customRender, fireEvent, userEvent } from 'test-utils/react';
 import Table from '../Table';
 
 jest.mock('hooks/fetch-data/useFetchFiles');

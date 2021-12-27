@@ -1,9 +1,9 @@
-import { RCloneInfoProvider } from 'contexts/RCloneInfo';
-import { RecentPicturesProvider } from 'contexts/RecentPicturesList';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router';
+import { RCloneInfoProvider } from 'contexts/RCloneInfo';
+import { RecentPicturesProvider } from 'contexts/RecentPicturesList';
 
 const customRender = (
   component,

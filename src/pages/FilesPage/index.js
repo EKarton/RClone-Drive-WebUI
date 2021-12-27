@@ -1,5 +1,5 @@
-import './index.scss';
 import RemotesListSection from './RemotesListSection';
+import './index.scss';
 
 export default function FilesPage() {
   return (

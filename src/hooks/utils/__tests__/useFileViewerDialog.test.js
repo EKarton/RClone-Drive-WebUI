@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
-import useFileViewerDialog from '../useFileViewerDialog';
 import { FileViewerDialogProvider } from 'contexts/FileViewerDialog/index';
 import { RCloneInfoProvider } from 'contexts/RCloneInfo/index';
+import useFileViewerDialog from '../useFileViewerDialog';
 
 describe('useFileViewerDialog', () => {
   it('should not throw an error and return a show() function given it is wrapped in FileViewerDialogProvider', () => {

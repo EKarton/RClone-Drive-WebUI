@@ -1,7 +1,7 @@
-import Header from 'components/Breadcrumbs';
 import { Link } from 'react-router-dom';
-import useRemotePathParams from 'hooks/utils/useRemotePathParams';
+import Header from 'components/Breadcrumbs';
 import { FileViewerDialogProvider } from 'contexts/FileViewerDialog';
+import useRemotePathParams from 'hooks/utils/useRemotePathParams';
 import ImageList from './ImageList';
 
 export default function PicturesListPage() {

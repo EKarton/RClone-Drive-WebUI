@@ -1,10 +1,10 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { waitFor } from 'test-utils/react';
-import useRCloneClient from 'hooks/rclone/useRCloneClient';
-import { mockPictures } from 'test-utils/mock-responses';
-import { StatusTypes } from 'utils/constants';
-import useFetchPictures from '../useFetchPictures';
 import axios from 'axios';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
+import { StatusTypes } from 'utils/constants';
+import { mockPictures } from 'test-utils/mock-responses';
+import { waitFor } from 'test-utils/react';
+import useFetchPictures from '../useFetchPictures';
 
 jest.mock('hooks/rclone/useRCloneClient');
 

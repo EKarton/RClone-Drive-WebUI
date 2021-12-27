@@ -1,8 +1,8 @@
 import { renderHook } from '@testing-library/react-hooks';
-import reducer from 'contexts/RecentPicturesList/reducer';
-import actionTypes from 'contexts/RecentPicturesList/actionTypes';
-import useRecentlyViewedImages from '../useRecentlyViewedImages';
 import { createContext, useReducer } from 'react';
+import actionTypes from 'contexts/RecentPicturesList/actionTypes';
+import reducer from 'contexts/RecentPicturesList/reducer';
+import useRecentlyViewedImages from '../useRecentlyViewedImages';
 
 const recentPictures = [
   {

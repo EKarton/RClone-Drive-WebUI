@@ -1,5 +1,5 @@
-import { store, actionTypes, RCloneInfoProvider } from 'contexts/RCloneInfo';
 import { useContext, useEffect } from 'react';
+import { store, actionTypes, RCloneInfoProvider } from 'contexts/RCloneInfo';
 import { render } from 'test-utils/react';
 
 describe('RCloneInfoProvider', () => {

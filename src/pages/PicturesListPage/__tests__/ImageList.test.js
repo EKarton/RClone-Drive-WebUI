@@ -1,12 +1,12 @@
 import LazyImageList from 'components/LazyImageList';
-import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
-import { act, customRender, waitFor } from 'test-utils/react';
-import { mockPictures } from 'test-utils/mock-responses';
-import { hashRemotePath } from 'utils/remote-paths-url';
-import ImageList from '../ImageList';
-import useFetchPictures from 'hooks/fetch-data/useFetchPictures';
-import { StatusTypes } from 'utils/constants';
 import { FileViewerDialogProvider } from 'contexts/FileViewerDialog/index';
+import useFetchPictures from 'hooks/fetch-data/useFetchPictures';
+import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
+import { StatusTypes } from 'utils/constants';
+import { hashRemotePath } from 'utils/remote-paths-url';
+import { mockPictures } from 'test-utils/mock-responses';
+import { act, customRender, waitFor } from 'test-utils/react';
+import ImageList from '../ImageList';
 
 jest.mock('hooks/fetch-data/useFetchPictures');
 jest.mock('hooks/utils/useFileViewerDialog');

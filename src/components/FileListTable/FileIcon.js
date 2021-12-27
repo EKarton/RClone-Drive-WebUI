@@ -1,9 +1,9 @@
-import FolderIcon from '@mui/icons-material/Folder';
 import DescriptionIcon from '@mui/icons-material/Description';
+import FolderIcon from '@mui/icons-material/Folder';
 import ImageIcon from '@mui/icons-material/Image';
 import Icon from '@mui/material/Icon';
-import './FileIcon.scss';
 import LazyImage from 'components/LazyImage';
+import './FileIcon.scss';
 
 export default function FileIcon({ file, iconSize, showPreview }) {
   if (file.isDirectory) {

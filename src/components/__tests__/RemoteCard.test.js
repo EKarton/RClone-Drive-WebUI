@@ -1,10 +1,10 @@
 import RemoteCard from 'components/RemoteCard';
+import useFetchRemoteInfo from 'hooks/fetch-data/useFetchRemoteInfo';
+import useFetchRemoteSpaceInfo from 'hooks/fetch-data/useFetchRemoteSpaceInfo';
+import { StatusTypes } from 'utils/constants';
 import { mockOperationsAboutResponse } from 'test-utils/mock-responses';
 import { mockConfigGetResponse } from 'test-utils/mock-responses';
 import { customRender, waitFor } from 'test-utils/react';
-import { StatusTypes } from 'utils/constants';
-import useFetchRemoteSpaceInfo from 'hooks/fetch-data/useFetchRemoteSpaceInfo';
-import useFetchRemoteInfo from 'hooks/fetch-data/useFetchRemoteInfo';
 
 jest.mock('hooks/fetch-data/useFetchRemotespaceInfo');
 jest.mock('hooks/fetch-data/useFetchRemoteInfo');

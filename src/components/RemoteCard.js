@@ -1,9 +1,9 @@
 import { Card, CardContent, Skeleton, Typography, CardActionArea } from '@mui/material';
-import { StatusTypes } from 'utils/constants';
 import prettyBytes from 'pretty-bytes';
-import './RemoteCard.scss';
-import useFetchRemoteSpaceInfo from 'hooks/fetch-data/useFetchRemoteSpaceInfo';
 import useFetchRemoteInfo from 'hooks/fetch-data/useFetchRemoteInfo';
+import useFetchRemoteSpaceInfo from 'hooks/fetch-data/useFetchRemoteSpaceInfo';
+import { StatusTypes } from 'utils/constants';
+import './RemoteCard.scss';
 
 export default function RemoteCard({ remote, onClick, ...props }) {
   const sizeResult = useFetchRemoteSpaceInfo(remote);

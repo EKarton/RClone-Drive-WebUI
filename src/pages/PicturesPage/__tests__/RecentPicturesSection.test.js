@@ -1,9 +1,9 @@
 import Image from 'components/Image';
 import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
 import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
+import getExistingPictures from 'utils/getExistingPictures';
 import { customRender, userEvent, waitFor } from 'test-utils/react';
 import RecentPicturesSection from '../RecentPicturesSection';
-import getExistingPictures from 'utils/getExistingPictures';
 
 const recentPicturesList = [
   {

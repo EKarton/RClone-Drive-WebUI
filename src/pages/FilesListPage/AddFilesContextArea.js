@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { ListItemIcon, ListItemText, Menu, MenuItem } from '@mui/material';
 import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
-import './AddFilesContextArea.scss';
+import { ListItemIcon, ListItemText, Menu, MenuItem } from '@mui/material';
+import { useState } from 'react';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { getFullPath, getNewFolderName } from 'utils/filename-utils';
+import './AddFilesContextArea.scss';
 
 export default function AddFilesContextArea({
   remote,

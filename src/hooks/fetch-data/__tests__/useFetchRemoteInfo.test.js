@@ -1,9 +1,9 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { waitFor } from 'test-utils/react';
-import useRCloneClient from 'hooks/rclone/useRCloneClient';
-import { mockConfigGetResponse } from 'test-utils/mock-responses';
-import { StatusTypes } from 'utils/constants';
 import axios from 'axios';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
+import { StatusTypes } from 'utils/constants';
+import { mockConfigGetResponse } from 'test-utils/mock-responses';
+import { waitFor } from 'test-utils/react';
 import useFetchRemoteInfo from '../useFetchRemoteInfo';
 
 jest.mock('hooks/rclone/useRCloneClient');

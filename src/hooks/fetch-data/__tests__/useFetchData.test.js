@@ -1,11 +1,11 @@
 import { act, renderHook } from '@testing-library/react-hooks';
-import { waitFor } from 'test-utils/react';
-import useRCloneClient from 'hooks/rclone/useRCloneClient';
-import { useCallback } from 'react';
-import { mockRemotes } from 'test-utils/mock-responses';
-import { StatusTypes } from 'utils/constants';
-import useFetchData from '../useFetchData';
 import axios from 'axios';
+import { useCallback } from 'react';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
+import { StatusTypes } from 'utils/constants';
+import { mockRemotes } from 'test-utils/mock-responses';
+import { waitFor } from 'test-utils/react';
+import useFetchData from '../useFetchData';
 
 jest.mock('hooks/rclone/useRCloneClient');
 

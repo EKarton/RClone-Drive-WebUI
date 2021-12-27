@@ -1,5 +1,5 @@
-import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import FileSaver from 'file-saver';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
 
 export default function useFileDownloader() {
   const rCloneClient = useRCloneClient();

@@ -1,16 +1,16 @@
-import { Dialog, DialogContent, IconButton } from '@mui/material';
-import CircularProgress from '@mui/material/CircularProgress';
-import useRCloneClient from 'hooks/rclone/useRCloneClient';
-import { useEffect, useState } from 'react';
-import { ImageMimeTypes, StatusTypes } from 'utils/constants';
-import PDFDialogContent from './PDFDialogContent';
+import CloseIcon from '@mui/icons-material/Close';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
-import CloseIcon from '@mui/icons-material/Close';
-import './index.scss';
+import { Dialog, DialogContent, IconButton } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
 import FileSaver from 'file-saver';
+import { useEffect, useState } from 'react';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
+import { ImageMimeTypes, StatusTypes } from 'utils/constants';
+import PDFDialogContent from './PDFDialogContent';
 import TextDialogContent from './TextDialogContent';
+import './index.scss';
 
 const MaxWidths = ['xs', 'sm', 'md', 'lg', 'xl'];
 

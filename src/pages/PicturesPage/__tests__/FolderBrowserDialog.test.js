@@ -1,7 +1,7 @@
-import { act, customRender, userEvent } from 'test-utils/react';
-import { mockRemotes } from 'test-utils/mock-responses';
-import FolderBrowserDialog from '../FolderBrowserDialog';
 import FolderTree from 'components/FolderTree';
+import { mockRemotes } from 'test-utils/mock-responses';
+import { act, customRender, userEvent } from 'test-utils/react';
+import FolderBrowserDialog from '../FolderBrowserDialog';
 
 jest.mock('components/FolderTree');
 
