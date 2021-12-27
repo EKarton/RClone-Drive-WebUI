@@ -12,6 +12,7 @@ The RClone Drive Web UI helps RClone users see and move their files between diff
 - [ ] Search for files and images across remotes
 - [x] Copy and move files to / from remotes
 - [x] Delete files
+- [x] Dark mode
 
 The RClone Drive Web UI is a front-end project that interfaces with RClone's [Remote Control](https://rclone.org/rc/) http client. It is built using [React](), [React Context]() and [MUI Material]().
 
