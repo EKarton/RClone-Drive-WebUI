@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import { useState } from 'react';
 import { Route, Switch } from 'react-router';
 import GlobalAppBar from 'components/GlobalAppBar';
@@ -20,7 +21,7 @@ export default function AuthenticatedApp() {
       <GlobalAppBar onDrawerButttonClicked={handleDrawerButtonClicked} />
       <div className="app-shell__below-appbar">
         <GlobalNavBar isExpanded={isExpanded} />
-        <div className="app-shell__contents">
+        <Box className="app-shell__contents" sx={{ bgcolor: 'background.default' }}>
           <Switch>
             <Route path="/files" exact>
               <FilesPage />
@@ -35,7 +36,7 @@ export default function AuthenticatedApp() {
               <PicturesListPage />
             </Route>
           </Switch>
-        </div>
+        </Box>
       </div>
     </div>
   );

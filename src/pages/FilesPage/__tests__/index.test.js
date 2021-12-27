@@ -1,8 +1,8 @@
+import RemotesListSection from 'components/RemotesListSection';
 import { customRender } from 'test-utils/react';
-import RemotesListSection from '../RemotesListSection';
 import FilesPage from '../index';
 
-jest.mock('../RemotesListSection');
+jest.mock('components/RemotesListSection');
 
 describe('FilesPage', () => {
   it('should match snapshot', () => {

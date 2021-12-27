@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
+import MainApp from 'apps/MainApp';
+import { ColorModeProvider } from 'contexts/ColorMode/index';
 import { RCloneInfoProvider } from 'contexts/RCloneInfo';
 import { RecentPicturesProvider } from 'contexts/RecentPicturesList';
-import MainApp from './apps/MainApp';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
@@ -13,7 +14,9 @@ ReactDOM.render(
     <RCloneInfoProvider>
       <RecentPicturesProvider>
         <BrowserRouter>
-          <MainApp />
+          <ColorModeProvider>
+            <MainApp />
+          </ColorModeProvider>
         </BrowserRouter>
       </RecentPicturesProvider>
     </RCloneInfoProvider>

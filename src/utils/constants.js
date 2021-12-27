@@ -12,4 +12,9 @@ export const StatusTypes = Object.freeze({
   ERROR: 'error',
 });
 
+export const COLOR_MODE = Object.freeze({
+  LIGHT: 'light',
+  DARK: 'dark',
+});
+
 export const ImageMimeTypes = new Set(['image/jpeg', 'image/png']);

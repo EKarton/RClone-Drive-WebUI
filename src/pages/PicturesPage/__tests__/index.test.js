@@ -1,14 +1,14 @@
+import RemotesListSection from 'components/RemotesListSection';
 import { FileViewerDialogProvider } from 'contexts/FileViewerDialog';
 import PicturesPage from 'pages/PicturesPage';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import { act, customRender, waitFor } from 'test-utils/react';
 import FolderBrowserDialog from '../FolderBrowserDialog';
 import RecentPicturesSection from '../RecentPicturesSection';
-import RemotesListSection from '../RemotesListSection';
 
+jest.mock('components/RemotesListSection');
 jest.mock('../FolderBrowserDialog');
 jest.mock('../RecentPicturesSection');
-jest.mock('../RemotesListSection');
 
 describe('PicturesPage', () => {
   beforeEach(() => {

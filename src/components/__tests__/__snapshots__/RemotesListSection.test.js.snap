@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RemotesListSection should match snapshot when api call failed 1`] = `
+<body>
+  <div>
+    Error!
+  </div>
+</body>
+`;
+
+exports[`RemotesListSection should match snapshot when api call is loading 1`] = `
+<body>
+  <div />
+</body>
+`;
+
+exports[`RemotesListSection should match snapshot when api call was successful 1`] = `
+<body>
+  <div>
+    <div
+      class="MuiTypography-root MuiTypography-h7 remotes-list-section__header-text css-1squbay-MuiTypography-root"
+    >
+      Your Remotes
+    </div>
+    <div>
+      googledrive,onedrive,icloud
+    </div>
+  </div>
+</body>
+`;

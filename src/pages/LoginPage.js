@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -7,6 +8,7 @@ import TextField from '@mui/material/TextField';
 import cx from 'classnames';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
+import DarkModeToggleButton from 'components/DarkModeToggleButton';
 import useRCloneInfo from 'hooks/rclone/useRCloneInfo';
 import RCloneClient from 'utils/RCloneClient';
 import './LoginPage.scss';
@@ -49,7 +51,13 @@ const LoginPage = () => {
   );
 
   return (
-    <div className="login-page">
+    <Box
+      className="login-page"
+      sx={{ bgcolor: 'background.default', color: 'text.primary' }}
+    >
+      <div className="login-page__header">
+        <DarkModeToggleButton />
+      </div>
       <Card variant="outlined" className="login-page__card">
         <CardHeader title="Login" subheader={cardSubHeader} />
         <CardContent className="login-page__card-contents">
@@ -89,7 +97,7 @@ const LoginPage = () => {
           </Button>
         </CardActions>
       </Card>
-    </div>
+    </Box>
   );
 };
 

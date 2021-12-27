@@ -7,7 +7,7 @@ import Image from 'components/Image';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
 import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
-import getExistingPictures from '../../utils/getExistingPictures';
+import getExistingPictures from 'utils/getExistingPictures';
 import './RecentPicturesSection.scss';
 
 /**
