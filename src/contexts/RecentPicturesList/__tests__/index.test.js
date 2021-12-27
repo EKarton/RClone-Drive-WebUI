@@ -1,6 +1,6 @@
 import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
 import { userEvent, render, waitFor } from 'test-utils/react';
-import { RecentPicturesProvider } from '..';
+import { RecentPicturesProvider } from '../index';
 
 describe('RecentPicturesProvider', () => {
   it('should call localStorage.setItem() correctly when new images are being added', async () => {

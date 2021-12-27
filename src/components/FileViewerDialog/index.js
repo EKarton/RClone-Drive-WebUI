@@ -75,7 +75,7 @@ export default function FileViewerDialog({ open, fileInfo, onClose }) {
     onClose();
   };
 
-  const renderDownloadButton = () => {
+  const renderHeader = () => {
     return (
       <div className="fileviewer-dialog__header">
         <div className="fileviewer-dialog__header-content">{fileInfo?.fileName}</div>
@@ -148,7 +148,7 @@ export default function FileViewerDialog({ open, fileInfo, onClose }) {
       maxWidth={MaxWidths[maxWidthIdx]}
       classes={{ paper: 'fileviewer-dialog__paper', root: 'fileviewer-dialog__root' }}
     >
-      {renderDownloadButton()}
+      {renderHeader()}
       {renderDialogContent()}
     </Dialog>
   );

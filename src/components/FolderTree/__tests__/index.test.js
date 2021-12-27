@@ -1,8 +1,8 @@
 import { TreeItem } from '@mui/lab';
 import { mockRemotes } from 'test-utils/mock-responses';
 import { customRender, fireEvent, screen } from 'test-utils/react';
-import FolderTree from '..';
 import FolderTreeItem from '../FolderTreeItem';
+import FolderTree from '../index';
 
 jest.mock('../FolderTreeItem');
 

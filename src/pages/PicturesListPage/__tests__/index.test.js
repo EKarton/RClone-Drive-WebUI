@@ -5,7 +5,7 @@ import { StatusTypes } from 'utils/constants';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import { mockPictures } from 'test-utils/mock-responses';
 import { customRender, waitFor } from 'test-utils/react';
-import PicturesListPage from '..';
+import PicturesListPage from '../index';
 
 jest.mock('hooks/fetch-data/useFetchPictures');
 jest.mock('components/LazyImageList');

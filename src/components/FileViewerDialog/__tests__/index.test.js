@@ -1,9 +1,9 @@
 import FileSaver from 'file-saver';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { customRender, waitFor, userEvent } from 'test-utils/react';
-import FileViewerDialog from '..';
 import PDFDialogContent from '../PDFDialogContent';
 import TextDialogContent from '../TextDialogContent';
+import FileViewerDialog from '../index';
 
 jest.mock('hooks/rclone/useRCloneClient');
 jest.mock('file-saver');
