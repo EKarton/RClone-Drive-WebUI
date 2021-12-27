@@ -9,6 +9,7 @@ exports[`FileViewerDialog should match snapshot and download file when fileInfo 
   />
   <div
     class="MuiModal-root fileviewer-dialog__root MuiDialog-root fileviewer-dialog css-zw3mfo-MuiModal-root-MuiDialog-root"
+    data-testid="fileviewer-dialog"
     role="presentation"
   >
     <div
@@ -96,6 +97,26 @@ exports[`FileViewerDialog should match snapshot and download file when fileInfo 
               >
                 <path
                   d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium fileviewer-dialog__header-content css-i4bv87-MuiSvgIcon-root"
+                data-testid="close-button"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
                 />
               </svg>
               <span
@@ -127,6 +148,7 @@ exports[`FileViewerDialog should match snapshot when api is not resolved yet 1`]
   />
   <div
     class="MuiModal-root fileviewer-dialog__root MuiDialog-root fileviewer-dialog css-zw3mfo-MuiModal-root-MuiDialog-root"
+    data-testid="fileviewer-dialog"
     role="presentation"
   >
     <div
@@ -214,6 +236,26 @@ exports[`FileViewerDialog should match snapshot when api is not resolved yet 1`]
               >
                 <path
                   d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium fileviewer-dialog__header-content css-i4bv87-MuiSvgIcon-root"
+                data-testid="close-button"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
                 />
               </svg>
               <span
@@ -264,6 +306,7 @@ exports[`FileViewerDialog should match snapshot when fileInfo is an unknown file
   />
   <div
     class="MuiModal-root fileviewer-dialog__root MuiDialog-root fileviewer-dialog css-zw3mfo-MuiModal-root-MuiDialog-root"
+    data-testid="fileviewer-dialog"
     role="presentation"
   >
     <div
@@ -357,6 +400,26 @@ exports[`FileViewerDialog should match snapshot when fileInfo is an unknown file
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </button>
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium fileviewer-dialog__header-content css-i4bv87-MuiSvgIcon-root"
+                data-testid="close-button"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
           </div>
         </div>
         <div
@@ -401,6 +464,7 @@ exports[`FileViewerDialog should match snapshot when user zooms into the dialog 
   />
   <div
     class="MuiModal-root fileviewer-dialog__root MuiDialog-root fileviewer-dialog css-zw3mfo-MuiModal-root-MuiDialog-root"
+    data-testid="fileviewer-dialog"
     role="presentation"
   >
     <div
@@ -503,6 +567,26 @@ exports[`FileViewerDialog should match snapshot when user zooms into the dialog 
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </button>
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium fileviewer-dialog__header-content css-i4bv87-MuiSvgIcon-root"
+                data-testid="close-button"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
           </div>
         </div>
         <div
@@ -547,6 +631,7 @@ exports[`FileViewerDialog should match snapshot when user zooms out of the dialo
   />
   <div
     class="MuiModal-root fileviewer-dialog__root MuiDialog-root fileviewer-dialog css-zw3mfo-MuiModal-root-MuiDialog-root"
+    data-testid="fileviewer-dialog"
     role="presentation"
   >
     <div
@@ -643,6 +728,26 @@ exports[`FileViewerDialog should match snapshot when user zooms out of the dialo
               >
                 <path
                   d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+              tabindex="0"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium fileviewer-dialog__header-content css-i4bv87-MuiSvgIcon-root"
+                data-testid="close-button"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
                 />
               </svg>
               <span

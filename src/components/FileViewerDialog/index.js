@@ -7,6 +7,7 @@ import PDFDialogContent from './PDFDialogContent';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
+import CloseIcon from '@mui/icons-material/Close';
 import './index.scss';
 import FileSaver from 'file-saver';
 import TextDialogContent from './TextDialogContent';
@@ -51,10 +52,10 @@ export default function FileViewerDialog({ open, fileInfo, onClose }) {
       }
     };
 
-    if (fileInfo?.remote && fileInfo?.fileName) {
+    if (open && fileInfo?.remote && fileInfo?.fileName) {
       fetchData();
     }
-  }, [fileInfo, rCloneClient]);
+  }, [fileInfo, open, rCloneClient]);
 
   const handleDownloadButtonClicked = () => {
     FileSaver.saveAs(result.fileBlob, fileInfo?.fileName);
@@ -66,6 +67,10 @@ export default function FileViewerDialog({ open, fileInfo, onClose }) {
 
   const handleZoomOutButtonClicked = () => {
     setMaxWidthIdx(Math.max(0, maxWidthIdx - 1));
+  };
+
+  const handleCloseButtonClicked = () => {
+    onClose();
   };
 
   const renderDownloadButton = () => {
@@ -89,6 +94,12 @@ export default function FileViewerDialog({ open, fileInfo, onClose }) {
             <FileDownloadIcon
               className="fileviewer-dialog__header-content"
               data-testid="download-button"
+            />
+          </IconButton>
+          <IconButton onClick={handleCloseButtonClicked}>
+            <CloseIcon
+              className="fileviewer-dialog__header-content"
+              data-testid="close-button"
             />
           </IconButton>
         </div>
@@ -129,6 +140,7 @@ export default function FileViewerDialog({ open, fileInfo, onClose }) {
   return (
     <Dialog
       className="fileviewer-dialog"
+      data-testid="fileviewer-dialog"
       open={open}
       onClose={onClose}
       maxWidth={MaxWidths[maxWidthIdx]}

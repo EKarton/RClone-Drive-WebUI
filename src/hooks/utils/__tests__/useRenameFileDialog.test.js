@@ -12,4 +12,10 @@ describe('useRenameFileDialog()', () => {
 
     expect(typeof result.current.renameFile).toBe('function');
   });
+
+  it('should throw an error given it is not wrapped in FileViewerDialogProvider', () => {
+    const { result } = renderHook(() => useRenameFileDialog());
+
+    expect(result.error).toBeInstanceOf(Error);
+  });
 });

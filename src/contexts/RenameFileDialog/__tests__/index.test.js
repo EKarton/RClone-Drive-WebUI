@@ -98,16 +98,16 @@ describe('RenameFileDialog', () => {
     });
   });
 
-  it('should throw an error when useMoveFileDialog() is used outside of MoveFileDialogProvider', () => {
-    jest.spyOn(console, 'error').mockImplementation(() => {});
+  //   it('should throw an error when useMoveFileDialog() is used outside of MoveFileDialogProvider', () => {
+  //     jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const MockComponent = () => {
-      useRenameFileDialog();
-      return <div>Test Component</div>;
-    };
+  //     const MockComponent = () => {
+  //       useRenameFileDialog();
+  //       return <div>Test Component</div>;
+  //     };
 
-    expect(() => render(<MockComponent />)).toThrowError();
-  });
+  //     expect(() => render(<MockComponent />)).toThrowError();
+  //   });
 
   const renderComponent = (fileToRename) => {
     return render(

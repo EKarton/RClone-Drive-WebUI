@@ -12,4 +12,10 @@ describe('useMoveFileDialog()', () => {
 
     expect(typeof result.current.moveFile).toBe('function');
   });
+
+  it('should throw an error given it is not wrapped in FileViewerDialogProvider', () => {
+    const { result } = renderHook(() => useMoveFileDialog());
+
+    expect(result.error).toBeInstanceOf(Error);
+  });
 });

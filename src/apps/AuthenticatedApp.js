@@ -5,7 +5,6 @@ import FilesListPage from 'pages/FilesListPage';
 import { useState } from 'react';
 import { Route, Switch } from 'react-router';
 import './AuthenticatedApp.scss';
-import FileViewerDialog from 'pages/FileViewerDialog';
 import PicturesPage from 'pages/PicturesPage';
 import PicturesListPage from 'pages/PicturesListPage';
 
@@ -38,7 +37,6 @@ export default function AuthenticatedApp() {
           </Switch>
         </div>
       </div>
-      <FileViewerDialog />
     </div>
   );
 }
