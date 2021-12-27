@@ -1,5 +1,5 @@
-import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { getFullPath } from 'utils/filename-utils';
+import useRCloneClient from '../rclone/useRCloneClient';
 
 export default function useFileCopier() {
   const rCloneClient = useRCloneClient();

@@ -1,4 +1,4 @@
-import { Skeleton } from '@mui/material';
+import Skeleton from '@mui/material/Skeleton';
 import cx from 'classnames';
 import useFetchImage from 'hooks/fetch-data/useFetchImage';
 import { StatusTypes } from 'utils/constants';

@@ -1,4 +1,5 @@
-import { Card, CardActionArea } from '@mui/material';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';

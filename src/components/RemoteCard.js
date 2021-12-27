@@ -1,4 +1,8 @@
-import { Card, CardContent, Skeleton, Typography, CardActionArea } from '@mui/material';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardContent from '@mui/material/CardContent';
+import Skeleton from '@mui/material/Skeleton';
+import Typography from '@mui/material/Typography';
 import prettyBytes from 'pretty-bytes';
 import useFetchRemoteInfo from 'hooks/fetch-data/useFetchRemoteInfo';
 import useFetchRemoteSpaceInfo from 'hooks/fetch-data/useFetchRemoteSpaceInfo';

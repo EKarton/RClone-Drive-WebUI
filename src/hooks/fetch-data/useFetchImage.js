@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
-import useImageFetcher from 'hooks/rclone/useImageFetcher';
 import { StatusTypes } from 'utils/constants';
+import useImageFetcher from '../rclone/useImageFetcher';
 
 export default function useFetchImage(image) {
   const cancelSource = useRef(null);

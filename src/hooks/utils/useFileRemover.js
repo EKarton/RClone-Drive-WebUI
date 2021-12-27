@@ -1,4 +1,4 @@
-import useRCloneClient from 'hooks/rclone/useRCloneClient';
+import useRCloneClient from '../rclone/useRCloneClient';
 
 export default function useFileRemover() {
   const rCloneClient = useRCloneClient();

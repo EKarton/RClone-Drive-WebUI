@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import useFetchData from 'hooks/fetch-data/useFetchData';
+import useFetchData from './useFetchData';
 
 export default function useFetchRemotes() {
   const func = (c, cancelToken) => c.fetchRemotes({ cancelToken });

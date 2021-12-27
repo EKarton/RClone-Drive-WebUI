@@ -1,4 +1,4 @@
-import { Skeleton } from '@mui/material';
+import Skeleton from '@mui/material/Skeleton';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList } from 'react-window';
 import './LazyImageListSkeleton.scss';

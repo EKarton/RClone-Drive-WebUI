@@ -1,11 +1,9 @@
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  TextField,
-} from '@mui/material';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import TextField from '@mui/material/TextField';
 import cx from 'classnames';
 import { useState } from 'react';
 import { useHistory } from 'react-router';

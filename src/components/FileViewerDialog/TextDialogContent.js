@@ -1,4 +1,5 @@
-import { DialogContent, DialogContentText } from '@mui/material';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
 import { useState, useEffect } from 'react';
 import './TextDialogContent.scss';
 
