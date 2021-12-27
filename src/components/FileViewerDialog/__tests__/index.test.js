@@ -141,6 +141,20 @@ describe('FileViewerDialog', () => {
     });
   });
 
+  it('should call onClose() when user clicks on the close button', async () => {
+    fetchFileContents.mockResolvedValue({
+      data: '1234',
+      headers: { 'content-type': 'image/jpeg' },
+    });
+
+    const component = renderComponent();
+    userEvent.click(component.getByTestId('close-button'));
+
+    await waitFor(() => {
+      expect(component.onClose).toBeCalled();
+    });
+  });
+
   const renderComponent = (fileInfo = defaultFileInfo) => {
     const onClose = jest.fn();
     const component = customRender(

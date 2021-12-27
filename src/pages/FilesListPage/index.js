@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
+import Breadcrumbs from 'components/Breadcrumbs';
 import { FileViewerDialogProvider } from 'contexts/FileViewerDialog';
 import { MoveFileDialogProvider } from 'contexts/MoveFileDialog';
 import { RenameFileDialogProvider } from 'contexts/RenameFileDialog';
 import useRemotePathParams from 'hooks/utils/useRemotePathParams';
-import Header from './Header';
 import Table from './Table';
 import './index.scss';
 
@@ -14,7 +15,11 @@ export default function FilesListPage() {
       <MoveFileDialogProvider>
         <RenameFileDialogProvider>
           <div className="filelist-page__container">
-            <Header remote={remote} path={path} />
+            <Breadcrumbs
+              remote={remote}
+              path={path}
+              homeLink={<Link to="/files">My Files</Link>}
+            />
             <Table remote={remote} path={path} />
           </div>
         </RenameFileDialogProvider>
