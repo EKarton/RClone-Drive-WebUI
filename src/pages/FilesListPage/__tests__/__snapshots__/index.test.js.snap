@@ -76,342 +76,349 @@ exports[`FilesListPage should match snapshot 1`] = `
         <div
           class="add-files-context-area"
         >
-          <table
-            class="ui striped table file-list-table"
+          <div
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root file-list-table css-11xur9t-MuiPaper-root-MuiTableContainer-root"
             data-testid="file-list-table"
           >
-            <thead
-              class=""
+            <table
+              class="MuiTable-root css-rqglhn-MuiTable-root"
             >
-              <tr
-                class=""
+              <thead
+                class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
               >
-                <th
-                  class="file-list-table__header-cell"
+                <tr
+                  class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
                 >
-                  Name
-                </th>
-                <th
-                  class="file-list-table__header-cell"
-                >
-                  Date Modified
-                </th>
-                <th
-                  class="file-list-table__header-cell"
-                >
-                  File Size
-                </th>
-              </tr>
-            </thead>
-            <tbody
-              class=""
-            >
-              <tr
-                class="filelist-table-row"
-                tabindex="0"
-              >
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  <div
-                    class="filelist-table-row__file-cell"
-                    data-testid=".rclone"
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+                    scope="col"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                      data-testid="FolderIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
-                      />
-                    </svg>
-                    <div>
-                      .rclone
-                    </div>
-                  </div>
-                </td>
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  2021-11-01T21:09:05.237Z
-                </td>
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  -
-                </td>
-              </tr>
-              <tr
-                class="filelist-table-row"
-                tabindex="0"
-              >
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  <div
-                    class="filelist-table-row__file-cell"
-                    data-testid="Documents"
+                    Name
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+                    scope="col"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                      data-testid="FolderIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
-                      />
-                    </svg>
-                    <div>
-                      Documents
-                    </div>
-                  </div>
-                </td>
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  2021-09-28T01:51:05.982Z
-                </td>
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  -
-                </td>
-              </tr>
-              <tr
-                class="filelist-table-row"
-                tabindex="0"
-              >
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  <div
-                    class="filelist-table-row__file-cell"
-                    data-testid="Games"
+                    Date Modified
+                  </th>
+                  <th
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+                    scope="col"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                      data-testid="FolderIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
-                      />
-                    </svg>
-                    <div>
-                      Games
-                    </div>
-                  </div>
-                </td>
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  2021-09-28T05:14:59.237Z
-                </td>
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  -
-                </td>
-              </tr>
-              <tr
-                class="filelist-table-row"
-                tabindex="0"
+                    File Size
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="MuiTableBody-root file-list-table__body css-apqrd9-MuiTableBody-root"
               >
-                <td
-                  class="filelist-table-row__table-cell"
+                <tr
+                  class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+                  tabindex="0"
                 >
-                  <div
-                    class="filelist-table-row__file-cell"
-                    data-testid="Literature"
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                      data-testid="FolderIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      class="filelist-table-row__file-cell"
+                      data-testid=".rclone"
                     >
-                      <path
-                        d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
-                      />
-                    </svg>
-                    <div>
-                      Literature
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="FolderIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+                        />
+                      </svg>
+                      <div>
+                        .rclone
+                      </div>
                     </div>
-                  </div>
-                </td>
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  2021-09-29T07:10:05.059Z
-                </td>
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  -
-                </td>
-              </tr>
-              <tr
-                class="filelist-table-row"
-                tabindex="0"
-              >
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  <div
-                    class="filelist-table-row__file-cell"
-                    data-testid="Pictures"
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                      data-testid="FolderIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
-                      />
-                    </svg>
-                    <div>
-                      Pictures
-                    </div>
-                  </div>
-                </td>
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  2021-09-28T03:39:11.850Z
-                </td>
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  -
-                </td>
-              </tr>
-              <tr
-                class="filelist-table-row"
-                tabindex="0"
-              >
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  <div
-                    class="filelist-table-row__file-cell"
-                    data-testid="Software"
+                    2021-11-01T21:09:05.237Z
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                      data-testid="FolderIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
-                      />
-                    </svg>
-                    <div>
-                      Software
-                    </div>
-                  </div>
-                </td>
-                <td
-                  class="filelist-table-row__table-cell"
+                    -
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+                  tabindex="0"
                 >
-                  2021-09-28T03:45:02.471Z
-                </td>
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  -
-                </td>
-              </tr>
-              <tr
-                class="filelist-table-row"
-                tabindex="0"
-              >
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  <div
-                    class="filelist-table-row__file-cell"
-                    data-testid="Videos"
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                      data-testid="FolderIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      class="filelist-table-row__file-cell"
+                      data-testid="Documents"
                     >
-                      <path
-                        d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
-                      />
-                    </svg>
-                    <div>
-                      Videos
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="FolderIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+                        />
+                      </svg>
+                      <div>
+                        Documents
+                      </div>
                     </div>
-                  </div>
-                </td>
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  2021-09-28T04:22:24.997Z
-                </td>
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  -
-                </td>
-              </tr>
-              <tr
-                class="filelist-table-row"
-                tabindex="0"
-              >
-                <td
-                  class="filelist-table-row__table-cell"
-                >
-                  <div
-                    class="filelist-table-row__file-cell"
-                    data-testid="backup.sh"
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                      data-testid="DescriptionIcon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    2021-09-28T01:51:05.982Z
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    -
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+                  tabindex="0"
+                >
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    <div
+                      class="filelist-table-row__file-cell"
+                      data-testid="Games"
                     >
-                      <path
-                        d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"
-                      />
-                    </svg>
-                    <div>
-                      backup.sh
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="FolderIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+                        />
+                      </svg>
+                      <div>
+                        Games
+                      </div>
                     </div>
-                  </div>
-                </td>
-                <td
-                  class="filelist-table-row__table-cell"
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    2021-09-28T05:14:59.237Z
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    -
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+                  tabindex="0"
                 >
-                  2021-11-14T18:58:44.655Z
-                </td>
-                <td
-                  class="filelist-table-row__table-cell"
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    <div
+                      class="filelist-table-row__file-cell"
+                      data-testid="Literature"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="FolderIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+                        />
+                      </svg>
+                      <div>
+                        Literature
+                      </div>
+                    </div>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    2021-09-29T07:10:05.059Z
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    -
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+                  tabindex="0"
                 >
-                  1.11 kB
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    <div
+                      class="filelist-table-row__file-cell"
+                      data-testid="Pictures"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="FolderIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+                        />
+                      </svg>
+                      <div>
+                        Pictures
+                      </div>
+                    </div>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    2021-09-28T03:39:11.850Z
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    -
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+                  tabindex="0"
+                >
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    <div
+                      class="filelist-table-row__file-cell"
+                      data-testid="Software"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="FolderIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+                        />
+                      </svg>
+                      <div>
+                        Software
+                      </div>
+                    </div>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    2021-09-28T03:45:02.471Z
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    -
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+                  tabindex="0"
+                >
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    <div
+                      class="filelist-table-row__file-cell"
+                      data-testid="Videos"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="FolderIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+                        />
+                      </svg>
+                      <div>
+                        Videos
+                      </div>
+                    </div>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    2021-09-28T04:22:24.997Z
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    -
+                  </td>
+                </tr>
+                <tr
+                  class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+                  tabindex="0"
+                >
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    <div
+                      class="filelist-table-row__file-cell"
+                      data-testid="backup.sh"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="DescriptionIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"
+                        />
+                      </svg>
+                      <div>
+                        backup.sh
+                      </div>
+                    </div>
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    2021-11-14T18:58:44.655Z
+                  </td>
+                  <td
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                  >
+                    1.11 kB
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <div
             class="add-files-context-area__region"
             data-testid="add-files-context-area__region"

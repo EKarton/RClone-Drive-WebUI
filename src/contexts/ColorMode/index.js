@@ -3,16 +3,15 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { createContext, useEffect, useMemo, useState } from 'react';
 import { COLOR_MODE } from 'utils/constants';
 
-export const ColorModeContext = createContext({ toggleColorMode: () => {} });
+export const ColorModeContext = createContext();
 
 export function ColorModeProvider({ children }) {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  //   const [mode, setMode] = useState(COLOR_MODE.LIGHT);
-  const [mode, setMode] = useState(COLOR_MODE.DARK);
+  const [mode, setMode] = useState(COLOR_MODE.LIGHT);
 
-  //   useEffect(() => {
-  //     setMode(prefersDarkMode ? 'dark' : 'light');
-  //   }, [prefersDarkMode]);
+  useEffect(() => {
+    setMode(prefersDarkMode ? 'dark' : 'light');
+  }, [prefersDarkMode]);
 
   const theme = useMemo(() => {
     return createTheme({
@@ -29,7 +28,7 @@ export function ColorModeProvider({ children }) {
   };
 
   return (
-    <ColorModeContext.Provider value={{ mode, toggleColorMode, setMode }}>
+    <ColorModeContext.Provider value={{ mode, setMode, toggleColorMode }}>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </ColorModeContext.Provider>
   );

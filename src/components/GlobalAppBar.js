@@ -7,7 +7,7 @@ import cx from 'classnames';
 import { Link } from 'react-router-dom';
 import useColorMode from 'hooks/utils/useColorMode';
 import { COLOR_MODE } from 'utils/constants';
-import DarkModeToggleButton from './DarkModeToggleButton';
+import DarkModeToggleSwitch from './DarkModeToggleSwitch';
 import './GlobalAppBar.scss';
 
 export default function GlobalAppBar({ onDrawerButttonClicked }) {
@@ -35,7 +35,7 @@ export default function GlobalAppBar({ onDrawerButttonClicked }) {
           })}
         />
         <div>
-          <DarkModeToggleButton />
+          <DarkModeToggleSwitch />
           <Link to="/logout">
             <IconButton>
               <LogoutIcon />

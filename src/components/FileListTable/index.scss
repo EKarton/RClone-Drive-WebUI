@@ -1,5 +1,7 @@
 .file-list-table {
   margin-bottom: 0 !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(34, 36, 38, 0.15);
 
   &__header-cell {
     background: none !important;

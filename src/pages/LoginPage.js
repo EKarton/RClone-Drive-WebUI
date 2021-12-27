@@ -8,7 +8,7 @@ import TextField from '@mui/material/TextField';
 import cx from 'classnames';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
-import DarkModeToggleButton from 'components/DarkModeToggleButton';
+import DarkModeToggleSwitch from 'components/DarkModeToggleSwitch';
 import useRCloneInfo from 'hooks/rclone/useRCloneInfo';
 import RCloneClient from 'utils/RCloneClient';
 import './LoginPage.scss';
@@ -56,7 +56,7 @@ const LoginPage = () => {
       sx={{ bgcolor: 'background.default', color: 'text.primary' }}
     >
       <div className="login-page__header">
-        <DarkModeToggleButton />
+        <DarkModeToggleSwitch />
       </div>
       <Card variant="outlined" className="login-page__card">
         <CardHeader title="Login" subheader={cardSubHeader} />

@@ -1,8 +1,10 @@
 import Switch from '@mui/material/Switch';
 import { styled } from '@mui/material/styles';
-import useColorMode from 'hooks/utils/useColorMode';
-import { COLOR_MODE } from 'utils/constants';
 
+/**
+ * A styled switch for showing dark / light modes
+ * Derived from https://mui.com/components/switches/#customization
+ */
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
   height: 34,
@@ -50,18 +52,4 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-export default function DarkModeToggleButton() {
-  const colorMode = useColorMode();
-
-  const handleSwitch = (e) => {
-    if (e.target.checked) {
-      colorMode.setMode(COLOR_MODE.DARK);
-    } else {
-      colorMode.setMode(COLOR_MODE.LIGHT);
-    }
-  };
-
-  const isChecked = colorMode.mode === COLOR_MODE.DARK;
-
-  return <MaterialUISwitch checked={isChecked} onChange={handleSwitch} size="small" />;
-}
+export default MaterialUISwitch;

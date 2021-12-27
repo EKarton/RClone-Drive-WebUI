@@ -1,5 +1,11 @@
+import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 import PropTypes from 'prop-types';
-import { Table } from 'semantic-ui-react';
 import { ICON_SIZE } from 'utils/constants';
 import Row from './Row';
 import './index.scss';
@@ -36,22 +42,24 @@ export default function FileListTable({
   };
 
   return (
-    <Table striped data-testid="file-list-table" className="file-list-table">
-      <Table.Header>
-        <Table.Row>
-          <Table.HeaderCell className="file-list-table__header-cell">
-            Name
-          </Table.HeaderCell>
-          <Table.HeaderCell className="file-list-table__header-cell">
-            Date Modified
-          </Table.HeaderCell>
-          <Table.HeaderCell className="file-list-table__header-cell">
-            File Size
-          </Table.HeaderCell>
-        </Table.Row>
-      </Table.Header>
-      <Table.Body>{files.map((file) => renderRow(file))}</Table.Body>
-    </Table>
+    <TableContainer
+      component={Paper}
+      className="file-list-table"
+      data-testid="file-list-table"
+    >
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell className="file-list-table__header-cell">Name</TableCell>
+            <TableCell className="file-list-table__header-cell">Date Modified</TableCell>
+            <TableCell className="file-list-table__header-cell">File Size</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody className="file-list-table__body">
+          {files.map((file) => renderRow(file))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }
 

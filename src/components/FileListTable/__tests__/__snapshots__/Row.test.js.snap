@@ -4,11 +4,11 @@ exports[`Row should match snapshot given a file 1`] = `
 <body>
   <div>
     <tr
-      class="filelist-table-row"
+      class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
       tabindex="0"
     >
       <td
-        class="filelist-table-row__table-cell"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         <div
           class="filelist-table-row__file-cell"
@@ -31,10 +31,10 @@ exports[`Row should match snapshot given a file 1`] = `
         </div>
       </td>
       <td
-        class="filelist-table-row__table-cell"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
       />
       <td
-        class="filelist-table-row__table-cell"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         12.3 kB
       </td>
@@ -47,11 +47,11 @@ exports[`Row should match snapshot given a folder 1`] = `
 <body>
   <div>
     <tr
-      class="filelist-table-row"
+      class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
       tabindex="0"
     >
       <td
-        class="filelist-table-row__table-cell"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         <div
           class="filelist-table-row__file-cell"
@@ -74,10 +74,10 @@ exports[`Row should match snapshot given a folder 1`] = `
         </div>
       </td>
       <td
-        class="filelist-table-row__table-cell"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
       />
       <td
-        class="filelist-table-row__table-cell"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         -
       </td>
@@ -92,11 +92,11 @@ exports[`Row should match snapshot when user loses focus on the row 1`] = `
 >
   <div>
     <tr
-      class="filelist-table-row"
+      class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
       tabindex="0"
     >
       <td
-        class="filelist-table-row__table-cell"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         <div
           class="filelist-table-row__file-cell"
@@ -119,10 +119,10 @@ exports[`Row should match snapshot when user loses focus on the row 1`] = `
         </div>
       </td>
       <td
-        class="filelist-table-row__table-cell"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
       />
       <td
-        class="filelist-table-row__table-cell"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         -
       </td>
@@ -139,11 +139,11 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
     aria-hidden="true"
   >
     <tr
-      class="filelist-table-row filelist-table-row--highlight"
+      class="MuiTableRow-root filelist-table-row filelist-table-row--highlight css-1q1u3t4-MuiTableRow-root"
       tabindex="0"
     >
       <td
-        class="filelist-table-row__table-cell"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         <div
           class="filelist-table-row__file-cell"
@@ -166,10 +166,10 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
         </div>
       </td>
       <td
-        class="filelist-table-row__table-cell"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
       />
       <td
-        class="filelist-table-row__table-cell"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         -
       </td>
@@ -425,11 +425,11 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
 >
   <div>
     <tr
-      class="filelist-table-row"
+      class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
       tabindex="0"
     >
       <td
-        class="filelist-table-row__table-cell"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         <div
           class="filelist-table-row__file-cell"
@@ -452,10 +452,10 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
         </div>
       </td>
       <td
-        class="filelist-table-row__table-cell"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
       />
       <td
-        class="filelist-table-row__table-cell"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         -
       </td>

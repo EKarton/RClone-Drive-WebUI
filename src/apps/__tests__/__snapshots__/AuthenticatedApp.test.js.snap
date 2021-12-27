@@ -10,7 +10,7 @@ exports[`AuthenticatedApp should match snapshot given valid route 1`] = `
         class="app-shell__below-appbar"
       >
         <div
-          class="app-shell__contents"
+          class="app-shell__contents MuiBox-root css-1k9ek97"
         />
       </div>
     </div>

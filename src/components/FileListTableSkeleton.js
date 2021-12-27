@@ -1,32 +1,40 @@
+import Paper from '@mui/material/Paper';
 import Skeleton from '@mui/material/Skeleton';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 import PropTypes from 'prop-types';
-import { Table } from 'semantic-ui-react';
 import './FileListTableSkeleton.scss';
 
 export default function FileListTableSkeleton({ numRows }) {
   return (
-    <Table
-      striped
+    <TableContainer
+      component={Paper}
       data-testid="files-list-table-skeleton"
       className="file-list-table-skeleton"
     >
-      <Table.Header>
-        <Table.Row>
-          <Table.HeaderCell>Name</Table.HeaderCell>
-          <Table.HeaderCell>Date Modified</Table.HeaderCell>
-          <Table.HeaderCell>File Size</Table.HeaderCell>
-        </Table.Row>
-      </Table.Header>
-      <Table.Body>
-        {Array.from({ length: numRows }, (_, i) => (
-          <Table.Row key={i}>
-            <Table.Cell colSpan={3}>
-              <Skeleton animation="wave" />
-            </Table.Cell>
-          </Table.Row>
-        ))}
-      </Table.Body>
-    </Table>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Name</TableCell>
+            <TableCell>Date Modified</TableCell>
+            <TableCell>File Size</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {Array.from({ length: numRows }, (_, i) => (
+            <TableRow key={i} className="file-list-table-skeleton__row">
+              <TableCell colSpan={3}>
+                <Skeleton animation="wave" />
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }
 
