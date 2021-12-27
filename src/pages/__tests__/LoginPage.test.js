@@ -1,6 +1,6 @@
 import LoginPage from 'pages/LoginPage';
 import RCloneClient from 'utils/RCloneClient';
-import { customRender, userEvent, fireEvent, waitFor } from 'test-utils/react';
+import { customRender, userEvent, waitFor } from 'test-utils/react';
 
 jest.mock('utils/RCloneClient');
 
