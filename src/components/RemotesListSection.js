@@ -1,4 +1,5 @@
 import Typography from '@mui/material/Typography';
+import { useErrorHandler } from 'react-error-boundary';
 import RemoteCardList from 'components/RemoteCardList';
 import useFetchRemotes from 'hooks/fetch-data/useFetchRemotes';
 import { StatusTypes } from 'utils/constants';
@@ -8,14 +9,16 @@ import './RemotesListSection.scss';
  * Represents the list of remotes with header
  */
 export default function RemotesListSection({ onRemoteCardClicked }) {
-  const { status, data: remotes } = useFetchRemotes();
+  const handleError = useErrorHandler();
+  const { status, data: remotes, error } = useFetchRemotes();
 
   if (status === StatusTypes.LOADING) {
     return null;
   }
 
   if (status === StatusTypes.ERROR) {
-    return 'Error!';
+    handleError(error);
+    return null;
   }
 
   const handleRemoteCardClicked = (remote) => {

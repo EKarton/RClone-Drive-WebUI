@@ -6,6 +6,7 @@ import MainApp from 'apps/MainApp';
 import { ColorModeProvider } from 'contexts/ColorMode/index';
 import { RCloneInfoProvider } from 'contexts/RCloneInfo';
 import { RecentPicturesProvider } from 'contexts/RecentPicturesList';
+import AppBoundary from 'pages/AppBoundary';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
@@ -15,7 +16,9 @@ ReactDOM.render(
       <RecentPicturesProvider>
         <BrowserRouter>
           <ColorModeProvider>
-            <MainApp />
+            <AppBoundary>
+              <MainApp />
+            </AppBoundary>
           </ColorModeProvider>
         </BrowserRouter>
       </RecentPicturesProvider>
