@@ -1,25 +1,25 @@
-import useFetchFiles from 'hooks/rclone/fetch-data/useFetchFiles';
-import useFileCopier from 'hooks/useFileCopier';
-import useFileDownloader from 'hooks/useFileDownloader';
-import useFileRemover from 'hooks/useFileRemover';
-import useFileViewer from 'hooks/useFileViewer';
-import useMoveFileDialog from 'hooks/useMoveFileDialog';
-import useRenameFileDialog from 'hooks/useRenameFileDialog';
 import { Route, Switch } from 'react-router-dom';
-import { mockFiles } from 'test-utils/mock-responses';
-import { customRender, fireEvent, userEvent } from 'test-utils/react';
+import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
+import useFileCopier from 'hooks/utils/useFileCopier';
+import useFileDownloader from 'hooks/utils/useFileDownloader';
+import useFileRemover from 'hooks/utils/useFileRemover';
+import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
+import useMoveFileDialog from 'hooks/utils/useMoveFileDialog';
+import useRenameFileDialog from 'hooks/utils/useRenameFileDialog';
 import { StatusTypes } from 'utils/constants';
 import { hashRemotePath } from 'utils/remote-paths-url';
+import { mockFiles } from 'test-utils/mock-responses';
+import { customRender, fireEvent, userEvent } from 'test-utils/react';
 import Table from '../Table';
 
-jest.mock('hooks/rclone/fetch-data/useFetchFiles');
+jest.mock('hooks/fetch-data/useFetchFiles');
 jest.mock('hooks/rclone/useRCloneClient');
-jest.mock('hooks/useFileViewer');
-jest.mock('hooks/useMoveFileDialog');
-jest.mock('hooks/useFileDownloader');
-jest.mock('hooks/useFileRemover');
-jest.mock('hooks/useFileCopier');
-jest.mock('hooks/useRenameFileDialog');
+jest.mock('hooks/utils/useFileViewerDialog');
+jest.mock('hooks/utils/useMoveFileDialog');
+jest.mock('hooks/utils/useFileDownloader');
+jest.mock('hooks/utils/useFileRemover');
+jest.mock('hooks/utils/useFileCopier');
+jest.mock('hooks/utils/useRenameFileDialog');
 
 describe('Table', () => {
   const remote = 'gdrive';
@@ -40,7 +40,7 @@ describe('Table', () => {
     deleteFile.mockResolvedValue();
     copyFile.mockResolvedValue();
 
-    useFileViewer.mockReturnValue({ show });
+    useFileViewerDialog.mockReturnValue({ show });
     useMoveFileDialog.mockReturnValue({ moveFile });
     useRenameFileDialog.mockReturnValue({ renameFile });
     useFileDownloader.mockReturnValue(downloadFile);

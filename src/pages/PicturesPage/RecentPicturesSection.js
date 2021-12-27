@@ -1,18 +1,23 @@
-import { Card, CardActionArea } from '@mui/material';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import Image from 'components/Image';
-import useFileViewer from 'hooks/useFileViewer';
-import useRecentlyViewedImages from 'hooks/useRecentlyViewedImages';
-import './RecentPicturesSection.scss';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
-import getExistingPictures from './getExistingPictures';
+import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
+import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
+import getExistingPictures from '../../utils/getExistingPictures';
+import './RecentPicturesSection.scss';
 
+/**
+ * Represents the list of recently viewed images
+ * in the Pictures page
+ */
 export default function RecentPicturesSection() {
   const { recentPictures, addImage } = useRecentlyViewedImages();
   const rCloneClient = useRCloneClient();
-  const fileViewer = useFileViewer();
+  const fileViewer = useFileViewerDialog();
 
   const [existingPictures, setExistingPictures] = useState([]);
 

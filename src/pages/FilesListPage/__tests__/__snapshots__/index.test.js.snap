@@ -6,72 +6,69 @@ exports[`FilesListPage should match snapshot 1`] = `
     <div
       class="filelist-page__container"
     >
-      <div>
-        <nav
-          aria-label="breadcrumb"
-          class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root"
+      <nav
+        aria-label="breadcrumb"
+        class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root"
+      >
+        <ol
+          class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
         >
-          <ol
-            class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+          <li
+            class="MuiBreadcrumbs-li"
           >
-            <li
-              class="MuiBreadcrumbs-li"
+            <a
+              href="/files"
             >
-              <a
-                href="/files"
-              >
-                My Files
-              </a>
-            </li>
-            <li
-              aria-hidden="true"
-              class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+              My Files
+            </a>
+          </li>
+          <li
+            aria-hidden="true"
+            class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+          >
+            /
+          </li>
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <a
+              href="/files/Z2RyaXZlOg=="
             >
-              /
-            </li>
-            <li
-              class="MuiBreadcrumbs-li"
+              gdrive
+            </a>
+          </li>
+          <li
+            aria-hidden="true"
+            class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+          >
+            /
+          </li>
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <a
+              href="/files/Z2RyaXZlOlBpY3R1cmVz"
             >
-              <a
-                href="/files/Z2RyaXZlOg=="
-              >
-                gdrive
-              </a>
-            </li>
-            <li
-              aria-hidden="true"
-              class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+              Pictures
+            </a>
+          </li>
+          <li
+            aria-hidden="true"
+            class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+          >
+            /
+          </li>
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1 css-1gqyz35-MuiTypography-root"
             >
-              /
-            </li>
-            <li
-              class="MuiBreadcrumbs-li"
-            >
-              <a
-                href="/files/Z2RyaXZlOlBpY3R1cmVz"
-              >
-                Pictures
-              </a>
-            </li>
-            <li
-              aria-hidden="true"
-              class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
-            >
-              /
-            </li>
-            <li
-              class="MuiBreadcrumbs-li"
-            >
-              <p
-                class="MuiTypography-root MuiTypography-body1 css-1gqyz35-MuiTypography-root"
-              >
-                2021
-              </p>
-            </li>
-          </ol>
-        </nav>
-        <div />
-      </div>
+              2021
+            </p>
+          </li>
+        </ol>
+      </nav>
       <div
         class="add-files-drop-section"
         data-testid="add-files-drop-section"

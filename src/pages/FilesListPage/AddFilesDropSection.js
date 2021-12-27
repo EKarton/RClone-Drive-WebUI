@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
-import './AddFilesDropSection.scss';
 import { getFullPath } from 'utils/filename-utils';
+import './AddFilesDropSection.scss';
 
 /**
  * This component is responsible for adding files to a remote via drag-and-drop

@@ -1,6 +1,6 @@
+import RemoteCardList from 'components/RemoteCardList';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { customRender, waitFor } from 'test-utils/react';
-import RemoteCardList from 'components/RemoteCardList';
 import RemotesListSection from '../RemotesListSection';
 
 jest.mock('components/RemoteCardList');

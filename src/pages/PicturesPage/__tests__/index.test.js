@@ -1,9 +1,10 @@
+import { FileViewerDialogProvider } from 'contexts/FileViewerDialog';
 import PicturesPage from 'pages/PicturesPage';
-import { act, customRender, waitFor } from 'test-utils/react';
 import { hashRemotePath } from 'utils/remote-paths-url';
+import { act, customRender, waitFor } from 'test-utils/react';
 import FolderBrowserDialog from '../FolderBrowserDialog';
-import RemotesListSection from '../RemotesListSection';
 import RecentPicturesSection from '../RecentPicturesSection';
+import RemotesListSection from '../RemotesListSection';
 
 jest.mock('../FolderBrowserDialog');
 jest.mock('../RecentPicturesSection');
@@ -25,7 +26,7 @@ describe('PicturesPage', () => {
       return null;
     });
 
-    customRender(<PicturesPage />);
+    renderComponent();
 
     act(() => jest.runAllTimers());
 
@@ -42,7 +43,7 @@ describe('PicturesPage', () => {
       return null;
     });
 
-    const component = customRender(<PicturesPage />);
+    const component = renderComponent();
 
     act(() => jest.runAllTimers());
 
@@ -60,7 +61,7 @@ describe('PicturesPage', () => {
       return null;
     });
 
-    customRender(<PicturesPage />);
+    renderComponent();
 
     act(() => jest.runAllTimers());
 
@@ -77,7 +78,7 @@ describe('PicturesPage', () => {
       return null;
     });
 
-    customRender(<PicturesPage />);
+    renderComponent();
 
     act(() => jest.runAllTimers());
 
@@ -85,4 +86,24 @@ describe('PicturesPage', () => {
       expect(FolderBrowserDialog.mock.calls[0][0].open).toBeFalsy();
     });
   });
+
+  const renderComponent = () => {
+    const initialRCloneInfoState = {
+      endpoint: 'http://localhost:5572',
+      username: 'local',
+      password: '1234',
+    };
+
+    const componentToRender = (
+      <FileViewerDialogProvider>
+        <PicturesPage />
+      </FileViewerDialogProvider>
+    );
+
+    const component = customRender(componentToRender, {
+      initialRCloneInfoState,
+    });
+
+    return component;
+  };
 });

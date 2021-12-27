@@ -1,9 +1,9 @@
 import Image from 'components/Image';
-import useFileViewer from 'hooks/useFileViewer';
-import useRecentlyViewedImages from 'hooks/useRecentlyViewedImages';
+import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
+import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
+import getExistingPictures from 'utils/getExistingPictures';
 import { customRender, userEvent, waitFor } from 'test-utils/react';
 import RecentPicturesSection from '../RecentPicturesSection';
-import getExistingPictures from '../getExistingPictures';
 
 const recentPicturesList = [
   {
@@ -44,10 +44,10 @@ const recentPicturesList = [
 ];
 
 jest.mock('components/Image');
-jest.mock('hooks/useFileViewer');
-jest.mock('hooks/useRecentlyViewedImages');
+jest.mock('hooks/utils/useFileViewerDialog');
+jest.mock('hooks/utils/useRecentlyViewedImages');
 jest.mock('hooks/rclone/useRCloneClient');
-jest.mock('../getExistingPictures');
+jest.mock('utils/getExistingPictures');
 
 describe('RecentPicturesSection', () => {
   // Derived from https://github.com/bvaughn/react-virtualized/issues/493#issuecomment-447014986
@@ -83,7 +83,7 @@ describe('RecentPicturesSection', () => {
 
     getExistingPictures.mockResolvedValue(recentPicturesList);
 
-    useFileViewer.mockReturnValue({
+    useFileViewerDialog.mockReturnValue({
       show: fileViewerShowFn,
     });
   });

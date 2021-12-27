@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LazyImageList should match snapshot given width is 800 1`] = `
+<body>
+  <div>
+    <div
+      style="overflow: visible; height: 0px; width: 0px;"
+    >
+      <div
+        style="position: relative; height: 800px; width: 800px; overflow: auto; will-change: transform; direction: ltr;"
+      >
+        <div
+          style="height: 798px; width: 100%;"
+        >
+          <div
+            class="imagelist__row"
+            style="position: absolute; left: 0px; top: 0px; height: 266px; width: 100%;"
+          >
+            <div
+              data-testid="20120820_144833.JPG"
+            />
+            <div
+              data-testid="20120517_174510.JPG"
+            />
+            <div
+              data-testid="20120517_171428.JPG"
+            />
+          </div>
+          <div
+            class="imagelist__row"
+            style="position: absolute; left: 0px; top: 266px; height: 266px; width: 100%;"
+          >
+            <div
+              data-testid="20120517_135206.JPG"
+            />
+            <div
+              data-testid="20120517_094409.JPG"
+            />
+            <div
+              data-testid="20120516_204557.JPG"
+            />
+          </div>
+          <div
+            class="imagelist__row"
+            style="position: absolute; left: 0px; top: 532px; height: 266px; width: 100%;"
+          >
+            <div
+              data-testid="20120516_181954.JPG"
+            />
+            <div
+              data-testid="20120516_181809.JPG"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="resize-triggers"
+    >
+      <div
+        class="expand-trigger"
+      >
+        <div
+          style="width: 801px; height: 801px;"
+        />
+      </div>
+      <div
+        class="contract-trigger"
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`LazyImageList should match snapshot given width is 2000 1`] = `
+<body>
+  <div>
+    <div
+      style="overflow: visible; height: 0px; width: 0px;"
+    >
+      <div
+        style="position: relative; height: 800px; width: 2000px; overflow: auto; will-change: transform; direction: ltr;"
+      >
+        <div
+          style="height: 800px; width: 100%;"
+        >
+          <div
+            class="imagelist__row"
+            style="position: absolute; left: 0px; top: 0px; height: 400px; width: 100%;"
+          >
+            <div
+              data-testid="20120820_144833.JPG"
+            />
+            <div
+              data-testid="20120517_174510.JPG"
+            />
+            <div
+              data-testid="20120517_171428.JPG"
+            />
+            <div
+              data-testid="20120517_135206.JPG"
+            />
+            <div
+              data-testid="20120517_094409.JPG"
+            />
+          </div>
+          <div
+            class="imagelist__row"
+            style="position: absolute; left: 0px; top: 400px; height: 400px; width: 100%;"
+          >
+            <div
+              data-testid="20120516_204557.JPG"
+            />
+            <div
+              data-testid="20120516_181954.JPG"
+            />
+            <div
+              data-testid="20120516_181809.JPG"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="resize-triggers"
+    >
+      <div
+        class="expand-trigger"
+      >
+        <div
+          style="width: 2001px; height: 801px;"
+        />
+      </div>
+      <div
+        class="contract-trigger"
+      />
+    </div>
+  </div>
+</body>
+`;

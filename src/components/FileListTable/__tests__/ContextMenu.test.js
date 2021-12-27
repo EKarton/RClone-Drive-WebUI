@@ -1,5 +1,5 @@
-const { customRender } = require('test-utils/react');
-const { default: ContextMenu } = require('../ContextMenu');
+import { customRender } from 'test-utils/react';
+import ContextMenu from '../ContextMenu';
 
 describe('ContextMenu', () => {
   it('should match snapshot given it is open', () => {

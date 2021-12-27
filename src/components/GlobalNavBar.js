@@ -1,14 +1,14 @@
+import FolderIcon from '@mui/icons-material/Folder';
+import PermMediaIcon from '@mui/icons-material/PermMedia';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import FolderIcon from '@mui/icons-material/Folder';
-import PermMediaIcon from '@mui/icons-material/PermMedia';
-import './GlobalNavBar.scss';
 import cx from 'classnames';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
+import './GlobalNavBar.scss';
 
 const NavigationOptions = Object.freeze([
   {

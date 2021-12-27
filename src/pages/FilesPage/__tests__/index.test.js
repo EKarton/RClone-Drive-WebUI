@@ -1,6 +1,6 @@
 import { customRender } from 'test-utils/react';
 import RemotesListSection from '../RemotesListSection';
-import FilesPage from '..';
+import FilesPage from '../index';
 
 jest.mock('../RemotesListSection');
 

@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LazyImageListSkeleton should match snapshot given width is 800 1`] = `
+<body>
+  <div>
+    <div
+      style="overflow: visible; height: 0px; width: 0px;"
+    >
+      <div
+        style="position: relative; height: 800px; width: 800px; overflow: auto; will-change: transform; direction: ltr;"
+      >
+        <div
+          style="height: 1064px; width: 100%;"
+        >
+          <div
+            class="imagelist-skeleton__row"
+            style="position: absolute; left: 0px; top: 0px; height: 266px; width: 100%;"
+          >
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+          </div>
+          <div
+            class="imagelist-skeleton__row"
+            style="position: absolute; left: 0px; top: 266px; height: 266px; width: 100%;"
+          >
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+          </div>
+          <div
+            class="imagelist-skeleton__row"
+            style="position: absolute; left: 0px; top: 532px; height: 266px; width: 100%;"
+          >
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+          </div>
+          <div
+            class="imagelist-skeleton__row"
+            style="position: absolute; left: 0px; top: 798px; height: 266px; width: 100%;"
+          >
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="resize-triggers"
+    >
+      <div
+        class="expand-trigger"
+      >
+        <div
+          style="width: 801px; height: 801px;"
+        />
+      </div>
+      <div
+        class="contract-trigger"
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`LazyImageListSkeleton should match snapshot given width is 2000 1`] = `
+<body>
+  <div>
+    <div
+      style="overflow: visible; height: 0px; width: 0px;"
+    >
+      <div
+        style="position: relative; height: 800px; width: 2000px; overflow: auto; will-change: transform; direction: ltr;"
+      >
+        <div
+          style="height: 800px; width: 100%;"
+        >
+          <div
+            class="imagelist-skeleton__row"
+            style="position: absolute; left: 0px; top: 0px; height: 400px; width: 100%;"
+          >
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+          </div>
+          <div
+            class="imagelist-skeleton__row"
+            style="position: absolute; left: 0px; top: 400px; height: 400px; width: 100%;"
+          >
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="resize-triggers"
+    >
+      <div
+        class="expand-trigger"
+      >
+        <div
+          style="width: 2001px; height: 801px;"
+        />
+      </div>
+      <div
+        class="contract-trigger"
+      />
+    </div>
+  </div>
+</body>
+`;

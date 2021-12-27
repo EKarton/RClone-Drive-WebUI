@@ -1,5 +1,5 @@
-import { customRender, userEvent } from 'test-utils/react';
 import GlobalAppBar from 'components/GlobalAppBar';
+import { customRender, userEvent } from 'test-utils/react';
 
 describe('GlobalAppBar', () => {
   it('should match snapshot', () => {

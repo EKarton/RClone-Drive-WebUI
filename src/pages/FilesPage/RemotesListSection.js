@@ -1,8 +1,8 @@
 import { useHistory } from 'react-router';
-import { hashRemotePath } from 'utils/remote-paths-url';
 import RemoteCardList from 'components/RemoteCardList';
+import useFetchRemotes from 'hooks/fetch-data/useFetchRemotes';
 import { StatusTypes } from 'utils/constants';
-import useFetchRemotes from 'hooks/rclone/fetch-data/useFetchRemotes';
+import { hashRemotePath } from 'utils/remote-paths-url';
 
 export default function RemotesListSection() {
   const history = useHistory();

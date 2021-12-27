@@ -6,4 +6,16 @@ module.exports = {
   trailingComma: 'es5',
   singleQuote: true,
   printWidth: 90,
+  importOrder: [
+    '<THIRD_PARTY_MODULES>',
+    '^apps/(.*)$',
+    '^assets/(.*)$',
+    '^components/(.*)$',
+    '^contexts/(.*)$',
+    '^hooks/(.*)$',
+    '^pages/(.*)$',
+    '^utils/(.*)$',
+    '^test-utils/(.*)$',
+    '^[./]',
+  ],
 };

@@ -1,9 +1,9 @@
 import Image from 'components/Image';
-import useFetchImage from 'hooks/rclone/fetch-data/useFetchImage';
-import { customRender, waitFor } from 'test-utils/react';
+import useFetchImage from 'hooks/fetch-data/useFetchImage';
 import { StatusTypes } from 'utils/constants';
+import { customRender, waitFor } from 'test-utils/react';
 
-jest.mock('hooks/rclone/fetch-data/useFetchImage');
+jest.mock('hooks/fetch-data/useFetchImage');
 
 describe('Image', () => {
   const imageProps = {

@@ -1,22 +1,22 @@
-import FileListTable from 'components/FileListTable';
 import { useHistory } from 'react-router';
-import './index.scss';
-import { hashRemotePath } from 'utils/remote-paths-url';
-import useFileViewer from 'hooks/useFileViewer';
-import { ImageMimeTypes, StatusTypes } from 'utils/constants';
+import FileListTable from 'components/FileListTable';
 import FileListTableSkeleton from 'components/FileListTableSkeleton';
-import AddFilesDropSection from './AddFilesDropSection';
+import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
+import useFileCopier from 'hooks/utils/useFileCopier';
+import useFileDownloader from 'hooks/utils/useFileDownloader';
+import useFileRemover from 'hooks/utils/useFileRemover';
+import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
+import useMoveFileDialog from 'hooks/utils/useMoveFileDialog';
+import useRenameFileDialog from 'hooks/utils/useRenameFileDialog';
+import { ImageMimeTypes, StatusTypes } from 'utils/constants';
+import { hashRemotePath } from 'utils/remote-paths-url';
 import AddFilesContextArea from './AddFilesContextArea';
-import useFetchFiles from 'hooks/rclone/fetch-data/useFetchFiles';
-import useMoveFileDialog from 'hooks/useMoveFileDialog';
-import useFileDownloader from 'hooks/useFileDownloader';
-import useFileRemover from 'hooks/useFileRemover';
-import useFileCopier from 'hooks/useFileCopier';
-import useRenameFileDialog from 'hooks/useRenameFileDialog';
+import AddFilesDropSection from './AddFilesDropSection';
+import './index.scss';
 
 export default function Table({ remote, path }) {
   const history = useHistory();
-  const fileViewer = useFileViewer();
+  const fileViewer = useFileViewerDialog();
   const moveFileDialog = useMoveFileDialog();
   const renameFileDialog = useRenameFileDialog();
   const downloadFile = useFileDownloader();

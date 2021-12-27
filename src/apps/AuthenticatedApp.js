@@ -1,13 +1,12 @@
-import GlobalAppBar from 'components/GlobalAppBar';
-import GlobalNavBar from 'components/GlobalNavBar';
-import FilesPage from 'pages/FilesPage';
-import FilesListPage from 'pages/FilesListPage';
 import { useState } from 'react';
 import { Route, Switch } from 'react-router';
-import './AuthenticatedApp.scss';
-import FileViewerDialog from 'pages/FileViewerDialog';
-import PicturesPage from 'pages/PicturesPage';
+import GlobalAppBar from 'components/GlobalAppBar';
+import GlobalNavBar from 'components/GlobalNavBar';
+import FilesListPage from 'pages/FilesListPage';
+import FilesPage from 'pages/FilesPage';
 import PicturesListPage from 'pages/PicturesListPage';
+import PicturesPage from 'pages/PicturesPage';
+import './AuthenticatedApp.scss';
 
 export default function AuthenticatedApp() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -38,7 +37,6 @@ export default function AuthenticatedApp() {
           </Switch>
         </div>
       </div>
-      <FileViewerDialog />
     </div>
   );
 }

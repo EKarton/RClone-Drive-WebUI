@@ -1,9 +1,9 @@
-import { act, customRender, userEvent } from 'test-utils/react';
+import FolderTree from 'components/FolderTree';
 import { mockRemotes } from 'test-utils/mock-responses';
+import { act, customRender, userEvent } from 'test-utils/react';
 import FolderBrowserDialog from '../FolderBrowserDialog';
-import FolderTree from '../FolderTree';
 
-jest.mock('../FolderTree');
+jest.mock('components/FolderTree');
 
 describe('FolderBrowserDialog', () => {
   it('should render FolderTree and call handleOk() once correctly if user selects an item from the FolderTree', async () => {

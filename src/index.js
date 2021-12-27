@@ -1,25 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import MainApp from './apps/MainApp';
-import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { RCloneInfoStateProvider } from 'contexts/RCloneInfoStore';
-import { FileViewerProvider } from 'contexts/FileViewerStore';
-import { RecentPicturesProvider } from 'contexts/RecentPictures';
 import 'semantic-ui-css/semantic.min.css';
+import { RCloneInfoProvider } from 'contexts/RCloneInfo';
+import { RecentPicturesProvider } from 'contexts/RecentPicturesList';
+import MainApp from './apps/MainApp';
+import './index.css';
+import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <RCloneInfoStateProvider>
-      <FileViewerProvider>
-        <RecentPicturesProvider>
-          <BrowserRouter>
-            <MainApp />
-          </BrowserRouter>
-        </RecentPicturesProvider>
-      </FileViewerProvider>
-    </RCloneInfoStateProvider>
+    <RCloneInfoProvider>
+      <RecentPicturesProvider>
+        <BrowserRouter>
+          <MainApp />
+        </BrowserRouter>
+      </RecentPicturesProvider>
+    </RCloneInfoProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

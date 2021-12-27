@@ -1,6 +1,6 @@
-import { Table } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
 import Skeleton from '@mui/material/Skeleton';
+import PropTypes from 'prop-types';
+import { Table } from 'semantic-ui-react';
 import './FileListTableSkeleton.scss';
 
 export default function FileListTableSkeleton({ numRows }) {

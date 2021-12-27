@@ -1,4 +1,5 @@
-import { Breadcrumbs, Typography } from '@mui/material';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Typography from '@mui/material/Typography';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { hashRemotePath } from 'utils/remote-paths-url';

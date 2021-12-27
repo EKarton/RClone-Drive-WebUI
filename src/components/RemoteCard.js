@@ -1,9 +1,13 @@
-import { Card, CardContent, Skeleton, Typography, CardActionArea } from '@mui/material';
-import { StatusTypes } from 'utils/constants';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardContent from '@mui/material/CardContent';
+import Skeleton from '@mui/material/Skeleton';
+import Typography from '@mui/material/Typography';
 import prettyBytes from 'pretty-bytes';
+import useFetchRemoteInfo from 'hooks/fetch-data/useFetchRemoteInfo';
+import useFetchRemoteSpaceInfo from 'hooks/fetch-data/useFetchRemoteSpaceInfo';
+import { StatusTypes } from 'utils/constants';
 import './RemoteCard.scss';
-import useFetchRemoteSpaceInfo from 'hooks/rclone/fetch-data/useFetchRemoteSpaceInfo';
-import useFetchRemoteInfo from 'hooks/rclone/fetch-data/useFetchRemoteInfo';
 
 export default function RemoteCard({ remote, onClick, ...props }) {
   const sizeResult = useFetchRemoteSpaceInfo(remote);

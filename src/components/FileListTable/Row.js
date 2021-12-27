@@ -1,12 +1,12 @@
+import cx from 'classnames';
+import prettyBytes from 'pretty-bytes';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { Table } from 'semantic-ui-react';
 import { ICON_SIZE } from 'utils/constants';
-import './Row.scss';
-import prettyBytes from 'pretty-bytes';
-import { useState } from 'react';
-import cx from 'classnames';
 import ContextMenu from './ContextMenu';
 import FileIcon from './FileIcon';
+import './Row.scss';
 
 export default function Row({
   file,

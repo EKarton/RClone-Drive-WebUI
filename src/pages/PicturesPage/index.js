@@ -1,11 +1,15 @@
-import FolderBrowserDialog from './FolderBrowserDialog';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
+import { FileViewerDialogProvider } from 'contexts/FileViewerDialog/index';
 import { hashRemotePath } from 'utils/remote-paths-url';
+import FolderBrowserDialog from './FolderBrowserDialog';
 import RecentPicturesSection from './RecentPicturesSection';
 import RemotesListSection from './RemotesListSection';
 import './index.scss';
 
+/**
+ * Represents the Pictures page with the list of remotes
+ */
 export default function PicturesPage() {
   const history = useHistory();
 
@@ -33,16 +37,18 @@ export default function PicturesPage() {
   };
 
   return (
-    <div className="pictures-page">
-      <FolderBrowserDialog
-        title={renderFolderDialogTitle()}
-        remotes={[selectedRemote]}
-        open={isDialogOpen}
-        onCancel={handleFolderDialogCancelled}
-        onOk={handleFolderDialogSelected}
-      />
-      <RecentPicturesSection />
-      <RemotesListSection onRemoteCardClicked={handleRemoteCardClicked} />
-    </div>
+    <FileViewerDialogProvider>
+      <div className="pictures-page">
+        <FolderBrowserDialog
+          title={renderFolderDialogTitle()}
+          remotes={[selectedRemote]}
+          open={isDialogOpen}
+          onCancel={handleFolderDialogCancelled}
+          onOk={handleFolderDialogSelected}
+        />
+        <RecentPicturesSection />
+        <RemotesListSection onRemoteCardClicked={handleRemoteCardClicked} />
+      </div>
+    </FileViewerDialogProvider>
   );
 }

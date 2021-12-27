@@ -1,7 +1,14 @@
-import FolderTree from './FolderTree';
-import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
+import FolderTree from 'components/FolderTree';
 
+/**
+ * Represents the dialog that appears when a user clicks on a remote
+ */
 export default function FolderBrowserDialog({ remotes, open, onCancel, onOk, title }) {
   const [remotePath, setRemotePath] = useState('');
 
