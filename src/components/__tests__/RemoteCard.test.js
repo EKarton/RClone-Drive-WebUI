@@ -6,7 +6,7 @@ import { mockOperationsAboutResponse } from 'test-utils/mock-responses';
 import { mockConfigGetResponse } from 'test-utils/mock-responses';
 import { customRender, waitFor } from 'test-utils/react';
 
-jest.mock('hooks/fetch-data/useFetchRemotespaceInfo');
+jest.mock('hooks/fetch-data/useFetchRemoteSpaceInfo');
 jest.mock('hooks/fetch-data/useFetchRemoteInfo');
 
 describe('RemoteCard', () => {
