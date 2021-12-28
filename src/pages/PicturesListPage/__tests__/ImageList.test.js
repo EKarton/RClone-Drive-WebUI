@@ -52,11 +52,7 @@ describe('ImageList', () => {
       error: new Error('Error!'),
     });
 
-    const component = renderComponent();
-
-    await waitFor(() => {
-      expect(component.getByText('Error!')).toBeInTheDocument();
-    });
+    expect(renderComponent).toThrowError();
   });
 
   it('should call fileViewer.show() when someone clicks on an image', async () => {

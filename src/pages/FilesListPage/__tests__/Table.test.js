@@ -70,15 +70,13 @@ describe('Table', () => {
     expect(component.getByTestId('file-list-table')).toBeInTheDocument();
   });
 
-  it('should render an error message when the api call fails', () => {
+  it('should throw an error when the api call fails', () => {
     useFetchFiles.mockReturnValue({
       status: StatusTypes.ERROR,
       error: new Error('401 Unauthorized!'),
     });
 
-    const component = renderComponent();
-
-    expect(component.getByTestId('error-message')).toBeInTheDocument();
+    expect(renderComponent).toThrowError();
   });
 
   it('should call fileViewer.show() when user right-clicks on a file and selects Open', () => {

@@ -8,14 +8,14 @@ import { StatusTypes } from 'utils/constants';
 export default function ImageList({ remote, path }) {
   const fileViewer = useFileViewerDialog();
   const recentlyViewedImages = useRecentlyViewedImages();
-  const { status, data } = useFetchPictures(remote, path);
+  const { status, data, error } = useFetchPictures(remote, path);
 
   if (status === StatusTypes.LOADING) {
     return <LazyImageListSkeleton />;
   }
 
   if (status === StatusTypes.ERROR) {
-    return <div>Error!</div>;
+    throw error;
   }
 
   const handleImageClicked = (image) => {

@@ -6,13 +6,13 @@
 
 The RClone Drive Web UI helps RClone users see and move their files between different cloud providers with an easy-to-use interface via a web browser. More particularly, it has the ability to:
 
-- [x] Navigate through the directories and files
+- [x] Navigate and see files in directories and remotes
 - [x] See images and files in detail
-- [x] View all pictures recursively under a directory and a remote
+- [x] View all pictures recursively with lazy-loading
 - [ ] Search for files and images across remotes
-- [x] Copy and move files to / from remotes
+- [x] Copy and move files between and within remotes
 - [x] Delete files
-- [x] Dark mode
+- [x] Change theme to dark mode
 
 The RClone Drive Web UI is a front-end project that interfaces with RClone's [Remote Control](https://rclone.org/rc/) http client. It is built using [React v17](https://reactjs.org/blog/2020/10/20/react-v17.html), [React Context](https://reactjs.org/docs/context.html) and [MUI Material](https://mui.com/).
 

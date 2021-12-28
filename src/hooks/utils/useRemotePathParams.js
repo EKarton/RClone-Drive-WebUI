@@ -15,8 +15,24 @@ import { unhashRemotePath } from 'utils/remote-paths-url';
  */
 export default function useRemotePathParams() {
   const { id } = useParams();
-  const remotePath = unhashRemotePath(id);
-  const [remote, path] = remotePath.split(':');
 
-  return { remote, path };
+  try {
+    const remotePath = unhashRemotePath(id);
+    const [remote, path] = remotePath.split(':');
+
+    if (remote === undefined || path === undefined) {
+      throw new Error('Cannot find remote or path');
+    }
+
+    return { remote, path };
+  } catch (err) {
+    throw new InvalidRemotePathError(id);
+  }
+}
+
+export class InvalidRemotePathError extends Error {
+  constructor(path) {
+    super(`Invalid path ${path}`);
+    this.path = path;
+  }
 }

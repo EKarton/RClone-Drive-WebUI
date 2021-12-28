@@ -23,10 +23,10 @@ export default function Table({ remote, path }) {
   const deleteFile = useFileRemover();
   const copyFile = useFileCopier();
 
-  const { status, data, refetchData } = useFetchFiles(remote, path);
+  const { status, data, error, refetchData } = useFetchFiles(remote, path);
 
   if (status === StatusTypes.ERROR) {
-    return <div data-testid="error-message">Error!</div>;
+    throw error;
   }
 
   if (status === StatusTypes.LOADING) {

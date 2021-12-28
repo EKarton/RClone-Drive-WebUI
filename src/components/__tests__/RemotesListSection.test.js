@@ -21,20 +21,18 @@ describe('RemotesListSection', () => {
   });
 
   it('should match snapshot when api call was successful', async () => {
-    const component = renderComponent();
+    const { baseElement } = renderComponent();
 
-    expect(component.baseElement).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
-  it('should match snapshot when api call failed', async () => {
+  it('should render app boundary when api call fails', async () => {
     useFetchRemotes.mockReturnValue({
       status: StatusTypes.ERROR,
       error: new Error('Error!'),
     });
 
-    const component = renderComponent();
-
-    expect(component.baseElement).toMatchSnapshot();
+    expect(renderComponent).toThrowError();
   });
 
   it('should match snapshot when api call is loading', async () => {
@@ -42,9 +40,9 @@ describe('RemotesListSection', () => {
       status: StatusTypes.LOADING,
     });
 
-    const component = renderComponent();
+    const { baseElement } = renderComponent();
 
-    expect(component.baseElement).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('should go to the files page when user clicks on a remote', async () => {

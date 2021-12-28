@@ -8,14 +8,14 @@ import './RemotesListSection.scss';
  * Represents the list of remotes with header
  */
 export default function RemotesListSection({ onRemoteCardClicked }) {
-  const { status, data: remotes } = useFetchRemotes();
+  const { status, data: remotes, error } = useFetchRemotes();
 
   if (status === StatusTypes.LOADING) {
     return null;
   }
 
   if (status === StatusTypes.ERROR) {
-    return 'Error!';
+    throw error;
   }
 
   const handleRemoteCardClicked = (remote) => {
