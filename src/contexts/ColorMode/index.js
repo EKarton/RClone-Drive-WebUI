@@ -10,7 +10,7 @@ export function ColorModeProvider({ children }) {
   const [mode, setMode] = useState(COLOR_MODE.LIGHT);
 
   useEffect(() => {
-    setMode(prefersDarkMode ? 'dark' : 'light');
+    // setMode(prefersDarkMode ? 'dark' : 'light');
   }, [prefersDarkMode]);
 
   const theme = useMemo(() => {
