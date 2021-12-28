@@ -1,3 +1,8 @@
+##################################################################
+# A Github action used to check pull requests
+# More info at https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
+##################################################################
+
 name: Check the pull request automatically
 on:
   push:
