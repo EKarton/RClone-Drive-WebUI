@@ -3,8 +3,8 @@ import { getFullPath } from 'utils/filename-utils';
 export default async function getExistingPictures(
   recentPictures,
   rCloneClient,
-  maxLength = 6,
-  cancelToken = undefined
+  cancelToken = undefined,
+  maxLength = 6
 ) {
   const existingPictures = [];
 

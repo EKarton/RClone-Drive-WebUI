@@ -3,9 +3,13 @@
 exports[`RecentPicturesSection should render correctly if screen width is < 800 1`] = `
 <body>
   <div>
-    <h4>
-      Recently Viewed Pictures
-    </h4>
+    <div
+      class="MuiTypography-root MuiTypography-h7 css-jab4h0-MuiTypography-root"
+    >
+      <strong>
+        Recently Viewed Pictures
+      </strong>
+    </div>
     <div
       class="recently-viewed-image"
     >
@@ -108,9 +112,13 @@ exports[`RecentPicturesSection should render correctly if screen width is < 800 
 exports[`RecentPicturesSection should render correctly if screen width is > 1920 1`] = `
 <body>
   <div>
-    <h4>
-      Recently Viewed Pictures
-    </h4>
+    <div
+      class="MuiTypography-root MuiTypography-h7 css-jab4h0-MuiTypography-root"
+    >
+      <strong>
+        Recently Viewed Pictures
+      </strong>
+    </div>
     <div
       class="recently-viewed-image"
     >
