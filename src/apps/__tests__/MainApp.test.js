@@ -1,4 +1,5 @@
 import MainApp from 'apps/MainApp';
+import NotFoundErrorPage from 'pages/ErrorPages/NotFoundErrorPage';
 import FilesListPage from 'pages/FilesListPage/index';
 import FilesPage from 'pages/FilesPage/index';
 import LandingPage from 'pages/LandingPage';
@@ -15,6 +16,7 @@ jest.mock('pages/FilesPage');
 jest.mock('pages/FilesListPage');
 jest.mock('pages/PicturesPage');
 jest.mock('pages/PicturesListPage');
+jest.mock('pages/ErrorPages/NotFoundErrorPage');
 
 describe('MainApp', () => {
   it('should match snapshot given valid route', () => {
@@ -33,6 +35,7 @@ describe('MainApp', () => {
     [FilesListPage, '/files/123'],
     [PicturesPage, '/pictures'],
     [PicturesListPage, '/pictures/123'],
+    [NotFoundErrorPage, '/random-path'],
   ])('should render %s given route is %s', (expectedComponent, route) => {
     expectedComponent.mockReturnValue(null);
 

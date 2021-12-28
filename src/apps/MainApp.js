@@ -48,7 +48,7 @@ export default function MainApp() {
           path="*"
           element={
             <NotFoundErrorPage
-              error={new Error('Unknown path')}
+              error={new Error('Unknown page')}
               redirectLink="/"
               redirectText="Go back to home"
             />
