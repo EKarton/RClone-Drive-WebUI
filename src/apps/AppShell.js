@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box';
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import GlobalAppBar from 'components/GlobalAppBar';
@@ -17,9 +16,9 @@ export default function AppShell() {
       <GlobalAppBar onDrawerButttonClicked={handleDrawerButtonClicked} />
       <div className="app-shell__below-appbar">
         <GlobalNavBar isExpanded={isExpanded} />
-        <Box className="app-shell__contents" sx={{ bgcolor: 'background.default' }}>
+        <div className="app-shell__contents">
           <Outlet />
-        </Box>
+        </div>
       </div>
     </div>
   );
