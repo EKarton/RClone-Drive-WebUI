@@ -1,44 +1,51 @@
-import Breadcrumbs from '@mui/material/Breadcrumbs';
+import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { hashRemotePath } from 'utils/remote-paths-url';
 
-export default function Header({ remote, path, homeLink, ...props }) {
+export default function Breadcrumbs({ remote, path, homePath, homeText, ...props }) {
   const folders = path.split('/');
-  const pastFolders = folders.slice(0, folders.length - 1);
-  const curFolder = folders[folders.length - 1];
+  const pastFolderNames = folders.slice(0, folders.length - 1);
+  const curFolderName = folders[folders.length - 1];
 
   const pastFolderPaths = useMemo(() => {
     const pastFolderPaths = [];
     let prevPath = null;
 
-    for (const folder of pastFolders) {
+    for (const folder of pastFolderNames) {
       const curLink = prevPath ? `${prevPath}/${folder}` : `${remote}:${folder}`;
 
-      pastFolderPaths.push(curLink);
+      pastFolderPaths.push(`${homePath}/${hashRemotePath(curLink)}`);
       prevPath = curLink;
     }
 
     return pastFolderPaths;
-  }, [pastFolders, remote]);
+  }, [pastFolderNames, remote]);
+
+  const remoteLinkPath = `${homePath}/${hashRemotePath(`${remote}:`)}`;
 
   return (
-    <Breadcrumbs
+    <MuiBreadcrumbs
       maxItems={4}
       itemsBeforeCollapse={2}
       itemsAfterCollapse={2}
       aria-label="breadcrumb"
       {...props}
     >
-      {homeLink}
-      <Link to={hashRemotePath(`${remote}:`)}>{remote}</Link>
-      {pastFolders.map((folder, i) => (
-        <Link key={i} to={hashRemotePath(pastFolderPaths[i])}>
-          {folder}
+      <Link color="inherit" to={homePath} component={RouterLink}>
+        {homeText}
+      </Link>
+      <Link color="inherit" to={remoteLinkPath} component={RouterLink}>
+        {remote}
+      </Link>
+      {pastFolderPaths.map((path, i) => (
+        <Link key={i} color="inherit" to={path} component={RouterLink}>
+          {pastFolderNames[i]}
         </Link>
       ))}
-      <Typography color="text.primary">{curFolder}</Typography>
-    </Breadcrumbs>
+      {curFolderName && <Typography color="text.primary">{curFolderName}</Typography>}
+    </MuiBreadcrumbs>
   );
 }

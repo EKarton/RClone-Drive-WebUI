@@ -11,17 +11,17 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppErrorBoundary>
-      <RCloneInfoProvider>
-        <RecentPicturesProvider>
-          <BrowserRouter>
+    <BrowserRouter>
+      <AppErrorBoundary>
+        <RCloneInfoProvider>
+          <RecentPicturesProvider>
             <ColorModeProvider>
               <MainApp />
             </ColorModeProvider>
-          </BrowserRouter>
-        </RecentPicturesProvider>
-      </RCloneInfoProvider>
-    </AppErrorBoundary>
+          </RecentPicturesProvider>
+        </RCloneInfoProvider>
+      </AppErrorBoundary>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -18,7 +18,8 @@ export default function FilesListPage() {
             <Breadcrumbs
               remote={remote}
               path={path}
-              homeLink={<Link to="/files">My Files</Link>}
+              homeText="My Files"
+              homePath="/files"
             />
             <Table remote={remote} path={path} />
           </div>

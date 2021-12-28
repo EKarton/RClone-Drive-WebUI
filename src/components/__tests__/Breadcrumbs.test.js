@@ -9,10 +9,8 @@ describe('Breadcrumbs', () => {
     ['googledrive', 'Documents/Work'],
     ['googledrive', 'Documents/Work/Company/Projects/Project X/Files'],
   ])('should match snapshot given remote = %s and path = %s', (remote, path) => {
-    const homeLink = <Link to="/home">Home</Link>;
-
     const { baseElement } = customRender(
-      <Breadcrumb remote={remote} path={path} homeLink={homeLink} />
+      <Breadcrumb remote={remote} path={path} homePath="/files" homeText="My Files" />
     );
 
     expect(baseElement).toMatchSnapshot();

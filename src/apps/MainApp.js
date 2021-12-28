@@ -1,25 +1,27 @@
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import FilesListPage from 'pages/FilesListPage/index';
+import FilesPage from 'pages/FilesPage/index';
 import LandingPage from 'pages/LandingPage';
 import LoginPage from 'pages/LoginPage';
 import LogoutPage from 'pages/LogoutPage';
-import { AuthenticatedPaths } from 'utils/constants';
-import AuthenticatedApp from './AuthenticatedApp';
+import PicturesListPage from 'pages/PicturesListPage/index';
+import PicturesPage from 'pages/PicturesPage/index';
+import AppShell from './AppShell';
 
 export default function MainApp() {
   return (
-    <Switch>
-      <Route path="/" exact>
-        <LandingPage />
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="files" element={<AppShell />}>
+        <Route index element={<FilesPage />} />
+        <Route index path=":id" element={<FilesListPage />} />
       </Route>
-      <Route path="/login">
-        <LoginPage />
+      <Route path="pictures" element={<AppShell />}>
+        <Route index element={<PicturesPage />} />
+        <Route index path=":id" element={<PicturesListPage />} />
       </Route>
-      <Route path="/logout">
-        <LogoutPage />
-      </Route>
-      <Route paths={AuthenticatedPaths}>
-        <AuthenticatedApp />
-      </Route>
-    </Switch>
+      <Route path="/logout" element={<LogoutPage />} />
+    </Routes>
   );
 }

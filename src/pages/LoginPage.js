@@ -7,7 +7,7 @@ import CardHeader from '@mui/material/CardHeader';
 import TextField from '@mui/material/TextField';
 import cx from 'classnames';
 import { useState } from 'react';
-import { useHistory, useLocation } from 'react-router';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import DarkModeToggleSwitch from 'components/DarkModeToggleSwitch';
 import useRCloneInfo from 'hooks/rclone/useRCloneInfo';
 import RCloneClient from 'utils/RCloneClient';
@@ -17,8 +17,8 @@ import './LoginPage.scss';
  * The login page
  */
 const LoginPage = () => {
-  const { search } = useLocation();
-  const history = useHistory();
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const { setRCloneInfo } = useRCloneInfo();
   const [error, setError] = useState(null);
 
@@ -28,7 +28,6 @@ const LoginPage = () => {
     const formProps = Object.fromEntries(new FormData(e.target));
     const { endpoint, username, password } = formProps;
 
-    const searchParams = new URLSearchParams(search);
     const redirectPath = searchParams.get('redirect_path') || '/files';
 
     try {
@@ -36,7 +35,7 @@ const LoginPage = () => {
       await new RCloneClient(endpoint, username, password).fetchRemotes();
 
       setRCloneInfo({ endpoint, username, password });
-      history.push(redirectPath);
+      navigate(redirectPath);
     } catch (error) {
       setError(error);
     }

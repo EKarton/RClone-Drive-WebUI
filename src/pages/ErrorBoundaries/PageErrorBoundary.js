@@ -1,14 +1,14 @@
 import { ErrorBoundary } from 'react-error-boundary';
-import { useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { InvalidRemotePathError } from 'hooks/utils/useRemotePathParams';
 import InternalErrorPage from 'pages/ErrorPages/InternalServerErrorPage';
 
 export default function PageErrorBoundary({ children, NotFoundComponent }) {
-  const history = useHistory();
+  const { pathname } = useLocation();
 
   const errorHandler = (error) => {
     if (isAuthError(error)) {
-      window.location.assign(`/login?redirect_path=${history.location.pathname}`);
+      window.location.assign(`/login?redirect_path=${pathname}`);
     }
   };
 
