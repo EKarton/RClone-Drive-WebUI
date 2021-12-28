@@ -98,7 +98,8 @@ exports[`LoginPage should match snapshot 1`] = `
                   >
                     <span>
                       RClone RC Endpoint
-                       *
+                       
+                      *
                     </span>
                   </legend>
                 </fieldset>
@@ -141,7 +142,8 @@ exports[`LoginPage should match snapshot 1`] = `
                   >
                     <span>
                       Username
-                       *
+                       
+                      *
                     </span>
                   </legend>
                 </fieldset>
@@ -184,7 +186,8 @@ exports[`LoginPage should match snapshot 1`] = `
                   >
                     <span>
                       Password
-                       *
+                       
+                      *
                     </span>
                   </legend>
                 </fieldset>
