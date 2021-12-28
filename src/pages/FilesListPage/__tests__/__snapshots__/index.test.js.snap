@@ -17,6 +17,7 @@ exports[`FilesListPage should match snapshot 1`] = `
             class="MuiBreadcrumbs-li"
           >
             <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
               href="/files"
             >
               My Files
@@ -32,6 +33,7 @@ exports[`FilesListPage should match snapshot 1`] = `
             class="MuiBreadcrumbs-li"
           >
             <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
               href="/files/Z2RyaXZlOg=="
             >
               gdrive
@@ -47,6 +49,7 @@ exports[`FilesListPage should match snapshot 1`] = `
             class="MuiBreadcrumbs-li"
           >
             <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
               href="/files/Z2RyaXZlOlBpY3R1cmVz"
             >
               Pictures

@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router';
+import { Routes, Route } from 'react-router';
 import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
 import { StatusTypes } from 'utils/constants';
 import { mockFiles } from 'test-utils/mock-responses';
@@ -25,11 +25,9 @@ describe('FilesListPage', () => {
   const renderComponent = () => {
     const route = '/files/Z2RyaXZlOlBpY3R1cmVzLzIwMjE=';
     const component = (
-      <Switch>
-        <Route path="/files/:id">
-          <FilesListPage />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/files/:id" element={<FilesListPage />} />
+      </Routes>
     );
 
     return customRender(component, {}, { route });

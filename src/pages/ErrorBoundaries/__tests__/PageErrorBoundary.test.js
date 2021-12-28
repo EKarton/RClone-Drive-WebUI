@@ -1,3 +1,5 @@
+import { createMemoryHistory } from 'history';
+import { Router } from 'react-router-dom';
 import { InvalidRemotePathError } from 'hooks/utils/useRemotePathParams';
 import InternalErrorPage from 'pages/ErrorPages/InternalServerErrorPage';
 import NotFoundErrorPage from 'pages/ErrorPages/NotFoundErrorPage';
@@ -7,15 +9,6 @@ import PageErrorBoundary from '../PageErrorBoundary';
 
 jest.mock('pages/ErrorPages/NotFoundErrorPage');
 jest.mock('pages/ErrorPages/InternalServerErrorPage');
-
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useHistory: () => ({
-    location: {
-      pathname: '/pictures',
-    },
-  }),
-}));
 
 describe('PageErrorBoundary', () => {
   const notFoundError1 = mockErrorStackTrace(new InvalidRemotePathError('/files/123'));
@@ -67,10 +60,14 @@ describe('PageErrorBoundary', () => {
   });
 
   const renderComponent = (error) => {
+    const history = createMemoryHistory({ initialEntries: ['/pictures'] });
+
     return render(
-      <PageErrorBoundary NotFoundComponent={NotFoundErrorPage}>
-        <ErrorThrowingComponent error={error} />
-      </PageErrorBoundary>
+      <Router location={history.location} navigator={history}>
+        <PageErrorBoundary NotFoundComponent={NotFoundErrorPage}>
+          <ErrorThrowingComponent error={error} />
+        </PageErrorBoundary>
+      </Router>
     );
   };
 

@@ -1,6 +1,6 @@
 import FolderTree from 'components/FolderTree';
 import { mockRemotes } from 'test-utils/mock-responses';
-import { act, customRender, userEvent } from 'test-utils/react';
+import { act, customRender, userEvent, screen } from 'test-utils/react';
 import FolderBrowserDialog from '../FolderBrowserDialog';
 
 jest.mock('components/FolderTree');
@@ -17,7 +17,7 @@ describe('FolderBrowserDialog', () => {
 
     const onOkFn = jest.fn();
     const onCancelFn = jest.fn();
-    const component = customRender(
+    const { baseElement } = customRender(
       <FolderBrowserDialog
         remotes={mockRemotes.remotes}
         open
@@ -27,11 +27,11 @@ describe('FolderBrowserDialog', () => {
       />
     );
 
-    expect(component.baseElement).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
 
     act(() => jest.advanceTimersByTime(10000));
 
-    userEvent.click(component.getByTestId('ok-button'));
+    userEvent.click(screen.getByTestId('ok-button'));
 
     expect(onOkFn).toBeCalledTimes(1);
     expect(onOkFn).toBeCalledWith('googledrive:Pictures');
@@ -49,7 +49,7 @@ describe('FolderBrowserDialog', () => {
 
     const onOkFn = jest.fn();
     const onCancelFn = jest.fn();
-    const component = customRender(
+    customRender(
       <FolderBrowserDialog
         remotes={mockRemotes.remotes}
         open
@@ -61,7 +61,7 @@ describe('FolderBrowserDialog', () => {
 
     act(() => jest.advanceTimersByTime(10000));
 
-    userEvent.click(component.getByTestId('ok-button'));
+    userEvent.click(screen.getByTestId('ok-button'));
 
     expect(onCancelFn).toBeCalledTimes(1);
     expect(onOkFn).not.toBeCalled();
@@ -72,7 +72,7 @@ describe('FolderBrowserDialog', () => {
 
     const onOkFn = jest.fn();
     const onCancelFn = jest.fn();
-    const component = customRender(
+    customRender(
       <FolderBrowserDialog
         remotes={mockRemotes.remotes}
         open
@@ -82,7 +82,7 @@ describe('FolderBrowserDialog', () => {
       />
     );
 
-    userEvent.click(component.getByTestId('cancel-button'));
+    userEvent.click(screen.getByTestId('cancel-button'));
 
     expect(onCancelFn).toBeCalledTimes(1);
     expect(onOkFn).not.toBeCalled();

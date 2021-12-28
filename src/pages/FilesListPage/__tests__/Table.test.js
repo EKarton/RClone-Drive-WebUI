@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
 import useFileCopier from 'hooks/utils/useFileCopier';
 import useFileDownloader from 'hooks/utils/useFileDownloader';
@@ -9,7 +9,7 @@ import useRenameFileDialog from 'hooks/utils/useRenameFileDialog';
 import { StatusTypes } from 'utils/constants';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import { mockFiles } from 'test-utils/mock-responses';
-import { customRender, fireEvent, userEvent } from 'test-utils/react';
+import { customRender, fireEvent, userEvent, screen } from 'test-utils/react';
 import Table from '../Table';
 
 jest.mock('hooks/fetch-data/useFetchFiles');
@@ -59,15 +59,15 @@ describe('Table', () => {
       status: StatusTypes.LOADING,
     });
 
-    const component = customRender(<Table />);
+    customRender(<Table />);
 
-    expect(component.getByTestId('files-list-table-skeleton')).toBeInTheDocument();
+    expect(screen.getByTestId('files-list-table-skeleton')).toBeInTheDocument();
   });
 
   it('should render a Table when the api call succeeds', () => {
-    const component = customRender(<Table />);
+    customRender(<Table />);
 
-    expect(component.getByTestId('file-list-table')).toBeInTheDocument();
+    expect(screen.getByTestId('file-list-table')).toBeInTheDocument();
   });
 
   it('should throw an error when the api call fails', () => {
@@ -80,30 +80,30 @@ describe('Table', () => {
   });
 
   it('should call fileViewer.show() when user right-clicks on a file and selects Open', () => {
-    const component = renderComponent();
+    renderComponent();
 
-    fireEvent.contextMenu(component.getByTestId('backup.sh'));
-    userEvent.click(component.getByTestId('open'));
+    fireEvent.contextMenu(screen.getByTestId('backup.sh'));
+    userEvent.click(screen.getByTestId('open'));
 
     expect(show).toBeCalledWith({ remote, folderPath: '', fileName: 'backup.sh' });
   });
 
   it('should redirect the user to the correct route when user right-clicks on a directory and selects Open', () => {
-    const component = renderComponent();
+    const view = renderComponent();
 
-    fireEvent.contextMenu(component.getByTestId('Documents'));
-    userEvent.click(component.getByTestId('open'));
+    fireEvent.contextMenu(screen.getByTestId('Documents'));
+    userEvent.click(screen.getByTestId('open'));
 
     // Check that user went to the correct page
     const expectedPath = `/files/${hashRemotePath(`${remote}:Documents`)}`;
-    expect(component.history.location.pathname).toEqual(expectedPath);
+    expect(view.history.location.pathname).toEqual(expectedPath);
   });
 
   it('should download the file when user right-clicks on a file and selects Download', () => {
-    const component = renderComponent();
+    renderComponent();
 
-    fireEvent.contextMenu(component.getByTestId('backup.sh'));
-    userEvent.click(component.getByTestId('download'));
+    fireEvent.contextMenu(screen.getByTestId('backup.sh'));
+    userEvent.click(screen.getByTestId('download'));
 
     expect(downloadFile).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -115,10 +115,10 @@ describe('Table', () => {
   });
 
   it('should delete the file when user right-clicks on a file and selects Delete', () => {
-    const component = renderComponent();
+    renderComponent();
 
-    fireEvent.contextMenu(component.getByTestId('backup.sh'));
-    userEvent.click(component.getByTestId('delete'));
+    fireEvent.contextMenu(screen.getByTestId('backup.sh'));
+    userEvent.click(screen.getByTestId('delete'));
 
     expect(deleteFile).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -130,10 +130,10 @@ describe('Table', () => {
   });
 
   it('should copy the file when user right-clicks on a file and selects Copy', () => {
-    const component = renderComponent();
+    renderComponent();
 
-    fireEvent.contextMenu(component.getByTestId('backup.sh'));
-    userEvent.click(component.getByTestId('copy'));
+    fireEvent.contextMenu(screen.getByTestId('backup.sh'));
+    userEvent.click(screen.getByTestId('copy'));
 
     expect(copyFile).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -145,10 +145,10 @@ describe('Table', () => {
   });
 
   it('should rename the file when user right-clicks on the file and selects Rename', () => {
-    const component = renderComponent();
+    renderComponent();
 
-    fireEvent.contextMenu(component.getByTestId('backup.sh'));
-    userEvent.click(component.getByTestId('rename'));
+    fireEvent.contextMenu(screen.getByTestId('backup.sh'));
+    userEvent.click(screen.getByTestId('rename'));
 
     expect(renameFile).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -160,10 +160,10 @@ describe('Table', () => {
   });
 
   it('should move the file and refetch the data when user right-clicks on a file and selects Move', () => {
-    const component = renderComponent();
+    renderComponent();
 
-    fireEvent.contextMenu(component.getByTestId('backup.sh'));
-    userEvent.click(component.getByTestId('move'));
+    fireEvent.contextMenu(screen.getByTestId('backup.sh'));
+    userEvent.click(screen.getByTestId('move'));
 
     expect(moveFile).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -177,11 +177,9 @@ describe('Table', () => {
   const renderComponent = () => {
     const route = `/files/${hashRemotePath('gdrive:')}`;
     const component = (
-      <Switch>
-        <Route path="/files/:id">
-          <Table remote={remote} path="" />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/files/:id" element={<Table remote={remote} path="" />} />
+      </Routes>
     );
 
     return customRender(component, {}, { route });

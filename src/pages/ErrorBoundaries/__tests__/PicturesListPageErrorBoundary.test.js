@@ -1,3 +1,4 @@
+import { MemoryRouter } from 'react-router-dom';
 import { InvalidRemotePathError } from 'hooks/utils/useRemotePathParams';
 import NotFoundErrorPage from 'pages/ErrorPages/NotFoundErrorPage';
 import { mockErrorStackTrace } from 'test-utils/mock-error';
@@ -23,9 +24,11 @@ describe('PicturesListPageErrorBoundary', () => {
     };
 
     return render(
-      <PicturesListPageErrorBoundary>
-        <ErrorThrowingComponent error={error} />
-      </PicturesListPageErrorBoundary>
+      <MemoryRouter>
+        <PicturesListPageErrorBoundary>
+          <ErrorThrowingComponent error={error} />
+        </PicturesListPageErrorBoundary>
+      </MemoryRouter>
     );
   };
 });
