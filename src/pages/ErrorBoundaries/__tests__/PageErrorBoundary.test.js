@@ -1,6 +1,7 @@
 import { InvalidRemotePathError } from 'hooks/utils/useRemotePathParams';
 import InternalErrorPage from 'pages/ErrorPages/InternalServerErrorPage';
 import NotFoundErrorPage from 'pages/ErrorPages/NotFoundErrorPage';
+import { mockErrorStackTrace } from 'test-utils/mock-error';
 import { render } from 'test-utils/react';
 import PageErrorBoundary from '../PageErrorBoundary';
 
@@ -17,7 +18,7 @@ jest.mock('react-router-dom', () => ({
 }));
 
 describe('PageErrorBoundary', () => {
-  const notFoundError1 = new InvalidRemotePathError('/files/123');
+  const notFoundError1 = mockErrorStackTrace(new InvalidRemotePathError('/files/123'));
   const notFoundError2 = {
     response: {
       status: 500,

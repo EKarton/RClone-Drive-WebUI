@@ -40,22 +40,7 @@ exports[`InternalServerErrorPage should match snapshot given api call succeeds 1
             <div>
               <div />
               <div>
-                Error: Random error
-    at Object.&lt;anonymous&gt; (/Users/emiliokartono/Repositories/Side Projects/RClone-Drive-WebUI/src/pages/ErrorPages/__tests__/InternalServerErrorPage.test.js:24:19)
-    at Promise.then.completed (/Users/emiliokartono/Repositories/Side Projects/RClone-Drive-WebUI/node_modules/jest-circus/build/utils.js:276:28)
-    at new Promise (&lt;anonymous&gt;)
-    at callAsyncCircusFn (/Users/emiliokartono/Repositories/Side Projects/RClone-Drive-WebUI/node_modules/jest-circus/build/utils.js:216:10)
-    at _callCircusTest (/Users/emiliokartono/Repositories/Side Projects/RClone-Drive-WebUI/node_modules/jest-circus/build/run.js:212:40)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)
-    at _runTest (/Users/emiliokartono/Repositories/Side Projects/RClone-Drive-WebUI/node_modules/jest-circus/build/run.js:149:3)
-    at _runTestsForDescribeBlock (/Users/emiliokartono/Repositories/Side Projects/RClone-Drive-WebUI/node_modules/jest-circus/build/run.js:63:9)
-    at _runTestsForDescribeBlock (/Users/emiliokartono/Repositories/Side Projects/RClone-Drive-WebUI/node_modules/jest-circus/build/run.js:57:9)
-    at run (/Users/emiliokartono/Repositories/Side Projects/RClone-Drive-WebUI/node_modules/jest-circus/build/run.js:25:3)
-    at runAndTransformResultsToJestFormat (/Users/emiliokartono/Repositories/Side Projects/RClone-Drive-WebUI/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:176:21)
-    at jestAdapter (/Users/emiliokartono/Repositories/Side Projects/RClone-Drive-WebUI/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:109:19)
-    at runTestInternal (/Users/emiliokartono/Repositories/Side Projects/RClone-Drive-WebUI/node_modules/jest-runner/build/runTest.js:380:16)
-    at runTest (/Users/emiliokartono/Repositories/Side Projects/RClone-Drive-WebUI/node_modules/jest-runner/build/runTest.js:472:34)
-    at Object.worker (/Users/emiliokartono/Repositories/Side Projects/RClone-Drive-WebUI/node_modules/jest-runner/build/testWorker.js:133:12)
+                Mock content for stack trace
               </div>
             </div>
           </details>

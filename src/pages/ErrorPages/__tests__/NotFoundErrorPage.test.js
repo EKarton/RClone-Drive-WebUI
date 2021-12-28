@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { mockErrorStackTrace } from 'test-utils/mock-error';
 import { customRender, waitFor } from 'test-utils/react';
 import NotFoundErrorPage from '../NotFoundErrorPage';
 
@@ -12,9 +13,10 @@ describe('NotFoundErrorPage', () => {
   });
 
   it('should match snapshot given api call succeeds', async () => {
+    const error = mockErrorStackTrace(new Error('Random error'));
     const { baseElement } = customRender(
       <NotFoundErrorPage
-        error={new Error('Random error')}
+        error={error}
         redirectText="Go back to my files"
         redirectLink="/files"
       />

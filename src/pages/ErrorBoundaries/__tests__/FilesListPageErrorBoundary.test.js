@@ -1,5 +1,6 @@
 import { InvalidRemotePathError } from 'hooks/utils/useRemotePathParams';
 import NotFoundErrorPage from 'pages/ErrorPages/NotFoundErrorPage';
+import { mockErrorStackTrace } from 'test-utils/mock-error';
 import { render } from 'test-utils/react';
 import FilesListPageErrorBoundary from '../FilesListPageErrorBoundary';
 
@@ -11,7 +12,7 @@ describe('FilesListPageErrorBoundary', () => {
   });
 
   it('should render NotFoundErrorPage given 404 error', () => {
-    renderComponent(new InvalidRemotePathError('/files/123'));
+    renderComponent(mockErrorStackTrace(new InvalidRemotePathError('/files/123')));
 
     expect(NotFoundErrorPage).toBeCalled();
   });

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { mockErrorStackTrace } from 'test-utils/mock-error';
 import { render, userEvent, waitFor } from 'test-utils/react';
 import InternalErrorPage from '../InternalServerErrorPage';
 
@@ -21,7 +22,7 @@ describe('InternalServerErrorPage', () => {
   });
 
   it('should match snapshot given api call succeeds', async () => {
-    const error = new Error('Random error');
+    const error = mockErrorStackTrace(new Error('Random error'));
     const { baseElement } = render(<InternalErrorPage error={error} />);
 
     await waitFor(() => {
@@ -31,7 +32,7 @@ describe('InternalServerErrorPage', () => {
   });
 
   it('should reload the page when user clicks on the button', async () => {
-    const error = new Error('Random error');
+    const error = mockErrorStackTrace(new Error('Random error'));
     const component = render(<InternalErrorPage error={error} />);
 
     userEvent.click(component.getByRole('button'));
