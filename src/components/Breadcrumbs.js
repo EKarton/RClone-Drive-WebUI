@@ -22,7 +22,7 @@ export default function Breadcrumbs({ remote, path, homePath, homeText, ...props
     }
 
     return pastFolderPaths;
-  }, [pastFolderNames, remote]);
+  }, [homePath, pastFolderNames, remote]);
 
   const remoteLinkPath = `${homePath}/${hashRemotePath(`${remote}:`)}`;
 

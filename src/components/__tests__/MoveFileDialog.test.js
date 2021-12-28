@@ -2,7 +2,7 @@ import useFetchRemotes from 'hooks/fetch-data/useFetchRemotes';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { StatusTypes } from 'utils/constants';
 import { mockFiles, mockRemotes } from 'test-utils/mock-responses';
-import { customRender, userEvent, fireEvent, screen, waitFor } from 'test-utils/react';
+import { customRender, userEvent, fireEvent, screen } from 'test-utils/react';
 import MoveFileDialog from '../MoveFileDialog';
 
 jest.mock('hooks/fetch-data/useFetchRemotes');
@@ -56,36 +56,28 @@ describe('MoveFileDialog', () => {
   });
 
   it('should call onCancel() when user clicks on Cancel button', () => {
-    const component = customRender(
-      <MoveFileDialog open onCancel={onCancel} onOk={onOk} />
-    );
+    customRender(<MoveFileDialog open onCancel={onCancel} onOk={onOk} />);
 
-    userEvent.click(component.getByTestId('cancel-button'));
+    userEvent.click(screen.getByTestId('cancel-button'));
 
     expect(onCancel).toBeCalled();
   });
 
   it('should call onOk() when user selects a subfolder and clicks on the Ok button', async () => {
-    const component = customRender(
-      <MoveFileDialog open onCancel={onCancel} onOk={onOk} />
-    );
+    customRender(<MoveFileDialog open onCancel={onCancel} onOk={onOk} />);
 
-    await waitFor(() => {
-      expect(component.getByText('googledrive')).toBeInTheDocument();
-      fireEvent.click(screen.getByText('googledrive'));
-    });
+    await screen.findByText('googledrive');
 
-    userEvent.click(component.getByTestId('ok-button'));
+    fireEvent.click(screen.getByText('googledrive'));
+    userEvent.click(screen.getByTestId('ok-button'));
 
     expect(onOk).toBeCalledWith('googledrive:');
   });
 
   it('should call onCancel() when user did not select anything and clicks on the Ok button', async () => {
-    const component = customRender(
-      <MoveFileDialog open onCancel={onCancel} onOk={onOk} />
-    );
+    customRender(<MoveFileDialog open onCancel={onCancel} onOk={onOk} />);
 
-    userEvent.click(component.getByTestId('ok-button'));
+    userEvent.click(screen.getByTestId('ok-button'));
 
     expect(onCancel).toBeCalled();
   });

@@ -22,9 +22,10 @@ describe('useFetchFiles()', () => {
 
     const { result } = renderHook(() => useFetchFiles('gdrive', 'Pictures'));
 
+    await waitFor(() => expect(result.current.status).toEqual(StatusTypes.SUCCESS));
+    await waitFor(() => expect(result.current.data).toEqual(mockFiles.list));
+
     await waitFor(() => {
-      expect(result.current.status).toEqual(StatusTypes.SUCCESS);
-      expect(result.current.data).toEqual(mockFiles.list);
       expect(rCloneClient.fetchFiles).toBeCalledWith('gdrive', 'Pictures', {
         cancelToken: expect.any(axios.CancelToken),
       });

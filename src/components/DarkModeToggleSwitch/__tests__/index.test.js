@@ -1,6 +1,6 @@
 import useColorMode from 'hooks/utils/useColorMode';
 import { COLOR_MODE } from 'utils/constants';
-import { render, userEvent } from 'test-utils/react';
+import { render, userEvent, screen } from 'test-utils/react';
 import DarkModeToggleSwitch from '../index';
 
 jest.mock('hooks/utils/useColorMode');
@@ -31,9 +31,9 @@ describe('DarkModeToggleSwitch', () => {
         setMode,
       });
 
-      const component = render(<DarkModeToggleSwitch />);
+      render(<DarkModeToggleSwitch />);
 
-      userEvent.click(component.getByRole('checkbox'));
+      userEvent.click(screen.getByRole('checkbox'));
 
       expect(setMode).toBeCalledWith(expectedMode);
     }

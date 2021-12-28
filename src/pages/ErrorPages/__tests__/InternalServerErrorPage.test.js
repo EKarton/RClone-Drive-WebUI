@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { mockErrorStackTrace } from 'test-utils/mock-error';
-import { render, userEvent, waitFor } from 'test-utils/react';
+import { render, userEvent, waitFor, screen } from 'test-utils/react';
 import InternalErrorPage from '../InternalServerErrorPage';
 
 jest.mock('axios');
@@ -25,20 +25,16 @@ describe('InternalServerErrorPage', () => {
     const error = mockErrorStackTrace(new Error('Random error'));
     const { baseElement } = render(<InternalErrorPage error={error} />);
 
-    await waitFor(() => {
-      expect(axios.get).toBeCalledWith('https://api.thecatapi.com/v1/images/search');
-      expect(baseElement).toMatchSnapshot();
-    });
+    expect(axios.get).toBeCalledWith('https://api.thecatapi.com/v1/images/search');
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('should reload the page when user clicks on the button', async () => {
     const error = mockErrorStackTrace(new Error('Random error'));
-    const component = render(<InternalErrorPage error={error} />);
+    render(<InternalErrorPage error={error} />);
 
-    userEvent.click(component.getByRole('button'));
+    userEvent.click(screen.getByRole('button'));
 
-    await waitFor(() => {
-      expect(window.location.reload).toHaveBeenCalled();
-    });
+    await waitFor(() => expect(window.location.reload).toHaveBeenCalled());
   });
 });

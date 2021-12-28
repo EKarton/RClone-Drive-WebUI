@@ -1,5 +1,5 @@
 import { mockPictures } from 'test-utils/mock-responses';
-import { customRender, userEvent } from 'test-utils/react';
+import { customRender, userEvent, screen } from 'test-utils/react';
 import LazyImageList from '../LazyImageList';
 
 jest.mock('components/LazyImage', () => () => null);
@@ -56,7 +56,7 @@ describe('LazyImageList', () => {
     const remote = 'gdrive';
     const onImageClicked = jest.fn();
 
-    const component = customRender(
+    customRender(
       <LazyImageList
         images={mockPictures.list}
         remote={remote}
@@ -64,7 +64,7 @@ describe('LazyImageList', () => {
       />
     );
 
-    userEvent.click(component.getByTestId('20120517_171428.JPG'));
+    userEvent.click(screen.getByTestId('20120517_171428.JPG'));
 
     expect(onImageClicked).toBeCalledWith({
       remote,

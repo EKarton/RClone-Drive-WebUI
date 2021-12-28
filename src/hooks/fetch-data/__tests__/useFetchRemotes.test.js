@@ -22,9 +22,9 @@ describe('useFetchRemotes()', () => {
 
     const { result } = renderHook(() => useFetchRemotes());
 
+    await waitFor(() => expect(result.current.status).toEqual(StatusTypes.SUCCESS));
+    await waitFor(() => expect(result.current.data).toEqual(mockRemotes.remotes));
     await waitFor(() => {
-      expect(result.current.status).toEqual(StatusTypes.SUCCESS);
-      expect(result.current.data).toEqual(mockRemotes.remotes);
       expect(rCloneClient.fetchRemotes).toBeCalledWith({
         cancelToken: expect.any(axios.CancelToken),
       });

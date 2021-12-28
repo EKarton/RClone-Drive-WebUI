@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Breadcrumbs from 'components/Breadcrumbs';
 import { FileViewerDialogProvider } from 'contexts/FileViewerDialog';
 import { MoveFileDialogProvider } from 'contexts/MoveFileDialog';

@@ -4,7 +4,7 @@ import useFetchRemoteSpaceInfo from 'hooks/fetch-data/useFetchRemoteSpaceInfo';
 import { StatusTypes } from 'utils/constants';
 import { mockOperationsAboutResponse } from 'test-utils/mock-responses';
 import { mockConfigGetResponse } from 'test-utils/mock-responses';
-import { customRender, waitFor } from 'test-utils/react';
+import { customRender, screen } from 'test-utils/react';
 
 jest.mock('hooks/fetch-data/useFetchRemoteSpaceInfo');
 jest.mock('hooks/fetch-data/useFetchRemoteInfo');
@@ -14,13 +14,11 @@ describe('RemoteCard', () => {
     useFetchRemoteSpaceInfo.mockReturnValue({ status: StatusTypes.LOADING });
     useFetchRemoteInfo.mockReturnValue({ status: StatusTypes.LOADING });
 
-    const component = customRender(<RemoteCard remote="googledrive" />);
+    const { baseElement } = customRender(<RemoteCard remote="googledrive" />);
 
-    await waitFor(() => {
-      expect(component.queryByTestId('remote-info-skeleton')).toBeInTheDocument();
-      expect(component.queryByTestId('remote-space-skeleton')).toBeInTheDocument();
-      expect(component.baseElement).toMatchSnapshot();
-    });
+    await screen.findByTestId('remote-info-skeleton');
+    await screen.findByTestId('remote-space-skeleton');
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('should render data correctly when api call finishes', async () => {
@@ -33,13 +31,9 @@ describe('RemoteCard', () => {
       data: mockConfigGetResponse,
     });
 
-    const component = customRender(<RemoteCard remote="googledrive" />);
+    const { baseElement } = customRender(<RemoteCard remote="googledrive" />);
 
-    await waitFor(() => {
-      expect(component.queryByTestId('remote-info-skeleton')).not.toBeInTheDocument();
-      expect(component.queryByTestId('remote-space-skeleton')).not.toBeInTheDocument();
-      expect(component.baseElement).toMatchSnapshot();
-    });
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('should render error messages correctly when api calls fail', async () => {
@@ -52,15 +46,10 @@ describe('RemoteCard', () => {
       error: new Error('404 not found'),
     });
 
-    const component = customRender(<RemoteCard remote="googledrive" />);
+    const { baseElement } = customRender(<RemoteCard remote="googledrive" />);
 
-    await waitFor(() => {
-      const element1 = component.queryByText('Unable to get remote details');
-      const element2 = component.queryByText('Unable to get space information');
-
-      expect(element1).toBeInTheDocument();
-      expect(element2).toBeInTheDocument();
-      expect(component.baseElement).toMatchSnapshot();
-    });
+    await screen.findByText('Unable to get remote details');
+    await screen.findByText('Unable to get space information');
+    expect(baseElement).toMatchSnapshot();
   });
 });

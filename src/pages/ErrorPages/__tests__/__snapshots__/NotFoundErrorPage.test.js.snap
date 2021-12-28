@@ -12,6 +12,7 @@ exports[`NotFoundErrorPage should match snapshot given api call succeeds 1`] = `
         <img
           alt="404"
           class="base-error-page__image"
+          src="https://dogs.com/image/1"
         />
         <div
           class="base-error-page__message"

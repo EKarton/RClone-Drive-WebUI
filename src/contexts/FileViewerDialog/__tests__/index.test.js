@@ -1,6 +1,6 @@
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
-import { render, userEvent, act, waitFor } from 'test-utils/react';
+import { render, userEvent, waitForElementToBeRemoved, screen } from 'test-utils/react';
 import { FileViewerDialogProvider } from '../index';
 
 jest.mock('hooks/rclone/useRCloneClient');
@@ -16,29 +16,22 @@ describe('FileViewerDialog', () => {
   });
 
   it('should render dialog when user opens the dialog', async () => {
-    const component = renderMockPage();
+    renderMockPage();
 
-    act(() => userEvent.click(component.getByText('Open File')));
+    userEvent.click(screen.getByText('Open File'));
 
-    await waitFor(() => {
-      expect(component.getByTestId('fileviewer-dialog')).toBeInTheDocument();
-    });
+    await screen.findByTestId('fileviewer-dialog');
   });
 
   it('should close the dialog when user opens and closes the dialog', async () => {
-    const component = renderMockPage();
+    renderMockPage();
 
-    act(() => userEvent.click(component.getByText('Open File')));
+    userEvent.click(screen.getByText('Open File'));
 
-    await waitFor(() => {
-      expect(component.getByTestId('fileviewer-dialog')).toBeInTheDocument();
-    });
+    await screen.findByTestId('fileviewer-dialog');
+    userEvent.click(screen.getByTestId('close-button'));
 
-    act(() => userEvent.click(component.getByTestId('close-button')));
-
-    await waitFor(() => {
-      expect(component.queryByTestId('fileviewer-dialog')).not.toBeInTheDocument();
-    });
+    await waitForElementToBeRemoved(() => screen.queryByTestId('fileviewer-dialog'));
   });
 
   const renderMockPage = () => {

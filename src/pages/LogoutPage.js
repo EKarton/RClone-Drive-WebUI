@@ -9,7 +9,7 @@ export default function LogoutPage() {
   useEffect(() => {
     clearRCloneInfo();
     navigate('/');
-  }, [clearRCloneInfo]);
+  }, [clearRCloneInfo, navigate]);
 
   return <div>Logging out...</div>;
 }
