@@ -1,13 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RemotesListSection should match snapshot when api call failed 1`] = `
-<body>
-  <div>
-    Error!
-  </div>
-</body>
-`;
-
 exports[`RemotesListSection should match snapshot when api call is loading 1`] = `
 <body>
   <div />

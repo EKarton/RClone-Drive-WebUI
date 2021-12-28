@@ -5,7 +5,7 @@ exports[`PicturesListPage should not throw an error when the api call succeeds 1
   <div>
     <nav
       aria-label="breadcrumb"
-      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root"
+      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root pictures-list-page__header css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root"
     >
       <ol
         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"

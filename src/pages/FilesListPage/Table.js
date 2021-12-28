@@ -1,4 +1,3 @@
-import { useErrorHandler } from 'react-error-boundary';
 import { useHistory } from 'react-router';
 import FileListTable from 'components/FileListTable';
 import FileListTableSkeleton from 'components/FileListTableSkeleton';
@@ -16,7 +15,6 @@ import AddFilesDropSection from './AddFilesDropSection';
 import './index.scss';
 
 export default function Table({ remote, path }) {
-  const handleError = useErrorHandler();
   const history = useHistory();
   const fileViewer = useFileViewerDialog();
   const moveFileDialog = useMoveFileDialog();
@@ -28,8 +26,7 @@ export default function Table({ remote, path }) {
   const { status, data, error, refetchData } = useFetchFiles(remote, path);
 
   if (status === StatusTypes.ERROR) {
-    handleError(error);
-    return null;
+    throw error;
   }
 
   if (status === StatusTypes.LOADING) {

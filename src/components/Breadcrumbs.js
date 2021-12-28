@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { hashRemotePath } from 'utils/remote-paths-url';
 
-export default function Header({ remote, path, homeLink }) {
+export default function Header({ remote, path, homeLink, ...props }) {
   const folders = path.split('/');
   const pastFolders = folders.slice(0, folders.length - 1);
   const curFolder = folders[folders.length - 1];
@@ -29,6 +29,7 @@ export default function Header({ remote, path, homeLink }) {
       itemsBeforeCollapse={2}
       itemsAfterCollapse={2}
       aria-label="breadcrumb"
+      {...props}
     >
       {homeLink}
       <Link to={hashRemotePath(`${remote}:`)}>{remote}</Link>

@@ -6,23 +6,23 @@ import MainApp from 'apps/MainApp';
 import { ColorModeProvider } from 'contexts/ColorMode/index';
 import { RCloneInfoProvider } from 'contexts/RCloneInfo';
 import { RecentPicturesProvider } from 'contexts/RecentPicturesList';
-import AppBoundary from 'pages/AppBoundary';
+import AppErrorBoundary from 'pages/ErrorBoundaries/AppErrorBoundary';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <RCloneInfoProvider>
-      <RecentPicturesProvider>
-        <BrowserRouter>
-          <ColorModeProvider>
-            <AppBoundary>
+    <AppErrorBoundary>
+      <RCloneInfoProvider>
+        <RecentPicturesProvider>
+          <BrowserRouter>
+            <ColorModeProvider>
               <MainApp />
-            </AppBoundary>
-          </ColorModeProvider>
-        </BrowserRouter>
-      </RecentPicturesProvider>
-    </RCloneInfoProvider>
+            </ColorModeProvider>
+          </BrowserRouter>
+        </RecentPicturesProvider>
+      </RCloneInfoProvider>
+    </AppErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root')
 );

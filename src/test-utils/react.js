@@ -5,6 +5,7 @@ import { Router } from 'react-router';
 import { ColorModeProvider } from 'contexts/ColorMode/index';
 import { RCloneInfoProvider } from 'contexts/RCloneInfo';
 import { RecentPicturesProvider } from 'contexts/RecentPicturesList';
+import AppErrorBoundary from 'pages/ErrorBoundaries/AppErrorBoundary';
 
 const customRender = (
   component,

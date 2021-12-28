@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { Route, Switch } from 'react-router';
 import GlobalAppBar from 'components/GlobalAppBar';
 import GlobalNavBar from 'components/GlobalNavBar';
+import FilesListPageErrorBoundary from 'pages/ErrorBoundaries/FilesListPageErrorBoundary';
+import PicturesListPageErrorBoundary from 'pages/ErrorBoundaries/PicturesListPageErrorBoundary';
 import FilesListPage from 'pages/FilesListPage';
 import FilesPage from 'pages/FilesPage';
 import PicturesListPage from 'pages/PicturesListPage';
@@ -27,13 +29,17 @@ export default function AuthenticatedApp() {
               <FilesPage />
             </Route>
             <Route path="/files/:id">
-              <FilesListPage />
+              <FilesListPageErrorBoundary>
+                <FilesListPage />
+              </FilesListPageErrorBoundary>
             </Route>
             <Route path="/pictures" exact>
               <PicturesPage />
             </Route>
             <Route path="/pictures/:id">
-              <PicturesListPage />
+              <PicturesListPageErrorBoundary>
+                <PicturesListPage />
+              </PicturesListPageErrorBoundary>
             </Route>
           </Switch>
         </Box>
