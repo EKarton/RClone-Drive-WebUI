@@ -1,0 +1,18 @@
+##################################################################
+# A Github action used to configure dependabot
+# More info at https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates
+##################################################################
+
+version: 2
+updates:
+  # Enable version updates for yarn packages
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+
+  # Enable version updates for github actions
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'daily'

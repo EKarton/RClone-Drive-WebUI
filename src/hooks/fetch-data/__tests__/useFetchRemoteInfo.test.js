@@ -22,9 +22,9 @@ describe('useFetchPictures()', () => {
 
     const { result } = renderHook(() => useFetchRemoteInfo('gdrive'));
 
+    await waitFor(() => expect(result.current.status).toEqual(StatusTypes.SUCCESS));
+    await waitFor(() => expect(result.current.data).toEqual(mockConfigGetResponse));
     await waitFor(() => {
-      expect(result.current.status).toEqual(StatusTypes.SUCCESS);
-      expect(result.current.data).toEqual(mockConfigGetResponse);
       expect(rCloneClient.fetchRemoteInfo).toBeCalledWith('gdrive', {
         cancelToken: expect.any(axios.CancelToken),
       });

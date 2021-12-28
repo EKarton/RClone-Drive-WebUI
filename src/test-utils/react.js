@@ -1,11 +1,10 @@
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
-import { Router } from 'react-router';
+import { Router } from 'react-router-dom';
 import { ColorModeProvider } from 'contexts/ColorMode/index';
 import { RCloneInfoProvider } from 'contexts/RCloneInfo';
 import { RecentPicturesProvider } from 'contexts/RecentPicturesList';
-import AppErrorBoundary from 'pages/ErrorBoundaries/AppErrorBoundary';
 
 const customRender = (
   component,
@@ -17,7 +16,7 @@ const customRender = (
   const renderedComponent = render(
     <RCloneInfoProvider defaultState={initialRCloneInfoState}>
       <RecentPicturesProvider defaultState={initialRecentPicturesState}>
-        <Router history={history}>
+        <Router location={history.location} navigator={history}>
           <ColorModeProvider>{component}</ColorModeProvider>
         </Router>
       </RecentPicturesProvider>

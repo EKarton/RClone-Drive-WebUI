@@ -54,23 +54,23 @@ describe('RemotesListSection', () => {
       return <div>{remotes.join(',')}</div>;
     });
 
-    const component = renderComponent();
+    const view = renderComponent();
 
     // Mimic user clicking on the buttotn
     jest.runAllTimers();
 
     await waitFor(() => {
-      expect(component.onRemoteCardClicked).toBeCalledWith('googledrive');
+      expect(view.onRemoteCardClicked).toBeCalledWith('googledrive');
     });
   });
 
   const renderComponent = () => {
     const onRemoteCardClicked = jest.fn();
-    const component = customRender(
+    const view = customRender(
       <RemotesListSection onRemoteCardClicked={onRemoteCardClicked} />
     );
 
-    component.onRemoteCardClicked = onRemoteCardClicked;
-    return component;
+    view.onRemoteCardClicked = onRemoteCardClicked;
+    return view;
   };
 });

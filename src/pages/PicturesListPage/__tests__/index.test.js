@@ -1,10 +1,10 @@
-import { Route } from 'react-router';
+import { Routes, Route } from 'react-router';
 import LazyImageList from 'components/LazyImageList';
 import useFetchPictures from 'hooks/fetch-data/useFetchPictures';
 import { StatusTypes } from 'utils/constants';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import { mockPictures } from 'test-utils/mock-responses';
-import { customRender, waitFor } from 'test-utils/react';
+import { customRender } from 'test-utils/react';
 import PicturesListPage from '../index';
 
 jest.mock('hooks/fetch-data/useFetchPictures');
@@ -23,11 +23,9 @@ describe('PicturesListPage', () => {
   });
 
   it('should not throw an error when the api call succeeds', async () => {
-    const component = renderComponent();
+    const { baseElement } = renderComponent();
 
-    await waitFor(() => {
-      expect(component.baseElement).toMatchSnapshot();
-    });
+    expect(baseElement).toMatchSnapshot();
   });
 
   const renderComponent = () => {
@@ -40,9 +38,9 @@ describe('PicturesListPage', () => {
     };
 
     const component = (
-      <Route path="/pictures/:id">
-        <PicturesListPage />
-      </Route>
+      <Routes>
+        <Route path="/pictures/:id" element={<PicturesListPage />} />
+      </Routes>
     );
 
     return customRender(component, { initialRCloneInfoState }, { route });

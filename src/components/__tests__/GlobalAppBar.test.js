@@ -1,5 +1,5 @@
 import GlobalAppBar from 'components/GlobalAppBar';
-import { customRender, userEvent } from 'test-utils/react';
+import { customRender, userEvent, screen } from 'test-utils/react';
 
 describe('GlobalAppBar', () => {
   it('should match snapshot', () => {
@@ -13,11 +13,9 @@ describe('GlobalAppBar', () => {
   it('should call match snapshot', () => {
     const onDrawerButttonClicked = jest.fn();
 
-    const component = customRender(
-      <GlobalAppBar onDrawerButttonClicked={onDrawerButttonClicked} />
-    );
+    customRender(<GlobalAppBar onDrawerButttonClicked={onDrawerButttonClicked} />);
 
-    userEvent.click(component.getByTestId('nav-button'));
+    userEvent.click(screen.getByTestId('nav-button'));
 
     expect(onDrawerButttonClicked).toBeCalled();
   });

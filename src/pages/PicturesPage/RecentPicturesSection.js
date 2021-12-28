@@ -1,5 +1,6 @@
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
+import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
@@ -45,7 +46,9 @@ export default function RecentPicturesSection() {
 
   return (
     <>
-      <h4>Recently Viewed Pictures</h4>
+      <Typography variant="h7" component="div" color="text.primary">
+        <strong>Recently Viewed Pictures</strong>
+      </Typography>
       <div className="recently-viewed-image">
         <AutoSizer>
           {({ height, width }) => {

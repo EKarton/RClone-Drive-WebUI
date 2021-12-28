@@ -1,14 +1,15 @@
 import { ErrorBoundary } from 'react-error-boundary';
-import { useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { MissingRCloneInfoError } from 'hooks/rclone/useRCloneClient';
 import { InvalidRemotePathError } from 'hooks/utils/useRemotePathParams';
 import InternalErrorPage from 'pages/ErrorPages/InternalServerErrorPage';
 
 export default function PageErrorBoundary({ children, NotFoundComponent }) {
-  const history = useHistory();
+  const { pathname } = useLocation();
 
   const errorHandler = (error) => {
     if (isAuthError(error)) {
-      window.location.assign(`/login?redirect_path=${history.location.pathname}`);
+      window.location.assign(`/login?redirect_path=${pathname}`);
     }
   };
 
@@ -21,7 +22,10 @@ export default function PageErrorBoundary({ children, NotFoundComponent }) {
   };
 
   const isAuthError = (error) => {
-    return !error.response && error.message === 'Network Error';
+    const authError = !error.response && error.message === 'Network Error';
+    const missingInfoError = error instanceof MissingRCloneInfoError;
+
+    return authError || missingInfoError;
   };
 
   const is404Error = (error) => {

@@ -23,13 +23,13 @@ describe('FilesPage', () => {
       return null;
     });
 
-    const component = customRender(<FilesPage />);
+    const view = customRender(<FilesPage />);
 
     jest.runAllTimers();
 
     const expectedPath = `/files/${hashRemotePath('gdrive:')}`;
     await waitFor(() => {
-      expect(component.history.location.pathname).toEqual(expectedPath);
+      expect(view.history.location.pathname).toEqual(expectedPath);
     });
   });
 });

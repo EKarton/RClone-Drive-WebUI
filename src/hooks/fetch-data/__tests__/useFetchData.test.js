@@ -28,16 +28,12 @@ describe('useFetchData', () => {
     };
     const { result } = renderHook(() => useTestHook());
 
-    await waitFor(() => {
-      expect(result.current.status).toEqual(StatusTypes.LOADING);
-    });
+    await waitFor(() => expect(result.current.status).toEqual(StatusTypes.LOADING));
 
     jest.runAllTimers();
 
-    await waitFor(() => {
-      expect(result.current.status).toEqual(StatusTypes.SUCCESS);
-      expect(result.current.data).toEqual(mockRemotes.remotes);
-    });
+    await waitFor(() => expect(result.current.status).toEqual(StatusTypes.SUCCESS));
+    await waitFor(() => expect(result.current.data).toEqual(mockRemotes.remotes));
   });
 
   it('should return correct data when api throws an error', async () => {
@@ -52,16 +48,12 @@ describe('useFetchData', () => {
     };
     const { result } = renderHook(() => useTestHook());
 
-    await waitFor(() => {
-      expect(result.current.status).toEqual(StatusTypes.LOADING);
-    });
+    await waitFor(() => expect(result.current.status).toEqual(StatusTypes.LOADING));
 
     jest.runAllTimers();
 
-    await waitFor(() => {
-      expect(result.current.status).toEqual(StatusTypes.ERROR);
-      expect(result.current.error).toEqual(error);
-    });
+    await waitFor(() => expect(result.current.status).toEqual(StatusTypes.ERROR));
+    await waitFor(() => expect(result.current.error).toEqual(error));
   });
 
   it('should still set the api to loading if axios cancels the request', async () => {
@@ -78,16 +70,12 @@ describe('useFetchData', () => {
     };
     const { result, unmount } = renderHook(() => useTestHook());
 
-    await waitFor(() => {
-      expect(result.current.status).toEqual(StatusTypes.LOADING);
-    });
+    await waitFor(() => expect(result.current.status).toEqual(StatusTypes.LOADING));
 
     unmount();
     jest.runAllTimers();
 
-    await waitFor(() => {
-      expect(result.current.status).toEqual(StatusTypes.LOADING);
-    });
+    await waitFor(() => expect(result.current.status).toEqual(StatusTypes.LOADING));
   });
 
   it('should call api endpoint twice when called refetchData() and api call succeeds', async () => {
@@ -104,10 +92,8 @@ describe('useFetchData', () => {
 
     await act(() => result.current.refetchData());
 
-    await waitFor(() => {
-      expect(result.current.status).toEqual(StatusTypes.SUCCESS);
-      expect(fetchRemotes).toBeCalledTimes(2);
-    });
+    await waitFor(() => expect(result.current.status).toEqual(StatusTypes.SUCCESS));
+    await waitFor(() => expect(fetchRemotes).toBeCalledTimes(2));
   });
 
   it('should set status to error when calling refetchData() fails', async () => {
@@ -123,8 +109,6 @@ describe('useFetchData', () => {
 
     await act(() => result.current.refetchData());
 
-    await waitFor(() => {
-      expect(result.current.status).toEqual(StatusTypes.ERROR);
-    });
+    await waitFor(() => expect(result.current.status).toEqual(StatusTypes.ERROR));
   });
 });

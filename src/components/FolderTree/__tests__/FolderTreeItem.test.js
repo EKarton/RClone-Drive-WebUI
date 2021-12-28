@@ -1,6 +1,6 @@
 import { TreeView } from '@mui/lab';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
-import { customRender, fireEvent, screen, waitFor } from 'test-utils/react';
+import { customRender, fireEvent, screen } from 'test-utils/react';
 import FolderTreeItem from '../FolderTreeItem';
 
 jest.mock('hooks/rclone/useRCloneClient');
@@ -73,24 +73,18 @@ describe('FolderTreeItem', () => {
       </TreeView>
     );
 
-    await waitFor(() => {
-      expect(screen.getByText('/')).toBeInTheDocument();
-      expect(baseElement).toMatchSnapshot();
-    });
+    await screen.findByText('/');
+    expect(baseElement).toMatchSnapshot();
 
     fireEvent.click(screen.getByText('/'));
 
-    await waitFor(() => {
-      expect(screen.getByText('Documents')).toBeInTheDocument();
-      expect(baseElement).toMatchSnapshot();
-    });
+    await screen.findByText('Documents');
+    expect(baseElement).toMatchSnapshot();
 
     fireEvent.click(screen.getByText('Documents'));
 
-    await waitFor(() => {
-      expect(screen.getByText('Personal')).toBeInTheDocument();
-      expect(baseElement).toMatchSnapshot();
-    });
+    await screen.findByText('Personal');
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('should render loading and then display data when api is loading and has succeeded', async () => {
@@ -112,13 +106,13 @@ describe('FolderTreeItem', () => {
       </TreeView>
     );
 
-    await waitFor(() => expect(screen.getByText('/')).toBeInTheDocument());
+    await screen.findByText('/');
     fireEvent.click(screen.getByText('/'));
 
     // Resolve api call
     jest.runAllTimers();
 
-    await waitFor(() => expect(screen.getByText('Documents')).toBeInTheDocument());
+    await screen.findByText('Documents');
   });
 
   it('should render error when api call failed', async () => {
@@ -130,10 +124,10 @@ describe('FolderTreeItem', () => {
       </TreeView>
     );
 
-    await waitFor(() => expect(screen.getByText('/')).toBeInTheDocument());
+    await screen.findByText('/');
     fireEvent.click(screen.getByText('/'));
 
-    await waitFor(() => expect(screen.getByText('Error!')).toBeInTheDocument());
+    await screen.findByText('Error!');
   });
 
   it('should render correctly when there are no more sub-folders', async () => {
@@ -145,9 +139,9 @@ describe('FolderTreeItem', () => {
       </TreeView>
     );
 
-    await waitFor(() => expect(screen.getByText('/')).toBeInTheDocument());
+    await screen.findByText('/');
     fireEvent.click(screen.getByText('/'));
 
-    await waitFor(() => expect(screen.getByText('No subfolders')).toBeInTheDocument());
+    await screen.findByText('No subfolders');
   });
 });

@@ -2,6 +2,10 @@
 
 exports[`MainApp should match snapshot given valid route 1`] = `
 <body>
-  <div />
+  <div>
+    <div
+      class="main-app MuiBox-root css-1k9ek97"
+    />
+  </div>
 </body>
 `;

@@ -1,3 +1,6 @@
+import { createMemoryHistory } from 'history';
+import { Router } from 'react-router-dom';
+import { MissingRCloneInfoError } from 'hooks/rclone/useRCloneClient';
 import { InvalidRemotePathError } from 'hooks/utils/useRemotePathParams';
 import InternalErrorPage from 'pages/ErrorPages/InternalServerErrorPage';
 import NotFoundErrorPage from 'pages/ErrorPages/NotFoundErrorPage';
@@ -7,15 +10,6 @@ import PageErrorBoundary from '../PageErrorBoundary';
 
 jest.mock('pages/ErrorPages/NotFoundErrorPage');
 jest.mock('pages/ErrorPages/InternalServerErrorPage');
-
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useHistory: () => ({
-    location: {
-      pathname: '/pictures',
-    },
-  }),
-}));
 
 describe('PageErrorBoundary', () => {
   const notFoundError1 = mockErrorStackTrace(new InvalidRemotePathError('/files/123'));
@@ -36,6 +30,9 @@ describe('PageErrorBoundary', () => {
     },
   };
 
+  const authError1 = { message: 'Network Error' };
+  const authError2 = new MissingRCloneInfoError();
+
   beforeEach(() => {
     NotFoundErrorPage.mockReturnValue(null);
     InternalErrorPage.mockReturnValue(null);
@@ -50,15 +47,17 @@ describe('PageErrorBoundary', () => {
     }
   );
 
-  it('should render nothing and redirect user to the login page given an auth error', () => {
-    delete window.location;
-    window.location = { assign: jest.fn() };
+  it.each([authError1, authError2])(
+    'should render nothing and redirect user to the login page given an auth error',
+    (error) => {
+      delete window.location;
+      window.location = { assign: jest.fn() };
 
-    const error = { message: 'Network Error' };
-    renderComponent(error);
+      renderComponent(error);
 
-    expect(window.location.assign).toBeCalledWith('/login?redirect_path=/pictures');
-  });
+      expect(window.location.assign).toBeCalledWith('/login?redirect_path=/pictures');
+    }
+  );
 
   it('should render InternalErrorPage given a random error', () => {
     renderComponent(new Error('Random error'));
@@ -67,10 +66,14 @@ describe('PageErrorBoundary', () => {
   });
 
   const renderComponent = (error) => {
+    const history = createMemoryHistory({ initialEntries: ['/pictures'] });
+
     return render(
-      <PageErrorBoundary NotFoundComponent={NotFoundErrorPage}>
-        <ErrorThrowingComponent error={error} />
-      </PageErrorBoundary>
+      <Router location={history.location} navigator={history}>
+        <PageErrorBoundary NotFoundComponent={NotFoundErrorPage}>
+          <ErrorThrowingComponent error={error} />
+        </PageErrorBoundary>
+      </Router>
     );
   };
 

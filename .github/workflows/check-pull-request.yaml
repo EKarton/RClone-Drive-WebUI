@@ -1,3 +1,8 @@
+##################################################################
+# A Github action used to check pull requests
+# More info at https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
+##################################################################
+
 name: Check the pull request automatically
 on:
   push:
@@ -16,7 +21,7 @@ jobs:
       - name: Setup Node JS
         uses: actions/setup-node@v2
         with:
-          node-version: '14.15'
+          node-version: '16'
 
       - name: Cache dependencies
         uses: actions/cache@v2
@@ -40,7 +45,7 @@ jobs:
       - name: Setup Node JS
         uses: actions/setup-node@v2
         with:
-          node-version: '14.15'
+          node-version: '16'
 
       - name: Cache dependencies
         uses: actions/cache@v2
@@ -64,7 +69,7 @@ jobs:
       - name: Setup Node JS
         uses: actions/setup-node@v2
         with:
-          node-version: '14.15'
+          node-version: '16'
 
       - name: Cache dependencies
         uses: actions/cache@v2

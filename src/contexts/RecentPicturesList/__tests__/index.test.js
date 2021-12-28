@@ -1,5 +1,5 @@
 import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
-import { userEvent, render, waitFor } from 'test-utils/react';
+import { userEvent, render, screen } from 'test-utils/react';
 import { RecentPicturesProvider } from '../index';
 
 describe('RecentPicturesProvider', () => {
@@ -15,18 +15,16 @@ describe('RecentPicturesProvider', () => {
       return <button onClick={() => addImage(imageToAdd)}>Add image</button>;
     };
 
-    const component = render(
+    render(
       <RecentPicturesProvider>
         <MockComponent />
       </RecentPicturesProvider>
     );
 
-    userEvent.click(component.getByText('Add image'));
+    userEvent.click(screen.getByText('Add image'));
 
-    await waitFor(() => {
-      expect(localStorage.getItem('recently_viewed_pictures')).toEqual(
-        JSON.stringify([imageToAdd])
-      );
-    });
+    expect(localStorage.getItem('recently_viewed_pictures')).toEqual(
+      JSON.stringify([imageToAdd])
+    );
   });
 });

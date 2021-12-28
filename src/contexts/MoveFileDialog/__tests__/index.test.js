@@ -4,7 +4,8 @@ import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import useMoveFileDialog from 'hooks/utils/useMoveFileDialog';
 import { StatusTypes } from 'utils/constants';
 import { mockFiles, mockRemotes } from 'test-utils/mock-responses';
-import { render, userEvent, fireEvent, waitFor, screen } from 'test-utils/react';
+import { render, userEvent, fireEvent, screen } from 'test-utils/react';
+import { waitForElementToBeRemoved } from 'test-utils/react';
 import { MoveFileDialogProvider } from '../index';
 
 jest.mock('hooks/fetch-data/useFetchRemotes');
@@ -34,99 +35,80 @@ describe('MoveFileDialog', () => {
   });
 
   it('should open dialog, call RCloneClient.moveFile(), and close dialog when user opens the dialog, selects a dir path, and clicks ok', async () => {
-    const component = renderComponent({
+    renderComponent({
       remote: 'googledrive',
       folderPath: 'Pictures',
       name: 'dog.png',
       isDirectory: false,
     });
 
-    userEvent.click(component.getByText('Move'));
+    userEvent.click(screen.getByText('Move'));
 
-    await waitFor(() => {
-      expect(component.getByTestId('move-file-dialog')).toBeInTheDocument();
-      expect(component.getByText('googledrive')).toBeInTheDocument();
-    });
+    await screen.findByTestId('move-file-dialog');
+    await screen.findByText('googledrive');
 
     fireEvent.click(screen.getByText('googledrive'));
-    userEvent.click(component.getByTestId('ok-button'));
+    userEvent.click(screen.getByTestId('ok-button'));
 
-    await waitFor(() => {
-      expect(component.queryByTestId('move-file-dialog')).not.toBeInTheDocument();
-      expect(component.queryByText('File moved!')).toBeInTheDocument();
-      expect(moveFile).toBeCalledWith(
-        { remote: 'googledrive', folderPath: 'Pictures', fileName: 'dog.png' },
-        { remote: 'googledrive', folderPath: '', fileName: 'dog.png' }
-      );
-    });
+    await waitForElementToBeRemoved(() => screen.queryByTestId('move-file-dialog'));
+
+    await screen.findByText('File moved!');
+    expect(moveFile).toBeCalledWith(
+      { remote: 'googledrive', folderPath: 'Pictures', fileName: 'dog.png' },
+      { remote: 'googledrive', folderPath: '', fileName: 'dog.png' }
+    );
   });
 
   it('should call RCloneClient.move() when user moves a directory', async () => {
-    const component = renderComponent({
+    renderComponent({
       remote: 'googledrive',
       folderPath: 'Pictures',
       name: '2021',
       isDirectory: true,
     });
 
-    userEvent.click(component.getByText('Move'));
+    userEvent.click(screen.getByText('Move'));
 
-    await waitFor(() => {
-      expect(component.getByTestId('move-file-dialog')).toBeInTheDocument();
-      expect(component.getByText('googledrive')).toBeInTheDocument();
-    });
+    await screen.findByTestId('move-file-dialog');
+    await screen.findByText('googledrive');
 
     fireEvent.click(screen.getByText('googledrive'));
-    userEvent.click(component.getByTestId('ok-button'));
+    userEvent.click(screen.getByTestId('ok-button'));
 
-    await waitFor(() => {
-      expect(component.queryByTestId('move-file-dialog')).not.toBeInTheDocument();
-      expect(component.queryByText('File moved!')).toBeInTheDocument();
-      expect(move).toBeCalledWith(
-        { remote: 'googledrive', folderPath: 'Pictures', fileName: '2021' },
-        { remote: 'googledrive', folderPath: '', fileName: '2021' },
-        true,
-        false
-      );
-    });
+    await waitForElementToBeRemoved(() => screen.queryByTestId('move-file-dialog'));
+
+    await screen.findByText('File moved!');
+    expect(move).toBeCalledWith(
+      { remote: 'googledrive', folderPath: 'Pictures', fileName: '2021' },
+      { remote: 'googledrive', folderPath: '', fileName: '2021' },
+      true,
+      false
+    );
   });
 
   it('should close the dialog and not call RCloneClient when user opens the dialog and clicks cancel', async () => {
-    const component = renderComponent({
+    renderComponent({
       remote: 'googledrive',
       folderPath: 'Pictures',
       name: '2021',
       isDirectory: true,
     });
 
-    userEvent.click(component.getByText('Move'));
+    userEvent.click(screen.getByText('Move'));
 
-    await waitFor(() => {
-      expect(component.getByTestId('move-file-dialog')).toBeInTheDocument();
-      expect(component.getByText('googledrive')).toBeInTheDocument();
-    });
+    await screen.findByTestId('move-file-dialog');
+    await screen.findByText('googledrive');
 
     fireEvent.click(screen.getByText('googledrive'));
-    userEvent.click(component.getByTestId('cancel-button'));
+    userEvent.click(screen.getByTestId('cancel-button'));
 
-    await waitFor(() => {
-      expect(component.queryByTestId('move-file-dialog')).not.toBeInTheDocument();
-      expect(component.queryByText('File move aborted')).toBeInTheDocument();
-      expect(move).not.toBeCalled();
-      expect(moveFile).not.toBeCalled();
-    });
+    await waitForElementToBeRemoved(() => screen.queryByTestId('move-file-dialog'));
+
+    await screen.findByText('File move aborted');
+
+    expect(move).not.toBeCalled();
+    expect(moveFile).not.toBeCalled();
   });
-
-  //   it('should throw an error when useMoveFileDialog() is used outside of MoveFileDialogProvider', () => {
-  //     jest.spyOn(console, 'error').mockImplementation(() => {});
-
-  //     const MockComponent = () => {
-  //       useMoveFileDialog();
-  //       return <div>Test Component</div>;
-  //     };
-
-  //     expect(() => render(<MockComponent />)).toThrowError();
-  //   });
 
   const renderComponent = (fileToMove) => {
     return render(

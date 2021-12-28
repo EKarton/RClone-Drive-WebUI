@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router';
 import FileListTable from 'components/FileListTable';
 import FileListTableSkeleton from 'components/FileListTableSkeleton';
 import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
@@ -15,7 +15,7 @@ import AddFilesDropSection from './AddFilesDropSection';
 import './index.scss';
 
 export default function Table({ remote, path }) {
-  const history = useHistory();
+  const navigate = useNavigate();
   const fileViewer = useFileViewerDialog();
   const moveFileDialog = useMoveFileDialog();
   const renameFileDialog = useRenameFileDialog();
@@ -48,7 +48,7 @@ export default function Table({ remote, path }) {
   const handleFileOpen = (file) => {
     if (file.isDirectory) {
       const newRemotePath = `${remote}:${file.path}`;
-      history.push(`/files/${hashRemotePath(newRemotePath)}`);
+      navigate(`/files/${hashRemotePath(newRemotePath)}`);
       return;
     }
 

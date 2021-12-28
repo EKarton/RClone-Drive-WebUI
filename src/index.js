@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import 'semantic-ui-css/semantic.min.css';
 import MainApp from 'apps/MainApp';
 import { ColorModeProvider } from 'contexts/ColorMode/index';
 import { RCloneInfoProvider } from 'contexts/RCloneInfo';
@@ -12,17 +11,17 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppErrorBoundary>
-      <RCloneInfoProvider>
-        <RecentPicturesProvider>
-          <BrowserRouter>
+    <BrowserRouter>
+      <AppErrorBoundary>
+        <RCloneInfoProvider>
+          <RecentPicturesProvider>
             <ColorModeProvider>
               <MainApp />
             </ColorModeProvider>
-          </BrowserRouter>
-        </RecentPicturesProvider>
-      </RCloneInfoProvider>
-    </AppErrorBoundary>
+          </RecentPicturesProvider>
+        </RCloneInfoProvider>
+      </AppErrorBoundary>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

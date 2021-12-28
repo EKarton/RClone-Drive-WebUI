@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Breadcrumbs from 'components/Breadcrumbs';
 import { FileViewerDialogProvider } from 'contexts/FileViewerDialog';
 import { MoveFileDialogProvider } from 'contexts/MoveFileDialog';
@@ -18,7 +17,8 @@ export default function FilesListPage() {
             <Breadcrumbs
               remote={remote}
               path={path}
-              homeLink={<Link to="/files">My Files</Link>}
+              homeText="My Files"
+              homePath="/files"
             />
             <Table remote={remote} path={path} />
           </div>

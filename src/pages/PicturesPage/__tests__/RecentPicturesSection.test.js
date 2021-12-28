@@ -2,10 +2,10 @@ import Image from 'components/Image';
 import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
 import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
 import getExistingPictures from 'utils/getExistingPictures';
-import { customRender, userEvent, waitFor } from 'test-utils/react';
+import { customRender, userEvent, screen } from 'test-utils/react';
 import RecentPicturesSection from '../RecentPicturesSection';
 
-const recentPicturesList = [
+const recentPictures = [
   {
     folderPath: 'Pictures/2010/Tomas',
     fileName: '20100918_091219.jpg',
@@ -77,11 +77,11 @@ describe('RecentPicturesSection', () => {
     fileViewerShowFn.mockReset();
 
     useRecentlyViewedImages.mockReturnValue({
-      recentPictures: recentPicturesList,
+      recentPictures: recentPictures,
       addImage: addImageFn,
     });
 
-    getExistingPictures.mockResolvedValue(recentPicturesList);
+    getExistingPictures.mockResolvedValue(recentPictures);
 
     useFileViewerDialog.mockReturnValue({
       show: fileViewerShowFn,
@@ -99,16 +99,14 @@ describe('RecentPicturesSection', () => {
       value: 800,
     });
 
-    const component = customRender(<RecentPicturesSection />);
+    const { baseElement } = customRender(<RecentPicturesSection />);
 
-    await waitFor(() => {
-      expect(component.queryByTestId(recentPicturesList[0].fileName)).toBeInTheDocument();
-      expect(component.queryByTestId(recentPicturesList[1].fileName)).toBeInTheDocument();
-      expect(component.queryByTestId(recentPicturesList[2].fileName)).toBeInTheDocument();
-      expect(component.queryByTestId(recentPicturesList[3].fileName)).toBeInTheDocument();
+    await screen.findByTestId(recentPictures[0].fileName);
+    await screen.findByTestId(recentPictures[1].fileName);
+    await screen.findByTestId(recentPictures[2].fileName);
+    await screen.findByTestId(recentPictures[3].fileName);
 
-      expect(component.baseElement).toMatchSnapshot();
-    });
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('should render correctly if screen width is > 1920', async () => {
@@ -117,18 +115,16 @@ describe('RecentPicturesSection', () => {
       value: 2000,
     });
 
-    const component = customRender(<RecentPicturesSection />);
+    const { baseElement } = customRender(<RecentPicturesSection />);
 
-    await waitFor(() => {
-      expect(component.queryByTestId(recentPicturesList[0].fileName)).toBeInTheDocument();
-      expect(component.queryByTestId(recentPicturesList[1].fileName)).toBeInTheDocument();
-      expect(component.queryByTestId(recentPicturesList[2].fileName)).toBeInTheDocument();
-      expect(component.queryByTestId(recentPicturesList[3].fileName)).toBeInTheDocument();
-      expect(component.queryByTestId(recentPicturesList[4].fileName)).toBeInTheDocument();
-      expect(component.queryByTestId(recentPicturesList[5].fileName)).toBeInTheDocument();
+    await screen.findByTestId(recentPictures[0].fileName);
+    await screen.findByTestId(recentPictures[1].fileName);
+    await screen.findByTestId(recentPictures[2].fileName);
+    await screen.findByTestId(recentPictures[3].fileName);
+    await screen.findByTestId(recentPictures[4].fileName);
+    await screen.findByTestId(recentPictures[5].fileName);
 
-      expect(component.baseElement).toMatchSnapshot();
-    });
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('should call addImage() and fileViewer.show() correctly if user clicks on an image', async () => {
@@ -137,18 +133,13 @@ describe('RecentPicturesSection', () => {
       value: 2000,
     });
 
-    const component = customRender(<RecentPicturesSection />);
+    customRender(<RecentPicturesSection />);
 
-    await waitFor(() => {
-      expect(component.getByTestId(recentPicturesList[0].fileName)).toBeInTheDocument();
-    });
+    await screen.findByTestId(recentPictures[0].fileName);
+    userEvent.click(screen.getByTestId(recentPictures[0].fileName));
 
-    userEvent.click(component.getByTestId(recentPicturesList[0].fileName));
-
-    await waitFor(() => {
-      expect(addImageFn).toBeCalledWith(recentPicturesList[0]);
-      expect(fileViewerShowFn).toBeCalledWith(recentPicturesList[0]);
-    });
+    expect(addImageFn).toBeCalledWith(recentPictures[0]);
+    expect(fileViewerShowFn).toBeCalledWith(recentPictures[0]);
   });
 
   it('should render nothing when there are no recent pictures', async () => {
@@ -159,9 +150,7 @@ describe('RecentPicturesSection', () => {
 
     const { baseElement } = customRender(<RecentPicturesSection />);
 
-    await waitFor(() => {
-      expect(baseElement).toMatchSnapshot();
-    });
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('should render fillers when there are less than the max. number of images', async () => {
@@ -185,10 +174,8 @@ describe('RecentPicturesSection', () => {
 
     getExistingPictures.mockResolvedValue(recentPictures);
 
-    const component = customRender(<RecentPicturesSection />);
+    customRender(<RecentPicturesSection />);
 
-    await waitFor(() => {
-      expect(component.getAllByTestId('image-fillers').length).toEqual(3);
-    });
+    expect((await screen.findAllByTestId('image-fillers')).length).toEqual(3);
   });
 });

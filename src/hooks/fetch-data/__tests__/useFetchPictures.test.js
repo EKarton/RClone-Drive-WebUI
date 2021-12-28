@@ -22,9 +22,9 @@ describe('useFetchPictures()', () => {
 
     const { result } = renderHook(() => useFetchPictures('gdrive', 'Pictures'));
 
+    await waitFor(() => expect(result.current.status).toEqual(StatusTypes.SUCCESS));
+    await waitFor(() => expect(result.current.data).toEqual(mockPictures.list));
     await waitFor(() => {
-      expect(result.current.status).toEqual(StatusTypes.SUCCESS);
-      expect(result.current.data).toEqual(mockPictures.list);
       expect(rCloneClient.fetchPictures).toBeCalledWith('gdrive', 'Pictures', {
         cancelToken: expect.any(axios.CancelToken),
       });

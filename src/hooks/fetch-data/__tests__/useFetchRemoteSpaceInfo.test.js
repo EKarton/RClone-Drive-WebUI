@@ -22,9 +22,9 @@ describe('useFetchRemoteSpaceInfo()', () => {
 
     const { result } = renderHook(() => useFetchRemoteSpaceInfo('gdrive'));
 
+    await waitFor(() => expect(result.current.status).toEqual(StatusTypes.SUCCESS));
+    await waitFor(() => expect(result.current.data).toEqual(mockOperationsAboutResponse));
     await waitFor(() => {
-      expect(result.current.status).toEqual(StatusTypes.SUCCESS);
-      expect(result.current.data).toEqual(mockOperationsAboutResponse);
       expect(rCloneClient.fetchRemoteSpaceInfo).toBeCalledWith('gdrive', {
         cancelToken: expect.any(axios.CancelToken),
       });

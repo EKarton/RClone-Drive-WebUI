@@ -1,6 +1,6 @@
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { mockFiles } from 'test-utils/mock-responses';
-import { customRender, fireEvent, userEvent, waitFor } from 'test-utils/react';
+import { customRender, fireEvent, userEvent, waitFor, screen } from 'test-utils/react';
 import AddFilesContextArea from '../AddFilesContextArea';
 
 jest.mock('hooks/rclone/useRCloneClient');
@@ -19,60 +19,50 @@ describe('AddFilesContextArea', () => {
     });
   });
 
-  it('should show context menu when user right-clicks on context area', () => {
-    const component = renderComponent();
+  it('should show context menu when user right-clicks on context area', async () => {
+    const { baseElement } = renderComponent();
 
-    fireEvent.contextMenu(component.getByTestId('add-files-context-area__region'));
+    fireEvent.contextMenu(screen.getByTestId('add-files-context-area__region'));
 
-    expect(component.getByRole('menu')).toBeVisible();
-    expect(component.baseElement).toMatchSnapshot();
+    expect(screen.getByRole('menu')).toBeVisible();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('should close the context menu when user right-clicks on context area and clicks on the context area', async () => {
-    const component = renderComponent();
+    renderComponent();
 
-    fireEvent.contextMenu(component.getByTestId('add-files-context-area__region'));
+    fireEvent.contextMenu(screen.getByTestId('add-files-context-area__region'));
 
     // Derived from https://stackoverflow.com/questions/55030879/how-to-trigger-onclose-for-react-ui-menu-with-react-testing-libray
-    fireEvent.click(component.getByRole('presentation').firstChild);
+    fireEvent.click(screen.getByRole('presentation').firstChild);
 
-    await waitFor(() => expect(component.queryByRole('menu')).not.toBeInTheDocument());
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
   });
 
   it('should call RCloneClient.mkdir() and onNewFolderCreated() correctly when user right-clicks and selects New Folder', async () => {
-    const component = renderComponent();
+    const view = renderComponent();
 
-    fireEvent.contextMenu(component.getByTestId('add-files-context-area__region'));
+    fireEvent.contextMenu(screen.getByTestId('add-files-context-area__region'));
+    userEvent.click(screen.getByTestId('new-folder'));
 
-    expect(component.getByRole('menu')).toBeVisible();
-
-    userEvent.click(component.getByTestId('new-folder'));
-
-    await waitFor(() => {
-      expect(mkdir).toBeCalledWith('gdrive', 'Documents/New Folder');
-      expect(component.onNewFolderCreated).toBeCalled();
-    });
+    await waitFor(() => expect(mkdir).toBeCalledWith('gdrive', 'Documents/New Folder'));
+    await waitFor(() => expect(view.onNewFolderCreated).toBeCalled());
   });
 
   it('should not do anything and call onUploadedFile() correctly when user right-clicks and selects Upload File', async () => {
-    const component = renderComponent();
+    const view = renderComponent();
 
-    fireEvent.contextMenu(component.getByTestId('add-files-context-area__region'));
+    fireEvent.contextMenu(screen.getByTestId('add-files-context-area__region'));
+    userEvent.click(screen.getByTestId('upload-file'));
 
-    expect(component.getByRole('menu')).toBeVisible();
-
-    userEvent.click(component.getByTestId('upload-file'));
-
-    await waitFor(() => {
-      expect(component.onUploadedFile).toBeCalled();
-    });
+    await waitFor(() => expect(view.onUploadedFile).toBeCalled());
   });
 
   const renderComponent = () => {
     const onNewFolderCreated = jest.fn();
     const onUploadedFile = jest.fn();
 
-    const component = customRender(
+    const view = customRender(
       <AddFilesContextArea
         remote="gdrive"
         path="Documents"
@@ -83,9 +73,9 @@ describe('AddFilesContextArea', () => {
       </AddFilesContextArea>
     );
 
-    component.onNewFolderCreated = onNewFolderCreated;
-    component.onUploadedFile = onUploadedFile;
+    view.onNewFolderCreated = onNewFolderCreated;
+    view.onUploadedFile = onUploadedFile;
 
-    return component;
+    return view;
   };
 });

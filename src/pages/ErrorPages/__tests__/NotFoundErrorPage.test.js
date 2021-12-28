@@ -24,7 +24,7 @@ describe('NotFoundErrorPage', () => {
 
     await waitFor(() => {
       expect(axios.get).toBeCalledWith('https://dog.ceo/api/breeds/image/random');
-      expect(baseElement).toMatchSnapshot();
     });
+    expect(baseElement).toMatchSnapshot();
   });
 });

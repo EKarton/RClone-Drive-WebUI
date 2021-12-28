@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router';
 import RemotesListSection from 'components/RemotesListSection';
 import { FileViewerDialogProvider } from 'contexts/FileViewerDialog/index';
 import { hashRemotePath } from 'utils/remote-paths-url';
@@ -11,7 +11,7 @@ import './index.scss';
  * Represents the Pictures page with the list of remotes
  */
 export default function PicturesPage() {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [selectedRemote, setSelectedRemote] = useState();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -32,7 +32,7 @@ export default function PicturesPage() {
   };
 
   const handleFolderDialogSelected = (remotePath) => {
-    history.push(`/pictures/${hashRemotePath(remotePath)}`);
+    navigate(`/pictures/${hashRemotePath(remotePath)}`);
     setIsDialogOpen(false);
   };
 

@@ -1,5 +1,5 @@
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
-import { customRender, fireEvent, waitFor } from 'test-utils/react';
+import { customRender, fireEvent, waitFor, screen } from 'test-utils/react';
 import AddFilesDropSection from '../AddFilesDropSection';
 
 jest.mock('hooks/rclone/useRCloneClient');
@@ -34,8 +34,8 @@ describe('AddFilesDropSection', () => {
       },
     ]);
 
-    const component = renderComponent();
-    const dropSection = component.getByTestId('add-files-drop-section');
+    renderComponent();
+    const dropSection = screen.getByTestId('add-files-drop-section');
     fireEvent.dragEnter(dropSection);
     fireEvent.drop(dropSection, { dataTransfer: { items: dataTransferItems } });
     fireEvent.dragEnd(dropSection);
@@ -46,6 +46,9 @@ describe('AddFilesDropSection', () => {
         'Documents/Pictures',
         expect.any(File)
       );
+    });
+
+    await waitFor(() => {
       expect(uploadFiles).toBeCalledWith(
         'gdrive',
         'Documents/Pictures/2021',
@@ -53,10 +56,6 @@ describe('AddFilesDropSection', () => {
       );
     });
   });
-
-  it('should render drop section correctly when user enters the drag region', () => {});
-
-  it('should render drop section correctly when user leaves the drag region', () => {});
 
   const createDataTransferItems = (root) => {
     return root.map((item) => {
@@ -97,14 +96,14 @@ describe('AddFilesDropSection', () => {
 
   const renderComponent = () => {
     const onUploadedFiles = jest.fn();
-    const component = customRender(
+    const view = customRender(
       <AddFilesDropSection
         remote="gdrive"
         folderPath="Documents"
         onUploadedFiles={onUploadedFiles}
       />
     );
-    component.onUploadedFiles = onUploadedFiles;
-    return component;
+    view.onUploadedFiles = onUploadedFiles;
+    return view;
   };
 });

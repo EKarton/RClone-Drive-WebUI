@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { createMemoryHistory } from 'history';
-import { Router, Route, Switch } from 'react-router';
+import { Router, Routes, Route } from 'react-router';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import useRemotePathParams from '../useRemotePathParams';
 
@@ -28,10 +28,10 @@ describe('useRemotePathParams()', () => {
       const history = createMemoryHistory({ initialEntries: [route] });
 
       return (
-        <Router history={history}>
-          <Switch>
-            <Route path="/files/:id">{children}</Route>
-          </Switch>
+        <Router location={history.location} navigator={history}>
+          <Routes>
+            <Route path="/files/:id" element={children} />
+          </Routes>
         </Router>
       );
     };

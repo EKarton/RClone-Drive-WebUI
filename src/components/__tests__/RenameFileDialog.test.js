@@ -1,4 +1,4 @@
-import { customRender, userEvent, fireEvent } from 'test-utils/react';
+import { customRender, userEvent, fireEvent, screen } from 'test-utils/react';
 import RenameFileDialog from '../RenameFileDialog';
 
 describe('RenameFileDialog', () => {
@@ -12,26 +12,26 @@ describe('RenameFileDialog', () => {
   });
 
   it('should call onCancel() when user clicks on the Cancel button', () => {
-    const component = renderComponent();
+    renderComponent();
 
-    userEvent.click(component.getByTestId('cancel'));
+    userEvent.click(screen.getByTestId('cancel'));
 
     expect(onCancel).toBeCalled();
   });
 
   it('should call onCancel() when user types nothing in the textbox and clicks on the Ok button', () => {
-    const component = renderComponent();
+    renderComponent();
 
-    userEvent.click(component.getByTestId('ok'));
+    userEvent.click(screen.getByTestId('ok'));
 
     expect(onCancel).toBeCalled();
   });
 
   it('should call onRename() when user types text in the text box and clicks on the Ok button', () => {
-    const component = renderComponent();
+    renderComponent();
 
-    fireEvent.change(component.getByRole('textbox'), { target: { value: 'dog2.png' } });
-    userEvent.click(component.getByTestId('ok'));
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'dog2.png' } });
+    userEvent.click(screen.getByTestId('ok'));
 
     expect(onRename).toBeCalledWith('dog2.png');
   });

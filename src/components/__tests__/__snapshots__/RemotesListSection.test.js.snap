@@ -10,9 +10,11 @@ exports[`RemotesListSection should match snapshot when api call was successful 1
 <body>
   <div>
     <div
-      class="MuiTypography-root MuiTypography-h7 remotes-list-section__header-text css-jab4h0-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h7 css-jab4h0-MuiTypography-root"
     >
-      Your Remotes
+      <strong>
+        Your Remotes
+      </strong>
     </div>
     <div>
       googledrive,onedrive,icloud

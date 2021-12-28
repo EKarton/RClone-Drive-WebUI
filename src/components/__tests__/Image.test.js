@@ -1,7 +1,7 @@
 import Image from 'components/Image';
 import useFetchImage from 'hooks/fetch-data/useFetchImage';
 import { StatusTypes } from 'utils/constants';
-import { customRender, waitFor } from 'test-utils/react';
+import { customRender, screen } from 'test-utils/react';
 
 jest.mock('hooks/fetch-data/useFetchImage');
 
@@ -17,14 +17,12 @@ describe('Image', () => {
       status: StatusTypes.LOADING,
     });
 
-    const component = customRender(
+    const { baseElement } = customRender(
       <Image image={imageProps} width="20px" height="20px" />
     );
 
-    await waitFor(() => {
-      expect(component.getByTestId('image-spinner')).toBeInTheDocument();
-      expect(component.baseElement).toMatchSnapshot();
-    });
+    await screen.findByTestId('image-spinner');
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('should render image when api call finishes', async () => {
@@ -33,14 +31,12 @@ describe('Image', () => {
       data: 'blob://data',
     });
 
-    const component = customRender(
+    const { baseElement } = customRender(
       <Image image={imageProps} width="20px" height="20px" />
     );
 
-    await waitFor(() => {
-      expect(component.getByTestId('image-content')).toBeInTheDocument();
-      expect(component.baseElement).toMatchSnapshot();
-    });
+    await screen.findByTestId('image-content');
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('should render error message when api call fails', async () => {
@@ -49,13 +45,11 @@ describe('Image', () => {
       error: new Error('Image not found'),
     });
 
-    const component = customRender(
+    const { baseElement } = customRender(
       <Image image={imageProps} width="20px" height="20px" />
     );
 
-    await waitFor(() => {
-      expect(component.getByTestId('image-error')).toBeInTheDocument();
-      expect(component.baseElement).toMatchSnapshot();
-    });
+    await screen.findByTestId('image-error');
+    expect(baseElement).toMatchSnapshot();
   });
 });

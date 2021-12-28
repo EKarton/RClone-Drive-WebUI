@@ -43,13 +43,13 @@ describe('PicturesPage', () => {
       return null;
     });
 
-    const component = renderComponent();
+    const view = renderComponent();
 
     act(() => jest.runAllTimers());
 
     await waitFor(() => {
       const expectedPath = `/pictures/${hashRemotePath('googledrive:Pictures')}`;
-      expect(component.history.location.pathname).toEqual(expectedPath);
+      expect(view.history.location.pathname).toEqual(expectedPath);
     });
   });
 
@@ -100,10 +100,10 @@ describe('PicturesPage', () => {
       </FileViewerDialogProvider>
     );
 
-    const component = customRender(componentToRender, {
+    const view = customRender(componentToRender, {
       initialRCloneInfoState,
     });
 
-    return component;
+    return view;
   };
 });

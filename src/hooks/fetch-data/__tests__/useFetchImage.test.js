@@ -35,16 +35,12 @@ describe('useFetchImage()', () => {
 
     const { result } = renderHook(() => useFetchImage(image));
 
-    await waitFor(() => {
-      expect(result.current.status).toEqual(StatusTypes.LOADING);
-    });
+    await waitFor(() => expect(result.current.status).toEqual(StatusTypes.LOADING));
 
     act(() => jest.runAllTimers());
 
-    await waitFor(() => {
-      expect(result.current.status).toEqual(StatusTypes.SUCCESS);
-      expect(result.current.data).toEqual('blob://data');
-    });
+    await waitFor(() => expect(result.current.status).toEqual(StatusTypes.SUCCESS));
+    await waitFor(() => expect(result.current.data).toEqual('blob://data'));
   });
 
   it('should return correct results when api fails', async () => {
@@ -53,10 +49,8 @@ describe('useFetchImage()', () => {
 
     const { result } = renderHook(() => useFetchImage(image));
 
-    await waitFor(() => {
-      expect(result.current.status).toEqual(StatusTypes.ERROR);
-      expect(result.current.error).toEqual(error);
-    });
+    await waitFor(() => expect(result.current.status).toEqual(StatusTypes.ERROR));
+    await waitFor(() => expect(result.current.error).toEqual(error));
   });
 
   it('should return correct results when api call is cancelled', async () => {
@@ -64,8 +58,6 @@ describe('useFetchImage()', () => {
 
     const { result } = renderHook(() => useFetchImage(image));
 
-    await waitFor(() => {
-      expect(result.current.status).toEqual(StatusTypes.LOADING);
-    });
+    await waitFor(() => expect(result.current.status).toEqual(StatusTypes.LOADING));
   });
 });

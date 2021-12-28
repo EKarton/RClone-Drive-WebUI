@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import useRCloneInfo from 'hooks/rclone/useRCloneInfo';
 
 export default function LogoutPage() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { clearRCloneInfo } = useRCloneInfo();
 
   useEffect(() => {
     clearRCloneInfo();
-    history.push('/');
-  }, [clearRCloneInfo, history]);
+    navigate('/');
+  }, [clearRCloneInfo, navigate]);
 
   return <div>Logging out...</div>;
 }
