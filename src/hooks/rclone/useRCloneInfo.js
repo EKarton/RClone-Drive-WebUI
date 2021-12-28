@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { actionTypes } from 'contexts/RCloneInfo';
-import { store as defaultStore } from 'contexts/RCloneInfo';
+import { RCloneInfoContext } from 'contexts/RCloneInfo';
 
 /**
  * Returns the RClone info
@@ -19,7 +19,7 @@ import { store as defaultStore } from 'contexts/RCloneInfo';
  * @param {React.Context} store the React Context store (used for testing only)
  * @returns {object} the object with the shape above
  */
-export default function useRCloneInfo(store = defaultStore) {
+export default function useRCloneInfo(store = RCloneInfoContext) {
   const { state, dispatch } = useContext(store);
 
   const setRCloneInfo = (newInfo) => {

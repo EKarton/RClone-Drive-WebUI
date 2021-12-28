@@ -14,15 +14,27 @@ export const RCloneInfoProvider = ({ children, defaultState = InitialState }) =>
   const [state, dispatch] = useReducer(reducer, defaultState);
 
   useEffect(() => {
-    localStorage.setItem('endpoint', state.endpoint);
+    if (state.endpoint) {
+      localStorage.setItem('endpoint', state.endpoint);
+    } else {
+      localStorage.clear('endpoint');
+    }
   }, [state.endpoint]);
 
   useEffect(() => {
-    localStorage.setItem('username', state.username);
+    if (state.username) {
+      localStorage.setItem('username', state.username);
+    } else {
+      localStorage.clear('username');
+    }
   }, [state.username]);
 
   useEffect(() => {
-    localStorage.setItem('password', state.password);
+    if (state.password) {
+      localStorage.setItem('password', state.password);
+    } else {
+      localStorage.clear('password');
+    }
   }, [state.password]);
 
   return (
@@ -32,9 +44,4 @@ export const RCloneInfoProvider = ({ children, defaultState = InitialState }) =>
   );
 };
 
-export {
-  RCloneInfoContext as store,
-  // RCloneInfoProvider as RCloneInfoProvider,
-  actionTypes,
-  InitialState as initialState,
-};
+export { actionTypes };
