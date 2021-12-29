@@ -1,35 +1,13 @@
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
-import IntroScreenImage from 'assets/images/landing-page/files-list-page.png';
+import DarkModeImage from 'assets/images/landing-page/dark-mode.png';
+import ActionsImage from 'assets/images/landing-page/move-file-modal.png';
+import FileViewerImage from 'assets/images/landing-page/pdf-viewer.png';
+import PicturesListPageImage from 'assets/images/landing-page/pictures-list-page.png';
 import AppBar from './AppBar';
-import './IntroSection.scss';
-
-const IntroSection = () => {
-  return (
-    <div className="intro-section">
-      <div className="intro-section__left-panel">
-        <Container>
-          <Typography variant="h3" className="intro-section__title">
-            <strong>RClone Drive</strong>
-          </Typography>
-          <Typography variant="h5" className="intro-section__subtitle">
-            A RClone client to view and manage your cloud files on the web.
-          </Typography>
-          <Button variant="contained" component={Link} to={'/login'}>
-            Login
-          </Button>
-        </Container>
-      </div>
-      <div>
-        <img src={IntroScreenImage} className="intro-section__image" />
-      </div>
-    </div>
-  );
-};
+import FeatureSection from './FeatureSection';
+import HighlightsSection from './HighlightsSection';
+import IntroSection from './IntroSection';
 
 const LandingPage = () => {
   return (
@@ -38,6 +16,31 @@ const LandingPage = () => {
       <AppBar />
       <Toolbar />
       <IntroSection />
+      <HighlightsSection />
+      <FeatureSection
+        variant="right"
+        title="View all pictures"
+        subtitle="View and scroll through all of your pictures"
+        imgSrc={PicturesListPageImage}
+      />
+      <FeatureSection
+        variant="left"
+        title="Open and download files"
+        subtitle="View, open, and download PDFs, images, and text documents"
+        imgSrc={FileViewerImage}
+      />
+      <FeatureSection
+        variant="right"
+        title="Manage files on different cloud drives"
+        subtitle="Upload, copy, rename, delete, and move files between different cloud drives"
+        imgSrc={ActionsImage}
+      />
+      <FeatureSection
+        variant="left"
+        title="Dark mode"
+        subtitle="Ease your eyes with dark theme"
+        imgSrc={DarkModeImage}
+      />
     </>
   );
 };

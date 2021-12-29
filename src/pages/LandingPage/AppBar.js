@@ -23,10 +23,10 @@ export default function AppBar() {
           <AppLogo />
           <div className="landing-page-app-bar__right-items">
             <DarkModeToggleSwitch />
-            <Button component={Link} to={'/login'}>
+            <Button component={Link} to="https://github.com/EKarton/RClone-Drive-WebUI">
               View Github
             </Button>
-            <Button variant="contained" component={Link} to={'/login'}>
+            <Button variant="contained" component={Link} to="/login">
               Login
             </Button>
           </div>

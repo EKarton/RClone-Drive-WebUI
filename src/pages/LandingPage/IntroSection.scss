@@ -1,8 +1,11 @@
 .intro-section {
   display: flex;
+  height: calc(100vh - 4rem);
+  align-items: center;
 
   &__left-panel {
-    margin: 6rem 0;
+    margin-left: 6rem;
+    margin-bottom: 6rem;
   }
 
   &__title {
@@ -14,6 +17,9 @@
   }
 
   &__image {
+    background-image: url('../../assets/images/landing-page/files-list-page.png');
+    background-size: cover;
+    width: 100%;
     height: 100%;
     object-fit: contain;
     overflow: hidden;

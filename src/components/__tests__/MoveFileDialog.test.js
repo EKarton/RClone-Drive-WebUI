@@ -49,14 +49,16 @@ describe('MoveFileDialog', () => {
     });
 
     const { baseElement } = customRender(
-      <MoveFileDialog open onCancel={onCancel} onOk={onOk} />
+      <MoveFileDialog open fileName="dog.png" onCancel={onCancel} onOk={onOk} />
     );
 
     expect(baseElement).toMatchSnapshot();
   });
 
   it('should call onCancel() when user clicks on Cancel button', () => {
-    customRender(<MoveFileDialog open onCancel={onCancel} onOk={onOk} />);
+    customRender(
+      <MoveFileDialog open fileName="dog.png" onCancel={onCancel} onOk={onOk} />
+    );
 
     userEvent.click(screen.getByTestId('cancel-button'));
 
@@ -64,7 +66,9 @@ describe('MoveFileDialog', () => {
   });
 
   it('should call onOk() when user selects a subfolder and clicks on the Ok button', async () => {
-    customRender(<MoveFileDialog open onCancel={onCancel} onOk={onOk} />);
+    customRender(
+      <MoveFileDialog open fileName="dog.png" onCancel={onCancel} onOk={onOk} />
+    );
 
     await screen.findByText('googledrive');
 
@@ -75,7 +79,9 @@ describe('MoveFileDialog', () => {
   });
 
   it('should call onCancel() when user did not select anything and clicks on the Ok button', async () => {
-    customRender(<MoveFileDialog open onCancel={onCancel} onOk={onOk} />);
+    customRender(
+      <MoveFileDialog open fileName="dog.png" onCancel={onCancel} onOk={onOk} />
+    );
 
     userEvent.click(screen.getByTestId('ok-button'));
 

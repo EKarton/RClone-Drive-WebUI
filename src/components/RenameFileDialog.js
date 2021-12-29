@@ -32,7 +32,9 @@ export default function RenameFileDialog({ open, fileName, onCancel, onRename })
       aria-describedby="rename-file-dialog-description"
       data-testid="rename-file-dialog"
     >
-      <DialogTitle id="rename-file-dialog-title">Rename File / Directory</DialogTitle>
+      <DialogTitle id="rename-file-dialog-title">
+        Rename <strong>{fileName}</strong> to:
+      </DialogTitle>
       <DialogContent>
         <TextField
           size="small"

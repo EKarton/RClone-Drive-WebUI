@@ -56,7 +56,12 @@ export function MoveFileDialogProvider({ children }) {
 
   return (
     <MoveFileDialogContext.Provider value={{ moveFile }}>
-      <MoveFileDialog open={isOpen} onCancel={handleCancel} onOk={handleOk} />
+      <MoveFileDialog
+        open={isOpen}
+        fileName={fileToMove?.name}
+        onCancel={handleCancel}
+        onOk={handleOk}
+      />
       {children}
     </MoveFileDialogContext.Provider>
   );
