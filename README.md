@@ -109,7 +109,7 @@ Each time a picture is viewed, it gets added to a list of recently viewed pictur
 
    More info is at the [RClone docs](https://rclone.org/commands/rclone_rcd/)
 
-3. Run this app in development mode by running `yarn start-dev`. It should open a web browser on `localhost:3000`
+3. Run this app in development mode by running `yarn start-dev`. You can access your local build on http://localhost:3000 on your web browser.
 
 ### Useful Scripts for Local Development:
 
