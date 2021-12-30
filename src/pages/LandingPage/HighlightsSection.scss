@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-around;
   padding: 6rem;
-  column-gap: 3rem;
+  gap: 3rem;
 
   &__column {
     flex-grow: 1;
@@ -15,5 +15,11 @@
     column-gap: 0.5rem;
     justify-content: left;
     padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .highlights-section {
+    flex-direction: column;
   }
 }
