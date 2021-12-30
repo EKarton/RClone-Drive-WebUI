@@ -17,7 +17,7 @@ The RClone Drive Web UI is a RClone client that provides an easy-to-use web inte
 - [x] Set theme to dark mode
 - [ ] Search for files and images across remotes
 
-### Usage:
+### Walkthrough:
 
 Users will be using a front-end web application to view and manage their files on RClone. In the login page, they will need to specify the url of their RClone instance (usually it is http://localhost:5572), their username, and password:
 
@@ -90,7 +90,7 @@ Each time a picture is viewed, it gets added to a list of recently viewed pictur
    </p>
 </div>
 
-### Setup:
+### Setup / Getting Started:
 
 1. Install dependencies by running `yarn install`
 2. Start your RClone instance:
@@ -111,7 +111,7 @@ Each time a picture is viewed, it gets added to a list of recently viewed pictur
 
 3. Run this app in development mode by running `yarn start-dev`. It should open a web browser on `localhost:3000`
 
-### Useful Scripts:
+### Useful Scripts for Local Development:
 
 1. `yarn test`
 
