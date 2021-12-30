@@ -4,7 +4,7 @@
 
 ### Description:
 
-The RClone Drive Web UI is a RClone client that provides an easy-to-use web interface to view and manage your files on RClone. It interfaces with your RClone instance's [Remote Control](https://rclone.org/rc/) http client to connect to your cloud drives.
+The RClone Drive Web UI is a RClone client that provides an easy-to-use web interface to view and manage your files on RClone. It uses your RClone instance's [Remote Control](https://rclone.org/rc/) to connect to your cloud drives.
 
 ### Features:
 
