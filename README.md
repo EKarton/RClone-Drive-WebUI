@@ -19,7 +19,9 @@ The RClone Drive Web UI is a RClone client that provides an easy-to-use web inte
 
 ### Walkthrough:
 
-Users will be using a front-end web application to view and manage their files on RClone. In the login page, they will need to specify the url of their RClone instance (usually it is http://localhost:5572), their username, and password:
+Users will be using a front-end web application to view and manage their files on RClone. Before using the app, they would need to have RClone installed on their machines and run RClone in RCD mode. To set up RClone, users can follow [RClone's documentation](https://rclone.org/docs/). To ru RClone in RCD mode, users can follow [this guide](https://rclone.org/commands/rclone_rcd/).
+
+In the login page, they will need to specify the url of their RClone instance (usually it is http://localhost:5572), their username, and password:
 
 <div width="100%">
    <p align="center">
