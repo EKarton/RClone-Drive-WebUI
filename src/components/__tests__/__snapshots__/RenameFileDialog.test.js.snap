@@ -36,7 +36,11 @@ exports[`RenameFileDialog should match snapshot when dialog is open 1`] = `
           class="MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-bdhsul-MuiTypography-root-MuiDialogTitle-root"
           id="rename-file-dialog-title"
         >
-          Rename File / Directory
+          Rename 
+          <strong>
+            dog.png
+          </strong>
+           to:
         </h2>
         <div
           class="MuiDialogContent-root css-ypiqx9-MuiDialogContent-root"

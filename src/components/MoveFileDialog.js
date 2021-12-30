@@ -8,7 +8,7 @@ import FolderTree from 'components/FolderTree';
 import useFetchRemotes from 'hooks/fetch-data/useFetchRemotes';
 import { StatusTypes } from 'utils/constants';
 
-export default function MoveFileDialog({ open, onCancel, onOk }) {
+export default function MoveFileDialog({ open, fileName, onCancel, onOk }) {
   const [remotePath, setRemotePath] = useState('');
   const { status, data } = useFetchRemotes();
 
@@ -44,7 +44,9 @@ export default function MoveFileDialog({ open, onCancel, onOk }) {
       onClose={onCancel}
       data-testid="move-file-dialog"
     >
-      <DialogTitle>Move File / Directory</DialogTitle>
+      <DialogTitle>
+        Move <strong>{fileName}</strong> to:
+      </DialogTitle>
       <DialogContent dividers>{renderFolderTree()}</DialogContent>
       <DialogActions>
         <Button autoFocus onClick={onCancel} data-testid="cancel-button">

@@ -1,0 +1,25 @@
+.highlights-section {
+  display: flex;
+  justify-content: space-around;
+  padding: 6rem;
+  gap: 3rem;
+
+  &__column {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+
+  &__header {
+    display: flex;
+    justify-items: center;
+    column-gap: 0.5rem;
+    justify-content: left;
+    padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .highlights-section {
+    flex-direction: column;
+  }
+}

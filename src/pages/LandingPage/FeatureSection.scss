@@ -1,0 +1,47 @@
+.feature-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-height: 80vh;
+  margin-left: 6rem;
+  margin-right: 0;
+
+  &--right {
+    flex-direction: row-reverse;
+    margin-left: 0;
+    margin-right: 6rem;
+  }
+
+  &__text {
+    width: 35%;
+  }
+
+  &__image {
+    height: 80vh;
+    object-fit: cover;
+    overflow: hidden;
+    object-position: right;
+
+    &--left {
+      object-position: left;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .feature-section {
+    display: block;
+    margin: 3rem 0;
+
+    &__text {
+      padding: 2rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    &__image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
