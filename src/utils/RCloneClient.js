@@ -263,14 +263,15 @@ export default class RCloneClient {
    * @param {string} remote the remote
    * @param {string} folderPath the path to the folder
    * @param {File} data the file data
+   * @param {Object?} opts the options
    */
-  async uploadFiles(remote, folderPath, data) {
+  async uploadFiles(remote, folderPath, data, opts = {}) {
     const formData = new FormData();
     formData.append('file', data);
 
     const url = `operations/uploadfile?fs=${remote}:&remote=${folderPath}`;
 
-    await this.axiosInstance.post(url, formData);
+    await this.axiosInstance.post(url, formData, opts);
   }
 
   /**

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
 import FileListTable from 'components/FileListTable';
 import FileListTableSkeleton from 'components/FileListTableSkeleton';
+import { useFileUploader } from 'contexts/FileUploader/index';
 import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
 import useFileCopier from 'hooks/utils/useFileCopier';
 import useFileDownloader from 'hooks/utils/useFileDownloader';
@@ -22,7 +23,6 @@ export default function Table({ remote, path }) {
   const downloadFile = useFileDownloader();
   const deleteFile = useFileRemover();
   const copyFile = useFileCopier();
-
   const { status, data, error, refetchData } = useFetchFiles(remote, path);
 
   if (status === StatusTypes.ERROR) {

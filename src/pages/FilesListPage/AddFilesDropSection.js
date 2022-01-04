@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useFileUploader } from 'contexts/FileUploader/index';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { getFullPath } from 'utils/filename-utils';
 import './AddFilesDropSection.scss';
@@ -14,6 +15,7 @@ export default function AddFilesDropSection({
   children,
   onUploadedFiles,
 }) {
+  const { uploadFile } = useFileUploader();
   const rCloneClient = useRCloneClient();
   const [isDraggingFile, setIsDraggingFile] = useState(false);
 
@@ -66,7 +68,6 @@ export default function AddFilesDropSection({
     };
 
     const fileEntries = await getFileEntries(e.dataTransfer.items);
-    const pendingUploads = [];
 
     for (const fileEntry of fileEntries) {
       const fullPath = fileEntry.fullPath;
@@ -78,15 +79,10 @@ export default function AddFilesDropSection({
 
       const dirPathInRemote = getFullPath(folderPath, dirPath);
 
-      const pendingUpload = readFileFromFileEntry(fileEntry).then((file) => {
-        return rCloneClient.uploadFiles(remote, dirPathInRemote, file);
+      readFileFromFileEntry(fileEntry).then((file) => {
+        uploadFile(remote, dirPathInRemote, file);
       });
-
-      pendingUploads.push(pendingUpload);
     }
-
-    await Promise.allSettled(pendingUploads);
-    onUploadedFiles();
   };
 
   const handleDragEnter = (e) => {
