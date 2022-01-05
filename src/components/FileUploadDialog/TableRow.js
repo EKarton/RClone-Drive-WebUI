@@ -6,13 +6,16 @@ import prettyBytes from 'pretty-bytes';
 import { useEffect, useState } from 'react';
 import { UploadStatusTypes } from 'utils/constants';
 import { getFullPath } from 'utils/filename-utils';
+import './TableRow.scss';
 import TableRowIcon from './TableRowIcon';
 
 export default function TableRow({ file }) {
   const [status, setStatus] = useState(file.status.value);
 
   useEffect(() => {
-    const subscriber = file.status.subscribe((newStatus) => setStatus(newStatus));
+    const subscriber = file.status.subscribe((newStatus) => {
+      setStatus(newStatus);
+    });
 
     return () => {
       subscriber.unsubscribe();
@@ -24,40 +27,27 @@ export default function TableRow({ file }) {
   };
 
   const fullPathWithRemote = `${file.remote}:${getFullPath(file.dirPath, file.name)}`;
+  const dirPathWithRemote = `${file.remote}:${file.dirPath}`;
 
   return (
     <MuiTableRow
       key={fullPathWithRemote}
       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
     >
-      <TableCell sx={{ width: '2rem' }}>
+      <TableCell className="table-row__file-type-cell">
         <TableRowIcon fileType={file.type} />
       </TableCell>
-      <TableCell
-        sx={{
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          paddingRight: '1rem',
-        }}
-      >
-        {file.name}
+      <TableCell classes={{ root: 'table-row__file-name-cell' }}>{file.name}</TableCell>
+      <TableCell classes={{ root: 'table-row__dir-path-cell' }}>
+        {dirPathWithRemote}
       </TableCell>
-      <TableCell
-        sx={{
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          paddingRight: '1rem',
-        }}
-      >{`${file.remote}:${file.dirPath}`}</TableCell>
-      <TableCell align="right" sx={{ whiteSpace: 'nowrap', width: '5rem' }}>
+      <TableCell align="right" className="table-row__file-size-cell">
         {prettyBytes(file.size)}
       </TableCell>
-      <TableCell align="right" sx={{ width: '5rem' }}>
+      <TableCell align="right" className="table-row__status-cell">
         {status}
       </TableCell>
-      <TableCell align="right" sx={{ width: '3rem' }}>
+      <TableCell align="right" className="table-row__cancel-button-cell">
         <IconButton
           aria-label="cancel upload"
           onClick={handleButtonClick}

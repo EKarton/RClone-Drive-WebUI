@@ -2,22 +2,27 @@ import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 import Typography from '@mui/material/Typography';
 import useFileUploadCounts from 'contexts/FileUploadCounts/useFileUploadCounts';
+import './FileUploadProgressBar.scss';
 
 export default function FileUploadProgressBar() {
   const { counts } = useFileUploadCounts();
   const { numSuccessful, numUploading } = counts;
 
   const percentage = (numSuccessful / (numUploading + numSuccessful)) * 100;
-  const text = `${Math.round(percentage)}%`;
+  const roundedPercentage = Math.round(percentage);
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-      <Box sx={{ width: '100%', mr: 1 }}>
+    <Box className="file-upload-progress-bar">
+      <Box className="file-upload-progress-bar__bar-wrapper">
         <LinearProgress variant="determinate" value={percentage} />
       </Box>
-      <Box sx={{ minWidth: 35 }}>
-        <Typography variant="body2" color="text.secondary">
-          {text}
+      <Box>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          className="file-upload-progress-bar__text"
+        >
+          {roundedPercentage} %
         </Typography>
       </Box>
     </Box>
