@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import GlobalAppBar from 'components/GlobalAppBar';
 import GlobalNavBar from 'components/GlobalNavBar';
+import { FileUploaderProvider } from 'contexts/FileUploader';
+import { FileUploadDialogProvider } from 'contexts/FileUploaderDialog';
 import './AppShell.scss';
 
 export default function AppShell() {
@@ -17,7 +19,11 @@ export default function AppShell() {
       <div className="app-shell__below-appbar">
         <GlobalNavBar isExpanded={isExpanded} />
         <div className="app-shell__contents">
-          <Outlet />
+          <FileUploaderProvider>
+            <FileUploadDialogProvider>
+              <Outlet />
+            </FileUploadDialogProvider>
+          </FileUploaderProvider>
         </div>
       </div>
     </div>

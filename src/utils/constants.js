@@ -12,6 +12,14 @@ export const StatusTypes = Object.freeze({
   ERROR: 'error',
 });
 
+export const UploadStatusTypes = Object.freeze({
+  NOT_STARTED: 'Not started',
+  UPLOADING: 'Uploading',
+  SUCCESS: 'Success',
+  FAILED: 'Failed',
+  CANCELLED: 'Cancelled',
+});
+
 export const COLOR_MODE = Object.freeze({
   LIGHT: 'light',
   DARK: 'dark',

@@ -1,21 +1,21 @@
 import Breadcrumbs from 'components/Breadcrumbs';
-import { FileUploaderContextProvider } from 'contexts/FileUploader/index';
 import { FileViewerDialogProvider } from 'contexts/FileViewerDialog';
 import { MoveFileDialogProvider } from 'contexts/MoveFileDialog';
 import { RenameFileDialogProvider } from 'contexts/RenameFileDialog';
 import useRemotePathParams from 'hooks/utils/useRemotePathParams';
-import { UploadStatusButton } from './Header';
+import FilesListPageErrorBoundary from 'pages/ErrorBoundaries/FilesListPageErrorBoundary';
 import Table from './Table';
+import UploadStatusButton from './UploadStatusButton';
 import './index.scss';
 
 export default function FilesListPage() {
   const { remote, path } = useRemotePathParams();
 
   return (
-    <FileViewerDialogProvider>
-      <MoveFileDialogProvider>
-        <RenameFileDialogProvider>
-          <FileUploaderContextProvider>
+    <FilesListPageErrorBoundary>
+      <FileViewerDialogProvider>
+        <MoveFileDialogProvider>
+          <RenameFileDialogProvider>
             <div className="filelist-page__container">
               <div className="filelist-page__header">
                 <Breadcrumbs
@@ -28,9 +28,9 @@ export default function FilesListPage() {
               </div>
               <Table remote={remote} path={path} />
             </div>
-          </FileUploaderContextProvider>
-        </RenameFileDialogProvider>
-      </MoveFileDialogProvider>
-    </FileViewerDialogProvider>
+          </RenameFileDialogProvider>
+        </MoveFileDialogProvider>
+      </FileViewerDialogProvider>
+    </FilesListPageErrorBoundary>
   );
 }

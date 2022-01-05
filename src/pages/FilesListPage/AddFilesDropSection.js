@@ -1,22 +1,15 @@
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useFileUploader } from 'contexts/FileUploader/index';
-import useRCloneClient from 'hooks/rclone/useRCloneClient';
+import { useFileUploader } from 'contexts/FileUploader';
 import { getFullPath } from 'utils/filename-utils';
 import './AddFilesDropSection.scss';
 
 /**
  * This component is responsible for adding files to a remote via drag-and-drop
  */
-export default function AddFilesDropSection({
-  remote,
-  folderPath,
-  children,
-  onUploadedFiles,
-}) {
-  const { uploadFile } = useFileUploader();
-  const rCloneClient = useRCloneClient();
+export default function AddFilesDropSection({ remote, folderPath, children }) {
+  const { uploadFiles } = useFileUploader();
   const [isDraggingFile, setIsDraggingFile] = useState(false);
 
   const handleDrop = async (e) => {
@@ -68,21 +61,22 @@ export default function AddFilesDropSection({
     };
 
     const fileEntries = await getFileEntries(e.dataTransfer.items);
+    const filesToUpload = await Promise.all(
+      fileEntries.map(async (fileEntry) => {
+        const relPath = fileEntry.fullPath
+          .split('/')
+          .filter((item) => item.length > 0)
+          .slice(0, -1)
+          .join('/');
 
-    for (const fileEntry of fileEntries) {
-      const fullPath = fileEntry.fullPath;
-      const dirPath = fullPath
-        .split('/')
-        .filter((item) => item.length > 0)
-        .slice(0, -1)
-        .join('/');
+        const dirPath = getFullPath(folderPath, relPath);
+        const file = await readFileFromFileEntry(fileEntry);
 
-      const dirPathInRemote = getFullPath(folderPath, dirPath);
+        return { remote, dirPath, file };
+      })
+    );
 
-      readFileFromFileEntry(fileEntry).then((file) => {
-        uploadFile(remote, dirPathInRemote, file);
-      });
-    }
+    uploadFiles(filesToUpload);
   };
 
   const handleDragEnter = (e) => {
@@ -117,5 +111,4 @@ AddFilesDropSection.propType = {
   remote: PropTypes.string,
   folderPath: PropTypes.string,
   children: PropTypes.node,
-  onUploadedFiles: PropTypes.func,
 };

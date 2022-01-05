@@ -17,11 +17,27 @@
   }
 
   &__image {
-    background-image: url('../../assets/images/landing-page/files-list-page.png');
-    background-size: cover;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     overflow: hidden;
+    object-position: left;
+  }
+}
+
+@media (max-width: 900px) {
+  .intro-section {
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+
+    &__left-panel {
+      margin: 6rem;
+    }
+
+    &__image {
+      object-fit: contain;
+      object-position: top;
+    }
   }
 }

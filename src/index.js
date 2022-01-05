@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import MainApp from 'apps/MainApp';
 import { ColorModeProvider } from 'contexts/ColorMode/index';
+import { FileUploadCountsProvider } from 'contexts/FileUploadCounts/index';
 import { RCloneInfoProvider } from 'contexts/RCloneInfo';
 import { RecentPicturesProvider } from 'contexts/RecentPicturesList';
 import AppErrorBoundary from 'pages/ErrorBoundaries/AppErrorBoundary';
@@ -16,7 +17,9 @@ ReactDOM.render(
         <RCloneInfoProvider>
           <RecentPicturesProvider>
             <ColorModeProvider>
-              <MainApp />
+              <FileUploadCountsProvider>
+                <MainApp />
+              </FileUploadCountsProvider>
             </ColorModeProvider>
           </RecentPicturesProvider>
         </RCloneInfoProvider>
