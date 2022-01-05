@@ -8,6 +8,10 @@ export default function UploadStatusButton() {
   const { counts } = useFileUploadCounts();
   const { numUploading, numSuccessful } = counts;
 
+  if (numUploading === 0 && numSuccessful === 0) {
+    return null;
+  }
+
   if (numUploading === 0) {
     return <Button onClick={openDialog}>{numSuccessful} Uploaded</Button>;
   }

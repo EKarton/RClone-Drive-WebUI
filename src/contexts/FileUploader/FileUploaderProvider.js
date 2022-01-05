@@ -60,7 +60,7 @@ export default function FileUploaderProvider({ children }) {
       addUploadStatus(UploadStatusTypes.UPLOADING);
     }
 
-    setFiles((curFiles) => [...curFiles, ...newFileObjs]);
+    setFiles((curFiles) => [...newFileObjs, ...curFiles]);
   };
 
   return (
