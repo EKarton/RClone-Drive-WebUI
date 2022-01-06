@@ -1,11 +1,9 @@
 import { createContext, useContext, useState } from 'react';
 import FileUploadDialog from 'components/FileUploadDialog/index';
-import useFileUploader from 'contexts/FileUploader/useFileUploader';
 
-export const FileUploadDialogContext = createContext();
+const FileUploadDialogContext = createContext();
 
 export const FileUploadDialogProvider = ({ children }) => {
-  const { files } = useFileUploader();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const openDialog = () => {
@@ -17,8 +15,8 @@ export const FileUploadDialogProvider = ({ children }) => {
   };
 
   return (
-    <FileUploadDialogContext.Provider value={{ openDialog, closeDialog }}>
-      <FileUploadDialog open={isDialogOpen} files={files} onClose={closeDialog} />
+    <FileUploadDialogContext.Provider value={{ openDialog }}>
+      <FileUploadDialog open={isDialogOpen} onClose={closeDialog} />
       {children}
     </FileUploadDialogContext.Provider>
   );

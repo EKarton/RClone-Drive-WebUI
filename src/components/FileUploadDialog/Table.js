@@ -3,6 +3,7 @@ import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 import { useMemo, useState } from 'react';
+import { getFullPath } from 'utils/filename-utils';
 import TableRow from './TableRow';
 
 export default function Table({ files }) {
@@ -20,10 +21,16 @@ export default function Table({ files }) {
 
   const rowsToDisplay = useMemo(() => {
     const startIdx = pageNum * numRowsPerPage;
-    const endIdx = pageNum * numRowsPerPage + numRowsPerPage;
+    const endIdx = (pageNum + 1) * numRowsPerPage;
 
     return files.slice(startIdx, endIdx);
   }, [files, numRowsPerPage, pageNum]);
+
+  const renderRow = (file) => {
+    const fullPathWithRemote = `${file.remote}:${getFullPath(file.dirPath, file.name)}`;
+
+    return <TableRow key={fullPathWithRemote} file={file} />;
+  };
 
   return (
     <>
@@ -33,11 +40,7 @@ export default function Table({ files }) {
           padding="none"
           sx={{ minWidth: 500, tableLayout: 'fixed' }}
         >
-          <TableBody>
-            {rowsToDisplay.map((file) => (
-              <TableRow file={file} />
-            ))}
-          </TableBody>
+          <TableBody>{rowsToDisplay.map((file) => renderRow(file))}</TableBody>
         </MuiTable>
       </TableContainer>
       <TablePagination

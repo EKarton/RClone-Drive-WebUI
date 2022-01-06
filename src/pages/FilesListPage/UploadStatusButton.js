@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import useFileUploadCounts from 'contexts/FileUploadCounts/useFileUploadCounts';
-import { useFileUploadDialog } from 'contexts/FileUploaderDialog/index';
+import { useFileUploadDialog } from 'contexts/FileUploadDialog/index';
 
 export default function UploadStatusButton() {
   const { openDialog } = useFileUploadDialog();

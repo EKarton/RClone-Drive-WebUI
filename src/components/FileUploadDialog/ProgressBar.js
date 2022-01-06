@@ -1,22 +1,18 @@
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 import Typography from '@mui/material/Typography';
-import './FileUploadProgressBar.scss';
+import './ProgressBar.scss';
 
-export default function FileUploadProgressBar({ numSuccessful, numUploading }) {
+export default function ProgressBar({ numSuccessful, numUploading }) {
   const percentage = (numSuccessful / (numUploading + numSuccessful)) * 100;
 
   return (
-    <Box className="file-upload-progress-bar">
-      <Box className="file-upload-progress-bar__bar-wrapper">
+    <Box className="progress-bar">
+      <Box className="progress-bar__bar-wrapper">
         <LinearProgress variant="determinate" value={percentage} />
       </Box>
       <Box>
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          className="file-upload-progress-bar__text"
-        >
+        <Typography variant="body2" color="text.secondary" className="progress-bar__text">
           {Math.round(percentage)} %
         </Typography>
       </Box>
