@@ -1,7 +1,7 @@
 import RemoteCard from 'components/RemoteCard';
-import RemoteCardList from 'components/RemoteCardList';
 import { mockRemotes } from 'test-utils/mock-responses';
 import { customRender } from 'test-utils/react';
+import RemoteCardList from '..';
 
 jest.mock('components/RemoteCard');
 

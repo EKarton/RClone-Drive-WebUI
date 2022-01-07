@@ -3,7 +3,7 @@ import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { StatusTypes } from 'utils/constants';
 import { mockFiles, mockRemotes } from 'test-utils/mock-responses';
 import { customRender, userEvent, fireEvent, screen } from 'test-utils/react';
-import MoveFileDialog from '../MoveFileDialog';
+import MoveFileDialog from '..';
 
 jest.mock('hooks/fetch-data/useFetchRemotes');
 jest.mock('hooks/rclone/useRCloneClient');

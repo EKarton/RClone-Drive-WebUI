@@ -3,7 +3,7 @@ import useFetchRemotes from 'hooks/fetch-data/useFetchRemotes';
 import { StatusTypes } from 'utils/constants';
 import { mockRemotes } from 'test-utils/mock-responses';
 import { customRender, waitFor } from 'test-utils/react';
-import RemotesListSection from '../RemotesListSection';
+import RemotesListSection from '..';
 
 jest.mock('hooks/fetch-data/useFetchRemotes');
 jest.mock('components/RemoteCardList');

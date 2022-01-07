@@ -1,7 +1,7 @@
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList } from 'react-window';
 import LazyImage from 'components/LazyImage';
-import './LazyImageList.scss';
+import './index.scss';
 
 export default function LazyImageList({ images, remote, onImageClicked, ...otherProps }) {
   const parseImageInfo = (fileName) => {

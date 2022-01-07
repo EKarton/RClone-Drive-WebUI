@@ -1,5 +1,5 @@
 import { customRender, userEvent, fireEvent, screen } from 'test-utils/react';
-import RenameFileDialog from '../RenameFileDialog';
+import RenameFileDialog from '..';
 
 describe('RenameFileDialog', () => {
   const onCancel = jest.fn();

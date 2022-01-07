@@ -7,7 +7,7 @@ import prettyBytes from 'pretty-bytes';
 import useFetchRemoteInfo from 'hooks/fetch-data/useFetchRemoteInfo';
 import useFetchRemoteSpaceInfo from 'hooks/fetch-data/useFetchRemoteSpaceInfo';
 import { StatusTypes } from 'utils/constants';
-import './RemoteCard.scss';
+import './index.scss';
 
 export default function RemoteCard({ remote, onClick, ...props }) {
   const sizeResult = useFetchRemoteSpaceInfo(remote);

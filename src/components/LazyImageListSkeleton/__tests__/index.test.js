@@ -1,5 +1,5 @@
 import { customRender } from 'test-utils/react';
-import LazyImageListSkeleton from '../LazyImageListSkeleton';
+import LazyImageListSkeleton from '..';
 
 describe('LazyImageListSkeleton', () => {
   // Derived from https://github.com/bvaughn/react-virtualized/issues/493#issuecomment-447014986

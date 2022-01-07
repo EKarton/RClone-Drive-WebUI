@@ -1,5 +1,5 @@
-import RemoteCard from './RemoteCard';
-import './RemoteCardList.scss';
+import RemoteCard from 'components/RemoteCard';
+import './index.scss';
 
 export default function RemoteCardList({ remotes, onClick }) {
   const handleClick = (remote) => () => {
