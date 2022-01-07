@@ -37,7 +37,7 @@ export default function useGetFiles(remote, path) {
         continue;
       }
 
-      if (file.status.value !== UploadStatusTypes.UPLOADING) {
+      if (file.status.value === UploadStatusTypes.SUCCESS) {
         continue;
       }
 
@@ -58,7 +58,7 @@ export default function useGetFiles(remote, path) {
         };
 
         const subscriber = file.status.subscribe((status) => {
-          if (file.status.value === UploadStatusTypes.SUCCESS) {
+          if (status === UploadStatusTypes.SUCCESS) {
             refetchData();
           }
           fileObj.uploadStatus.next(status);
@@ -66,9 +66,13 @@ export default function useGetFiles(remote, path) {
 
         fileNamesToFileObj.set(file.name, fileObj);
         subscribers.push(subscriber);
-      } else if (file.dirPath !== path) {
-        const parts = file.dirPath.slice(path.length).split('/');
-        const folderName = parts.length > 1 ? parts[1] : parts[0];
+      } else {
+        const parts = file.dirPath
+          .slice(path.length)
+          .split('/')
+          .filter((part) => part.length > 0);
+
+        const folderName = parts[0];
 
         if (existingFolderNames.has(folderName)) {
           continue;
@@ -84,7 +88,7 @@ export default function useGetFiles(remote, path) {
         };
 
         const subscriber = file.status.subscribe((status) => {
-          if (file.status.value === UploadStatusTypes.SUCCESS) {
+          if (status === UploadStatusTypes.SUCCESS) {
             refetchData();
           }
           fileObj.uploadStatus.next(status);
@@ -110,12 +114,7 @@ export default function useGetFiles(remote, path) {
   }, [data, files, path, refetchData, remote, status]);
 
   if (status !== StatusTypes.SUCCESS) {
-    return {
-      status,
-      data,
-      error,
-      refetchData,
-    };
+    return { status, data, error, refetchData };
   }
 
   return {
