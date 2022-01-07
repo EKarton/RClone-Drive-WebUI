@@ -79,7 +79,12 @@ export default function LazyImageList({ images, remote, onImageClicked, ...other
 }
 
 LazyImageList.propTypes = {
-  images: PropTypes.arrayOf(LazyImage.propTypes.image),
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      Path: PropTypes.string,
+      Name: PropTypes.string,
+    })
+  ),
   remote: PropTypes.shape,
   onImageClicked: PropTypes.func,
 };
