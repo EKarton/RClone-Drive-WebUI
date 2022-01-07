@@ -47,8 +47,3 @@ describe('Table', () => {
     await Promise.all(pendingChecks);
   };
 });
-
-// KeyboardArrowRightIcon
-
-// ArrowDropDownIcon
-// 25
