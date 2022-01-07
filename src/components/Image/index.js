@@ -2,7 +2,7 @@ import Skeleton from '@mui/material/Skeleton';
 import cx from 'classnames';
 import useFetchImage from 'hooks/fetch-data/useFetchImage';
 import { StatusTypes } from 'utils/constants';
-import './Image.scss';
+import './index.scss';
 
 export default function Image({ image, width, height, imgClassName, skeletonClassName }) {
   const { status, data: imageUrl, error } = useFetchImage(image);

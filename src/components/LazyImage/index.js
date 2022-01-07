@@ -1,6 +1,6 @@
 import { useInView } from 'react-intersection-observer';
-import Image from './Image';
-import './LazyImage.scss';
+import Image from 'components/Image';
+import './index.scss';
 
 export default function LazyImage({ image, width, height }) {
   const { ref, inView } = useInView({

@@ -1,5 +1,5 @@
 import { render } from 'test-utils/react';
-import FileListTableSkeleton from '../FileListTableSkeleton';
+import FileListTableSkeleton from '..';
 
 describe('FileListTableSkeleton', () => {
   it('should match snapshot', () => {

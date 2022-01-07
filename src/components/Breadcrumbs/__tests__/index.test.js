@@ -1,5 +1,5 @@
 import { customRender } from 'test-utils/react';
-import Breadcrumb from '../Breadcrumbs';
+import Breadcrumb from '..';
 
 describe('Breadcrumbs', () => {
   it.each([

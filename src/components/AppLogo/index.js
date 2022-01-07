@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import useColorMode from 'hooks/utils/useColorMode';
 import { COLOR_MODE } from 'utils/constants';
-import './AppLogo.scss';
+import './index.scss';
 
 export default function AppLogo() {
   const { mode } = useColorMode();

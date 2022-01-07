@@ -2,8 +2,8 @@ import Skeleton from '@mui/material/Skeleton';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import PropTypes from 'prop-types';
-import FileListTable from './FileListTable/index';
-import './FileListTableSkeleton.scss';
+import FileListTable from '../FileListTable';
+import './index.scss';
 
 export default function FileListTableSkeleton({ numRows }) {
   return (

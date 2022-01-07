@@ -8,7 +8,7 @@ import ListItemText from '@mui/material/ListItemText';
 import cx from 'classnames';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
-import './GlobalNavBar.scss';
+import './index.scss';
 
 const NavigationOptions = Object.freeze([
   {

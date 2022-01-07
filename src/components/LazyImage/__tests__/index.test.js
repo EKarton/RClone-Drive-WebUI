@@ -1,7 +1,7 @@
 import { useInView } from 'react-intersection-observer';
 import Image from 'components/Image';
-import LazyImage from 'components/LazyImage';
 import { customRender } from 'test-utils/react';
+import LazyImage from '..';
 
 jest.mock('react-intersection-observer');
 jest.mock('components/Image');

@@ -4,9 +4,9 @@ import AppBar from '@mui/material/AppBar';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import { Link } from 'react-router-dom';
-import AppLogo from './AppLogo';
-import DarkModeToggleSwitch from './DarkModeToggleSwitch';
-import './GlobalAppBar.scss';
+import AppLogo from 'components/AppLogo';
+import DarkModeToggleSwitch from 'components/DarkModeToggleSwitch';
+import './index.scss';
 
 export default function GlobalAppBar({ onDrawerButttonClicked }) {
   return (

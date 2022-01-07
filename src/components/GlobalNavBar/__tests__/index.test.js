@@ -1,5 +1,5 @@
 import { customRender } from 'test-utils/react';
-import GlobalNavBar from '../GlobalNavBar';
+import GlobalNavBar from '..';
 
 describe('GlobalNavBar', () => {
   it.each(['/files', '/files/123', '/pictures', '/pictures/123'])(
