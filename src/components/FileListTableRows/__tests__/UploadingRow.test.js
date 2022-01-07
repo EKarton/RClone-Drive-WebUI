@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
 import { UploadStatusTypes } from 'utils/constants';
-import { render, act, fireEvent, userEvent, screen } from 'test-utils/react';
+import { render, act } from 'test-utils/react';
 import UploadingRow from '../UploadingRow';
 
 describe('UploadingRow', () => {
