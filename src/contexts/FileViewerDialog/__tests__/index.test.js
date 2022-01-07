@@ -46,7 +46,7 @@ describe('FileViewerDialog', () => {
     const fileViewerDialog = useFileViewerDialog();
     const fileToView = {
       remote: 'gdrive',
-      folderPath: 'Pictures',
+      dirPath: 'Pictures',
       fileName: 'profile.png',
     };
 

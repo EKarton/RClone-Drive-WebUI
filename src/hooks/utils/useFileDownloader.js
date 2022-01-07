@@ -5,8 +5,8 @@ export default function useFileDownloader() {
   const rCloneClient = useRCloneClient();
 
   return async (file) => {
-    const { remote, folderPath, name } = file;
-    const response = await rCloneClient.fetchFileContents(remote, folderPath, name);
+    const { remote, dirPath, name } = file;
+    const response = await rCloneClient.fetchFileContents(remote, dirPath, name);
 
     const mimeType = response.headers['content-type'];
     const blob = new Blob([response.data], { type: mimeType });

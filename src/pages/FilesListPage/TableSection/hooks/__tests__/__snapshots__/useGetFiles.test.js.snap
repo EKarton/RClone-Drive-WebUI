@@ -5,7 +5,7 @@ Object {
   "data": Object {
     "existingFiles": Array [
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-11-01T21:09:05.237Z",
@@ -16,7 +16,7 @@ Object {
         "size": -2,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-28T01:51:05.982Z",
@@ -27,7 +27,7 @@ Object {
         "size": -10,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-28T05:14:59.237Z",
@@ -38,7 +38,7 @@ Object {
         "size": -9,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-29T07:10:05.059Z",
@@ -49,7 +49,7 @@ Object {
         "size": -10,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-28T03:39:11.850Z",
@@ -60,7 +60,7 @@ Object {
         "size": -10,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-28T03:45:02.471Z",
@@ -71,7 +71,7 @@ Object {
         "size": -2,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-28T04:22:24.997Z",
@@ -82,7 +82,7 @@ Object {
         "size": -8,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": false,
         "isImage": false,
         "lastUpdatedTime": "2021-11-14T18:58:44.655Z",
@@ -95,7 +95,7 @@ Object {
     ],
     "uploadingFiles": Array [
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "name": "Apps",
         "path": "Apps",
@@ -122,7 +122,7 @@ Object {
   "data": Object {
     "existingFiles": Array [
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-11-01T21:09:05.237Z",
@@ -133,7 +133,7 @@ Object {
         "size": -2,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-28T01:51:05.982Z",
@@ -144,7 +144,7 @@ Object {
         "size": -10,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-28T05:14:59.237Z",
@@ -155,7 +155,7 @@ Object {
         "size": -9,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-29T07:10:05.059Z",
@@ -166,7 +166,7 @@ Object {
         "size": -10,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-28T03:39:11.850Z",
@@ -177,7 +177,7 @@ Object {
         "size": -10,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-28T03:45:02.471Z",
@@ -188,7 +188,7 @@ Object {
         "size": -2,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-28T04:22:24.997Z",
@@ -199,7 +199,7 @@ Object {
         "size": -8,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": false,
         "isImage": false,
         "lastUpdatedTime": "2021-11-14T18:58:44.655Z",
@@ -212,7 +212,7 @@ Object {
     ],
     "uploadingFiles": Array [
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": false,
         "mimeType": undefined,
         "name": "backup-locally.sh",
@@ -241,7 +241,7 @@ Object {
   "data": Object {
     "existingFiles": Array [
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-11-01T21:09:05.237Z",
@@ -252,7 +252,7 @@ Object {
         "size": -2,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-28T01:51:05.982Z",
@@ -263,7 +263,7 @@ Object {
         "size": -10,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-28T05:14:59.237Z",
@@ -274,7 +274,7 @@ Object {
         "size": -9,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-29T07:10:05.059Z",
@@ -285,7 +285,7 @@ Object {
         "size": -10,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-28T03:39:11.850Z",
@@ -296,7 +296,7 @@ Object {
         "size": -10,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-28T03:45:02.471Z",
@@ -307,7 +307,7 @@ Object {
         "size": -2,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": true,
         "isImage": false,
         "lastUpdatedTime": "2021-09-28T04:22:24.997Z",
@@ -318,7 +318,7 @@ Object {
         "size": -8,
       },
       Object {
-        "folderPath": "",
+        "dirPath": "",
         "isDirectory": false,
         "isImage": false,
         "lastUpdatedTime": "2021-11-14T18:58:44.655Z",

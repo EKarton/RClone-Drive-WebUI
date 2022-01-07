@@ -37,7 +37,7 @@ describe('MoveFileDialog', () => {
   it('should open dialog, call RCloneClient.moveFile(), and close dialog when user opens the dialog, selects a dir path, and clicks ok', async () => {
     renderComponent({
       remote: 'googledrive',
-      folderPath: 'Pictures',
+      dirPath: 'Pictures',
       name: 'dog.png',
       isDirectory: false,
     });
@@ -54,15 +54,15 @@ describe('MoveFileDialog', () => {
 
     await screen.findByText('File moved!');
     expect(moveFile).toBeCalledWith(
-      { remote: 'googledrive', folderPath: 'Pictures', fileName: 'dog.png' },
-      { remote: 'googledrive', folderPath: '', fileName: 'dog.png' }
+      { remote: 'googledrive', dirPath: 'Pictures', fileName: 'dog.png' },
+      { remote: 'googledrive', dirPath: '', fileName: 'dog.png' }
     );
   });
 
   it('should call RCloneClient.move() when user moves a directory', async () => {
     renderComponent({
       remote: 'googledrive',
-      folderPath: 'Pictures',
+      dirPath: 'Pictures',
       name: '2021',
       isDirectory: true,
     });
@@ -79,8 +79,8 @@ describe('MoveFileDialog', () => {
 
     await screen.findByText('File moved!');
     expect(move).toBeCalledWith(
-      { remote: 'googledrive', folderPath: 'Pictures', fileName: '2021' },
-      { remote: 'googledrive', folderPath: '', fileName: '2021' },
+      { remote: 'googledrive', dirPath: 'Pictures', fileName: '2021' },
+      { remote: 'googledrive', dirPath: '', fileName: '2021' },
       true,
       false
     );
@@ -89,7 +89,7 @@ describe('MoveFileDialog', () => {
   it('should close the dialog and not call RCloneClient when user opens the dialog and clicks cancel', async () => {
     renderComponent({
       remote: 'googledrive',
-      folderPath: 'Pictures',
+      dirPath: 'Pictures',
       name: '2021',
       isDirectory: true,
     });

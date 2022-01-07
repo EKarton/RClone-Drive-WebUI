@@ -8,7 +8,7 @@ import './AddFilesDropSection.scss';
 /**
  * This component is responsible for adding files to a remote via drag-and-drop
  */
-export default function AddFilesDropSection({ remote, folderPath, children }) {
+export default function AddFilesDropSection({ remote, dirPath, children }) {
   const { uploadFiles } = useFileUploader();
   const [isDraggingFile, setIsDraggingFile] = useState(false);
 
@@ -69,10 +69,9 @@ export default function AddFilesDropSection({ remote, folderPath, children }) {
           .slice(0, -1)
           .join('/');
 
-        const dirPath = getFullPath(folderPath, relPath);
         const file = await readFileFromFileEntry(fileEntry);
 
-        return { remote, dirPath, file };
+        return { remote, dirPath: getFullPath(dirPath, relPath), file };
       })
     );
 
@@ -109,6 +108,6 @@ export default function AddFilesDropSection({ remote, folderPath, children }) {
 
 AddFilesDropSection.propTypes = {
   remote: PropTypes.string,
-  folderPath: PropTypes.string,
+  dirPath: PropTypes.string,
   children: PropTypes.node,
 };

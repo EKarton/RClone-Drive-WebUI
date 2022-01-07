@@ -6,37 +6,37 @@ import useRecentlyViewedImages from '../useRecentlyViewedImages';
 
 const recentPictures = [
   {
-    folderPath: 'Pictures/2010',
+    dirPath: 'Pictures/2010',
     fileName: '20100918_091219.jpg',
     remote: 'googledrive-main-encrypted',
   },
   {
-    folderPath: 'Pictures/2010',
+    dirPath: 'Pictures/2010',
     fileName: '20101009_105344.jpg',
     remote: 'googledrive-main-encrypted',
   },
   {
-    folderPath: 'Pictures/2010',
+    dirPath: 'Pictures/2010',
     fileName: '20100918_091229.jpg',
     remote: 'googledrive-main-encrypted',
   },
   {
-    folderPath: 'Pictures/2010',
+    dirPath: 'Pictures/2010',
     fileName: '20100918_091209.jpg',
     remote: 'googledrive-main-encrypted',
   },
   {
-    folderPath: 'Pictures/2010',
+    dirPath: 'Pictures/2010',
     fileName: '20101009_1053283.jpg',
     remote: 'googledrive-main-encrypted',
   },
   {
-    folderPath: 'Pictures/2010',
+    dirPath: 'Pictures/2010',
     fileName: '20100918_0912434.jpg',
     remote: 'googledrive-main-encrypted',
   },
   {
-    folderPath: 'Pictures/2010',
+    dirPath: 'Pictures/2010',
     fileName: '20100918_0911231.jpg',
     remote: 'googledrive-main-encrypted',
   },
@@ -72,7 +72,7 @@ describe('useRecentlyViewedImages()', () => {
     });
 
     const imageToAdd = {
-      folderPath: 'Pictures/2012',
+      dirPath: 'Pictures/2012',
       fileName: '20120918_0911231.jpg',
       remote: 'googledrive-main-encrypted',
     };

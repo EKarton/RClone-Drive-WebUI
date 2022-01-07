@@ -34,12 +34,8 @@ export default function FileViewerDialog({ open, fileInfo, onClose }) {
       try {
         setResult({ status: StatusTypes.LOADING });
 
-        const { remote, folderPath, fileName } = fileInfo;
-        const response = await rCloneClient.fetchFileContents(
-          remote,
-          folderPath,
-          fileName
-        );
+        const { remote, dirPath, fileName } = fileInfo;
+        const response = await rCloneClient.fetchFileContents(remote, dirPath, fileName);
 
         const mimeType = response.headers['content-type'];
         const blob = new Blob([response.data], { type: mimeType });
@@ -159,7 +155,7 @@ FileViewerDialog.propTypes = {
   open: PropTypes.bool,
   fileInfo: PropTypes.shape({
     remote: PropTypes.string,
-    folderPath: PropTypes.string,
+    dirPath: PropTypes.string,
     fileName: PropTypes.string,
   }),
   onClose: PropTypes.func,

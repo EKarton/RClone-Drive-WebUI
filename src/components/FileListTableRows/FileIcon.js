@@ -18,7 +18,7 @@ export default function FileIcon({ file, iconSize, showPreview }) {
         <LazyImage
           image={{
             remote: file.remote,
-            folderPath: file.path,
+            dirPath: file.path,
             fileName: file.name,
           }}
           imgClassName="file-icon__img"

@@ -229,8 +229,8 @@ describe('RCloneClient', () => {
       axios.post.mockResolvedValue({});
 
       const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
-      const src = { remote: 'gdrive', folderPath: 'Pictures', fileName: '2021' };
-      const target = { remote: 'onedrive', folderPath: 'Archives', fileName: 'Pictures' };
+      const src = { remote: 'gdrive', dirPath: 'Pictures', fileName: '2021' };
+      const target = { remote: 'onedrive', dirPath: 'Archives', fileName: 'Pictures' };
       await client.copyDirectoryContents(src, target);
 
       expect(axios.post).toBeCalledWith('sync/copy', {
@@ -245,8 +245,8 @@ describe('RCloneClient', () => {
       axios.post.mockResolvedValue({});
 
       const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
-      const src = { remote: 'gdrive', folderPath: 'Pictures', fileName: 'dog.png' };
-      const target = { remote: 'onedrive', folderPath: 'Archives', fileName: 'dog2.png' };
+      const src = { remote: 'gdrive', dirPath: 'Pictures', fileName: 'dog.png' };
+      const target = { remote: 'onedrive', dirPath: 'Archives', fileName: 'dog2.png' };
       await client.copyFile(src, target);
 
       expect(axios.post).toBeCalledWith('operations/copyfile', {
@@ -263,8 +263,8 @@ describe('RCloneClient', () => {
       axios.post.mockResolvedValue({});
 
       const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
-      const src = { remote: 'gdrive', folderPath: 'Pictures', fileName: 'dog.png' };
-      const target = { remote: 'onedrive', folderPath: 'Archives', fileName: 'dog2.png' };
+      const src = { remote: 'gdrive', dirPath: 'Pictures', fileName: 'dog.png' };
+      const target = { remote: 'onedrive', dirPath: 'Archives', fileName: 'dog2.png' };
       await client.moveFile(src, target);
 
       expect(axios.post).toBeCalledWith('operations/movefile', {
@@ -281,8 +281,8 @@ describe('RCloneClient', () => {
       axios.post.mockResolvedValue({});
 
       const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
-      const src = { remote: 'gdrive', folderPath: 'Pictures', fileName: '2021' };
-      const target = { remote: 'onedrive', folderPath: 'Archives', fileName: '2021' };
+      const src = { remote: 'gdrive', dirPath: 'Pictures', fileName: '2021' };
+      const target = { remote: 'onedrive', dirPath: 'Archives', fileName: '2021' };
       await client.move(src, target);
 
       expect(axios.post).toBeCalledWith('sync/move', {

@@ -17,10 +17,10 @@ export default function LazyImageList({ images, remote, onImageClicked, ...other
     .map((item) => {
       const filePath = item.Path;
       const fileName = item.Name;
-      const folderPath = filePath.substring(0, filePath.lastIndexOf('/'));
+      const dirPath = filePath.substring(0, filePath.lastIndexOf('/'));
       const dateTaken = parseImageInfo(fileName);
 
-      return { remote, folderPath, fileName, dateTaken };
+      return { remote, dirPath, fileName, dateTaken };
     })
     .sort((image1, image2) => image2.fileName.localeCompare(image1.fileName));
 

@@ -261,15 +261,15 @@ export default class RCloneClient {
    * Uploads a file to a folder
    *
    * @param {string} remote the remote
-   * @param {string} folderPath the path to the folder
+   * @param {string} dirPath the path to the folder
    * @param {File} data the file data
    * @param {Object?} opts the options
    */
-  async uploadFiles(remote, folderPath, data, opts = {}) {
+  async uploadFiles(remote, dirPath, data, opts = {}) {
     const formData = new FormData();
     formData.append('file', data);
 
-    const url = `operations/uploadfile?fs=${remote}:&remote=${folderPath}`;
+    const url = `operations/uploadfile?fs=${remote}:&remote=${dirPath}`;
 
     await this.axiosInstance.post(url, formData, opts);
   }
@@ -287,10 +287,10 @@ export default class RCloneClient {
     });
   }
 
-  async deleteFile(remote, folderPath, fileName) {
+  async deleteFile(remote, dirPath, fileName) {
     await this.axiosInstance.post('operations/deletefile', {
       fs: `${remote}:`,
-      remote: getFullPath(folderPath, fileName),
+      remote: getFullPath(dirPath, fileName),
     });
   }
 
@@ -301,8 +301,8 @@ export default class RCloneClient {
    * @param {boolean} createEmptySrcDirs true if it creates empty sub-directories in the source path; else false
    */
   async copyDirectoryContents(source, target, createEmptySrcDirs) {
-    const srcPath = getFullPath(source.folderPath, source.fileName);
-    const targetPath = getFullPath(target.folderPath, target.fileName);
+    const srcPath = getFullPath(source.dirPath, source.fileName);
+    const targetPath = getFullPath(target.dirPath, target.fileName);
 
     await this.axiosInstance.post('sync/copy', {
       srcFs: `${source.remote}:${srcPath}`,
@@ -316,14 +316,14 @@ export default class RCloneClient {
    * The source path must be of this shape:
    * {
    *    remote: string (the src remote),
-   *    folderPath: string (the folder path of the src file)
+   *    dirPath: string (the folder path of the src file)
    *    fileName: string (the src file name),
    * }
    *
    * The target path must be of this shape:
    * {
    *    remote: string (the new remote),
-   *    folderPath: string (the new folder path of the file)
+   *    dirPath: string (the new folder path of the file)
    *    fileName: string (the new file name)
    * }
    *
@@ -333,9 +333,9 @@ export default class RCloneClient {
   async copyFile(source, target) {
     await this.axiosInstance.post('operations/copyfile', {
       srcFs: `${source.remote}:`,
-      srcRemote: getFullPath(source.folderPath, source.fileName),
+      srcRemote: getFullPath(source.dirPath, source.fileName),
       dstFs: `${target.remote}:`,
-      dstRemote: getFullPath(target.folderPath, target.fileName),
+      dstRemote: getFullPath(target.dirPath, target.fileName),
     });
   }
 
@@ -344,14 +344,14 @@ export default class RCloneClient {
    * The source path must be of this shape:
    * {
    *    remote: string (the src remote),
-   *    folderPath: string (the folder path of the src file)
+   *    dirPath: string (the folder path of the src file)
    *    fileName: string (the src file name),
    * }
    *
    * The target path must be of this shape:
    * {
    *    remote: string (the new remote),
-   *    folderPath: string (the new folder path of the file)
+   *    dirPath: string (the new folder path of the file)
    *    fileName: string (the new file name)
    * }
    *
@@ -361,9 +361,9 @@ export default class RCloneClient {
   async moveFile(source, target) {
     await this.axiosInstance.post('operations/movefile', {
       srcFs: `${source.remote}:`,
-      srcRemote: getFullPath(source.folderPath, source.fileName),
+      srcRemote: getFullPath(source.dirPath, source.fileName),
       dstFs: `${target.remote}:`,
-      dstRemote: getFullPath(target.folderPath, target.fileName),
+      dstRemote: getFullPath(target.dirPath, target.fileName),
     });
   }
 
@@ -372,14 +372,14 @@ export default class RCloneClient {
    * The source path must be of this shape:
    * {
    *    remote: string (the src remote),
-   *    folderPath: string (the folder path of the src file)
+   *    dirPath: string (the folder path of the src file)
    *    fileName: string (the name of the folder),
    * }
    *
    * The target path must be of this shape:
    * {
    *    remote: string (the new remote),
-   *    folderPath: string (the new folder path of the folder)
+   *    dirPath: string (the new folder path of the folder)
    *    fileName: string (the new folder name)
    * }
    *
@@ -389,8 +389,8 @@ export default class RCloneClient {
    * @param {object} target the target file, with the shape above
    */
   async move(source, target, createEmptySrcDirs, deleteEmptySrcDirs) {
-    const srcRemote = getFullPath(source.folderPath, source.fileName);
-    const targetRemote = getFullPath(target.folderPath, target.fileName);
+    const srcRemote = getFullPath(source.dirPath, source.fileName);
+    const targetRemote = getFullPath(target.dirPath, target.fileName);
 
     await this.axiosInstance.post('sync/move', {
       srcFs: `${source.remote}:${srcRemote}`,

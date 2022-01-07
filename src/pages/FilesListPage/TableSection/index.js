@@ -40,11 +40,11 @@ export default function TableSection({ remote, path }) {
       return;
     }
 
-    fileViewer.show({ remote, folderPath: file.folderPath, fileName: file.name });
+    fileViewer.show({ remote, dirPath: file.dirPath, fileName: file.name });
   };
 
   return (
-    <AddFilesDropSection remote={remote} folderPath={path}>
+    <AddFilesDropSection remote={remote} dirPath={path}>
       <AddFilesContextArea remote={remote} path={path} onNewFolderCreated={refetchData}>
         <FileListTable>
           <>

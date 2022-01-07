@@ -23,7 +23,7 @@ describe('useFileDownloader()', () => {
 
     const file = {
       remote: 'gdrive',
-      folderPath: 'Pictures',
+      dirPath: 'Pictures',
       name: 'dog.png',
       isDirectory: false,
     };

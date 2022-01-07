@@ -10,7 +10,7 @@ jest.mock('hooks/rclone/useImageFetcher');
 describe('useFetchImage()', () => {
   const image = {
     remote: 'drive',
-    folderPath: 'Pictures',
+    dirPath: 'Pictures',
     fileName: 'dog.png',
   };
 

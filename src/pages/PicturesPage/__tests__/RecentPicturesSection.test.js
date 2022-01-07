@@ -7,37 +7,37 @@ import RecentPicturesSection from '../RecentPicturesSection';
 
 const recentPictures = [
   {
-    folderPath: 'Pictures/2010/Tomas',
+    dirPath: 'Pictures/2010/Tomas',
     fileName: '20100918_091219.jpg',
     remote: 'googledrive-main-encrypted',
   },
   {
-    folderPath: 'Pictures/2010/Tomas',
+    dirPath: 'Pictures/2010/Tomas',
     fileName: '20101009_105344.jpg',
     remote: 'googledrive-main-encrypted',
   },
   {
-    folderPath: 'Pictures/2010/Tomas',
+    dirPath: 'Pictures/2010/Tomas',
     fileName: '20100918_091229.jpg',
     remote: 'googledrive-main-encrypted',
   },
   {
-    folderPath: 'Pictures/2010/Tomas',
+    dirPath: 'Pictures/2010/Tomas',
     fileName: '20100918_091209.jpg',
     remote: 'googledrive-main-encrypted',
   },
   {
-    folderPath: 'Pictures/2010/Tomas',
+    dirPath: 'Pictures/2010/Tomas',
     fileName: '20101009_1053283.jpg',
     remote: 'googledrive-main-encrypted',
   },
   {
-    folderPath: 'Pictures/2010/Tomas',
+    dirPath: 'Pictures/2010/Tomas',
     fileName: '20100918_0912434.jpg',
     remote: 'googledrive-main-encrypted',
   },
   {
-    folderPath: 'Pictures/2010/Tomas',
+    dirPath: 'Pictures/2010/Tomas',
     fileName: '20100918_0911231.jpg',
     remote: 'googledrive-main-encrypted',
   },
@@ -161,7 +161,7 @@ describe('RecentPicturesSection', () => {
 
     const recentPictures = [
       {
-        folderPath: 'Pictures/2010/Tomas',
+        dirPath: 'Pictures/2010/Tomas',
         fileName: '20100918_091219.jpg',
         remote: 'googledrive-main-encrypted',
       },

@@ -13,7 +13,7 @@ jest.mock('../TextDialogContent');
 describe('FileViewerDialog', () => {
   const defaultFileInfo = {
     remote: 'gdrive',
-    folderPath: 'Pictures',
+    dirPath: 'Pictures',
     fileName: 'profile.png',
   };
 
