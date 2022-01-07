@@ -55,6 +55,7 @@ describe('useGetFiles()', () => {
 
     const { result } = renderHook(() => useGetFiles('gdrive', ''));
 
+    expect(result.current.data.uploadingFiles.length).toEqual(1);
     expect(result.current).toMatchSnapshot();
   });
 
@@ -83,7 +84,7 @@ describe('useGetFiles()', () => {
 
     const { result } = renderHook(() => useGetFiles('gdrive', ''));
 
-    expect(result.current).toMatchSnapshot();
+    expect(result.current.data.uploadingFiles.length).toEqual(0);
   });
 
   it('should return correct object given data fetching is successful and an existing file is being overwritten', () => {
@@ -105,7 +106,7 @@ describe('useGetFiles()', () => {
 
     const { result } = renderHook(() => useGetFiles('gdrive', ''));
 
-    expect(result.current).toMatchSnapshot();
+    expect(result.current.data.uploadingFiles.length).toEqual(0);
   });
 
   it('should return correct object given data fetching is successful and there are is a new folder being uploaded in the same dir path', () => {
@@ -133,6 +134,7 @@ describe('useGetFiles()', () => {
 
     const { result } = renderHook(() => useGetFiles('gdrive', ''));
 
+    expect(result.current.data.uploadingFiles.length).toEqual(1);
     expect(result.current).toMatchSnapshot();
   });
 
@@ -167,7 +169,7 @@ describe('useGetFiles()', () => {
 
     const { result } = renderHook(() => useGetFiles('gdrive', 'Documents'));
 
-    expect(result.current).toMatchSnapshot();
+    expect(result.current.data.uploadingFiles.length).toEqual(0);
   });
 
   it('should call refreshData() when new files and folders has successfully been uploaded', async () => {
@@ -194,12 +196,11 @@ describe('useGetFiles()', () => {
       refetchData,
     });
 
-    const { result } = renderHook(() => useGetFiles('gdrive', ''));
+    renderHook(() => useGetFiles('gdrive', ''));
 
     act(() => uploadingFiles[0].status.next(UploadStatusTypes.SUCCESS));
     act(() => uploadingFiles[1].status.next(UploadStatusTypes.SUCCESS));
 
     await waitFor(() => expect(refetchData).toBeCalledTimes(2));
-    expect(result.current).toMatchSnapshot();
   });
 });
