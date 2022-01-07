@@ -1,20 +1,21 @@
 import { useNavigate } from 'react-router';
-import FileListTable from 'components/FileListTable';
+import FileListTable from 'components/FileListTable/index';
+import StandardRow from 'components/FileListTableRows/StandardRow';
+import UploadingRow from 'components/FileListTableRows/UploadingRow';
 import FileListTableSkeleton from 'components/FileListTableSkeleton';
-import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
 import useFileCopier from 'hooks/utils/useFileCopier';
 import useFileDownloader from 'hooks/utils/useFileDownloader';
 import useFileRemover from 'hooks/utils/useFileRemover';
 import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
 import useMoveFileDialog from 'hooks/utils/useMoveFileDialog';
 import useRenameFileDialog from 'hooks/utils/useRenameFileDialog';
-import { ImageMimeTypes, StatusTypes } from 'utils/constants';
+import { StatusTypes } from 'utils/constants';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import AddFilesContextArea from './AddFilesContextArea';
 import AddFilesDropSection from './AddFilesDropSection';
-import './index.scss';
+import useGetFiles from './hooks/useGetFiles';
 
-export default function Table({ remote, path }) {
+export default function TableSection({ remote, path }) {
   const navigate = useNavigate();
   const fileViewer = useFileViewerDialog();
   const moveFileDialog = useMoveFileDialog();
@@ -22,8 +23,7 @@ export default function Table({ remote, path }) {
   const downloadFile = useFileDownloader();
   const deleteFile = useFileRemover();
   const copyFile = useFileCopier();
-
-  const { status, data, error, refetchData } = useFetchFiles(remote, path);
+  const { status, error, data, refetchData } = useGetFiles(remote, path);
 
   if (status === StatusTypes.ERROR) {
     throw error;
@@ -32,18 +32,6 @@ export default function Table({ remote, path }) {
   if (status === StatusTypes.LOADING) {
     return <FileListTableSkeleton />;
   }
-
-  const fileList = data.map((file) => ({
-    remote,
-    folderPath: path,
-    path: file.Path,
-    name: file.Name,
-    lastUpdatedTime: file.ModTime,
-    size: file.Size,
-    mimeType: file.MimeType,
-    isDirectory: file.IsDir,
-    isImage: ImageMimeTypes.has(file.MimeType),
-  }));
 
   const handleFileOpen = (file) => {
     if (file.isDirectory) {
@@ -56,18 +44,29 @@ export default function Table({ remote, path }) {
   };
 
   return (
-    <AddFilesDropSection remote={remote} folderPath={path} onUploadedFiles={refetchData}>
+    <AddFilesDropSection remote={remote} folderPath={path}>
       <AddFilesContextArea remote={remote} path={path} onNewFolderCreated={refetchData}>
-        <FileListTable
-          remote={remote}
-          files={fileList}
-          onFileOpen={handleFileOpen}
-          onFileDownload={(file) => downloadFile(file)}
-          onFileDelete={(file) => deleteFile(file).then(refetchData)}
-          onFileCopy={(file) => copyFile(file).then(refetchData)}
-          onFileRename={(file) => renameFileDialog.renameFile(file).then(refetchData)}
-          onFileMove={(file) => moveFileDialog.moveFile(file).then(refetchData)}
-        />
+        <FileListTable>
+          <>
+            {data.existingFiles.map((file) => (
+              <StandardRow
+                key={file.name}
+                file={file}
+                onFileOpen={() => handleFileOpen(file)}
+                onFileRename={() => renameFileDialog.renameFile(file).then(refetchData)}
+                onFileCopy={() => copyFile(file).then(refetchData)}
+                onFileDelete={() => deleteFile(file).then(refetchData)}
+                onFileDownload={() => downloadFile(file)}
+                onFileMove={() => moveFileDialog.moveFile(file).then(refetchData)}
+              />
+            ))}
+          </>
+          <>
+            {data.uploadingFiles.map((uploadingFile) => (
+              <UploadingRow key={uploadingFile.name} file={uploadingFile} />
+            ))}
+          </>
+        </FileListTable>
       </AddFilesContextArea>
     </AddFilesDropSection>
   );

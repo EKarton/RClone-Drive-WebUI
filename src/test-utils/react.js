@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 import { ColorModeProvider } from 'contexts/ColorMode/index';
+import { FileUploadCountsProvider } from 'contexts/FileUploadCounts/index';
 import { RCloneInfoProvider } from 'contexts/RCloneInfo';
 import { RecentPicturesProvider } from 'contexts/RecentPicturesList';
 
@@ -17,7 +18,9 @@ const customRender = (
     <RCloneInfoProvider defaultState={initialRCloneInfoState}>
       <RecentPicturesProvider defaultState={initialRecentPicturesState}>
         <Router location={history.location} navigator={history}>
-          <ColorModeProvider>{component}</ColorModeProvider>
+          <ColorModeProvider>
+            <FileUploadCountsProvider>{component}</FileUploadCountsProvider>
+          </ColorModeProvider>
         </Router>
       </RecentPicturesProvider>
     </RCloneInfoProvider>

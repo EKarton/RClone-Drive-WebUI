@@ -91,8 +91,10 @@ exports[`LandingPage should match snapshot 1`] = `
           />
         </a>
       </div>
-      <div
+      <img
+        alt="Intro section"
         class="intro-section__image"
+        src="files-list-page.png"
       />
     </div>
     <div
@@ -387,8 +389,10 @@ exports[`LandingPage should match snapshot when user scrolls down on the page 1`
           />
         </a>
       </div>
-      <div
+      <img
+        alt="Intro section"
         class="intro-section__image"
+        src="files-list-page.png"
       />
     </div>
     <div

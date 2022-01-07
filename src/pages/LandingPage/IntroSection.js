@@ -1,6 +1,7 @@
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
+import IntroSectionImage from 'assets/images/landing-page/files-list-page.png';
 import './IntroSection.scss';
 
 export default function IntroSection() {
@@ -17,7 +18,7 @@ export default function IntroSection() {
           Login
         </Button>
       </div>
-      <div className="intro-section__image" />
+      <img src={IntroSectionImage} alt="Intro section" className="intro-section__image" />
     </div>
   );
 }

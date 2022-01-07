@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useReducer } from 'react';
+import { useCallback, useEffect, useReducer } from 'react';
 import { StatusTypes } from 'utils/constants';
 import useRCloneClient from '../rclone/useRCloneClient';
 
@@ -32,14 +32,12 @@ const useFetchData = (rCloneClientFn) => {
     error: null,
   });
 
-  useEffect(() => {
-    const cancelSource = axios.CancelToken.source();
-
-    const fetchData = async () => {
+  const fetchData = useCallback(
+    async (cancelToken) => {
       try {
         dispatchResult({ type: StatusTypes.LOADING });
 
-        const data = await rCloneClientFn(rCloneClient, cancelSource.token);
+        const data = await rCloneClientFn(rCloneClient, cancelToken);
 
         dispatchResult({ type: StatusTypes.SUCCESS, payload: data });
       } catch (err) {
@@ -47,28 +45,23 @@ const useFetchData = (rCloneClientFn) => {
           dispatchResult({ type: StatusTypes.ERROR, payload: err });
         }
       }
-    };
+    },
+    [rCloneClient, rCloneClientFn]
+  );
 
-    fetchData();
+  useEffect(() => {
+    const cancelSource = axios.CancelToken.source();
+
+    fetchData(cancelSource.token);
 
     return () => {
       cancelSource.cancel();
     };
-  }, [rCloneClient, rCloneClientFn]);
+  }, [fetchData, rCloneClient, rCloneClientFn]);
 
   return {
     ...result,
-    refetchData: async () => {
-      try {
-        dispatchResult({ type: StatusTypes.LOADING });
-
-        const data = await rCloneClientFn(rCloneClient);
-
-        dispatchResult({ type: StatusTypes.SUCCESS, payload: data });
-      } catch (err) {
-        dispatchResult({ type: StatusTypes.ERROR, payload: err });
-      }
-    },
+    refetchData: fetchData,
   };
 };
 

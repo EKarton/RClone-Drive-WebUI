@@ -1,15 +1,14 @@
-import useRCloneClient from 'hooks/rclone/useRCloneClient';
+import { useFileUploader } from 'contexts/FileUploader';
 import { customRender, fireEvent, waitFor, screen } from 'test-utils/react';
 import AddFilesDropSection from '../AddFilesDropSection';
 
-jest.mock('hooks/rclone/useRCloneClient');
+jest.mock('contexts/FileUploader');
 
 describe('AddFilesDropSection', () => {
   const uploadFiles = jest.fn();
 
   beforeEach(() => {
-    uploadFiles.mockResolvedValue();
-    useRCloneClient.mockReturnValue({
+    useFileUploader.mockReturnValue({
       uploadFiles,
     });
   });
@@ -41,19 +40,18 @@ describe('AddFilesDropSection', () => {
     fireEvent.dragEnd(dropSection);
 
     await waitFor(() => {
-      expect(uploadFiles).toBeCalledWith(
-        'gdrive',
-        'Documents/Pictures',
-        expect.any(File)
-      );
-    });
-
-    await waitFor(() => {
-      expect(uploadFiles).toBeCalledWith(
-        'gdrive',
-        'Documents/Pictures/2021',
-        expect.any(File)
-      );
+      expect(uploadFiles).toBeCalledWith([
+        {
+          remote: 'gdrive',
+          dirPath: 'Documents/Pictures',
+          file: expect.any(File),
+        },
+        {
+          remote: 'gdrive',
+          dirPath: 'Documents/Pictures/2021',
+          file: expect.any(File),
+        },
+      ]);
     });
   });
 

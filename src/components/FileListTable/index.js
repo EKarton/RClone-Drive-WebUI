@@ -6,46 +6,17 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import PropTypes from 'prop-types';
-import { ICON_SIZE } from 'utils/constants';
-import Row from './Row';
+import StandardRow from '../FileListTableRows/StandardRow/index';
+import UploadingRow from '../FileListTableRows/UploadingRow';
 import './index.scss';
 
-export default function FileListTable({
-  files,
-  onFileOpen,
-  onFileRename,
-  onFileCopy,
-  onFileDelete,
-  onFileDownload,
-  onFileMove,
-}) {
-  const renderRow = (file) => {
-    const handleFileOpen = () => onFileOpen(file);
-    const handleFileRename = () => onFileRename(file);
-    const handleFileCopy = () => onFileCopy(file);
-    const handleFileDelete = () => onFileDelete(file);
-    const handleFileDownload = () => onFileDownload(file);
-    const handleFileMove = () => onFileMove(file);
-
-    return (
-      <Row
-        key={file.name}
-        file={file}
-        onFileOpen={handleFileOpen}
-        onFileRename={handleFileRename}
-        onFileCopy={handleFileCopy}
-        onFileDelete={handleFileDelete}
-        onFileDownload={handleFileDownload}
-        onFileMove={handleFileMove}
-      />
-    );
-  };
-
+export default function FileListTable({ children, ...props }) {
   return (
     <TableContainer
       component={Paper}
       className="file-list-table"
       data-testid="file-list-table"
+      {...props}
     >
       <Table>
         <TableHead>
@@ -55,28 +26,12 @@ export default function FileListTable({
             <TableCell className="file-list-table__header-cell">File Size</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody className="file-list-table__body">
-          {files.map((file) => renderRow(file))}
-        </TableBody>
+        <TableBody className="file-list-table__body">{children}</TableBody>
       </Table>
     </TableContainer>
   );
 }
 
-FileListTable.defaultProps = {
-  iconSize: ICON_SIZE.LARGE,
-};
-
 FileListTable.propType = {
-  files: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      lastUpdatedTime: PropTypes.string,
-      size: PropTypes.string,
-      isDirectory: PropTypes.bool.isRequired,
-      isImage: PropTypes.bool.isRequired,
-      preview: PropTypes.node,
-    })
-  ),
-  iconSize: PropTypes.oneOf(Object.values(ICON_SIZE)),
+  rows: PropTypes.arrayOf(PropTypes.oneOfType([UploadingRow, StandardRow])),
 };

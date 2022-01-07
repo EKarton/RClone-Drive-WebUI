@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UploadStatusButton should match snapshot given numUploading = 0 and numSuccessful = 0 1`] = `
+<body>
+  <div />
+</body>
+`;
+
+exports[`UploadStatusButton should match snapshot given numUploading = 0 and numSuccessful = 10 1`] = `
+<body>
+  <div>
+    <button
+      class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root  css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+      tabindex="0"
+      type="button"
+    >
+      10
+       Uploaded
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+</body>
+`;
+
+exports[`UploadStatusButton should match snapshot given numUploading = 9 and numSuccessful = 1 1`] = `
+<body>
+  <div>
+    <button
+      class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root  css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+      >
+        <span
+          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
+          role="progressbar"
+          style="width: 20px; height: 20px;"
+        >
+          <svg
+            class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+            viewBox="22 22 44 44"
+          >
+            <circle
+              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+              cx="44"
+              cy="44"
+              fill="none"
+              r="20.2"
+              stroke-width="3.6"
+            />
+          </svg>
+        </span>
+      </span>
+      Uploading 
+      9
+       Files
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+</body>
+`;
+
+exports[`UploadStatusButton should match snapshot given numUploading = 10 and numSuccessful = 0 1`] = `
+<body>
+  <div>
+    <button
+      class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root  css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+      >
+        <span
+          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
+          role="progressbar"
+          style="width: 20px; height: 20px;"
+        >
+          <svg
+            class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+            viewBox="22 22 44 44"
+          >
+            <circle
+              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+              cx="44"
+              cy="44"
+              fill="none"
+              r="20.2"
+              stroke-width="3.6"
+            />
+          </svg>
+        </span>
+      </span>
+      Uploading 
+      10
+       Files
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+</body>
+`;

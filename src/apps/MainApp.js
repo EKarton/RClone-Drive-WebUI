@@ -1,7 +1,5 @@
 import Box from '@mui/material/Box';
 import { Routes, Route } from 'react-router-dom';
-import FilesListPageErrorBoundary from 'pages/ErrorBoundaries/FilesListPageErrorBoundary';
-import PicturesListPageErrorBoundary from 'pages/ErrorBoundaries/PicturesListPageErrorBoundary';
 import NotFoundErrorPage from 'pages/ErrorPages/NotFoundErrorPage';
 import FilesListPage from 'pages/FilesListPage/index';
 import FilesPage from 'pages/FilesPage/index';
@@ -14,6 +12,14 @@ import AppShell from './AppShell';
 import './MainApp.scss';
 
 export default function MainApp() {
+  const global404Page = (
+    <NotFoundErrorPage
+      error={new Error('Unknown page')}
+      redirectLink="/"
+      redirectText="Go back to home"
+    />
+  );
+
   return (
     <Box className="main-app" sx={{ bgcolor: 'background.default' }}>
       <Routes>
@@ -21,39 +27,14 @@ export default function MainApp() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="files" element={<AppShell />}>
           <Route index element={<FilesPage />} />
-          <Route
-            index
-            path=":id"
-            element={
-              <FilesListPageErrorBoundary>
-                <FilesListPage />
-              </FilesListPageErrorBoundary>
-            }
-          />
+          <Route path=":id" element={<FilesListPage />} />
         </Route>
         <Route path="pictures" element={<AppShell />}>
           <Route index element={<PicturesPage />} />
-          <Route
-            index
-            path=":id"
-            element={
-              <PicturesListPageErrorBoundary>
-                <PicturesListPage />
-              </PicturesListPageErrorBoundary>
-            }
-          />
+          <Route path=":id" element={<PicturesListPage />} />
         </Route>
         <Route path="/logout" element={<LogoutPage />} />
-        <Route
-          path="*"
-          element={
-            <NotFoundErrorPage
-              error={new Error('Unknown page')}
-              redirectLink="/"
-              redirectText="Go back to home"
-            />
-          }
-        />
+        <Route path="*" element={global404Page} />
       </Routes>
     </Box>
   );

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FileListTable should match snapshot given files 1`] = `
+exports[`FileListTable should match snapshot given rows 1`] = `
 <body>
   <div>
     <div
@@ -38,7 +38,84 @@ exports[`FileListTable should match snapshot given files 1`] = `
         </thead>
         <tbody
           class="MuiTableBody-root file-list-table__body css-apqrd9-MuiTableBody-root"
-        />
+        >
+          <tr
+            class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
+            tabindex="0"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+            >
+              <div
+                class="filelist-table-base-row__file-cell"
+                data-testid="Documents"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="FolderIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+                  />
+                </svg>
+                <div>
+                  Documents
+                </div>
+              </div>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+            >
+              2021-11-01T21:09:05.237Z
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+            >
+              -
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
+            tabindex="0"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+            >
+              <div
+                class="filelist-table-base-row__file-cell"
+                data-testid="Pictures"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="FolderIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+                  />
+                </svg>
+                <div>
+                  Pictures
+                </div>
+              </div>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+            >
+              2021-09-28T03:39:11.850Z
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+            >
+              -
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>

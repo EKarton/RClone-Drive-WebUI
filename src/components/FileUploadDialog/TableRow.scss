@@ -1,0 +1,26 @@
+.table-row {
+  &__file-type-cell {
+    width: 2rem;
+  }
+
+  &__dir-path-cell,
+  &__file-name-cell {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 1rem;
+  }
+
+  &__file-size-cell {
+    white-space: nowrap;
+    width: 5rem;
+  }
+
+  &__status-cell {
+    width: 5rem;
+  }
+
+  &__cancel-button-cell {
+    width: 3rem;
+  }
+}

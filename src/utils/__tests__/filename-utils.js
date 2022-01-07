@@ -8,6 +8,10 @@ describe('getFullPath()', () => {
   it('should return correct full path given a directory path', () => {
     expect(getFullPath('Pictures', 'dog.png')).toEqual('Pictures/dog.png');
   });
+
+  it('should return correct full path given no file name', () => {
+    expect(getFullPath('Pictures')).toEqual('Pictures');
+  });
 });
 
 describe('getNewFileName()', () => {

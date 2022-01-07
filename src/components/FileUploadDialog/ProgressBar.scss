@@ -1,0 +1,13 @@
+.progress-bar {
+  display: flex;
+  align-items: center;
+
+  &__bar-wrapper {
+    width: 100%;
+    margin-right: 1rem;
+  }
+
+  &__text {
+    white-space: nowrap;
+  }
+}

@@ -1,19 +1,19 @@
 import { Routes, Route } from 'react-router-dom';
-import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
+import { BehaviorSubject } from 'rxjs';
+import { FileUploaderProvider } from 'contexts/FileUploader/index';
 import useFileCopier from 'hooks/utils/useFileCopier';
 import useFileDownloader from 'hooks/utils/useFileDownloader';
 import useFileRemover from 'hooks/utils/useFileRemover';
 import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
 import useMoveFileDialog from 'hooks/utils/useMoveFileDialog';
 import useRenameFileDialog from 'hooks/utils/useRenameFileDialog';
-import { StatusTypes } from 'utils/constants';
+import { StatusTypes, UploadStatusTypes } from 'utils/constants';
 import { hashRemotePath } from 'utils/remote-paths-url';
-import { mockFiles } from 'test-utils/mock-responses';
 import { customRender, fireEvent, userEvent, screen } from 'test-utils/react';
-import Table from '../Table';
+import useGetFiles from '../hooks/useGetFiles';
+import TableSection from '../index';
 
-jest.mock('hooks/fetch-data/useFetchFiles');
-jest.mock('hooks/rclone/useRCloneClient');
+jest.mock('../hooks/useGetFiles');
 jest.mock('hooks/utils/useFileViewerDialog');
 jest.mock('hooks/utils/useMoveFileDialog');
 jest.mock('hooks/utils/useFileDownloader');
@@ -21,7 +21,7 @@ jest.mock('hooks/utils/useFileRemover');
 jest.mock('hooks/utils/useFileCopier');
 jest.mock('hooks/utils/useRenameFileDialog');
 
-describe('Table', () => {
+describe('TableSection', () => {
   const remote = 'gdrive';
   const refetchData = jest.fn();
 
@@ -47,31 +47,66 @@ describe('Table', () => {
     useFileRemover.mockReturnValue(deleteFile);
     useFileCopier.mockReturnValue(copyFile);
 
-    useFetchFiles.mockReturnValue({
+    useGetFiles.mockReturnValue({
       status: StatusTypes.SUCCESS,
-      data: mockFiles.list,
+      data: {
+        existingFiles: [
+          {
+            remote,
+            folderPath: '',
+            path: 'Documents',
+            name: 'Documents',
+            lastUpdatedTime: '2021-09-28T01:51:05.982Z',
+            size: undefined,
+            mimeType: undefined,
+            isDirectory: true,
+            isImage: false,
+          },
+          {
+            remote,
+            folderPath: '',
+            path: 'backup.sh',
+            name: 'backup.sh',
+            lastUpdatedTime: '2021-11-14T18:58:44.655Z',
+            size: 1110,
+            mimeType: 'application/x-sh',
+            isDirectory: false,
+            isImage: true,
+          },
+        ],
+        uploadingFiles: [
+          {
+            remote,
+            folderPath: '',
+            path: '.rclone',
+            name: '.rclone',
+            isDirectory: true,
+            uploadStatus: new BehaviorSubject(UploadStatusTypes.UPLOADING),
+          },
+        ],
+      },
       refetchData,
     });
   });
 
   it('should render a Table skeleton when the api call is not done yet', () => {
-    useFetchFiles.mockReturnValue({
+    useGetFiles.mockReturnValue({
       status: StatusTypes.LOADING,
     });
 
-    customRender(<Table />);
+    renderComponent();
 
     expect(screen.getByTestId('files-list-table-skeleton')).toBeInTheDocument();
   });
 
   it('should render a Table when the api call succeeds', () => {
-    customRender(<Table />);
+    renderComponent();
 
     expect(screen.getByTestId('file-list-table')).toBeInTheDocument();
   });
 
   it('should throw an error when the api call fails', () => {
-    useFetchFiles.mockReturnValue({
+    useGetFiles.mockReturnValue({
       status: StatusTypes.ERROR,
       error: new Error('401 Unauthorized!'),
     });
@@ -175,13 +210,26 @@ describe('Table', () => {
   });
 
   const renderComponent = () => {
+    const initialRCloneInfoState = {
+      endpoint: 'http://localhost:5572',
+      username: 'admin',
+      password: '1234',
+    };
+
     const route = `/files/${hashRemotePath('gdrive:')}`;
     const component = (
       <Routes>
-        <Route path="/files/:id" element={<Table remote={remote} path="" />} />
+        <Route
+          path="/files/:id"
+          element={
+            <FileUploaderProvider>
+              <TableSection remote={remote} path="" />
+            </FileUploaderProvider>
+          }
+        />
       </Routes>
     );
 
-    return customRender(component, {}, { route });
+    return customRender(component, { initialRCloneInfoState }, { route });
   };
 });
