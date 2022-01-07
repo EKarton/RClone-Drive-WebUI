@@ -23,7 +23,7 @@ describe('RenameFileDialog', () => {
   it('should open the dialog, call RCloneClient correctly, and close the dialog when user opens the dialog and renames a file', async () => {
     renderComponent({
       remote: 'gdrive',
-      folderPath: 'Pictures',
+      dirPath: 'Pictures',
       name: 'dog.png',
       isDirectory: false,
     });
@@ -39,15 +39,15 @@ describe('RenameFileDialog', () => {
 
     await screen.findByText('File renamed!');
     expect(moveFile).toBeCalledWith(
-      { remote: 'gdrive', folderPath: 'Pictures', fileName: 'dog.png' },
-      { remote: 'gdrive', folderPath: 'Pictures', fileName: 'cat.png' }
+      { remote: 'gdrive', dirPath: 'Pictures', fileName: 'dog.png' },
+      { remote: 'gdrive', dirPath: 'Pictures', fileName: 'cat.png' }
     );
   });
 
   it('should open the dialog, call RCloneClient correctly, and close the dialog when user opens the dialog and renames a folder', async () => {
     renderComponent({
       remote: 'gdrive',
-      folderPath: 'Pictures',
+      dirPath: 'Pictures',
       name: '2021',
       isDirectory: true,
     });
@@ -63,8 +63,8 @@ describe('RenameFileDialog', () => {
 
     await screen.findByText('File renamed!');
     expect(move).toBeCalledWith(
-      { remote: 'gdrive', folderPath: 'Pictures', fileName: '2021' },
-      { remote: 'gdrive', folderPath: 'Pictures', fileName: '2022' },
+      { remote: 'gdrive', dirPath: 'Pictures', fileName: '2021' },
+      { remote: 'gdrive', dirPath: 'Pictures', fileName: '2022' },
       true
     );
   });
@@ -72,7 +72,7 @@ describe('RenameFileDialog', () => {
   it('should close the dialog when user opens the dialog and clicks on the Cancel button', async () => {
     renderComponent({
       remote: 'gdrive',
-      folderPath: 'Pictures',
+      dirPath: 'Pictures',
       name: '2021',
       isDirectory: true,
     });

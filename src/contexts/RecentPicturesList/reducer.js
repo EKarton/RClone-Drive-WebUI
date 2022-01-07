@@ -3,16 +3,14 @@ import { actionTypes } from '.';
 export default function reducer(state, action) {
   switch (action.type) {
     case actionTypes.ADD_IMAGE: {
-      const { folderPath, fileName, remote } = action.payload;
+      const { dirPath, fileName, remote } = action.payload;
 
       const newList = [...state.recentPictures];
 
       // Check if the same image is in the list, and if so, remove it
       const existingItemIdx = newList.findIndex((img) => {
         return (
-          img.folderPath === folderPath &&
-          img.fileName === fileName &&
-          img.remote === remote
+          img.dirPath === dirPath && img.fileName === fileName && img.remote === remote
         );
       });
 
@@ -21,7 +19,7 @@ export default function reducer(state, action) {
       }
 
       // Add the new image to the front of the list
-      newList.unshift({ folderPath, fileName, remote });
+      newList.unshift({ dirPath, fileName, remote });
 
       // Pop old images
       if (newList.length > 500) {

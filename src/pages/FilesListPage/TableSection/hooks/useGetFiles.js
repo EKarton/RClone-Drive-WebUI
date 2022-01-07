@@ -48,7 +48,7 @@ export default function useGetFiles(remote, path) {
 
         const fileObj = {
           remote,
-          folderPath: path,
+          dirPath: path,
           path: getFullPath(path, file.name),
           name: file.name,
           size: file.size,
@@ -80,7 +80,7 @@ export default function useGetFiles(remote, path) {
 
         const fileObj = folderNamesToFileObj.get(folderName) || {
           remote,
-          folderPath: path,
+          dirPath: path,
           path: getFullPath(path, folderName),
           name: folderName,
           isDirectory: true,
@@ -123,7 +123,7 @@ export default function useGetFiles(remote, path) {
     data: {
       existingFiles: data.map((rawFileData) => ({
         remote,
-        folderPath: path,
+        dirPath: path,
         path: rawFileData.Path,
         name: rawFileData.Name,
         lastUpdatedTime: rawFileData.ModTime,

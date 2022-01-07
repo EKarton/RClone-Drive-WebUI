@@ -60,7 +60,7 @@ describe('ImageList', () => {
 
     fetchPicturesFn.mockResolvedValue(mockPictures.list);
 
-    const fileInfo = { remote, folderPath: 'Pictures', fileName: 'image.png' };
+    const fileInfo = { remote, dirPath: 'Pictures', fileName: 'image.png' };
 
     LazyImageList.mockImplementation(({ onImageClicked }) => {
       setTimeout(() => onImageClicked(fileInfo), 10000);

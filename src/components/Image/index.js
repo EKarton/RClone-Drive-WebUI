@@ -44,7 +44,7 @@ export default function Image({ image, width, height, imgClassName, skeletonClas
 Image.propTypes = {
   image: PropTypes.shape({
     remote: PropTypes.string,
-    folderPath: PropTypes.string,
+    dirPath: PropTypes.string,
     fileName: PropTypes.string,
   }),
   width: PropTypes.number,

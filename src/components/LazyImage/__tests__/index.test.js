@@ -9,7 +9,7 @@ jest.mock('components/Image');
 describe('LazyImage', () => {
   const imageProps = {
     remote: 'googledrive',
-    folderPath: 'Pictures/2020',
+    dirPath: 'Pictures/2020',
     fileName: 'dog.png',
   };
 

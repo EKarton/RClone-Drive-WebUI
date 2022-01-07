@@ -5,9 +5,9 @@ export default function useFileRemover() {
 
   return async (file) => {
     if (file.isDirectory) {
-      await rCloneClient.deleteDirectory(file.remote, file.folderPath, file.name);
+      await rCloneClient.deleteDirectory(file.remote, file.dirPath, file.name);
     } else {
-      await rCloneClient.deleteFile(file.remote, file.folderPath, file.name);
+      await rCloneClient.deleteFile(file.remote, file.dirPath, file.name);
     }
   };
 }

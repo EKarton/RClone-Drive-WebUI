@@ -22,7 +22,7 @@ export default function useFetchImage(image) {
         const opt = { cancelToken };
         const response = await imageFetcher.getImage(
           image.remote,
-          image.folderPath,
+          image.dirPath,
           image.fileName,
           opt
         );

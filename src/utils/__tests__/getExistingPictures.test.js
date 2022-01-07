@@ -4,7 +4,7 @@ describe('getExistingPictures', () => {
   // Generate pictures with names 0.png, 1.png, 2.png, ..., 19.png
   const recentPictures = Array.from({ length: 20 }).map((_, i) => ({
     remote: 'drive',
-    folderPath: 'Pictures',
+    dirPath: 'Pictures',
     fileName: `${i}.jpg`,
   }));
 

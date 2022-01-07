@@ -68,7 +68,7 @@ describe('LazyImageList', () => {
 
     expect(onImageClicked).toBeCalledWith({
       remote,
-      folderPath: 'Pictures/2012',
+      dirPath: 'Pictures/2012',
       fileName: '20120517_171428.JPG',
       dateTaken: {
         year: 2012,

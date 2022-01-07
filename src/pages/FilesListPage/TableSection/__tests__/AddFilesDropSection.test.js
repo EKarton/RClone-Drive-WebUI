@@ -97,7 +97,7 @@ describe('AddFilesDropSection', () => {
     const view = customRender(
       <AddFilesDropSection
         remote="gdrive"
-        folderPath="Documents"
+        dirPath="Documents"
         onUploadedFiles={onUploadedFiles}
       />
     );

@@ -16,13 +16,13 @@ export function MoveFileDialogProvider({ children }) {
 
     const src = {
       remote: fileToMove.remote,
-      folderPath: fileToMove.folderPath,
+      dirPath: fileToMove.dirPath,
       fileName: fileToMove.name,
     };
 
     const target = {
       remote: newRemote,
-      folderPath: newFolderPath,
+      dirPath: newFolderPath,
       fileName: fileToMove.name,
     };
 

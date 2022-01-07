@@ -5,7 +5,7 @@ import { RecentPicturesProvider } from '../index';
 describe('RecentPicturesProvider', () => {
   it('should call localStorage.setItem() correctly when new images are being added', async () => {
     const imageToAdd = {
-      folderPath: 'Pictures/2012',
+      dirPath: 'Pictures/2012',
       fileName: '20120918_0911231.jpg',
       remote: 'googledrive-main-encrypted',
     };

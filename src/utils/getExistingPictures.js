@@ -18,8 +18,8 @@ export default async function getExistingPictures(
 
     const doPicturesExist = await Promise.all(
       picturesToCheck.map(async (picture) => {
-        const { remote, folderPath, fileName } = picture;
-        const path = getFullPath(folderPath, fileName);
+        const { remote, dirPath, fileName } = picture;
+        const path = getFullPath(dirPath, fileName);
 
         try {
           const opts = { cancelToken };

@@ -18,7 +18,7 @@ describe('useFileRemover()', () => {
   it('should call RCloneClient.deleteFile() correctly given item to copy is a file', async () => {
     const file = {
       remote: 'gdrive',
-      folderPath: 'Pictures',
+      dirPath: 'Pictures',
       name: 'dog.png',
       isDirectory: false,
     };
@@ -33,7 +33,7 @@ describe('useFileRemover()', () => {
   it('should call RCloneClient.deleteDirectory() correctly given item to copy is an directory', async () => {
     const file = {
       remote: 'gdrive',
-      folderPath: 'Pictures',
+      dirPath: 'Pictures',
       name: '2022',
       isDirectory: true,
     };

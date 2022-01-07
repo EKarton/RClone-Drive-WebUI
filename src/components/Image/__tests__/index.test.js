@@ -8,7 +8,7 @@ jest.mock('hooks/fetch-data/useFetchImage');
 describe('Image', () => {
   const imageProps = {
     remote: 'googledrive',
-    folderPath: 'Pictures/2020',
+    dirPath: 'Pictures/2020',
     fileName: 'dog.png',
   };
 

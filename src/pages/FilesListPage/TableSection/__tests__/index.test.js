@@ -53,7 +53,7 @@ describe('TableSection', () => {
         existingFiles: [
           {
             remote,
-            folderPath: '',
+            dirPath: '',
             path: 'Documents',
             name: 'Documents',
             lastUpdatedTime: '2021-09-28T01:51:05.982Z',
@@ -64,7 +64,7 @@ describe('TableSection', () => {
           },
           {
             remote,
-            folderPath: '',
+            dirPath: '',
             path: 'backup.sh',
             name: 'backup.sh',
             lastUpdatedTime: '2021-11-14T18:58:44.655Z',
@@ -77,7 +77,7 @@ describe('TableSection', () => {
         uploadingFiles: [
           {
             remote,
-            folderPath: '',
+            dirPath: '',
             path: '.rclone',
             name: '.rclone',
             isDirectory: true,
@@ -120,7 +120,7 @@ describe('TableSection', () => {
     fireEvent.contextMenu(screen.getByTestId('backup.sh'));
     userEvent.click(screen.getByTestId('open'));
 
-    expect(show).toBeCalledWith({ remote, folderPath: '', fileName: 'backup.sh' });
+    expect(show).toBeCalledWith({ remote, dirPath: '', fileName: 'backup.sh' });
   });
 
   it('should redirect the user to the correct route when user right-clicks on a directory and selects Open', () => {
@@ -142,7 +142,7 @@ describe('TableSection', () => {
 
     expect(downloadFile).toHaveBeenCalledWith(
       expect.objectContaining({
-        folderPath: '',
+        dirPath: '',
         name: 'backup.sh',
         remote: 'gdrive',
       })
@@ -157,7 +157,7 @@ describe('TableSection', () => {
 
     expect(deleteFile).toHaveBeenCalledWith(
       expect.objectContaining({
-        folderPath: '',
+        dirPath: '',
         name: 'backup.sh',
         remote: 'gdrive',
       })
@@ -172,7 +172,7 @@ describe('TableSection', () => {
 
     expect(copyFile).toHaveBeenCalledWith(
       expect.objectContaining({
-        folderPath: '',
+        dirPath: '',
         name: 'backup.sh',
         remote: 'gdrive',
       })
@@ -187,7 +187,7 @@ describe('TableSection', () => {
 
     expect(renameFile).toHaveBeenCalledWith(
       expect.objectContaining({
-        folderPath: '',
+        dirPath: '',
         name: 'backup.sh',
         remote: 'gdrive',
       })
@@ -202,7 +202,7 @@ describe('TableSection', () => {
 
     expect(moveFile).toHaveBeenCalledWith(
       expect.objectContaining({
-        folderPath: '',
+        dirPath: '',
         name: 'backup.sh',
         remote: 'gdrive',
       })
