@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import FileUploadDialog from 'components/FileUploadDialog/index';
+import FileUploadDialog from 'components/FileUploadDialog';
 
 const FileUploadDialogContext = createContext();
 

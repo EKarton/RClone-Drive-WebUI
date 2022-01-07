@@ -1,9 +1,9 @@
-import { customRender } from 'test-utils/react';
+import { render } from 'test-utils/react';
 import ContextMenu from '../ContextMenu';
 
 describe('ContextMenu', () => {
   it('should match snapshot given it is open', () => {
-    const { baseElement } = customRender(
+    const { baseElement } = render(
       <ContextMenu
         open
         onClose={jest.fn()}

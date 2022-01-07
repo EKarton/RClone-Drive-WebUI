@@ -6,72 +6,76 @@ exports[`FilesListPage should match snapshot 1`] = `
     <div
       class="filelist-page__container"
     >
-      <nav
-        aria-label="breadcrumb"
-        class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root"
+      <div
+        class="header"
       >
-        <ol
-          class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+        <nav
+          aria-label="breadcrumb"
+          class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root"
         >
-          <li
-            class="MuiBreadcrumbs-li"
+          <ol
+            class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
           >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
-              href="/files"
+            <li
+              class="MuiBreadcrumbs-li"
             >
-              My Files
-            </a>
-          </li>
-          <li
-            aria-hidden="true"
-            class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
-          >
-            /
-          </li>
-          <li
-            class="MuiBreadcrumbs-li"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
-              href="/files/Z2RyaXZlOg=="
+              <a
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+                href="/files"
+              >
+                My Files
+              </a>
+            </li>
+            <li
+              aria-hidden="true"
+              class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
             >
-              gdrive
-            </a>
-          </li>
-          <li
-            aria-hidden="true"
-            class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
-          >
-            /
-          </li>
-          <li
-            class="MuiBreadcrumbs-li"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
-              href="/files/Z2RyaXZlOlBpY3R1cmVz"
+              /
+            </li>
+            <li
+              class="MuiBreadcrumbs-li"
             >
-              Pictures
-            </a>
-          </li>
-          <li
-            aria-hidden="true"
-            class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
-          >
-            /
-          </li>
-          <li
-            class="MuiBreadcrumbs-li"
-          >
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-1gqyz35-MuiTypography-root"
+              <a
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+                href="/files/Z2RyaXZlOg=="
+              >
+                gdrive
+              </a>
+            </li>
+            <li
+              aria-hidden="true"
+              class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
             >
-              2021
-            </p>
-          </li>
-        </ol>
-      </nav>
+              /
+            </li>
+            <li
+              class="MuiBreadcrumbs-li"
+            >
+              <a
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+                href="/files/Z2RyaXZlOlBpY3R1cmVz"
+              >
+                Pictures
+              </a>
+            </li>
+            <li
+              aria-hidden="true"
+              class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+            >
+              /
+            </li>
+            <li
+              class="MuiBreadcrumbs-li"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-body1 css-1gqyz35-MuiTypography-root"
+              >
+                2021
+              </p>
+            </li>
+          </ol>
+        </nav>
+      </div>
       <div
         class="add-files-drop-section"
         data-testid="add-files-drop-section"
@@ -116,14 +120,14 @@ exports[`FilesListPage should match snapshot 1`] = `
                 class="MuiTableBody-root file-list-table__body css-apqrd9-MuiTableBody-root"
               >
                 <tr
-                  class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
                   tabindex="0"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     <div
-                      class="filelist-table-row__file-cell"
+                      class="filelist-table-base-row__file-cell"
                       data-testid=".rclone"
                     >
                       <svg
@@ -143,25 +147,25 @@ exports[`FilesListPage should match snapshot 1`] = `
                     </div>
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     2021-11-01T21:09:05.237Z
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     -
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
                   tabindex="0"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     <div
-                      class="filelist-table-row__file-cell"
+                      class="filelist-table-base-row__file-cell"
                       data-testid="Documents"
                     >
                       <svg
@@ -181,25 +185,25 @@ exports[`FilesListPage should match snapshot 1`] = `
                     </div>
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     2021-09-28T01:51:05.982Z
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     -
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
                   tabindex="0"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     <div
-                      class="filelist-table-row__file-cell"
+                      class="filelist-table-base-row__file-cell"
                       data-testid="Games"
                     >
                       <svg
@@ -219,25 +223,25 @@ exports[`FilesListPage should match snapshot 1`] = `
                     </div>
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     2021-09-28T05:14:59.237Z
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     -
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
                   tabindex="0"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     <div
-                      class="filelist-table-row__file-cell"
+                      class="filelist-table-base-row__file-cell"
                       data-testid="Literature"
                     >
                       <svg
@@ -257,25 +261,25 @@ exports[`FilesListPage should match snapshot 1`] = `
                     </div>
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     2021-09-29T07:10:05.059Z
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     -
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
                   tabindex="0"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     <div
-                      class="filelist-table-row__file-cell"
+                      class="filelist-table-base-row__file-cell"
                       data-testid="Pictures"
                     >
                       <svg
@@ -295,25 +299,25 @@ exports[`FilesListPage should match snapshot 1`] = `
                     </div>
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     2021-09-28T03:39:11.850Z
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     -
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
                   tabindex="0"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     <div
-                      class="filelist-table-row__file-cell"
+                      class="filelist-table-base-row__file-cell"
                       data-testid="Software"
                     >
                       <svg
@@ -333,25 +337,25 @@ exports[`FilesListPage should match snapshot 1`] = `
                     </div>
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     2021-09-28T03:45:02.471Z
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     -
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
                   tabindex="0"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     <div
-                      class="filelist-table-row__file-cell"
+                      class="filelist-table-base-row__file-cell"
                       data-testid="Videos"
                     >
                       <svg
@@ -371,25 +375,25 @@ exports[`FilesListPage should match snapshot 1`] = `
                     </div>
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     2021-09-28T04:22:24.997Z
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     -
                   </td>
                 </tr>
                 <tr
-                  class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+                  class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
                   tabindex="0"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     <div
-                      class="filelist-table-row__file-cell"
+                      class="filelist-table-base-row__file-cell"
                       data-testid="backup.sh"
                     >
                       <svg
@@ -409,12 +413,12 @@ exports[`FilesListPage should match snapshot 1`] = `
                     </div>
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     2021-11-14T18:58:44.655Z
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
                   >
                     1.11 kB
                   </td>

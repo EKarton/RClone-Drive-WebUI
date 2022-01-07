@@ -192,7 +192,7 @@ describe('RCloneClient', () => {
       await client.uploadFiles('gdrive', 'Pictures', file);
 
       const expectedUrl = 'operations/uploadfile?fs=gdrive:&remote=Pictures';
-      expect(axios.post).toBeCalledWith(expectedUrl, expect.any(FormData));
+      expect(axios.post).toBeCalledWith(expectedUrl, expect.any(FormData), {});
     });
   });
 

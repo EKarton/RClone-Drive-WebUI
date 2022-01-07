@@ -1,7 +1,7 @@
-import { customRender, userEvent, fireEvent, screen } from 'test-utils/react';
-import Row from '../Row';
+import { render, userEvent, fireEvent, screen } from 'test-utils/react';
+import StandardRow from '..';
 
-describe('Row', () => {
+describe('StandardRow', () => {
   const file = {
     remote: 'gdrive',
     path: 'Pictures/2021',
@@ -11,7 +11,7 @@ describe('Row', () => {
   };
 
   it('should match snapshot given a folder', () => {
-    const { baseElement } = customRender(<Row file={file} />);
+    const { baseElement } = render(<StandardRow file={file} />);
 
     expect(baseElement).toMatchSnapshot();
   });
@@ -26,13 +26,13 @@ describe('Row', () => {
       isImage: false,
     };
 
-    const { baseElement } = customRender(<Row file={mockFile} />);
+    const { baseElement } = render(<StandardRow file={mockFile} />);
 
     expect(baseElement).toMatchSnapshot();
   });
 
   it('should match snapshots when user right clicks and clicks on the row', () => {
-    const { baseElement } = customRender(<Row file={file} />);
+    const { baseElement } = render(<StandardRow file={file} />);
 
     fireEvent.contextMenu(screen.getByTestId('Screenshots'));
 
@@ -45,7 +45,7 @@ describe('Row', () => {
   });
 
   it('should match snapshot when user loses focus on the row', () => {
-    const { baseElement } = customRender(<Row file={file} />);
+    const { baseElement } = render(<StandardRow file={file} />);
 
     fireEvent.click(screen.getByRole('row'));
     fireEvent.focusOut(screen.getByRole('row'));
@@ -55,7 +55,7 @@ describe('Row', () => {
 
   it('should call onFileOpen() when user double-clicks on the row', () => {
     const handleOpen = jest.fn();
-    customRender(<Row file={file} onFileOpen={handleOpen} />);
+    render(<StandardRow file={file} onFileOpen={handleOpen} />);
 
     userEvent.dblClick(screen.getByRole('row'));
 
@@ -64,7 +64,7 @@ describe('Row', () => {
 
   it('should call onFileOpen() when user right-clicks on the row and selects Open', () => {
     const handleOpen = jest.fn();
-    customRender(<Row file={file} onFileOpen={handleOpen} />);
+    render(<StandardRow file={file} onFileOpen={handleOpen} />);
 
     fireEvent.contextMenu(screen.getByRole('row'));
     userEvent.click(screen.getByText('Open'));
@@ -74,7 +74,7 @@ describe('Row', () => {
 
   it('should call onFileRename() when user right-clicks on the row and selects Rename', () => {
     const handleRename = jest.fn();
-    customRender(<Row file={file} onFileRename={handleRename} />);
+    render(<StandardRow file={file} onFileRename={handleRename} />);
 
     fireEvent.contextMenu(screen.getByRole('row'));
     userEvent.click(screen.getByText('Rename'));
@@ -84,7 +84,7 @@ describe('Row', () => {
 
   it('should call onFileCopy() when user right-clicks on the row and selects Copy', () => {
     const handleCopy = jest.fn();
-    customRender(<Row file={file} onFileCopy={handleCopy} />);
+    render(<StandardRow file={file} onFileCopy={handleCopy} />);
 
     fireEvent.contextMenu(screen.getByRole('row'));
     userEvent.click(screen.getByText('Copy'));
@@ -94,7 +94,7 @@ describe('Row', () => {
 
   it('should call onFileDelete() when user right-clicks on the row and selects Delete', () => {
     const handleDelete = jest.fn();
-    customRender(<Row file={file} onFileDelete={handleDelete} />);
+    render(<StandardRow file={file} onFileDelete={handleDelete} />);
 
     fireEvent.contextMenu(screen.getByRole('row'));
     userEvent.click(screen.getByText('Delete'));
@@ -104,7 +104,7 @@ describe('Row', () => {
 
   it('should call onFileDownload() when user right-clicks on the row and selects Download', () => {
     const handleDownload = jest.fn();
-    customRender(<Row file={file} onFileDownload={handleDownload} />);
+    render(<StandardRow file={file} onFileDownload={handleDownload} />);
 
     fireEvent.contextMenu(screen.getByRole('row'));
     userEvent.click(screen.getByText('Download'));
@@ -114,7 +114,7 @@ describe('Row', () => {
 
   it('should call onFileMove() when user right-clicks on the row and selects Move', () => {
     const handleMove = jest.fn();
-    customRender(<Row file={file} onFileMove={handleMove} />);
+    render(<StandardRow file={file} onFileMove={handleMove} />);
 
     fireEvent.contextMenu(screen.getByRole('row'));
     userEvent.click(screen.getByText('Move to'));

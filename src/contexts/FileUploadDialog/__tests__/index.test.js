@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { FileUploadCountsProvider } from 'contexts/FileUploadCounts/index';
-import FileUploaderProvider from 'contexts/FileUploader/FileUploaderProvider';
+import { FileUploaderProvider } from 'contexts/FileUploader';
 import { RCloneInfoProvider } from 'contexts/RCloneInfo/index';
 import { render, screen } from 'test-utils/react';
 import { userEvent, fireEvent, waitForElementToBeRemoved } from 'test-utils/react';
@@ -36,13 +36,13 @@ describe('useFileUploadDialog()', () => {
 
     return render(
       <RCloneInfoProvider defaultState={mockRCloneInfo}>
-        <FileUploaderProvider>
-          <FileUploadCountsProvider>
+        <FileUploadCountsProvider>
+          <FileUploaderProvider>
             <FileUploadDialogProvider>
               <MockPage />
             </FileUploadDialogProvider>
-          </FileUploadCountsProvider>
-        </FileUploaderProvider>
+          </FileUploaderProvider>
+        </FileUploadCountsProvider>
       </RCloneInfoProvider>
     );
   };

@@ -5,7 +5,15 @@
  * @returns {string} the full path
  */
 export function getFullPath(directoryPath, baseName) {
-  return directoryPath ? `${directoryPath}/${baseName}` : baseName;
+  if (directoryPath && baseName) {
+    return `${directoryPath}/${baseName}`;
+  }
+
+  if (!directoryPath && baseName) {
+    return baseName;
+  }
+
+  return directoryPath;
 }
 
 /**

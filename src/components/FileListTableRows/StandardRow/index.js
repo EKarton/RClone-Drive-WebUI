@@ -1,15 +1,12 @@
-import TableCell from '@mui/material/TableCell';
-import TableRow from '@mui/material/TableRow';
-import cx from 'classnames';
 import prettyBytes from 'pretty-bytes';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { ICON_SIZE } from 'utils/constants';
+import BaseRow from '../BaseRow';
+import FileIcon from '../FileIcon';
 import ContextMenu from './ContextMenu';
-import FileIcon from './FileIcon';
-import './Row.scss';
 
-export default function Row({
+export default function StandardRow({
   file,
   iconSize,
   onFileOpen,
@@ -53,33 +50,19 @@ export default function Row({
     func();
   };
 
-  const isRowHighlighted = isRowFocused || isContextMenuOpen;
-
   return (
     <>
-      <TableRow
-        className={cx('filelist-table-row', {
-          'filelist-table-row--highlight': isRowHighlighted,
-        })}
+      <BaseRow
+        isHighlighted={isRowFocused || isContextMenuOpen}
+        fileIcon={<FileIcon file={file} iconSize={iconSize} />}
+        fileName={file.name}
+        dateModified={file.lastUpdatedTime}
+        fileSize={file.isDirectory ? '-' : prettyBytes(file.size)}
         onContextMenu={handleContextMenuOpened}
         onFocus={handleRowFocus}
         onBlur={handleRowBlurred}
         onDoubleClick={handleDoubleClick}
-        tabIndex="0"
-      >
-        <TableCell className="filelist-table-row__table-cell">
-          <div className="filelist-table-row__file-cell" data-testid={file.name}>
-            <FileIcon file={file} iconSize={iconSize} />
-            <div>{file.name}</div>
-          </div>
-        </TableCell>
-        <TableCell className="filelist-table-row__table-cell">
-          {file.lastUpdatedTime}
-        </TableCell>
-        <TableCell className="filelist-table-row__table-cell">
-          {file.isDirectory ? '-' : prettyBytes(file.size)}
-        </TableCell>
-      </TableRow>
+      />
       <ContextMenu
         open={isContextMenuOpen}
         onClose={handleContextMenuClosed}
@@ -97,14 +80,13 @@ export default function Row({
   );
 }
 
-Row.propType = {
+StandardRow.propType = {
   file: PropTypes.shape({
     name: PropTypes.string,
     lastUpdatedTime: PropTypes.string,
     size: PropTypes.string,
     isDirectory: PropTypes.bool.isRequired,
     isImage: PropTypes.bool.isRequired,
-    preview: PropTypes.node,
   }),
   iconSize: PropTypes.oneOf(Object.values(ICON_SIZE)),
 };

@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
-import useFileUploadCounts from 'contexts/FileUploadCounts/useFileUploadCounts';
+import { useFileUploadCounts } from 'contexts/FileUploadCounts';
 import { useFileUploadDialog } from 'contexts/FileUploadDialog/index';
 
 export default function UploadStatusButton() {
@@ -18,7 +18,7 @@ export default function UploadStatusButton() {
 
   return (
     <Button startIcon={<CircularProgress size={20} />} onClick={openDialog}>
-      Uploaded {numSuccessful} / {numUploading + numSuccessful} Files
+      Uploading {numUploading} Files
     </Button>
   );
 }

@@ -2,7 +2,9 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import FolderIcon from '@mui/icons-material/Folder';
 import ImageIcon from '@mui/icons-material/Image';
 import Icon from '@mui/material/Icon';
+import PropTypes from 'prop-types';
 import LazyImage from 'components/LazyImage';
+import { ICON_SIZE } from 'utils/constants';
 import './FileIcon.scss';
 
 export default function FileIcon({ file, iconSize, showPreview }) {
@@ -31,3 +33,12 @@ export default function FileIcon({ file, iconSize, showPreview }) {
 
   return <DescriptionIcon fontSize={iconSize} />;
 }
+
+FileIcon.propType = {
+  file: PropTypes.shape({
+    isDirectory: PropTypes.bool.isRequired,
+    isImage: PropTypes.bool.isRequired,
+  }),
+  iconSize: PropTypes.oneOf(Object.values(ICON_SIZE)),
+  showPreview: PropTypes.bool,
+};

@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Row should match snapshot given a file 1`] = `
+exports[`StandardRow should match snapshot given a file 1`] = `
 <body>
   <div>
     <tr
-      class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+      class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
       tabindex="0"
     >
       <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         <div
-          class="filelist-table-row__file-cell"
+          class="filelist-table-base-row__file-cell"
           data-testid="report.pdf"
         >
           <svg
@@ -31,10 +31,10 @@ exports[`Row should match snapshot given a file 1`] = `
         </div>
       </td>
       <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       />
       <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         12.3 kB
       </td>
@@ -43,18 +43,18 @@ exports[`Row should match snapshot given a file 1`] = `
 </body>
 `;
 
-exports[`Row should match snapshot given a folder 1`] = `
+exports[`StandardRow should match snapshot given a folder 1`] = `
 <body>
   <div>
     <tr
-      class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+      class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
       tabindex="0"
     >
       <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         <div
-          class="filelist-table-row__file-cell"
+          class="filelist-table-base-row__file-cell"
           data-testid="Screenshots"
         >
           <svg
@@ -74,10 +74,10 @@ exports[`Row should match snapshot given a folder 1`] = `
         </div>
       </td>
       <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       />
       <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         -
       </td>
@@ -86,20 +86,20 @@ exports[`Row should match snapshot given a folder 1`] = `
 </body>
 `;
 
-exports[`Row should match snapshot when user loses focus on the row 1`] = `
+exports[`StandardRow should match snapshot when user loses focus on the row 1`] = `
 <body
   style=""
 >
   <div>
     <tr
-      class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+      class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
       tabindex="0"
     >
       <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         <div
-          class="filelist-table-row__file-cell"
+          class="filelist-table-base-row__file-cell"
           data-testid="Screenshots"
         >
           <svg
@@ -119,10 +119,10 @@ exports[`Row should match snapshot when user loses focus on the row 1`] = `
         </div>
       </td>
       <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       />
       <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         -
       </td>
@@ -131,7 +131,7 @@ exports[`Row should match snapshot when user loses focus on the row 1`] = `
 </body>
 `;
 
-exports[`Row should match snapshots when user right clicks and clicks on the row 1`] = `
+exports[`StandardRow should match snapshots when user right clicks and clicks on the row 1`] = `
 <body
   style="padding-right: 1024px; overflow: hidden;"
 >
@@ -139,14 +139,14 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
     aria-hidden="true"
   >
     <tr
-      class="MuiTableRow-root filelist-table-row filelist-table-row--highlight css-1q1u3t4-MuiTableRow-root"
+      class="MuiTableRow-root filelist-table-base-row filelist-table-base-row--highlight css-1q1u3t4-MuiTableRow-root"
       tabindex="0"
     >
       <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         <div
-          class="filelist-table-row__file-cell"
+          class="filelist-table-base-row__file-cell"
           data-testid="Screenshots"
         >
           <svg
@@ -166,10 +166,10 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
         </div>
       </td>
       <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       />
       <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         -
       </td>
@@ -419,20 +419,20 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
 </body>
 `;
 
-exports[`Row should match snapshots when user right clicks and clicks on the row 2`] = `
+exports[`StandardRow should match snapshots when user right clicks and clicks on the row 2`] = `
 <body
   style=""
 >
   <div>
     <tr
-      class="MuiTableRow-root filelist-table-row css-1q1u3t4-MuiTableRow-root"
+      class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
       tabindex="0"
     >
       <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         <div
-          class="filelist-table-row__file-cell"
+          class="filelist-table-base-row__file-cell"
           data-testid="Screenshots"
         >
           <svg
@@ -452,10 +452,10 @@ exports[`Row should match snapshots when user right clicks and clicks on the row
         </div>
       </td>
       <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       />
       <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-row__table-cell css-bsph2u-MuiTableCell-root"
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       >
         -
       </td>

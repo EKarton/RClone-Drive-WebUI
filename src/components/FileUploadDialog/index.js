@@ -1,8 +1,8 @@
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import useFileUploadCounts from 'contexts/FileUploadCounts/useFileUploadCounts';
-import { useFileUploader } from 'contexts/FileUploader/index';
+import { useFileUploadCounts } from 'contexts/FileUploadCounts';
+import { useFileUploader } from 'contexts/FileUploader';
 import FileUploadProgressBar from './ProgressBar';
 import Table from './Table';
 

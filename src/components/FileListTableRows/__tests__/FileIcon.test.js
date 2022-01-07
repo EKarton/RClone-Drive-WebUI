@@ -1,5 +1,5 @@
 import LazyImage from 'components/LazyImage';
-import { customRender } from 'test-utils/react';
+import { render } from 'test-utils/react';
 import FileIcon from '../FileIcon';
 
 jest.mock('components/LazyImage');
@@ -14,7 +14,7 @@ describe('FileIcon', () => {
       isImage: false,
     };
 
-    const { baseElement } = customRender(<FileIcon file={file} />);
+    const { baseElement } = render(<FileIcon file={file} />);
 
     expect(baseElement).toMatchSnapshot();
   });
@@ -30,7 +30,7 @@ describe('FileIcon', () => {
       isImage: true,
     };
 
-    const { baseElement } = customRender(<FileIcon file={file} showPreview />);
+    const { baseElement } = render(<FileIcon file={file} showPreview />);
 
     expect(baseElement).toMatchSnapshot();
   });
@@ -44,7 +44,7 @@ describe('FileIcon', () => {
       isImage: true,
     };
 
-    const { baseElement } = customRender(<FileIcon file={file} />);
+    const { baseElement } = render(<FileIcon file={file} />);
 
     expect(baseElement).toMatchSnapshot();
   });
@@ -58,7 +58,7 @@ describe('FileIcon', () => {
       isImage: false,
     };
 
-    const { baseElement } = customRender(<FileIcon file={file} />);
+    const { baseElement } = render(<FileIcon file={file} />);
 
     expect(baseElement).toMatchSnapshot();
   });

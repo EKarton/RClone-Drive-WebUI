@@ -1,4 +1,5 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useContext, useReducer } from 'react';
+import actionTypes from './actionTypes';
 import reducer from './reducer';
 
 export const InitialState = {
@@ -19,3 +20,31 @@ export const FileUploadCountsProvider = ({ children, defaultState = InitialState
     </FileUploadCountsContext.Provider>
   );
 };
+
+export function useFileUploadCounts() {
+  const { state, dispatch } = useContext(FileUploadCountsContext);
+
+  if (state === undefined) {
+    throw new Error('This hook must be wrapped in FileUploadCountsProvider');
+  }
+
+  const updateUploadStatus = (prevStatus, curStatus) => {
+    dispatch({
+      type: actionTypes.UPDATE_STATUS,
+      payload: [prevStatus, curStatus],
+    });
+  };
+
+  const addUploadStatus = (curStatus) => {
+    dispatch({
+      type: actionTypes.ADD_STATUS,
+      payload: curStatus,
+    });
+  };
+
+  return {
+    counts: state,
+    updateUploadStatus,
+    addUploadStatus,
+  };
+}

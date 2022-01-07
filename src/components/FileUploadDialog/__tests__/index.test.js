@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
-import useFileUploadCounts from 'contexts/FileUploadCounts/useFileUploadCounts';
-import useFileUploader from 'contexts/FileUploader/useFileUploader';
+import { useFileUploadCounts } from 'contexts/FileUploadCounts';
+import { useFileUploader } from 'contexts/FileUploader';
 import { UploadStatusTypes } from 'utils/constants';
 import { render, screen } from 'test-utils/react';
 import FileUploadDialog from '../index';
@@ -45,8 +45,8 @@ const mockCounts = {
   numCancelled: 0,
 };
 
-jest.mock('contexts/FileUploadCounts/useFileUploadCounts');
-jest.mock('contexts/FileUploader/useFileUploader');
+jest.mock('contexts/FileUploadCounts');
+jest.mock('contexts/FileUploader');
 
 describe('FileUploadDialog', () => {
   it('should match snapshot given uploading files and upload counts', async () => {
