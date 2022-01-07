@@ -34,7 +34,7 @@ export default function BaseRow({
   );
 }
 
-BaseRow.propType = {
+BaseRow.propTypes = {
   isHighlighted: PropTypes.bool,
   fileIcon: PropTypes.node,
   fileName: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),

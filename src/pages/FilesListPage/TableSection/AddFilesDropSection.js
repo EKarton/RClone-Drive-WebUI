@@ -107,7 +107,7 @@ export default function AddFilesDropSection({ remote, folderPath, children }) {
   );
 }
 
-AddFilesDropSection.propType = {
+AddFilesDropSection.propTypes = {
   remote: PropTypes.string,
   folderPath: PropTypes.string,
   children: PropTypes.node,

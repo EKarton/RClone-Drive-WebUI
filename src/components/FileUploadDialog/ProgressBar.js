@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 import Typography from '@mui/material/Typography';
+import PropTypes from 'prop-types';
 import './ProgressBar.scss';
 
 export default function ProgressBar({ numSuccessful, numUploading }) {
@@ -19,3 +20,8 @@ export default function ProgressBar({ numSuccessful, numUploading }) {
     </Box>
   );
 }
+
+ProgressBar.propTypes = {
+  numSuccessful: PropTypes.number,
+  numUploading: PropTypes.number,
+};

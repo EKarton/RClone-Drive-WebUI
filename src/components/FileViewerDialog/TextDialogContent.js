@@ -1,5 +1,6 @@
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import './TextDialogContent.scss';
 
@@ -16,3 +17,7 @@ export default function TextDialogContent({ fileBlob }) {
     </DialogContent>
   );
 }
+
+TextDialogContent.propTypes = {
+  fileBlob: PropTypes.instanceOf(Blob),
+};

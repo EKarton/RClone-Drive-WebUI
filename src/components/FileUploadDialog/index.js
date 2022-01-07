@@ -1,6 +1,7 @@
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import PropTypes from 'prop-types';
 import { useFileUploadCounts } from 'contexts/FileUploadCounts';
 import { useFileUploader } from 'contexts/FileUploader';
 import FileUploadProgressBar from './ProgressBar';
@@ -24,3 +25,8 @@ export default function FileUploadDialog({ open, onClose }) {
     </Dialog>
   );
 }
+
+FileUploadDialog.propTypes = {
+  open: PropTypes.bool,
+  onClose: PropTypes.func,
+};

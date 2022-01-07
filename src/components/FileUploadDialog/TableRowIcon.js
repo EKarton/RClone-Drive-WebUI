@@ -2,6 +2,7 @@ import ArticleIcon from '@mui/icons-material/Article';
 import DescriptionIcon from '@mui/icons-material/Description';
 import FolderZipIcon from '@mui/icons-material/FolderZip';
 import Tooltip from '@mui/material/Tooltip';
+import PropTypes from 'prop-types';
 
 export default function TableRowIcon({ fileType }) {
   const renderIcon = () => {
@@ -22,3 +23,7 @@ export default function TableRowIcon({ fileType }) {
     </Tooltip>
   );
 }
+
+TableRowIcon.propTypes = {
+  fileType: PropTypes.string,
+};

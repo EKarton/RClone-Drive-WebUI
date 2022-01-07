@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import 'react-pdf/dist/umd/Page/AnnotationLayer.css';
 import { Document, Page } from 'react-pdf/dist/umd/entry.webpack';
@@ -28,3 +29,7 @@ export default function PDFDialogContent({ fileUrl }) {
     </Document>
   );
 }
+
+PDFDialogContent.propTypes = {
+  fileUrl: PropTypes.string,
+};

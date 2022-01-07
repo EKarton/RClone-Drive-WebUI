@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppLogo should match snapshot given color mode is dark 1`] = `
+<body>
+  <div>
+    <div
+      class="app-logo app-logo--dark"
+    />
+  </div>
+</body>
+`;
+
+exports[`AppLogo should match snapshot given color mode is light 1`] = `
+<body>
+  <div>
+    <div
+      class="app-logo"
+    />
+  </div>
+</body>
+`;

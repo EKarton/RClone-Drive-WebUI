@@ -9,6 +9,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import PropTypes from 'prop-types';
 
 export default function ContextMenu({
   open,
@@ -65,3 +66,20 @@ export default function ContextMenu({
     </Menu>
   );
 }
+
+ContextMenu.propTypes = {
+  open: PropTypes.bool,
+  onClose: PropTypes.func,
+  menuPosition: PropTypes.shape({
+    left: PropTypes.number,
+    top: PropTypes.number,
+  }),
+  menuButtonEvents: PropTypes.shape({
+    onOpen: PropTypes.func,
+    onDownload: PropTypes.func,
+    onMove: PropTypes.func,
+    onCopy: PropTypes.func,
+    onRename: PropTypes.func,
+    onDelete: PropTypes.func,
+  }),
+};

@@ -17,3 +17,5 @@ export default function DarkModeToggleSwitch() {
 
   return <MaterialUISwitch checked={isChecked} onChange={handleSwitch} size="small" />;
 }
+
+DarkModeToggleSwitch.propTypes = {};

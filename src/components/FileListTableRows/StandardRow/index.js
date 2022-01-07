@@ -80,11 +80,11 @@ export default function StandardRow({
   );
 }
 
-StandardRow.propType = {
+StandardRow.propTypes = {
   file: PropTypes.shape({
     name: PropTypes.string,
     lastUpdatedTime: PropTypes.string,
-    size: PropTypes.string,
+    size: PropTypes.number,
     isDirectory: PropTypes.bool.isRequired,
     isImage: PropTypes.bool.isRequired,
   }),

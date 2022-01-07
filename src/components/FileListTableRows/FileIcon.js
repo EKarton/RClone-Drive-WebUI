@@ -34,7 +34,7 @@ export default function FileIcon({ file, iconSize, showPreview }) {
   return <DescriptionIcon fontSize={iconSize} />;
 }
 
-FileIcon.propType = {
+FileIcon.propTypes = {
   file: PropTypes.shape({
     isDirectory: PropTypes.bool.isRequired,
     isImage: PropTypes.bool.isRequired,

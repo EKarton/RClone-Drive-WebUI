@@ -1,0 +1,13 @@
+.app-logo {
+  background-image: url('../../assets/images/rclone-icon/light/logo_on_light__horizontal_color_256px.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-position: left center;
+  height: 1.5rem;
+  flex-grow: 1;
+
+  &--dark {
+    background-image: url('../../assets/images/rclone-icon/dark/logo_on_dark__horizontal_color_256px.png');
+  }
+}

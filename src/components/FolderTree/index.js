@@ -1,6 +1,7 @@
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import TreeView from '@mui/lab/TreeView';
+import PropTypes from 'prop-types';
 import FolderTreeItem from './FolderTreeItem';
 
 export default function FolderTree({ remotes, onSelect }) {
@@ -21,3 +22,8 @@ export default function FolderTree({ remotes, onSelect }) {
     </TreeView>
   );
 }
+
+FolderTreeItem.propTypes = {
+  remotes: PropTypes.arrayOf(PropTypes.string),
+  onSelect: PropTypes.func,
+};
