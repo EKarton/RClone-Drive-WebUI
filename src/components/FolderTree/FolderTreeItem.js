@@ -1,6 +1,7 @@
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import TreeItem from '@mui/lab/TreeItem';
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { StatusTypes } from 'utils/constants';
@@ -75,3 +76,9 @@ export default function FolderTreeItem({ remote, curPath, label }) {
     </TreeItem>
   );
 }
+
+FolderTreeItem.propTypes = {
+  remote: PropTypes.string,
+  curPath: PropTypes.string,
+  label: PropTypes.string,
+};

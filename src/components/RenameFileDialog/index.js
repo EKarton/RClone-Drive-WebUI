@@ -4,6 +4,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import TextField from '@mui/material/TextField';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 export default function RenameFileDialog({ open, fileName, onCancel, onRename }) {
@@ -56,3 +57,10 @@ export default function RenameFileDialog({ open, fileName, onCancel, onRename })
     </Dialog>
   );
 }
+
+RenameFileDialog.propTypes = {
+  open: PropTypes.bool,
+  fileName: PropTypes.string,
+  onCancel: PropTypes.func,
+  onRename: PropTypes.func,
+};

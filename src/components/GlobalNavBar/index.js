@@ -6,6 +6,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import './index.scss';
@@ -56,3 +57,7 @@ export default function GlobalNavBar({ isExpanded }) {
     </Drawer>
   );
 }
+
+GlobalNavBar.propTypes = {
+  isExpanded: PropTypes.bool,
+};

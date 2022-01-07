@@ -34,3 +34,5 @@ export default function LazyImageListSkeleton({ ...otherProps }) {
     </AutoSizer>
   );
 }
+
+LazyImageListSkeleton.propTypes = {};

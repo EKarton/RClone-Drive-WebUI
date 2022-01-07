@@ -7,6 +7,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import FileSaver from 'file-saver';
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { ImageMimeTypes, StatusTypes } from 'utils/constants';
@@ -153,3 +154,13 @@ export default function FileViewerDialog({ open, fileInfo, onClose }) {
     </Dialog>
   );
 }
+
+FileViewerDialog.propTypes = {
+  open: PropTypes.bool,
+  fileInfo: PropTypes.shape({
+    remote: PropTypes.string,
+    folderPath: PropTypes.string,
+    fileName: PropTypes.string,
+  }),
+  onClose: PropTypes.func,
+};

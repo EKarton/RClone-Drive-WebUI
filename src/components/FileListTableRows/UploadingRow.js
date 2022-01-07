@@ -52,7 +52,7 @@ export default function UploadingRow({ file, iconSize }) {
   );
 }
 
-UploadingRow.propType = {
+UploadingRow.propTypes = {
   file: PropTypes.shape({
     name: PropTypes.string,
     lastUpdatedTime: PropTypes.string,

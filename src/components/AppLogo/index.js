@@ -14,3 +14,5 @@ export default function AppLogo() {
     />
   );
 }
+
+AppLogo.propTypes = {};

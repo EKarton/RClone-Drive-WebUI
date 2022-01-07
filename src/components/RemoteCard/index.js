@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import prettyBytes from 'pretty-bytes';
+import PropTypes from 'prop-types';
 import useFetchRemoteInfo from 'hooks/fetch-data/useFetchRemoteInfo';
 import useFetchRemoteSpaceInfo from 'hooks/fetch-data/useFetchRemoteSpaceInfo';
 import { StatusTypes } from 'utils/constants';
@@ -58,3 +59,8 @@ export default function RemoteCard({ remote, onClick, ...props }) {
     </Card>
   );
 }
+
+RemoteCard.propTypes = {
+  remote: PropTypes.string,
+  onClick: PropTypes.func,
+};

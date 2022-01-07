@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useInView } from 'react-intersection-observer';
 import Image from 'components/Image';
 import './index.scss';
@@ -30,3 +31,9 @@ export default function LazyImage({ image, width, height }) {
     </div>
   );
 }
+
+LazyImage.propTypes = {
+  image: Image.propTypes.image,
+  width: PropTypes.number,
+  height: PropTypes.number,
+};

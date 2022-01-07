@@ -32,6 +32,6 @@ export default function FileListTable({ children, ...props }) {
   );
 }
 
-FileListTable.propType = {
+FileListTable.propTypes = {
   rows: PropTypes.arrayOf(PropTypes.oneOfType([UploadingRow, StandardRow])),
 };

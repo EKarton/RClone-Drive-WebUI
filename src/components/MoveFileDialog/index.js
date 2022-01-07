@@ -3,6 +3,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import FolderTree from 'components/FolderTree';
 import useFetchRemotes from 'hooks/fetch-data/useFetchRemotes';
@@ -59,3 +60,10 @@ export default function MoveFileDialog({ open, fileName, onCancel, onOk }) {
     </Dialog>
   );
 }
+
+MoveFileDialog.propTypes = {
+  open: PropTypes.bool,
+  fileName: PropTypes.string,
+  onCancel: PropTypes.bool,
+  onOk: PropTypes.bool,
+};

@@ -1,6 +1,7 @@
 import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
+import PropTypes from 'prop-types';
 import { useMemo } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { hashRemotePath } from 'utils/remote-paths-url';
@@ -49,3 +50,10 @@ export default function Breadcrumbs({ remote, path, homePath, homeText, ...props
     </MuiBreadcrumbs>
   );
 }
+
+Breadcrumbs.propTypes = {
+  remote: PropTypes.string,
+  path: PropTypes.string,
+  homePath: PropTypes.string,
+  homeText: PropTypes.string,
+};

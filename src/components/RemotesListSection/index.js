@@ -1,4 +1,5 @@
 import Typography from '@mui/material/Typography';
+import PropTypes from 'prop-types';
 import RemoteCardList from 'components/RemoteCardList';
 import useFetchRemotes from 'hooks/fetch-data/useFetchRemotes';
 import { StatusTypes } from 'utils/constants';
@@ -30,3 +31,7 @@ export default function RemotesListSection({ onRemoteCardClicked }) {
     </>
   );
 }
+
+RemotesListSection.propTypes = {
+  onRemoteCardClicked: PropTypes.func,
+};

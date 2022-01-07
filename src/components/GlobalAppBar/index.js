@@ -3,6 +3,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AppLogo from 'components/AppLogo';
 import DarkModeToggleSwitch from 'components/DarkModeToggleSwitch';
@@ -38,3 +39,7 @@ export default function GlobalAppBar({ onDrawerButttonClicked }) {
     </AppBar>
   );
 }
+
+GlobalAppBar.propTypes = {
+  onDrawerButttonClicked: PropTypes.func,
+};

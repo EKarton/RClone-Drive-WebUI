@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList } from 'react-window';
 import LazyImage from 'components/LazyImage';
@@ -76,3 +77,9 @@ export default function LazyImageList({ images, remote, onImageClicked, ...other
     </AutoSizer>
   );
 }
+
+LazyImageList.propTypes = {
+  images: PropTypes.arrayOf(LazyImage.propTypes.image),
+  remote: PropTypes.shape,
+  onImageClicked: PropTypes.func,
+};

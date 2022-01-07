@@ -23,6 +23,6 @@ FileListTableSkeleton.defaultProps = {
   numRows: 5,
 };
 
-FileListTableSkeleton.propType = {
+FileListTableSkeleton.propTypes = {
   numRows: PropTypes.number,
 };
