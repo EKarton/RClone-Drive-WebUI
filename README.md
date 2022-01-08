@@ -39,52 +39,21 @@ Once logged in, users are redirected to the files page with a list of their remo
 
 Clicking on a remote takes them to the files list page. Here, users are able to navigate into subfolders, view files, create new folders, copy existing content, upload files and folders, and delete files. Moreover, users are able to move files and folders between different remotes (ex: move files from Onedrive to Google Drive):
 
-<table>
-   <tr>
-      <td>
-         <img src="docs/screenshots/files-list-page.png" />
-      </td>
-      <td>
-         <img src="docs/screenshots/files-list-page-options.png" />
-      </td>
-   </tr>
-   <tr>
-      <td>
-         <img src="docs/screenshots/move-file-modal.png" />
-      </td>
-      <td>
-         <img src="docs/screenshots/pdf-viewer.png" />
-      </td>
-   </tr>
-</table>
+<div width="100%">
+   <p align="center">
+      <img src="docs/screenshots/files-interact.gif" width="600px"/>
+   </p>
+</div>
 
-To view and scroll through pictures, users can click on the Files tab. Similar to the files page, users would need to pick a remote and a subfolder which contains their pictures:
+To view and scroll through pictures, users can click on the Pictures tab, pick a remote, select a subfolder containing their picture. They can scroll and view pictures in detail:
 
-<table>
-   <tr>
-      <td>
-         <img src="docs/screenshots/pictures-page.png" />
-      </td>
-      <td>
-         <img src="docs/screenshots/pictures-page-folder-picker.png" />
-      </td>
-   </tr>
-</table>
+<div width="100%">
+   <p align="center">
+      <img src="docs/screenshots/pictures-interact.gif" width="600px"/>
+   </p>
+</div>
 
-After picking a folder, users can scroll through their pictures, and view pictures in detail:
-
-<table>
-   <tr>
-      <td>
-         <img src="docs/screenshots/pictures-list-page.png" />
-      </td>
-      <td>
-         <img src="docs/screenshots/pictures-list-page-viewer.png" />
-      </td>
-   </tr>
-</table>
-
-Each time a picture is viewed, it gets added to a list of recently viewed pictures for future, easy access:
+Each time a picture is viewed in detail, it gets added to a list of recently viewed pictures for future, easy access:
 
 <div width="100%">
    <p align="center">

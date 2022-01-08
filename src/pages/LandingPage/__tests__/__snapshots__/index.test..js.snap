@@ -128,7 +128,7 @@ exports[`LandingPage should match snapshot 1`] = `
         <h6
           class="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
         >
-          This is an RClone client that connects to your local RClone instance. You can securely view and manage your files across many cloud providers through this web app.
+          This is a front-facing web application that connects to your RClone instance. You can securely view and manage your files across many cloud providers through this web app.
         </h6>
       </div>
       <div
@@ -159,7 +159,7 @@ exports[`LandingPage should match snapshot 1`] = `
         <h6
           class="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
         >
-          This app connects to an RClone instance running on your machine. Nothing is done outside of your machine.
+          All actions are done locally on your computer. Nothing is done in our backend servers.
         </h6>
       </div>
       <div
@@ -190,7 +190,7 @@ exports[`LandingPage should match snapshot 1`] = `
         <h6
           class="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
         >
-          Drag-and-drop to upload files, right-click to delete, move, or copy files between different cloud providers.
+          Drag-and-drop to upload files, right-click and select to delete, move, or copy files between different cloud providers.
         </h6>
       </div>
     </div>
@@ -254,23 +254,48 @@ exports[`LandingPage should match snapshot 1`] = `
           class="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
         >
           <strong>
+            Upload new files and folders
+          </strong>
+        </h4>
+        <h6
+          class="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
+        >
+          Drag-and-drop to upload files and folder to different cloud drives
+        </h6>
+      </div>
+      <img
+        alt="Feature"
+        class="feature-section__image"
+        src="file-upload-dialog.png"
+      />
+    </div>
+    <div
+      class="feature-section"
+    >
+      <div
+        class="feature-section__text"
+      >
+        <h4
+          class="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
+        >
+          <strong>
             Manage files on different cloud drives
           </strong>
         </h4>
         <h6
           class="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
         >
-          Upload, copy, rename, delete, and move files between different cloud drives
+          Click to copy, rename, delete, and move files between different cloud drives
         </h6>
       </div>
       <img
         alt="Feature"
-        class="feature-section__image"
+        class="feature-section__image feature-section__image--left"
         src="move-file-modal.png"
       />
     </div>
     <div
-      class="feature-section"
+      class="feature-section feature-section--right"
     >
       <div
         class="feature-section__text"
@@ -290,7 +315,7 @@ exports[`LandingPage should match snapshot 1`] = `
       </div>
       <img
         alt="Feature"
-        class="feature-section__image feature-section__image--left"
+        class="feature-section__image"
         src="dark-mode.png"
       />
     </div>
@@ -426,7 +451,7 @@ exports[`LandingPage should match snapshot when user scrolls down on the page 1`
         <h6
           class="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
         >
-          This is an RClone client that connects to your local RClone instance. You can securely view and manage your files across many cloud providers through this web app.
+          This is a front-facing web application that connects to your RClone instance. You can securely view and manage your files across many cloud providers through this web app.
         </h6>
       </div>
       <div
@@ -457,7 +482,7 @@ exports[`LandingPage should match snapshot when user scrolls down on the page 1`
         <h6
           class="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
         >
-          This app connects to an RClone instance running on your machine. Nothing is done outside of your machine.
+          All actions are done locally on your computer. Nothing is done in our backend servers.
         </h6>
       </div>
       <div
@@ -488,7 +513,7 @@ exports[`LandingPage should match snapshot when user scrolls down on the page 1`
         <h6
           class="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
         >
-          Drag-and-drop to upload files, right-click to delete, move, or copy files between different cloud providers.
+          Drag-and-drop to upload files, right-click and select to delete, move, or copy files between different cloud providers.
         </h6>
       </div>
     </div>
@@ -552,23 +577,48 @@ exports[`LandingPage should match snapshot when user scrolls down on the page 1`
           class="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
         >
           <strong>
+            Upload new files and folders
+          </strong>
+        </h4>
+        <h6
+          class="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
+        >
+          Drag-and-drop to upload files and folder to different cloud drives
+        </h6>
+      </div>
+      <img
+        alt="Feature"
+        class="feature-section__image"
+        src="file-upload-dialog.png"
+      />
+    </div>
+    <div
+      class="feature-section"
+    >
+      <div
+        class="feature-section__text"
+      >
+        <h4
+          class="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
+        >
+          <strong>
             Manage files on different cloud drives
           </strong>
         </h4>
         <h6
           class="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
         >
-          Upload, copy, rename, delete, and move files between different cloud drives
+          Click to copy, rename, delete, and move files between different cloud drives
         </h6>
       </div>
       <img
         alt="Feature"
-        class="feature-section__image"
+        class="feature-section__image feature-section__image--left"
         src="move-file-modal.png"
       />
     </div>
     <div
-      class="feature-section"
+      class="feature-section feature-section--right"
     >
       <div
         class="feature-section__text"
@@ -588,7 +638,7 @@ exports[`LandingPage should match snapshot when user scrolls down on the page 1`
       </div>
       <img
         alt="Feature"
-        class="feature-section__image feature-section__image--left"
+        class="feature-section__image"
         src="dark-mode.png"
       />
     </div>
