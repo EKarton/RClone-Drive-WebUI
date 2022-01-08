@@ -57,7 +57,7 @@ jobs:
         run: yarn install
 
       - name: Run all test cases
-        run: yarn test
+        run: yarn test --maxWorkers=100%
 
   build:
     name: Builds the app
