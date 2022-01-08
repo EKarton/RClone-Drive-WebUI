@@ -69,7 +69,7 @@ export default function LoginHelpDialog({ open, onClose }) {
                     Password: <code>1234</code>
                   </li>
                 </ol>
-                Enter those in the login form below
+                Enter those in the login form
               </Typography>
             </StepContent>
           </Step>

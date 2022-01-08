@@ -306,7 +306,7 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
                             </code>
                           </li>
                         </ol>
-                        Enter those in the login form below
+                        Enter those in the login form
                       </p>
                     </div>
                   </div>
