@@ -4,10 +4,10 @@ exports[`LoginPage should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="login-page MuiBox-root css-ip5c54"
+      class="login-page MuiBox-root css-0"
     >
       <div
-        class="login-page__header"
+        class="login-page-header"
       >
         <span
           class="MuiSwitch-root MuiSwitch-sizeSmall css-dnh7b9-MuiSwitch-root"
@@ -32,7 +32,7 @@ exports[`LoginPage should match snapshot 1`] = `
         </span>
       </div>
       <div
-        class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root login-page__card css-1v5z4dq-MuiPaper-root-MuiCard-root"
+        class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root login-page-form css-1v5z4dq-MuiPaper-root-MuiCard-root"
       >
         <form>
           <div
@@ -58,10 +58,10 @@ exports[`LoginPage should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="MuiCardContent-root login-page__card-contents css-46bh2p-MuiCardContent-root"
+            class="MuiCardContent-root login-page-form__contents css-46bh2p-MuiCardContent-root"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root login-page__text-field css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+              class="MuiFormControl-root MuiTextField-root login-page-form__text-field css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
             >
               <label
                 class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary Mui-required css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
@@ -106,7 +106,7 @@ exports[`LoginPage should match snapshot 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root login-page__text-field css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+              class="MuiFormControl-root MuiTextField-root login-page-form__text-field css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
             >
               <label
                 class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary Mui-required css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
@@ -150,7 +150,7 @@ exports[`LoginPage should match snapshot 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root login-page__text-field css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+              class="MuiFormControl-root MuiTextField-root login-page-form__text-field css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
             >
               <label
                 class="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-root MuiFormLabel-colorPrimary Mui-required css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
@@ -204,6 +204,17 @@ exports[`LoginPage should match snapshot 1`] = `
               type="submit"
             >
               Login
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+            <button
+              class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root  css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+              data-testid="help-button"
+              tabindex="0"
+              type="button"
+            >
+              Help
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />

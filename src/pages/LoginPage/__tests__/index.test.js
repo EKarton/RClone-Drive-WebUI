@@ -1,6 +1,6 @@
-import LoginPage from 'pages/LoginPage';
 import RCloneClient from 'utils/RCloneClient';
 import { customRender, userEvent, waitFor, screen } from 'test-utils/react';
+import LoginPage from '..';
 
 jest.mock('utils/RCloneClient');
 
@@ -58,5 +58,13 @@ describe('LoginPage', () => {
     userEvent.click(screen.getByTestId('login-button'));
 
     await screen.findByText('Wrong credentials');
+  });
+
+  it('should open dialog when user clicks on the Help button', async () => {
+    customRender(<LoginPage />);
+
+    userEvent.click(screen.getByText('Help'));
+
+    await screen.findByTestId('login-help-dialog');
   });
 });
