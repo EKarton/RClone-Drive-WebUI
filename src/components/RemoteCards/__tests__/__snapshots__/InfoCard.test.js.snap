@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RemoteCard should render data correctly when api call finishes 1`] = `
+exports[`InfoCard should render data correctly when api call finishes 1`] = `
 <body>
   <div>
     <div
@@ -15,7 +15,7 @@ exports[`RemoteCard should render data correctly when api call finishes 1`] = `
           class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h6 remote-card__name css-2ulfj5-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h6 remote-base-card__name css-2ulfj5-MuiTypography-root"
           >
             googledrive
           </div>
@@ -42,7 +42,7 @@ exports[`RemoteCard should render data correctly when api call finishes 1`] = `
 </body>
 `;
 
-exports[`RemoteCard should render error messages correctly when api calls fail 1`] = `
+exports[`InfoCard should render error messages correctly when api calls fail 1`] = `
 <body>
   <div>
     <div
@@ -57,7 +57,7 @@ exports[`RemoteCard should render error messages correctly when api calls fail 1
           class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h6 remote-card__name css-2ulfj5-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h6 remote-base-card__name css-2ulfj5-MuiTypography-root"
           >
             googledrive
           </div>
@@ -84,7 +84,7 @@ exports[`RemoteCard should render error messages correctly when api calls fail 1
 </body>
 `;
 
-exports[`RemoteCard should render spinners when api call is in flight 1`] = `
+exports[`InfoCard should render spinners when api call is in flight 1`] = `
 <body>
   <div>
     <div
@@ -99,7 +99,7 @@ exports[`RemoteCard should render spinners when api call is in flight 1`] = `
           class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h6 remote-card__name css-2ulfj5-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h6 remote-base-card__name css-2ulfj5-MuiTypography-root"
           >
             googledrive
           </div>

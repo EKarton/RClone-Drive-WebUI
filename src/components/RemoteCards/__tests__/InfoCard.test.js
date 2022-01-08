@@ -4,17 +4,17 @@ import { StatusTypes } from 'utils/constants';
 import { mockOperationsAboutResponse } from 'test-utils/mock-responses';
 import { mockConfigGetResponse } from 'test-utils/mock-responses';
 import { customRender, screen } from 'test-utils/react';
-import RemoteCard from '..';
+import InfoCard from '../InfoCard';
 
 jest.mock('hooks/fetch-data/useFetchRemoteSpaceInfo');
 jest.mock('hooks/fetch-data/useFetchRemoteInfo');
 
-describe('RemoteCard', () => {
+describe('InfoCard', () => {
   it('should render spinners when api call is in flight', async () => {
     useFetchRemoteSpaceInfo.mockReturnValue({ status: StatusTypes.LOADING });
     useFetchRemoteInfo.mockReturnValue({ status: StatusTypes.LOADING });
 
-    const { baseElement } = customRender(<RemoteCard remote="googledrive" />);
+    const { baseElement } = customRender(<InfoCard remote="googledrive" />);
 
     await screen.findByTestId('remote-info-skeleton');
     await screen.findByTestId('remote-space-skeleton');
@@ -31,7 +31,7 @@ describe('RemoteCard', () => {
       data: mockConfigGetResponse,
     });
 
-    const { baseElement } = customRender(<RemoteCard remote="googledrive" />);
+    const { baseElement } = customRender(<InfoCard remote="googledrive" />);
 
     expect(baseElement).toMatchSnapshot();
   });
@@ -46,7 +46,7 @@ describe('RemoteCard', () => {
       error: new Error('404 not found'),
     });
 
-    const { baseElement } = customRender(<RemoteCard remote="googledrive" />);
+    const { baseElement } = customRender(<InfoCard remote="googledrive" />);
 
     await screen.findByText('Unable to get remote details');
     await screen.findByText('Unable to get space information');

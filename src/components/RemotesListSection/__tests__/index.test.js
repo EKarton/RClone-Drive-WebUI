@@ -1,12 +1,16 @@
-import RemoteCardList from 'components/RemoteCardList';
+import useFetchRemoteInfo from 'hooks/fetch-data/useFetchRemoteInfo';
+import useFetchRemoteSpaceInfo from 'hooks/fetch-data/useFetchRemoteSpaceInfo';
 import useFetchRemotes from 'hooks/fetch-data/useFetchRemotes';
 import { StatusTypes } from 'utils/constants';
+import { mockConfigGetResponse } from 'test-utils/mock-responses';
+import { mockOperationsAboutResponse } from 'test-utils/mock-responses';
 import { mockRemotes } from 'test-utils/mock-responses';
-import { customRender, waitFor } from 'test-utils/react';
+import { customRender, userEvent, screen } from 'test-utils/react';
 import RemotesListSection from '..';
 
 jest.mock('hooks/fetch-data/useFetchRemotes');
-jest.mock('components/RemoteCardList');
+jest.mock('hooks/fetch-data/useFetchRemoteInfo');
+jest.mock('hooks/fetch-data/useFetchRemoteSpaceInfo');
 
 describe('RemotesListSection', () => {
   beforeEach(() => {
@@ -15,8 +19,14 @@ describe('RemotesListSection', () => {
       data: mockRemotes.remotes,
     });
 
-    RemoteCardList.mockImplementation(({ remotes }) => {
-      return <div>{remotes.join(',')}</div>;
+    useFetchRemoteSpaceInfo.mockReturnValue({
+      status: StatusTypes.SUCCESS,
+      data: mockOperationsAboutResponse,
+    });
+
+    useFetchRemoteInfo.mockReturnValue({
+      status: StatusTypes.SUCCESS,
+      data: mockConfigGetResponse,
     });
   });
 
@@ -26,7 +36,7 @@ describe('RemotesListSection', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('should render app boundary when api call fails', async () => {
+  it('should throw an error when api call fails', async () => {
     useFetchRemotes.mockReturnValue({
       status: StatusTypes.ERROR,
       error: new Error('Error!'),
@@ -45,23 +55,12 @@ describe('RemotesListSection', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('should go to the files page when user clicks on a remote', async () => {
-    // Mock the timer to prevent calling onClick immediately
-    jest.useFakeTimers();
-
-    RemoteCardList.mockImplementation(({ remotes, onClick }) => {
-      setTimeout(() => onClick('googledrive'), 10000);
-      return <div>{remotes.join(',')}</div>;
-    });
-
+  it('should call onRemoteCardClicked() correctly when user clicks on a card', async () => {
     const view = renderComponent();
 
-    // Mimic user clicking on the buttotn
-    jest.runAllTimers();
+    userEvent.click(screen.getByText('googledrive'));
 
-    await waitFor(() => {
-      expect(view.onRemoteCardClicked).toBeCalledWith('googledrive');
-    });
+    expect(view.onRemoteCardClicked).toBeCalledWith('googledrive');
   });
 
   const renderComponent = () => {
