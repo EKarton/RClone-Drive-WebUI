@@ -25,7 +25,7 @@ In the login page, they will need to specify the url of their RClone instance (u
 
 <div width="100%">
    <p align="center">
-      <img src="docs/screenshots/login-page.png" width="600px"/>
+      <img src="docs/screenshots/login-page.png" />
    </p>
 </div>
 
@@ -33,7 +33,7 @@ Once logged in, users are redirected to the files page with a list of their remo
 
 <div width="100%">
    <p align="center">
-      <img src="docs/screenshots/files-page.png" width="600px"/>
+      <img src="docs/screenshots/files-page.png" />
    </p>
 </div>
 
@@ -41,7 +41,7 @@ Clicking on a remote takes them to the files list page. Here, users are able to 
 
 <div width="100%">
    <p align="center">
-      <img src="docs/screenshots/files-interact.gif" width="600px"/>
+      <img src="docs/screenshots/files-interact.gif" />
    </p>
 </div>
 
@@ -49,7 +49,7 @@ To view and scroll through pictures, users can click on the Pictures tab, pick a
 
 <div width="100%">
    <p align="center">
-      <img src="docs/screenshots/pictures-interact.gif" width="600px"/>
+      <img src="docs/screenshots/pictures-interact.gif" />
    </p>
 </div>
 
@@ -57,7 +57,7 @@ Each time a picture is viewed in detail, it gets added to a list of recently vie
 
 <div width="100%">
    <p align="center">
-      <img src="docs/screenshots/pictures-page-recent-list.png" width="600px"/>
+      <img src="docs/screenshots/pictures-page-recent-list.png" />
    </p>
 </div>
 
