@@ -37,8 +37,8 @@ exports[`LandingPage should match snapshot 1`] = `
             />
           </span>
           <a
-            class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root  css-1e6y48t-MuiButtonBase-root-MuiButton-root"
-            href="/https://github.com/EKarton/RClone-Drive-WebUI"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root  css-606eve-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+            href="https://github.com/EKarton/RClone-Drive-WebUI"
             tabindex="0"
           >
             View Github
@@ -47,9 +47,9 @@ exports[`LandingPage should match snapshot 1`] = `
             />
           </a>
           <a
-            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-sghohy-MuiButtonBase-root-MuiButton-root"
-            href="/login"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-7gsmmh-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
+            to="/login"
           >
             Login
             <span
@@ -335,8 +335,8 @@ exports[`LandingPage should match snapshot when user scrolls down on the page 1`
             />
           </span>
           <a
-            class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root  css-1e6y48t-MuiButtonBase-root-MuiButton-root"
-            href="/https://github.com/EKarton/RClone-Drive-WebUI"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root  css-606eve-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+            href="https://github.com/EKarton/RClone-Drive-WebUI"
             tabindex="0"
           >
             View Github
@@ -345,9 +345,9 @@ exports[`LandingPage should match snapshot when user scrolls down on the page 1`
             />
           </a>
           <a
-            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-sghohy-MuiButtonBase-root-MuiButton-root"
-            href="/login"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-7gsmmh-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
+            to="/login"
           >
             Login
             <span
