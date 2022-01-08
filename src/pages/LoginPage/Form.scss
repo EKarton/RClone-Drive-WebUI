@@ -1,0 +1,20 @@
+.login-page-form {
+  width: 23rem;
+  padding: 1rem;
+
+  &__header {
+    &--red {
+      color: red;
+    }
+  }
+
+  &__contents {
+    display: flex;
+    row-gap: 1rem;
+    flex-direction: column;
+  }
+
+  &__text-field {
+    display: block;
+  }
+}

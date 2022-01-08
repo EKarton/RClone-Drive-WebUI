@@ -1,0 +1,341 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
+<body
+  style="padding-right: 1024px; overflow: hidden;"
+>
+  <div
+    aria-hidden="true"
+  />
+  <div
+    class="MuiModal-root MuiDialog-root css-zw3mfo-MuiModal-root-MuiDialog-root"
+    data-testid="login-help-dialog"
+    role="presentation"
+  >
+    <div
+      aria-hidden="true"
+      class="MuiBackdrop-root css-yiavyu-MuiBackdrop-root-MuiDialog-backdrop"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+    />
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="MuiDialog-container MuiDialog-scrollPaper css-hz1bth-MuiDialog-container"
+      role="presentation"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+      tabindex="-1"
+    >
+      <div
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm css-1t1j96h-MuiPaper-root-MuiDialog-paper"
+        role="dialog"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-bdhsul-MuiTypography-root-MuiDialogTitle-root"
+        >
+          Setting up and Login to RClone
+        </h2>
+        <div
+          class="MuiDialogContent-root css-ypiqx9-MuiDialogContent-root"
+        >
+          <div
+            class="MuiStepper-root MuiStepper-vertical css-9tmuzo-MuiStepper-root"
+          >
+            <div
+              class="MuiStep-root MuiStep-vertical css-8wcvy5-MuiStep-root"
+            >
+              <span
+                class="MuiStepLabel-root MuiStepLabel-vertical css-14sza3e-MuiStepLabel-root"
+              >
+                <span
+                  class="MuiStepLabel-iconContainer css-vnkopk-MuiStepLabel-iconContainer"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiStepIcon-root Mui-active css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="12"
+                    />
+                    <text
+                      class="MuiStepIcon-text css-117w1su-MuiStepIcon-text"
+                      text-anchor="middle"
+                      x="12"
+                      y="16"
+                    >
+                      1
+                    </text>
+                  </svg>
+                </span>
+                <span
+                  class="MuiStepLabel-labelContainer css-16ubnlw-MuiStepLabel-labelContainer"
+                >
+                  <span
+                    class="MuiStepLabel-label Mui-active css-qivjh0-MuiStepLabel-label"
+                  >
+                    Install and Setup RClone
+                  </span>
+                </span>
+              </span>
+              <div
+                class="MuiStepContent-root css-14yr603-MuiStepContent-root"
+              >
+                <div
+                  class="MuiCollapse-root MuiCollapse-vertical MuiStepContent-transition MuiCollapse-entered css-1rw7nzj-MuiCollapse-root-MuiStepContent-transition"
+                  style="min-height: 0px;"
+                >
+                  <div
+                    class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
+                  >
+                    <div
+                      class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+                      >
+                        Go to 
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1iwtne7-MuiTypography-root-MuiLink-root"
+                          href="https://rclone.org/docs"
+                        >
+                          https://rclone.org/docs
+                        </a>
+                         
+                        to install and connect your cloud drive to your RClone configuration locally
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiStepConnector-root MuiStepConnector-vertical Mui-active Mui-disabled css-1pe7n21-MuiStepConnector-root"
+            >
+              <span
+                class="MuiStepConnector-line MuiStepConnector-lineVertical css-8t49rw-MuiStepConnector-line"
+              />
+            </div>
+            <div
+              class="MuiStep-root MuiStep-vertical css-8wcvy5-MuiStep-root"
+            >
+              <span
+                class="MuiStepLabel-root MuiStepLabel-vertical Mui-disabled css-14sza3e-MuiStepLabel-root"
+              >
+                <span
+                  class="MuiStepLabel-iconContainer css-vnkopk-MuiStepLabel-iconContainer"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiStepIcon-root Mui-active css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="12"
+                    />
+                    <text
+                      class="MuiStepIcon-text css-117w1su-MuiStepIcon-text"
+                      text-anchor="middle"
+                      x="12"
+                      y="16"
+                    >
+                      2
+                    </text>
+                  </svg>
+                </span>
+                <span
+                  class="MuiStepLabel-labelContainer css-16ubnlw-MuiStepLabel-labelContainer"
+                >
+                  <span
+                    class="MuiStepLabel-label Mui-active Mui-disabled css-qivjh0-MuiStepLabel-label"
+                  >
+                    Run RClone in RCD Mode
+                  </span>
+                </span>
+              </span>
+              <div
+                class="MuiStepContent-root css-14yr603-MuiStepContent-root"
+              >
+                <div
+                  class="MuiCollapse-root MuiCollapse-vertical MuiStepContent-transition MuiCollapse-entered css-1rw7nzj-MuiCollapse-root-MuiStepContent-transition"
+                  style="min-height: 0px;"
+                >
+                  <div
+                    class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
+                  >
+                    <div
+                      class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+                      >
+                        Run these commands to run RClone in remote-control mode:
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 login-help-dialog__code-block css-ahj2mt-MuiTypography-root"
+                      >
+                        <code>
+                          rclone rcd \\ 
+                          <br />
+                          --rc-allow-origin '*' \\ 
+                          <br />
+                          --rc-user='admin' \\ 
+                          <br />
+                          --rc-pass="1234" \\ 
+                          <br />
+                          --rc-serve \\ 
+                          <br />
+                          --config Your_RClone_Config_File 
+                          <br />
+                        </code>
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+                      >
+                        where 
+                        <code>
+                          Your_RClone_Config_File
+                        </code>
+                         is the location of your RClone config file.
+                      </p>
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+                      >
+                        More info is at
+                         
+                        <a
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1iwtne7-MuiTypography-root-MuiLink-root"
+                          href="https://rclone.org/rc"
+                        >
+                          https://rclone.org/rc/
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiStepConnector-root MuiStepConnector-vertical Mui-active Mui-disabled css-1pe7n21-MuiStepConnector-root"
+            >
+              <span
+                class="MuiStepConnector-line MuiStepConnector-lineVertical css-8t49rw-MuiStepConnector-line"
+              />
+            </div>
+            <div
+              class="MuiStep-root MuiStep-vertical css-8wcvy5-MuiStep-root"
+            >
+              <span
+                class="MuiStepLabel-root MuiStepLabel-vertical Mui-disabled css-14sza3e-MuiStepLabel-root"
+              >
+                <span
+                  class="MuiStepLabel-iconContainer css-vnkopk-MuiStepLabel-iconContainer"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiStepIcon-root Mui-active css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="12"
+                    />
+                    <text
+                      class="MuiStepIcon-text css-117w1su-MuiStepIcon-text"
+                      text-anchor="middle"
+                      x="12"
+                      y="16"
+                    >
+                      3
+                    </text>
+                  </svg>
+                </span>
+                <span
+                  class="MuiStepLabel-labelContainer css-16ubnlw-MuiStepLabel-labelContainer"
+                >
+                  <span
+                    class="MuiStepLabel-label Mui-active Mui-disabled css-qivjh0-MuiStepLabel-label"
+                  >
+                    Enter your RClone Endpoints
+                  </span>
+                </span>
+              </span>
+              <div
+                class="MuiStepContent-root MuiStepContent-last css-1mz1l2x-MuiStepContent-root"
+              >
+                <div
+                  class="MuiCollapse-root MuiCollapse-vertical MuiStepContent-transition MuiCollapse-entered css-1rw7nzj-MuiCollapse-root-MuiStepContent-transition"
+                  style="min-height: 0px;"
+                >
+                  <div
+                    class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
+                  >
+                    <div
+                      class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
+                    >
+                      <p
+                        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+                      >
+                        From step (2), your RClone instance configuration is:
+                        <ol>
+                          <li>
+                            Endpoint: 
+                            <code>
+                              http://localhost:5572
+                            </code>
+                          </li>
+                          <li>
+                            Username: 
+                            <code>
+                              admin
+                            </code>
+                          </li>
+                          <li>
+                            Password: 
+                            <code>
+                              1234
+                            </code>
+                          </li>
+                        </ol>
+                        Enter those in the login form
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiDialogActions-root MuiDialogActions-spacing css-hlj6pa-MuiDialogActions-root"
+        >
+          <button
+            class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root  css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+            data-testid="close-button"
+            tabindex="0"
+            type="button"
+          >
+            Close
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
+</body>
+`;
