@@ -1,8 +1,8 @@
 import MuiAppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
 import Toolbar from '@mui/material/Toolbar';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-import { Link } from 'react-router-dom';
 import AppLogo from 'components/AppLogo';
 import DarkModeToggleSwitch from 'components/DarkModeToggleSwitch/index';
 import './AppBar.scss';
@@ -23,7 +23,7 @@ export default function AppBar() {
           <AppLogo />
           <div className="landing-page-app-bar__right-items">
             <DarkModeToggleSwitch />
-            <Button component={Link} to="https://github.com/EKarton/RClone-Drive-WebUI">
+            <Button component={Link} href="https://github.com/EKarton/RClone-Drive-WebUI">
               View Github
             </Button>
             <Button variant="contained" component={Link} to="/login">
