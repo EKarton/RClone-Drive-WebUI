@@ -1,8 +1,9 @@
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
-import RemoteCardList from 'components/RemoteCardList';
 import useFetchRemotes from 'hooks/fetch-data/useFetchRemotes';
 import { StatusTypes } from 'utils/constants';
+import RemotesList from './RemotesList';
+import RemotesListSkeleton from './RemotesListSkeleton';
 
 /**
  * Represents the list of remotes with header
@@ -10,16 +11,16 @@ import { StatusTypes } from 'utils/constants';
 export default function RemotesListSection({ onRemoteCardClicked }) {
   const { status, data: remotes, error } = useFetchRemotes();
 
-  if (status === StatusTypes.LOADING) {
-    return null;
-  }
-
   if (status === StatusTypes.ERROR) {
     throw error;
   }
 
-  const handleRemoteCardClicked = (remote) => {
-    onRemoteCardClicked(remote);
+  const renderList = () => {
+    if (status === StatusTypes.LOADING) {
+      return <RemotesListSkeleton />;
+    }
+
+    return <RemotesList remotes={remotes} onRemoteCardClicked={onRemoteCardClicked} />;
   };
 
   return (
@@ -27,7 +28,7 @@ export default function RemotesListSection({ onRemoteCardClicked }) {
       <Typography variant="h7" component="div" color="text.primary">
         <strong>Your Remotes</strong>
       </Typography>
-      <RemoteCardList remotes={remotes} onClick={handleRemoteCardClicked} />
+      {renderList()}
     </>
   );
 }

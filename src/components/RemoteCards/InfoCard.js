@@ -1,16 +1,12 @@
-import Card from '@mui/material/Card';
-import CardActionArea from '@mui/material/CardActionArea';
-import CardContent from '@mui/material/CardContent';
 import Skeleton from '@mui/material/Skeleton';
-import Typography from '@mui/material/Typography';
 import prettyBytes from 'pretty-bytes';
 import PropTypes from 'prop-types';
 import useFetchRemoteInfo from 'hooks/fetch-data/useFetchRemoteInfo';
 import useFetchRemoteSpaceInfo from 'hooks/fetch-data/useFetchRemoteSpaceInfo';
 import { StatusTypes } from 'utils/constants';
-import './index.scss';
+import BaseCard from './BaseCard';
 
-export default function RemoteCard({ remote, onClick, ...props }) {
+export default function InfoCard({ remote, onClick }) {
   const sizeResult = useFetchRemoteSpaceInfo(remote);
   const infoResult = useFetchRemoteInfo(remote);
 
@@ -42,25 +38,16 @@ export default function RemoteCard({ remote, onClick, ...props }) {
   };
 
   return (
-    <Card variant="outlined" {...props}>
-      <CardActionArea onClick={onClick}>
-        <CardContent>
-          <Typography variant="h6" component="div" className="remote-card__name">
-            {remote}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {renderRemoteInfo()}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {renderSpaceUsed()}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+    <BaseCard
+      remoteName={remote}
+      remoteType={renderRemoteInfo()}
+      remoteSpace={renderSpaceUsed()}
+      onClick={onClick}
+    />
   );
 }
 
-RemoteCard.propTypes = {
+InfoCard.propTypes = {
   remote: PropTypes.string,
   onClick: PropTypes.func,
 };
