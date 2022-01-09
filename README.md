@@ -19,47 +19,7 @@ The RClone Drive Web UI is a RClone client that provides an easy-to-use web inte
 
 ### Walkthrough:
 
-Users will be using a front-end web application to view and manage their files on RClone. Before using the app, they would need to have RClone installed on their machines and run RClone in RCD mode. To set up RClone, users can follow [RClone's documentation](https://rclone.org/docs/). To ru RClone in RCD mode, users can follow [this guide](https://rclone.org/commands/rclone_rcd/).
-
-In the login page, they will need to specify the url of their RClone instance (usually it is http://localhost:5572), their username, and password:
-
-<div width="100%">
-   <p align="center">
-      <img src="docs/screenshots/login-page.png" />
-   </p>
-</div>
-
-Once logged in, users are redirected to the files page with a list of their remotes:
-
-<div width="100%">
-   <p align="center">
-      <img src="docs/screenshots/files-page.png" />
-   </p>
-</div>
-
-Clicking on a remote takes them to the files list page. Here, users are able to navigate into subfolders, view files, create new folders, copy existing content, upload files and folders, and delete files. Moreover, users are able to move files and folders between different remotes (ex: move files from Onedrive to Google Drive):
-
-<div width="100%">
-   <p align="center">
-      <img src="docs/screenshots/files-interact.gif" />
-   </p>
-</div>
-
-To view and scroll through pictures, users can click on the Pictures tab, pick a remote, select a subfolder containing their picture. They can scroll and view pictures in detail:
-
-<div width="100%">
-   <p align="center">
-      <img src="docs/screenshots/pictures-interact.gif" />
-   </p>
-</div>
-
-Each time a picture is viewed in detail, it gets added to a list of recently viewed pictures for future, easy access:
-
-<div width="100%">
-   <p align="center">
-      <img src="docs/screenshots/pictures-page-recent-list.png" />
-   </p>
-</div>
+Refer to [this doc](docs/Walkthrough.md) for a detailed walkthrough. However, here are a few screenshots:
 
 ### Setup / Getting Started:
 
