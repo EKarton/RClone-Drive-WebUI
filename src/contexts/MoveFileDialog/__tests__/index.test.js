@@ -110,6 +110,27 @@ describe('MoveFileDialog', () => {
     expect(moveFile).not.toBeCalled();
   });
 
+  it('should throw an exception when RClone throws an error', async () => {
+    move.mockRejectedValue(new Error('Random error'));
+
+    renderComponent({
+      remote: 'googledrive',
+      dirPath: 'Pictures',
+      name: '2021',
+      isDirectory: true,
+    });
+
+    userEvent.click(screen.getByText('Move'));
+
+    await screen.findByTestId('move-file-dialog');
+    await screen.findByText('googledrive');
+
+    fireEvent.click(screen.getByText('googledrive'));
+    userEvent.click(screen.getByTestId('ok-button'));
+
+    await screen.findByText('File move aborted');
+  });
+
   const renderComponent = (fileToMove) => {
     return render(
       <MoveFileDialogProvider>

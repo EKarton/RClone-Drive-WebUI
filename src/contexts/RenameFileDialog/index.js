@@ -12,21 +12,25 @@ export const RenameFileDialogProvider = ({ children }) => {
   const awaitingPromiseRef = useRef();
 
   const handleOk = async (newFileName) => {
-    const { remote, dirPath, name: oldFileName, isDirectory } = fileToRename;
+    try {
+      const { remote, dirPath, name: oldFileName, isDirectory } = fileToRename;
 
-    const src = { remote, dirPath, fileName: oldFileName };
-    const target = { remote, dirPath, fileName: newFileName };
+      const src = { remote, dirPath, fileName: oldFileName };
+      const target = { remote, dirPath, fileName: newFileName };
 
-    if (isDirectory) {
-      await rCloneClient.move(src, target, true);
-    } else {
-      await rCloneClient.moveFile(src, target);
+      if (isDirectory) {
+        await rCloneClient.move(src, target, true);
+      } else {
+        await rCloneClient.moveFile(src, target);
+      }
+
+      setFileToRename(undefined);
+      setIsOpen(false);
+
+      awaitingPromiseRef.current?.resolve();
+    } catch (error) {
+      awaitingPromiseRef.current?.reject(error);
     }
-
-    setFileToRename(undefined);
-    setIsOpen(false);
-
-    awaitingPromiseRef.current?.resolve();
   };
 
   const handleCancel = () => {

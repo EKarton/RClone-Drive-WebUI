@@ -12,30 +12,33 @@ export function MoveFileDialogProvider({ children }) {
   const awaitingPromiseRef = useRef();
 
   const handleOk = async (remoteFolderPath) => {
-    const [newRemote, newFolderPath] = remoteFolderPath.split(':');
+    try {
+      const [newRemote, newFolderPath] = remoteFolderPath.split(':');
 
-    const src = {
-      remote: fileToMove.remote,
-      dirPath: fileToMove.dirPath,
-      fileName: fileToMove.name,
-    };
+      const src = {
+        remote: fileToMove.remote,
+        dirPath: fileToMove.dirPath,
+        fileName: fileToMove.name,
+      };
 
-    const target = {
-      remote: newRemote,
-      dirPath: newFolderPath,
-      fileName: fileToMove.name,
-    };
+      const target = {
+        remote: newRemote,
+        dirPath: newFolderPath,
+        fileName: fileToMove.name,
+      };
 
-    if (fileToMove.isDirectory) {
-      await rCloneClient.move(src, target, true, false);
-    } else {
-      await rCloneClient.moveFile(src, target);
+      if (fileToMove.isDirectory) {
+        await rCloneClient.move(src, target, true, false);
+      } else {
+        await rCloneClient.moveFile(src, target);
+      }
+
+      setIsOpen(false);
+      setFileToMove(undefined);
+      awaitingPromiseRef.current?.resolve();
+    } catch (error) {
+      awaitingPromiseRef.current?.reject(error);
     }
-
-    setIsOpen(false);
-    setFileToMove(undefined);
-
-    awaitingPromiseRef.current?.resolve();
   };
 
   const handleCancel = () => {

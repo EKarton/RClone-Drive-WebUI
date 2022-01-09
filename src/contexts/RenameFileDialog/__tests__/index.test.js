@@ -89,6 +89,26 @@ describe('RenameFileDialog', () => {
     expect(moveFile).not.toBeCalled();
   });
 
+  it('should throw an exception when RClone throws an exception', async () => {
+    move.mockRejectedValue(new Error('Random error'));
+
+    renderComponent({
+      remote: 'gdrive',
+      dirPath: 'Pictures',
+      name: '2021',
+      isDirectory: true,
+    });
+
+    userEvent.click(screen.getByText('Rename'));
+
+    await screen.findByTestId('rename-file-dialog');
+
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: '2022' } });
+    userEvent.click(screen.getByTestId('ok'));
+
+    await screen.findByText('File rename aborted');
+  });
+
   const renderComponent = (fileToRename) => {
     return render(
       <RenameFileDialogProvider>
