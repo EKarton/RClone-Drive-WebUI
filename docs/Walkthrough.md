@@ -42,7 +42,7 @@ Now, users can scroll to quickly view their list of photos. It displays all phot
 
 ![pictures-list-page](screenshots/pictures-list-page.png)
 
-Side-note: it won't load all images in the browser; it only displays the images that are viewable on the viewport. Moreover, it also caches viewed images. This ensures smoother scrolling experience and less bandwidth used.
+Technical note: it won't load all images in the browser; it only displays the images that are viewable on the viewport. Moreover, it also caches viewed images. This ensures smoother scrolling experience and less bandwidth used.
 
 Clicking on a picture views the pictures in detail:
 
