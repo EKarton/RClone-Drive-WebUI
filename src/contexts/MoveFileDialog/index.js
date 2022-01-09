@@ -28,7 +28,11 @@ export function MoveFileDialogProvider({ children }) {
       };
 
       if (fileToMove.isDirectory) {
-        await rCloneClient.move(src, target, true, false);
+        await rCloneClient.move(src, target, true, true);
+
+        if (src.remote !== target.remote) {
+          await rCloneClient.deleteDirectory(src.remote, src.dirPath, src.fileName);
+        }
       } else {
         await rCloneClient.moveFile(src, target);
       }

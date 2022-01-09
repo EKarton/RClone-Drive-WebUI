@@ -16,10 +16,12 @@ describe('MoveFileDialog', () => {
   const move = jest.fn();
   const moveFile = jest.fn();
   const fetchSubFolders = jest.fn();
+  const deleteDirectory = jest.fn();
 
   beforeEach(() => {
     move.mockResolvedValue();
     moveFile.mockResolvedValue();
+    deleteDirectory.mockResolvedValue();
     fetchSubFolders.mockResolvedValue(subFolders);
 
     useFetchRemotes.mockReturnValue({
@@ -30,6 +32,7 @@ describe('MoveFileDialog', () => {
     useRCloneClient.mockReturnValue({
       move,
       moveFile,
+      deleteDirectory,
       fetchSubFolders,
     });
   });
@@ -59,7 +62,7 @@ describe('MoveFileDialog', () => {
     );
   });
 
-  it('should call RCloneClient.move() when user moves a directory', async () => {
+  it('should call RCloneClient.move() and not RCloneClient.deleteDirectory() when user moves a directory in the same remote', async () => {
     renderComponent({
       remote: 'googledrive',
       dirPath: 'Pictures',
@@ -82,8 +85,37 @@ describe('MoveFileDialog', () => {
       { remote: 'googledrive', dirPath: 'Pictures', fileName: '2021' },
       { remote: 'googledrive', dirPath: '', fileName: '2021' },
       true,
-      false
+      true
     );
+    expect(deleteDirectory).not.toBeCalled();
+  });
+
+  it('should call RCloneClient.move() and RCloneClient.deleteDirectory() when user moves a directory in the different remote', async () => {
+    renderComponent({
+      remote: 'googledrive',
+      dirPath: 'Pictures',
+      name: '2021',
+      isDirectory: true,
+    });
+
+    userEvent.click(screen.getByText('Move'));
+
+    await screen.findByTestId('move-file-dialog');
+    await screen.findByText('onedrive');
+
+    fireEvent.click(screen.getByText('onedrive'));
+    userEvent.click(screen.getByTestId('ok-button'));
+
+    await waitForElementToBeRemoved(() => screen.queryByTestId('move-file-dialog'));
+
+    await screen.findByText('File moved!');
+    expect(move).toBeCalledWith(
+      { remote: 'googledrive', dirPath: 'Pictures', fileName: '2021' },
+      { remote: 'onedrive', dirPath: '', fileName: '2021' },
+      true,
+      true
+    );
+    expect(deleteDirectory).toBeCalledWith('googledrive', 'Pictures', '2021');
   });
 
   it('should close the dialog and not call RCloneClient when user opens the dialog and clicks cancel', async () => {
