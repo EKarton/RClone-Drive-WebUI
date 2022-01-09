@@ -21,6 +21,10 @@ The RClone Drive Web UI is a RClone client that provides an easy-to-use web inte
 
 Refer to [this doc](docs/Walkthrough.md) for a detailed walkthrough. However, here are a few screenshots:
 
+![files-list-page](docs/screenshots/files-list-page.png)
+
+![pictures-list-page](docs/screenshots/pictures-list-page.png)
+
 ### Setup / Getting Started:
 
 1. Install dependencies by running `yarn install`
