@@ -1,3 +1,4 @@
+import CloudDoneIcon from '@mui/icons-material/CloudDone';
 import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useFileUploadCounts } from 'contexts/FileUploadCounts';
@@ -13,7 +14,11 @@ export default function UploadStatusButton() {
   }
 
   if (numUploading === 0) {
-    return <Button onClick={openDialog}>{numSuccessful} Uploaded</Button>;
+    return (
+      <Button startIcon={<CloudDoneIcon />} onClick={openDialog}>
+        {numSuccessful} Uploaded
+      </Button>
+    );
   }
 
   return (
