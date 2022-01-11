@@ -411,4 +411,14 @@ export default class RCloneClient {
       remote: fullPath,
     });
   }
+
+  /**
+   * Empties the trash can
+   * @param {string} remote the remote name
+   */
+  async emptyTrashCan(remote) {
+    await this.axiosInstance.post('operations/cleanup', {
+      fs: `${remote}:`,
+    });
+  }
 }

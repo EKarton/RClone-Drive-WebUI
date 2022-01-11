@@ -7,9 +7,9 @@ import { useFileUploadDialog } from 'contexts/FileUploadDialog/index';
 export default function UploadStatusButton() {
   const { openDialog } = useFileUploadDialog();
   const { counts } = useFileUploadCounts();
-  const { numUploading, numSuccessful } = counts;
+  const { numUploading, numSuccessful, numFailed } = counts;
 
-  if (numUploading === 0 && numSuccessful === 0) {
+  if (numUploading === 0 && numSuccessful === 0 && numFailed === 0) {
     return null;
   }
 

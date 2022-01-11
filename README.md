@@ -15,6 +15,7 @@ The RClone Drive Web UI is a RClone client that provides an easy-to-use web inte
 - [x] Copy and move files between and within remotes
 - [x] Delete files
 - [x] Set theme to dark mode
+- [ ] Clear trash can
 - [ ] Search for files and images across remotes
 
 ### Walkthrough:
