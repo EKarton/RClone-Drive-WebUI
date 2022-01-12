@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableSection should render a no files illustration when there are no uploading files and no existing files 1`] = `
+<body>
+  <div>
+    <div
+      class="add-files-drop-section"
+      data-testid="add-files-drop-section"
+    >
+      <div
+        class="add-files-context-area"
+      >
+        <div
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root file-list-table css-11xur9t-MuiPaper-root-MuiTableContainer-root"
+          data-testid="file-list-table"
+        >
+          <table
+            class="MuiTable-root css-rqglhn-MuiTable-root"
+          >
+            <thead
+              class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
+            >
+              <tr
+                class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
+              >
+                <th
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+                  scope="col"
+                >
+                  Name
+                </th>
+                <th
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+                  scope="col"
+                >
+                  Date Modified
+                </th>
+                <th
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+                  scope="col"
+                >
+                  File Size
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              class="MuiTableBody-root file-list-table__body css-apqrd9-MuiTableBody-root"
+            />
+          </table>
+        </div>
+        <div
+          class="add-files-context-area__region"
+          data-testid="add-files-context-area__region"
+        >
+          <div
+            class="no-files-illustration"
+          >
+            <img
+              alt="No files"
+              class="no-files-illustration__img"
+              src="no-data.svg"
+            />
+            <div
+              class="no-files-illustration__text"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-body1 css-1gqyz35-MuiTypography-root"
+              >
+                There are no files in this folder.
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-body1 css-1gqyz35-MuiTypography-root"
+              >
+                Drag and drop to add files to this folder.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

@@ -34,6 +34,10 @@ export default function UploadingRow({ file, iconSize }) {
       return 'Scheduled to be uploaded';
     }
 
+    if (uploadStatus === UploadStatusTypes.FAILED) {
+      return 'Upload failed';
+    }
+
     return (
       <div className="uploading-row__status-text-wrapper">
         <CircularProgress size={20} />

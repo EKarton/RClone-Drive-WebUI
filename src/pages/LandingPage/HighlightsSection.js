@@ -15,9 +15,9 @@ export default function HighlightsSection() {
           </Typography>
         </div>
         <Typography variant="h6">
-          This is an RClone client that connects to your local RClone instance. You can
-          securely view and manage your files across many cloud providers through this web
-          app.
+          This is a front-facing web application that connects to your RClone instance.
+          You can securely view and manage your files across many cloud providers through
+          this web app.
         </Typography>
       </div>
       <div className="highlights-section__column">
@@ -28,8 +28,8 @@ export default function HighlightsSection() {
           </Typography>
         </div>
         <Typography variant="h6">
-          This app connects to an RClone instance running on your machine. Nothing is done
-          outside of your machine.
+          All actions are done locally on your computer. Nothing is done in our backend
+          servers.
         </Typography>
       </div>
       <div className="highlights-section__column">
@@ -40,8 +40,8 @@ export default function HighlightsSection() {
           </Typography>
         </div>
         <Typography variant="h6">
-          Drag-and-drop to upload files, right-click to delete, move, or copy files
-          between different cloud providers.
+          Drag-and-drop to upload files, right-click and select to delete, move, or copy
+          files between different cloud providers.
         </Typography>
       </div>
     </div>

@@ -13,6 +13,7 @@ import { StatusTypes } from 'utils/constants';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import AddFilesContextArea from './AddFilesContextArea';
 import AddFilesDropSection from './AddFilesDropSection';
+import NoFilesIllustration from './NoFilesIllustration';
 import useGetFiles from './hooks/useGetFiles';
 
 export default function TableSection({ remote, path }) {
@@ -43,9 +44,16 @@ export default function TableSection({ remote, path }) {
     fileViewer.show({ remote, dirPath: file.dirPath, fileName: file.name });
   };
 
+  const numFiles = data.existingFiles.length + data.uploadingFiles.length;
+
   return (
     <AddFilesDropSection remote={remote} dirPath={path}>
-      <AddFilesContextArea remote={remote} path={path} onNewFolderCreated={refetchData}>
+      <AddFilesContextArea
+        remote={remote}
+        path={path}
+        illustration={numFiles === 0 ? <NoFilesIllustration /> : null}
+        onNewFolderCreated={refetchData}
+      >
         <FileListTable>
           <>
             {data.existingFiles.map((file) => (

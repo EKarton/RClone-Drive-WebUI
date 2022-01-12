@@ -15,82 +15,16 @@ The RClone Drive Web UI is a RClone client that provides an easy-to-use web inte
 - [x] Copy and move files between and within remotes
 - [x] Delete files
 - [x] Set theme to dark mode
+- [ ] Clear trash can
 - [ ] Search for files and images across remotes
 
 ### Walkthrough:
 
-Users will be using a front-end web application to view and manage their files on RClone. Before using the app, they would need to have RClone installed on their machines and run RClone in RCD mode. To set up RClone, users can follow [RClone's documentation](https://rclone.org/docs/). To ru RClone in RCD mode, users can follow [this guide](https://rclone.org/commands/rclone_rcd/).
+Refer to [this doc](docs/Walkthrough.md) for a detailed walkthrough. However, here are a few screenshots:
 
-In the login page, they will need to specify the url of their RClone instance (usually it is http://localhost:5572), their username, and password:
+![files-list-page](docs/screenshots/files-list-page.png)
 
-<div width="100%">
-   <p align="center">
-      <img src="docs/screenshots/login-page.png" width="600px"/>
-   </p>
-</div>
-
-Once logged in, users are redirected to the files page with a list of their remotes:
-
-<div width="100%">
-   <p align="center">
-      <img src="docs/screenshots/files-page.png" width="600px"/>
-   </p>
-</div>
-
-Clicking on a remote takes them to the files list page. Here, users are able to navigate into subfolders, view files, create new folders, copy existing content, upload files and folders, and delete files. Moreover, users are able to move files and folders between different remotes (ex: move files from Onedrive to Google Drive):
-
-<table>
-   <tr>
-      <td>
-         <img src="docs/screenshots/files-list-page.png" />
-      </td>
-      <td>
-         <img src="docs/screenshots/files-list-page-options.png" />
-      </td>
-   </tr>
-   <tr>
-      <td>
-         <img src="docs/screenshots/move-file-modal.png" />
-      </td>
-      <td>
-         <img src="docs/screenshots/pdf-viewer.png" />
-      </td>
-   </tr>
-</table>
-
-To view and scroll through pictures, users can click on the Files tab. Similar to the files page, users would need to pick a remote and a subfolder which contains their pictures:
-
-<table>
-   <tr>
-      <td>
-         <img src="docs/screenshots/pictures-page.png" />
-      </td>
-      <td>
-         <img src="docs/screenshots/pictures-page-folder-picker.png" />
-      </td>
-   </tr>
-</table>
-
-After picking a folder, users can scroll through their pictures, and view pictures in detail:
-
-<table>
-   <tr>
-      <td>
-         <img src="docs/screenshots/pictures-list-page.png" />
-      </td>
-      <td>
-         <img src="docs/screenshots/pictures-list-page-viewer.png" />
-      </td>
-   </tr>
-</table>
-
-Each time a picture is viewed, it gets added to a list of recently viewed pictures for future, easy access:
-
-<div width="100%">
-   <p align="center">
-      <img src="docs/screenshots/pictures-page-recent-list.png" width="600px"/>
-   </p>
-</div>
+![pictures-list-page](docs/screenshots/pictures-list-page.png)
 
 ### Setup / Getting Started:
 
@@ -129,7 +63,7 @@ Please note that this project is used for educational purposes and is not intend
 
 ### Credits:
 
-Emilio Kartono, who made the entire project
+Emilio Kartono, who made the entire project. Illustrations are from https://undraw.co/.
 
 ### License:
 

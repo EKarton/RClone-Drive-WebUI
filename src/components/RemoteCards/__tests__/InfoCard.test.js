@@ -1,15 +1,39 @@
 import useFetchRemoteInfo from 'hooks/fetch-data/useFetchRemoteInfo';
 import useFetchRemoteSpaceInfo from 'hooks/fetch-data/useFetchRemoteSpaceInfo';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { StatusTypes } from 'utils/constants';
 import { mockOperationsAboutResponse } from 'test-utils/mock-responses';
 import { mockConfigGetResponse } from 'test-utils/mock-responses';
-import { customRender, screen } from 'test-utils/react';
+import { customRender, screen, fireEvent, userEvent } from 'test-utils/react';
 import InfoCard from '../InfoCard';
 
 jest.mock('hooks/fetch-data/useFetchRemoteSpaceInfo');
 jest.mock('hooks/fetch-data/useFetchRemoteInfo');
+jest.mock('hooks/rclone/useRCloneClient');
 
 describe('InfoCard', () => {
+  const emptyTrashCan = jest.fn();
+
+  beforeEach(() => {
+    emptyTrashCan.mockResolvedValue();
+
+    useRCloneClient.mockReturnValue({
+      emptyTrashCan,
+    });
+
+    useFetchRemoteSpaceInfo.mockReturnValue({
+      status: StatusTypes.SUCCESS,
+      data: mockOperationsAboutResponse,
+      refetchData: jest.fn(),
+    });
+
+    useFetchRemoteInfo.mockReturnValue({
+      status: StatusTypes.SUCCESS,
+      data: mockConfigGetResponse,
+      refetchData: jest.fn(),
+    });
+  });
+
   it('should render spinners when api call is in flight', async () => {
     useFetchRemoteSpaceInfo.mockReturnValue({ status: StatusTypes.LOADING });
     useFetchRemoteInfo.mockReturnValue({ status: StatusTypes.LOADING });
@@ -22,15 +46,6 @@ describe('InfoCard', () => {
   });
 
   it('should render data correctly when api call finishes', async () => {
-    useFetchRemoteSpaceInfo.mockReturnValue({
-      status: StatusTypes.SUCCESS,
-      data: mockOperationsAboutResponse,
-    });
-    useFetchRemoteInfo.mockReturnValue({
-      status: StatusTypes.SUCCESS,
-      data: mockConfigGetResponse,
-    });
-
     const { baseElement } = customRender(<InfoCard remote="googledrive" />);
 
     expect(baseElement).toMatchSnapshot();
@@ -51,5 +66,14 @@ describe('InfoCard', () => {
     await screen.findByText('Unable to get remote details');
     await screen.findByText('Unable to get space information');
     expect(baseElement).toMatchSnapshot();
+  });
+
+  it('should call RCloneClient.emptyTrashCan() when user right-clicks on card and selects Clear Trash', () => {
+    customRender(<InfoCard remote="googledrive" />);
+
+    fireEvent.contextMenu(screen.getByRole('button'));
+    userEvent.click(screen.getByTestId('clear-trash-button'));
+
+    expect(emptyTrashCan).toBeCalledWith('googledrive');
   });
 });

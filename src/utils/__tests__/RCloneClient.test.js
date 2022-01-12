@@ -305,4 +305,17 @@ describe('RCloneClient', () => {
       });
     });
   });
+
+  describe('emptyTrashCan()', () => {
+    it('should call axios.post() correctly', async () => {
+      axios.post.mockResolvedValue({});
+
+      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      await client.emptyTrashCan('gdrive');
+
+      expect(axios.post).toBeCalledWith('operations/cleanup', {
+        fs: 'gdrive:',
+      });
+    });
+  });
 });
