@@ -1,6 +1,8 @@
+import { RCloneInfoProvider } from 'contexts/RCloneInfo/index';
 import useFetchRemoteInfo from 'hooks/fetch-data/useFetchRemoteInfo';
 import useFetchRemoteSpaceInfo from 'hooks/fetch-data/useFetchRemoteSpaceInfo';
 import useFetchRemotes from 'hooks/fetch-data/useFetchRemotes';
+import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { StatusTypes } from 'utils/constants';
 import { mockConfigGetResponse } from 'test-utils/mock-responses';
 import { mockOperationsAboutResponse } from 'test-utils/mock-responses';
@@ -11,22 +13,30 @@ import RemotesListSection from '..';
 jest.mock('hooks/fetch-data/useFetchRemotes');
 jest.mock('hooks/fetch-data/useFetchRemoteInfo');
 jest.mock('hooks/fetch-data/useFetchRemoteSpaceInfo');
+jest.mock('hooks/rclone/useRCloneClient');
 
 describe('RemotesListSection', () => {
   beforeEach(() => {
+    useRCloneClient.mockReturnValue({
+      emptyTrashCan: jest.fn().mockResolvedValue(),
+    });
+
     useFetchRemotes.mockReturnValue({
       status: StatusTypes.SUCCESS,
       data: mockRemotes.remotes,
+      refetchData: jest.fn(),
     });
 
     useFetchRemoteSpaceInfo.mockReturnValue({
       status: StatusTypes.SUCCESS,
       data: mockOperationsAboutResponse,
+      refetchData: jest.fn(),
     });
 
     useFetchRemoteInfo.mockReturnValue({
       status: StatusTypes.SUCCESS,
       data: mockConfigGetResponse,
+      refetchData: jest.fn(),
     });
   });
 
@@ -65,6 +75,7 @@ describe('RemotesListSection', () => {
 
   const renderComponent = () => {
     const onRemoteCardClicked = jest.fn();
+
     const view = customRender(
       <RemotesListSection onRemoteCardClicked={onRemoteCardClicked} />
     );

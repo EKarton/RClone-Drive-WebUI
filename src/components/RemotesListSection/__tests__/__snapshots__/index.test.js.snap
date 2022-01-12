@@ -219,7 +219,7 @@ exports[`RemotesListSection should match snapshot when api call was successful 1
             <p
               class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
             >
-              126 GB / 161 GB used
+              126 GB / 161 GB used, 0 B in trash
             </p>
           </div>
           <span
@@ -254,7 +254,7 @@ exports[`RemotesListSection should match snapshot when api call was successful 1
             <p
               class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
             >
-              126 GB / 161 GB used
+              126 GB / 161 GB used, 0 B in trash
             </p>
           </div>
           <span
@@ -289,7 +289,7 @@ exports[`RemotesListSection should match snapshot when api call was successful 1
             <p
               class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
             >
-              126 GB / 161 GB used
+              126 GB / 161 GB used, 0 B in trash
             </p>
           </div>
           <span

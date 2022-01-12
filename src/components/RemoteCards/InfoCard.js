@@ -60,14 +60,14 @@ export default function InfoCard({ remote, onClick }) {
   const handleClearTrashClick = async () => {
     try {
       setIsClearingTrashCan(true);
-      await rCloneClient.emptyTrashCan(remote);
-    } finally {
-      setIsClearingTrashCan(false);
-
-      sizeResult.refetchData();
-      infoResult.refetchData();
       handleCloseContextMenu();
-    }
+
+      await rCloneClient.emptyTrashCan(remote);
+    } catch (err) {}
+
+    setIsClearingTrashCan(false);
+    sizeResult.refetchData();
+    infoResult.refetchData();
   };
 
   const handleCloseContextMenu = () => {

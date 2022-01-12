@@ -13,6 +13,7 @@ export default function AddFilesContextArea({
   remote,
   path,
   children,
+  illustration,
   onNewFolderCreated,
   onUploadedFile,
 }) {
@@ -61,7 +62,9 @@ export default function AddFilesContextArea({
         className="add-files-context-area__region"
         onContextMenu={handleContextMenuOpened}
         data-testid="add-files-context-area__region"
-      ></div>
+      >
+        {illustration}
+      </div>
       <Menu
         open={isMenuOpen}
         onClose={handleContextMenuClosed}

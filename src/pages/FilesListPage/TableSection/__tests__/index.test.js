@@ -105,6 +105,20 @@ describe('TableSection', () => {
     expect(screen.getByTestId('file-list-table')).toBeInTheDocument();
   });
 
+  it('should render a no files illustration when there are no uploading files and no existing files', () => {
+    useGetFiles.mockReturnValue({
+      status: StatusTypes.SUCCESS,
+      data: {
+        existingFiles: [],
+        uploadingFiles: [],
+      },
+    });
+
+    const { baseElement } = renderComponent();
+
+    expect(baseElement).toMatchSnapshot();
+  });
+
   it('should throw an error when the api call fails', () => {
     useGetFiles.mockReturnValue({
       status: StatusTypes.ERROR,
