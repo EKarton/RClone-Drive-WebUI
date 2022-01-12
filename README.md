@@ -63,7 +63,7 @@ Please note that this project is used for educational purposes and is not intend
 
 ### Credits:
 
-Emilio Kartono, who made the entire project
+Emilio Kartono, who made the entire project. Illustrations are from https://undraw.co/.
 
 ### License:
 
