@@ -1,9 +1,11 @@
+import { SnackbarProvider } from 'notistack';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import MainApp from 'apps/MainApp';
 import { ColorModeProvider } from 'contexts/ColorMode/index';
 import { FileUploadCountsProvider } from 'contexts/FileUploadCounts/index';
+import { JobQueueProvider } from 'contexts/JobQueue/index';
 import { RCloneInfoProvider } from 'contexts/RCloneInfo';
 import { RecentPicturesProvider } from 'contexts/RecentPicturesList';
 import AppErrorBoundary from 'pages/ErrorBoundaries/AppErrorBoundary';
@@ -17,9 +19,13 @@ ReactDOM.render(
         <RCloneInfoProvider>
           <RecentPicturesProvider>
             <ColorModeProvider>
-              <FileUploadCountsProvider>
-                <MainApp />
-              </FileUploadCountsProvider>
+              <JobQueueProvider>
+                <SnackbarProvider maxSnack={3}>
+                  <FileUploadCountsProvider>
+                    <MainApp />
+                  </FileUploadCountsProvider>
+                </SnackbarProvider>
+              </JobQueueProvider>
             </ColorModeProvider>
           </RecentPicturesProvider>
         </RCloneInfoProvider>

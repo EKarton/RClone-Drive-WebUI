@@ -1,10 +1,14 @@
+import { useSnackbar } from 'notistack';
 import { createContext, useRef, useState } from 'react';
 import RenameFileDialog from 'components/RenameFileDialog';
+import { useJobQueue } from 'contexts/JobQueue/index';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 
 export const RenameFileDialogContext = createContext();
 
 export const RenameFileDialogProvider = ({ children }) => {
+  const { addJob } = useJobQueue();
+  const { enqueueSnackbar } = useSnackbar();
   const rCloneClient = useRCloneClient();
   const [isOpen, setIsOpen] = useState(false);
   const [fileToRename, setFileToRename] = useState({});
@@ -15,13 +19,17 @@ export const RenameFileDialogProvider = ({ children }) => {
     try {
       const { remote, dirPath, name: oldFileName, isDirectory } = fileToRename;
 
-      const src = { remote, dirPath, fileName: oldFileName };
-      const target = { remote, dirPath, fileName: newFileName };
+      const src = { remote, dirPath, name: oldFileName };
+      const target = { remote, dirPath, name: newFileName };
 
       if (isDirectory) {
-        await rCloneClient.move(src, target, true);
+        const { jobId } = await rCloneClient.move(src, target, { isAsync: true });
+        addJob(jobId);
+        enqueueSnackbar(`Renaming folder ${src.name} to ${target.name}`);
       } else {
-        await rCloneClient.moveFile(src, target);
+        const { jobId } = await rCloneClient.moveFile(src, target, { isAsync: true });
+        addJob(jobId);
+        enqueueSnackbar(`Renaming file ${src.name} to ${target.name}`);
       }
 
       setFileToRename(undefined);
