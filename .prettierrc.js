@@ -14,6 +14,7 @@ module.exports = {
     '^contexts/(.*)$',
     '^hooks/(.*)$',
     '^pages/(.*)$',
+    '^services/(.*)$',
     '^utils/(.*)$',
     '^test-utils/(.*)$',
     '^[./]',

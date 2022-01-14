@@ -1,15 +1,11 @@
-import { useSnackbar } from 'notistack';
 import { createContext, useRef, useState } from 'react';
 import MoveFileDialog from 'components/MoveFileDialog';
-import { useJobQueue } from 'contexts/JobQueue/index';
-import useRCloneClient from 'hooks/rclone/useRCloneClient';
+import useFileMover from './useFileMover';
 
 export const MoveFileDialogContext = createContext();
 
 export function MoveFileDialogProvider({ children }) {
-  const { addJob } = useJobQueue();
-  const rCloneClient = useRCloneClient();
-  const { enqueueSnackbar } = useSnackbar();
+  const fileMover = useFileMover();
   const [isOpen, setIsOpen] = useState(false);
   const [fileToMove, setFileToMove] = useState(undefined);
 
@@ -32,19 +28,9 @@ export function MoveFileDialogProvider({ children }) {
       };
 
       if (fileToMove.isDirectory) {
-        const opts = {
-          createEmptySrcDirs: true,
-          deleteEmptySrcDirs: true,
-          isAsync: true,
-        };
-
-        const { jobId } = await rCloneClient.move(src, target, opts);
-        addJob(jobId, 'MOVE_DIRECTORY', { src, target });
-        enqueueSnackbar(`Moving directory ${src.name} in the background`);
+        await fileMover.moveFolder(src, target);
       } else {
-        const { jobId } = await rCloneClient.moveFile(src, target, { isAsync: true });
-        addJob(jobId, 'MOVE_FILE', { src, target });
-        enqueueSnackbar(`Moving file ${src.name} in the background`);
+        await fileMover.moveFile(src, target);
       }
 
       setIsOpen(false);

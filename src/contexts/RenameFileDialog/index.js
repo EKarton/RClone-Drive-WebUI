@@ -1,42 +1,40 @@
-import { useSnackbar } from 'notistack';
 import { createContext, useRef, useState } from 'react';
 import RenameFileDialog from 'components/RenameFileDialog';
-import { useJobQueue } from 'contexts/JobQueue/index';
-import useRCloneClient from 'hooks/rclone/useRCloneClient';
+import useFileRenamer from './useFileRenamer';
 
 export const RenameFileDialogContext = createContext();
 
 export const RenameFileDialogProvider = ({ children }) => {
-  const { addJob } = useJobQueue();
-  const { enqueueSnackbar } = useSnackbar();
-  const rCloneClient = useRCloneClient();
   const [isOpen, setIsOpen] = useState(false);
   const [fileToRename, setFileToRename] = useState({});
+  const fileRenamer = useFileRenamer();
 
   const awaitingPromiseRef = useRef();
 
   const handleOk = async (newFileName) => {
     try {
-      const { remote, dirPath, name: oldFileName, isDirectory } = fileToRename;
-
-      const src = { remote, dirPath, name: oldFileName };
-      const target = { remote, dirPath, name: newFileName };
-
-      if (isDirectory) {
-        const { jobId } = await rCloneClient.move(src, target, { isAsync: true });
-        addJob(jobId);
-        enqueueSnackbar(`Renaming folder ${src.name} to ${target.name}`);
+      if (fileToRename.isDirectory) {
+        await fileRenamer.renameFolder(
+          fileToRename.remote,
+          fileToRename.dirPath,
+          fileToRename.name,
+          newFileName
+        );
       } else {
-        const { jobId } = await rCloneClient.moveFile(src, target, { isAsync: true });
-        addJob(jobId);
-        enqueueSnackbar(`Renaming file ${src.name} to ${target.name}`);
+        await fileRenamer.renameFileJob(
+          fileToRename.remote,
+          fileToRename.dirPath,
+          fileToRename.name,
+          newFileName
+        );
       }
 
       setFileToRename(undefined);
       setIsOpen(false);
-
       awaitingPromiseRef.current?.resolve();
     } catch (error) {
+      setFileToRename(undefined);
+      setIsOpen(false);
       awaitingPromiseRef.current?.reject(error);
     }
   };

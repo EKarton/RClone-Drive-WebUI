@@ -1,7 +1,13 @@
 import { createContext, useContext, useReducer } from 'react';
+import { reducer } from './reducer';
 
 export const InitialState = {
   jobs: [],
+  statusCounts: {
+    numOngoing: 0,
+    numSuccessful: 0,
+    numFailed: 0,
+  },
 };
 
 export const JobQueueContext = createContext(InitialState);
@@ -16,43 +22,7 @@ export const JobQueueProvider = ({ children, defaultState = InitialState }) => {
   );
 };
 
-export const ActionTypes = Object.freeze({
-  ADD_JOB: 'ADD_JOB',
-  REMOVE_JOB: 'REMOVE_JOB',
-});
-
-export const reducer = (state, action) => {
-  switch (action.type) {
-    case ActionTypes.ADD_JOB: {
-      const newJobs = [...state.jobs, action.payload];
-
-      return { ...state, jobs: newJobs };
-    }
-    case ActionTypes.REMOVE_JOB: {
-      const newJobs = state.jobs.filter((job) => job.jobId !== action.payload);
-
-      return { ...state, jobs: newJobs };
-    }
-
-    default:
-      throw new Error(`Unknown action ${action.type}`);
-  }
-};
-
-export const useJobQueue = () => {
-  const { state, dispatch } = useContext(JobQueueContext);
-
-  const addJob = (jobId, jobType, args) => {
-    dispatch({ type: ActionTypes.ADD_JOB, payload: { jobId, jobType, args } });
-  };
-
-  const removeJob = (jobId) => {
-    dispatch({ type: ActionTypes.REMOVE_JOB, payload: jobId });
-  };
-
-  return {
-    jobs: state.jobs,
-    addJob,
-    removeJob,
-  };
+export const useJobQueueInfo = () => {
+  const { state } = useContext(JobQueueContext);
+  return state;
 };

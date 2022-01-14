@@ -20,11 +20,7 @@ export default function useRCloneClient() {
     return rCloneInstance;
   }
 
-  rCloneInstance = new RCloneClient(
-    rCloneInfo.endpoint,
-    rCloneInfo.username,
-    rCloneInfo.password
-  );
+  rCloneInstance = new RCloneClient(rCloneInfo, rCloneInfo, rCloneInfo);
 
   return rCloneInstance;
 }

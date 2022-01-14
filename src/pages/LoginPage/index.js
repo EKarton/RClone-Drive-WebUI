@@ -24,7 +24,7 @@ export default function LoginPage() {
 
     try {
       // To test if connection is correct, call RClone to fetch remotes
-      await new RCloneClient(endpoint, username, password).fetchRemotes();
+      await new RCloneClient({ endpoint, username, password }).fetchRemotes();
 
       setRCloneInfo({ endpoint, username, password });
       navigate(redirectPath);

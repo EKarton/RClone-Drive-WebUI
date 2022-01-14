@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { startWith, pairwise } from 'rxjs/operators';
 import { useFileUploadCounts } from 'contexts/FileUploadCounts';
 import useFileUploaderService from 'hooks/rclone/useFileUploader';
@@ -11,6 +11,8 @@ export function FileUploaderProvider({ children }) {
   const [files, setFiles] = useState([]);
 
   const uploadFiles = (files) => {
+    const newSubscribers = [];
+
     for (const fileInfo of files) {
       const { remote, dirPath, file } = fileInfo;
       const fileObj = fileUploader.uploadFile(remote, dirPath, file);

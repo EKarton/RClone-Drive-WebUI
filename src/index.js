@@ -20,7 +20,11 @@ ReactDOM.render(
           <RecentPicturesProvider>
             <ColorModeProvider>
               <JobQueueProvider>
-                <SnackbarProvider maxSnack={3}>
+                <SnackbarProvider
+                  maxSnack={3}
+                  anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+                  autoHideDuration={3000}
+                >
                   <FileUploadCountsProvider>
                     <MainApp />
                   </FileUploadCountsProvider>
