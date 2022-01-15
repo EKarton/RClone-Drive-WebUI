@@ -27,6 +27,9 @@ export default function JobListItem({ job }) {
       case 'RENAME_FOLDER': {
         return getRenameMessage();
       }
+      case 'UPLOAD_FILE': {
+        return getUploadMessage();
+      }
       default: {
         return getDefaultString();
       }
@@ -62,6 +65,20 @@ export default function JobListItem({ job }) {
     }
 
     return `Renaming ${src.name} to ${target.name} in ${remotePath}`;
+  };
+
+  const getUploadMessage = () => {
+    const { fileName } = job;
+
+    if (status === JobStatus.ERROR) {
+      return `Failed to upload ${fileName}`;
+    }
+
+    if (status === JobStatus.SUCCESS) {
+      return `Uploaded ${fileName}`;
+    }
+
+    return `Uploading ${fileName}`;
   };
 
   const getDefaultString = () => {

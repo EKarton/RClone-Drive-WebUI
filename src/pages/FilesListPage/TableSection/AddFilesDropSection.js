@@ -1,15 +1,14 @@
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useFileUploader } from 'contexts/FileUploader';
-import { getFullPath } from 'utils/filename-utils';
+import useFileUploaderV2 from 'hooks/rclone/useFileUploaderV2';
 import './AddFilesDropSection.scss';
 
 /**
  * This component is responsible for adding files to a remote via drag-and-drop
  */
 export default function AddFilesDropSection({ remote, dirPath, children }) {
-  const { uploadFiles } = useFileUploader();
+  const { uploadFileEntry } = useFileUploaderV2();
   const [isDraggingFile, setIsDraggingFile] = useState(false);
 
   const handleDrop = async (e) => {
@@ -61,21 +60,11 @@ export default function AddFilesDropSection({ remote, dirPath, children }) {
     };
 
     const fileEntries = await getFileEntries(e.dataTransfer.items);
-    const filesToUpload = await Promise.all(
+    await Promise.all(
       fileEntries.map(async (fileEntry) => {
-        const relPath = fileEntry.fullPath
-          .split('/')
-          .filter((item) => item.length > 0)
-          .slice(0, -1)
-          .join('/');
-
-        const file = await readFileFromFileEntry(fileEntry);
-
-        return { remote, dirPath: getFullPath(dirPath, relPath), file };
+        uploadFileEntry(remote, dirPath, fileEntry);
       })
     );
-
-    uploadFiles(filesToUpload);
   };
 
   const handleDragEnter = (e) => {
