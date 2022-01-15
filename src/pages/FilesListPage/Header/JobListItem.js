@@ -37,19 +37,18 @@ export default function JobListItem({ job }) {
   };
 
   const getMoveMessage = () => {
-    const { src, target } = job;
+    const { src } = job;
     const srcStr = getFileString(src);
-    const targetStr = getFileString(target);
 
     if (status === JobStatus.ERROR) {
-      return `Failed to move ${srcStr} to ${targetStr}`;
+      return `Failed to move ${srcStr}`;
     }
 
     if (status === JobStatus.SUCCESS) {
-      return `Moved ${srcStr} to ${targetStr}`;
+      return `Moved ${srcStr}`;
     }
 
-    return `Moving ${srcStr} to ${targetStr}`;
+    return `Moving ${srcStr}`;
   };
 
   const getRenameMessage = () => {
@@ -57,14 +56,14 @@ export default function JobListItem({ job }) {
     const remotePath = `${src.remote}:${src.dirPath}`;
 
     if (status === JobStatus.ERROR) {
-      return `Failed to rename ${src.name} to ${target.name} in ${remotePath}`;
+      return `Failed to rename ${src.name}`;
     }
 
     if (status === JobStatus.SUCCESS) {
-      return `Renamed ${src.name} to ${target.name} in ${remotePath}`;
+      return `Renamed ${src.name} to ${target.name}`;
     }
 
-    return `Renaming ${src.name} to ${target.name} in ${remotePath}`;
+    return `Renaming ${src.name} to ${target.name}`;
   };
 
   const getUploadMessage = () => {
