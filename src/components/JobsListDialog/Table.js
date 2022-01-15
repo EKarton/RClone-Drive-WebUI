@@ -1,13 +1,11 @@
 import MuiTable from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableContainer from '@mui/material/TableContainer';
-import TablePagination from '@mui/material/TablePagination';
-import PropTypes from 'prop-types';
+import MuiTableBody from '@mui/material/TableBody';
+import MuiTableContainer from '@mui/material/TableContainer';
+import MuiTablePagination from '@mui/material/TablePagination';
 import { useMemo, useState } from 'react';
-import { getFullPath } from 'utils/filename-utils';
 import TableRow from './TableRow';
 
-export default function Table({ files }) {
+export default function Table({ jobs }) {
   const [pageNum, setPaqeNum] = useState(0);
   const [numRowsPerPage, setNumRowsPerPage] = useState(10);
 
@@ -24,30 +22,28 @@ export default function Table({ files }) {
     const startIdx = pageNum * numRowsPerPage;
     const endIdx = (pageNum + 1) * numRowsPerPage;
 
-    return files.slice(startIdx, endIdx);
-  }, [files, numRowsPerPage, pageNum]);
-
-  const renderRow = (file) => {
-    const fullPathWithRemote = `${file.remote}:${getFullPath(file.dirPath, file.name)}`;
-
-    return <TableRow key={fullPathWithRemote} file={file} />;
-  };
+    return jobs.slice(startIdx, endIdx);
+  }, [jobs, numRowsPerPage, pageNum]);
 
   return (
     <>
-      <TableContainer sx={{ maxHeight: '60vh' }}>
+      <MuiTableContainer sx={{ maxHeight: '60vh' }}>
         <MuiTable
           aria-label="simple table"
           padding="none"
           sx={{ minWidth: 500, tableLayout: 'fixed' }}
         >
-          <TableBody>{rowsToDisplay.map((file) => renderRow(file))}</TableBody>
+          <MuiTableBody>
+            {rowsToDisplay.map((job) => (
+              <TableRow key={jobs.jobId} job={job} />
+            ))}
+          </MuiTableBody>
         </MuiTable>
-      </TableContainer>
-      <TablePagination
+      </MuiTableContainer>
+      <MuiTablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
-        count={files.length}
+        count={jobs.length}
         rowsPerPage={numRowsPerPage}
         page={pageNum}
         onPageChange={handleChangePage}
@@ -56,7 +52,3 @@ export default function Table({ files }) {
     </>
   );
 }
-
-Table.propTypes = {
-  files: PropTypes.arrayOf(TableRow.propTypes.file),
-};

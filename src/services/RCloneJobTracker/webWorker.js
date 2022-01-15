@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 import RCloneClient from 'utils/RCloneClient';
 import { ActionTypes, JobStatus } from './constants';
 
@@ -13,7 +12,7 @@ setInterval(() => {
       const { data } = await rCloneClient.getJobStatus(jobId);
 
       if (data.finished) {
-        self.postMessage({
+        global.postMessage({
           jobId,
           status: data.success ? JobStatus.SUCCESS : JobStatus.ERROR,
           error: data.error,
@@ -26,7 +25,7 @@ setInterval(() => {
         jobs.delete(jobId);
       }
     } catch (error) {
-      self.postMessage({
+      global.postMessage({
         jobId,
         status: JobStatus.ERROR,
         error: error,
@@ -37,7 +36,7 @@ setInterval(() => {
   });
 }, 3000);
 
-self.onmessage = ({ data }) => {
+global.onmessage = ({ data }) => {
   const { actionType, payload } = data;
 
   switch (actionType) {

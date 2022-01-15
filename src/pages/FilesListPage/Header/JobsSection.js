@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useJobQueueInfo } from 'contexts/JobQueue';
+import { useJobsListDialog } from 'contexts/JobsListDialog/index';
 import JobsButton from './JobsButton';
-import JobsListDropdown from './JobsListDropdown';
+import JobsListPopover from './JobsListPopover';
 
 export default function JobsSection() {
+  const { show } = useJobsListDialog();
   const { jobs, statusCounts } = useJobQueueInfo();
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -15,14 +17,20 @@ export default function JobsSection() {
     setAnchorEl(null);
   };
 
+  const handleMoreButtonClicked = () => {
+    setAnchorEl(null);
+    show();
+  };
+
   return (
     <>
       <JobsButton statusCounts={statusCounts} onClick={handleClick} />
-      <JobsListDropdown
+      <JobsListPopover
         open={anchorEl !== null}
         jobs={jobs}
         anchorEl={anchorEl}
         onClose={handleClose}
+        onMoreClicked={handleMoreButtonClicked}
       />
     </>
   );

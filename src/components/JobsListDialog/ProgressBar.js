@@ -4,8 +4,8 @@ import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import './ProgressBar.scss';
 
-export default function ProgressBar({ numSuccessful, numUploading }) {
-  const percentage = (numSuccessful / (numUploading + numSuccessful)) * 100;
+export default function ProgressBar({ numSuccessful, numOngoing }) {
+  const percentage = (numSuccessful / (numOngoing + numSuccessful)) * 100;
 
   return (
     <Box className="progress-bar">
@@ -23,5 +23,5 @@ export default function ProgressBar({ numSuccessful, numUploading }) {
 
 ProgressBar.propTypes = {
   numSuccessful: PropTypes.number,
-  numUploading: PropTypes.number,
+  numOngoing: PropTypes.number,
 };

@@ -3,9 +3,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import MainApp from 'apps/MainApp';
-import { ColorModeProvider } from 'contexts/ColorMode/index';
-import { FileUploadCountsProvider } from 'contexts/FileUploadCounts/index';
-import { JobQueueProvider } from 'contexts/JobQueue/index';
+import { ColorModeProvider } from 'contexts/ColorMode';
+import { JobQueueProvider } from 'contexts/JobQueue';
+import { JobsListDialogProvider } from 'contexts/JobsListDialog';
 import { RCloneInfoProvider } from 'contexts/RCloneInfo';
 import { RecentPicturesProvider } from 'contexts/RecentPicturesList';
 import AppErrorBoundary from 'pages/ErrorBoundaries/AppErrorBoundary';
@@ -20,15 +20,15 @@ ReactDOM.render(
           <RecentPicturesProvider>
             <ColorModeProvider>
               <JobQueueProvider>
-                <SnackbarProvider
-                  maxSnack={3}
-                  anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-                  autoHideDuration={3000}
-                >
-                  <FileUploadCountsProvider>
+                <JobsListDialogProvider>
+                  <SnackbarProvider
+                    maxSnack={3}
+                    anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+                    autoHideDuration={3000}
+                  >
                     <MainApp />
-                  </FileUploadCountsProvider>
-                </SnackbarProvider>
+                  </SnackbarProvider>
+                </JobsListDialogProvider>
               </JobQueueProvider>
             </ColorModeProvider>
           </RecentPicturesProvider>

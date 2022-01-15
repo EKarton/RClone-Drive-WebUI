@@ -2,44 +2,38 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import IconButton from '@mui/material/IconButton';
 import TableCell from '@mui/material/TableCell';
 import MuiTableRow from '@mui/material/TableRow';
-import prettyBytes from 'pretty-bytes';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { BehaviorSubject } from 'rxjs';
-import { UploadStatusTypes } from 'utils/constants';
+import { JobStatus } from 'services/RCloneJobTracker/constants';
 import './TableRow.scss';
+import TableRowDescription from './TableRowDescription';
 import TableRowIcon from './TableRowIcon';
 
-export default function TableRow({ file }) {
-  const [status, setStatus] = useState(file.status.value);
+export default function TableRow({ job }) {
+  const [status, setStatus] = useState(null);
 
   useEffect(() => {
-    const subscriber = file.status.subscribe((newStatus) => {
+    const subscriber = job.status.subscribe((newStatus) => {
       setStatus(newStatus);
     });
 
     return () => {
       subscriber.unsubscribe();
     };
-  }, [file]);
+  }, [job]);
 
   const handleCancelButtonClick = () => {
-    file.cancelUpload();
+    job.cancelJob();
   };
-
-  const dirPathWithRemote = `${file.remote}:${file.dirPath}`;
 
   return (
     <MuiTableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
       <TableCell className="table-row__file-type-cell">
-        <TableRowIcon fileType={file.type} />
+        <TableRowIcon jobType={job.jobType} />
       </TableCell>
-      <TableCell classes={{ root: 'table-row__file-name-cell' }}>{file.name}</TableCell>
-      <TableCell classes={{ root: 'table-row__dir-path-cell' }}>
-        {dirPathWithRemote}
-      </TableCell>
-      <TableCell align="right" className="table-row__file-size-cell">
-        {prettyBytes(file.size)}
+      <TableCell classes={{ root: 'table-row__file-name-cell' }}>
+        <TableRowDescription status={status} job={job} />
       </TableCell>
       <TableCell align="right" className="table-row__status-cell">
         {status}
@@ -48,7 +42,7 @@ export default function TableRow({ file }) {
         <IconButton
           aria-label="cancel upload"
           onClick={handleCancelButtonClick}
-          disabled={status !== UploadStatusTypes.UPLOADING}
+          disabled={status !== JobStatus.UPLOADING}
           data-testid="cancel-upload-button"
         >
           <CancelIcon />

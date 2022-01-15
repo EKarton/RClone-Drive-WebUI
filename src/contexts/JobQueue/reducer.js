@@ -7,12 +7,17 @@ export function reducer(state, action) {
       return { ...state, jobs: action.payload };
     }
     case ActionTypes.ADD_JOB: {
-      const newJobs = [...state.jobs, action.payload];
+      const newJobs = [action.payload, ...state.jobs];
 
       return { ...state, jobs: newJobs };
     }
     case ActionTypes.REMOVE_JOB: {
       const newJobs = state.jobs.filter((job) => job.jobId !== action.payload);
+
+      return { ...state, jobs: newJobs };
+    }
+    case ActionTypes.ADD_JOBS: {
+      const newJobs = [...action.payload, ...state.jobs];
 
       return { ...state, jobs: newJobs };
     }

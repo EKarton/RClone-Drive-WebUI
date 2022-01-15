@@ -17,6 +17,7 @@ import NoFilesIllustration from './NoFilesIllustration';
 import useGetFiles from './hooks/useGetFiles';
 
 export default function TableSection({ remote, path }) {
+  const { status, error, data, refetchData } = useGetFiles(remote, path);
   const navigate = useNavigate();
   const fileViewer = useFileViewerDialog();
   const moveFileDialog = useMoveFileDialog();
@@ -24,7 +25,6 @@ export default function TableSection({ remote, path }) {
   const downloadFile = useFileDownloader();
   const deleteFile = useFileRemover();
   const copyFile = useFileCopier();
-  const { status, error, data, refetchData } = useGetFiles(remote, path);
 
   if (status === StatusTypes.ERROR) {
     throw error;
@@ -61,17 +61,17 @@ export default function TableSection({ remote, path }) {
                 key={file.name}
                 file={file}
                 onFileOpen={() => handleFileOpen(file)}
-                onFileRename={() => renameFileDialog.renameFile(file).then(refetchData)}
+                onFileRename={() => renameFileDialog.renameFile(file)}
                 onFileCopy={() => copyFile(file).then(refetchData)}
                 onFileDelete={() => deleteFile(file).then(refetchData)}
                 onFileDownload={() => downloadFile(file)}
-                onFileMove={() => moveFileDialog.moveFile(file).then(refetchData)}
+                onFileMove={() => moveFileDialog.moveFile(file)}
               />
             ))}
           </>
           <>
-            {data.uploadingFiles.map((uploadingFile) => (
-              <UploadingRow key={uploadingFile.name} file={uploadingFile} />
+            {data.uploadingFiles.map((file) => (
+              <UploadingRow key={file.name} file={file} />
             ))}
           </>
         </FileListTable>

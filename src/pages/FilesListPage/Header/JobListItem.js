@@ -68,17 +68,17 @@ export default function JobListItem({ job }) {
   };
 
   const getUploadMessage = () => {
-    const { fileName } = job;
+    const { name } = job;
 
     if (status === JobStatus.ERROR) {
-      return `Failed to upload ${fileName}`;
+      return `Failed to upload ${name}`;
     }
 
     if (status === JobStatus.SUCCESS) {
-      return `Uploaded ${fileName}`;
+      return `Uploaded ${name}`;
     }
 
-    return `Uploading ${fileName}`;
+    return `Uploading ${name}`;
   };
 
   const getDefaultString = () => {

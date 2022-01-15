@@ -1,15 +1,20 @@
 import { useEffect, useState } from 'react';
 import { BehaviorSubject } from 'rxjs';
-import { useFileUploader } from 'contexts/FileUploader';
+import { useJobQueueInfo } from 'contexts/JobQueue/index';
 import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
-import { ImageMimeTypes, StatusTypes, UploadStatusTypes } from 'utils/constants';
-import { getFullPath } from 'utils/filename-utils';
+import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { ImageMimeTypes, StatusTypes } from 'utils/constants';
 
 export default function useGetFiles(remote, path) {
+  const { jobs } = useJobQueueInfo();
   const { status, data, error, refetchData } = useFetchFiles(remote, path);
-  const { files } = useFileUploader();
   const [uploadingFiles, setUploadingFiles] = useState([]);
 
+  /**
+   * Get a list of uploading files and folders, and a list of
+   * existing files and folders, and automatically refetch the data
+   * when a file / folder is uploaded
+   */
   useEffect(() => {
     if (status !== StatusTypes.SUCCESS) {
       return;
@@ -32,12 +37,16 @@ export default function useGetFiles(remote, path) {
     const folderNamesToFileObj = new Map();
     const subscribers = [];
 
-    for (const file of files) {
+    for (const file of jobs) {
+      if (file.jobType !== 'UPLOAD_FILE') {
+        continue;
+      }
+
       if (file.remote !== remote || !file.dirPath.startsWith(path)) {
         continue;
       }
 
-      if (file.status.value === UploadStatusTypes.SUCCESS) {
+      if (file.status.value === JobStatus.SUCCESS) {
         continue;
       }
 
@@ -47,21 +56,15 @@ export default function useGetFiles(remote, path) {
         }
 
         const fileObj = {
-          remote,
-          dirPath: path,
-          path: getFullPath(path, file.name),
           name: file.name,
-          size: file.size,
-          mimeType: file.type,
           isDirectory: false,
-          uploadStatus: new BehaviorSubject(file.status.value),
+          status: file.status,
         };
 
         const subscriber = file.status.subscribe((status) => {
-          if (status === UploadStatusTypes.SUCCESS) {
+          if (status === JobStatus.SUCCESS) {
             refetchData();
           }
-          fileObj.uploadStatus.next(status);
         });
 
         fileNamesToFileObj.set(file.name, fileObj);
@@ -79,19 +82,17 @@ export default function useGetFiles(remote, path) {
         }
 
         const fileObj = folderNamesToFileObj.get(folderName) || {
-          remote,
-          dirPath: path,
-          path: getFullPath(path, folderName),
           name: folderName,
           isDirectory: true,
-          uploadStatus: new BehaviorSubject(file.status.value),
+          status: new BehaviorSubject(file.status.value),
         };
 
         const subscriber = file.status.subscribe((status) => {
-          if (status === UploadStatusTypes.SUCCESS) {
+          if (status === JobStatus.SUCCESS) {
             refetchData();
           }
-          fileObj.uploadStatus.next(status);
+
+          fileObj.status.next(status);
         });
 
         if (!folderNamesToFileObj.has(folderName)) {
@@ -111,7 +112,47 @@ export default function useGetFiles(remote, path) {
     return () => {
       subscribers.forEach((subscriber) => subscriber.unsubscribe());
     };
-  }, [data, files, path, refetchData, remote, status]);
+  }, [data, jobs, path, refetchData, remote, status]);
+
+  useEffect(() => {
+    const supportedJobTypes = new Set([
+      'MOVE_FILE',
+      'MOVE_FILES',
+      'RENAME_FILE',
+      'RENAME_FILES',
+    ]);
+
+    const subscribers = [];
+
+    for (const job of jobs) {
+      if (!supportedJobTypes.has(job.jobType)) {
+        continue;
+      }
+
+      if (job.status.value !== JobStatus.ONGOING) {
+        continue;
+      }
+
+      const isMatchSrc = job.src.remote === remote && job.src.dirPath === path;
+      const isMatchTarget = job.target.remote === remote && job.target.dirPath === path;
+
+      if (!isMatchSrc && !isMatchTarget) {
+        continue;
+      }
+
+      const subscriber = job.status.subscribe((status) => {
+        if (status === JobStatus.SUCCESS) {
+          refetchData();
+        }
+      });
+
+      subscribers.push(subscriber);
+    }
+
+    return () => {
+      subscribers.forEach((sub) => sub.unsubscribe());
+    };
+  });
 
   if (status !== StatusTypes.SUCCESS) {
     return { status, data, error, refetchData };

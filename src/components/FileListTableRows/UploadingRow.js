@@ -1,40 +1,41 @@
+import DescriptionIcon from '@mui/icons-material/Description';
+import FolderIcon from '@mui/icons-material/Folder';
 import CircularProgress from '@mui/material/CircularProgress';
-import prettyBytes from 'pretty-bytes';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { BehaviorSubject } from 'rxjs';
-import { ICON_SIZE, UploadStatusTypes } from 'utils/constants';
+import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { ICON_SIZE } from 'utils/constants';
 import BaseRow from './BaseRow';
-import FileIcon from './FileIcon';
 import './UploadingRow.scss';
 
 export default function UploadingRow({ file, iconSize }) {
-  const [uploadStatus, setUploadStatus] = useState(file.uploadStatus.value);
+  const [status, setStatus] = useState(null);
 
   useEffect(() => {
-    const subscriber = file.uploadStatus.subscribe((val) => {
-      setUploadStatus(val);
+    const subscriber = file.status.subscribe((val) => {
+      setStatus(val);
     });
 
     return () => {
       subscriber.unsubscribe();
     };
-  }, [file.uploadStatus]);
+  }, [file.status]);
+
+  const getIcon = () => {
+    if (file.isDirectory) {
+      return <FolderIcon fontSize={iconSize} />;
+    }
+
+    return <DescriptionIcon fontSize={iconSize} />;
+  };
 
   const getUploadStatusText = () => {
-    if (uploadStatus === UploadStatusTypes.SUCCESS) {
+    if (status === JobStatus.SUCCESS) {
       return 'Uploaded just now';
     }
 
-    if (uploadStatus === UploadStatusTypes.CANCELLED) {
-      return 'Upload cancelled';
-    }
-
-    if (uploadStatus === UploadStatusTypes.NOT_STARTED) {
-      return 'Scheduled to be uploaded';
-    }
-
-    if (uploadStatus === UploadStatusTypes.FAILED) {
+    if (status === JobStatus.ERROR) {
       return 'Upload failed';
     }
 
@@ -48,10 +49,10 @@ export default function UploadingRow({ file, iconSize }) {
 
   return (
     <BaseRow
-      fileIcon={<FileIcon file={file} iconSize={iconSize} />}
+      fileIcon={getIcon()}
       fileName={file.name}
       dateModified={getUploadStatusText()}
-      fileSize={file.isDirectory ? '-' : prettyBytes(file.size)}
+      fileSize="-"
     />
   );
 }
@@ -59,12 +60,8 @@ export default function UploadingRow({ file, iconSize }) {
 UploadingRow.propTypes = {
   file: PropTypes.shape({
     name: PropTypes.string,
-    lastUpdatedTime: PropTypes.string,
-    size: PropTypes.number,
-    isDirectory: PropTypes.bool.isRequired,
-    isImage: PropTypes.bool.isRequired,
-    uploadStatus: PropTypes.instanceOf(BehaviorSubject),
+    isDirectory: PropTypes.bool,
+    status: PropTypes.instanceOf(BehaviorSubject),
   }),
   iconSize: PropTypes.oneOf(Object.values(ICON_SIZE)),
-  onFileOpen: PropTypes.func,
 };

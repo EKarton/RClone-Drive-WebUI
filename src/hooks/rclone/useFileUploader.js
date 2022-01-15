@@ -1,22 +1,69 @@
-import FileUploader from 'utils/FileUploader';
-import useRCloneClient from './useRCloneClient';
+import { useSnackbar } from 'notistack';
+import { useContext } from 'react';
+import { startWith, pairwise } from 'rxjs/operators';
+import { ActionTypes } from 'contexts/JobQueue/actionTypes';
+import { JobQueueContext } from 'contexts/JobQueue/index';
+import FileUploader from 'services/FileUploader/index';
+import { getFullPath } from 'utils/filename-utils';
+import useRCloneInfo from './useRCloneInfo';
 
-let fileUploader = null;
+const fileUploader = new FileUploader();
 
-/**
- * A custom hook used to get the singleton of the ImageFetcher
- * If the ImageFetcher is not made yet, it will always create an instance of the ImageFetcher
- * If the ImageFetcher was made already, it will use the existing instance
- *
- * @returns {ImageFetcher} the image fetcher
- */
 export default function useFileUploader() {
-  const rCloneClient = useRCloneClient();
+  const { rCloneInfo } = useRCloneInfo();
+  const { dispatch } = useContext(JobQueueContext);
+  const { enqueueSnackbar } = useSnackbar();
 
-  if (fileUploader) {
-    return fileUploader;
-  }
+  const uploadFileEntries = async (remote, dirPath, fileEntries) => {
+    enqueueSnackbar('Uploading files...');
 
-  fileUploader = new FileUploader(rCloneClient);
-  return fileUploader;
+    const newJobObjects = await Promise.all(
+      fileEntries.map(async (fileEntry) => {
+        const relPath = fileEntry.fullPath
+          .split('/')
+          .filter((item) => item.length > 0)
+          .slice(0, -1)
+          .join('/');
+
+        const newDirPath = getFullPath(dirPath, relPath);
+        const file = await readFileFromFileEntry(fileEntry);
+        const fileName = fileEntry.name;
+
+        const fileObj = fileUploader.uploadFile(remote, newDirPath, file, rCloneInfo);
+        const newJobObj = {
+          ...fileObj,
+          jobType: 'UPLOAD_FILE',
+          remote,
+          dirPath: newDirPath,
+          name: fileName,
+        };
+
+        return newJobObj;
+      })
+    );
+
+    dispatch({ type: ActionTypes.ADD_JOBS, payload: newJobObjects.reverse() });
+    newJobObjects.forEach((jobObj) => {
+      jobObj.status
+        .pipe(startWith(null), pairwise())
+        .subscribe(([prevStatus, curStatus]) => {
+          if (prevStatus) {
+            dispatch({
+              type: ActionTypes.UPDATE_STATUS,
+              payload: [prevStatus, curStatus],
+            });
+          } else {
+            dispatch({ type: ActionTypes.ADD_STATUS_COUNT, payload: curStatus });
+          }
+        });
+    });
+  };
+
+  const readFileFromFileEntry = (fileEntry) => {
+    return new Promise((resolve, reject) => {
+      fileEntry.file(resolve, reject);
+    });
+  };
+
+  return { uploadFileEntries };
 }

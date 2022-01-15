@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 import axios from 'axios';
 import { JobStatus } from 'services/RCloneJobTracker/constants';
 import RCloneClient from 'utils/RCloneClient';
@@ -31,12 +30,12 @@ async function uploadFile({ jobId, remote, dirPath, file, rCloneInfo }) {
     cancelTokens.set(jobId, cancelSource);
     await rCloneClient.uploadFiles(remote, dirPath, file, axiosOptions);
 
-    self.postMessage({ jobId, status: JobStatus.SUCCESS });
+    global.postMessage({ jobId, status: JobStatus.SUCCESS });
   } catch (error) {
     if (!axios.isCancel(error)) {
-      self.postMessage({ jobId, status: JobStatus.ERROR, error });
+      global.postMessage({ jobId, status: JobStatus.ERROR, error });
     } else {
-      self.postMessage({ jobId, status: JobStatus.ERROR, isCancelled: true });
+      global.postMessage({ jobId, status: JobStatus.ERROR, isCancelled: true });
     }
   } finally {
     cancelTokens.delete(jobId);
@@ -45,7 +44,7 @@ async function uploadFile({ jobId, remote, dirPath, file, rCloneInfo }) {
   }
 }
 
-self.onmessage = ({ data }) => {
+global.onmessage = ({ data }) => {
   const { actionType, payload } = data;
 
   switch (actionType) {
