@@ -3,7 +3,7 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Popover from '@mui/material/Popover';
-import JobListItem from './JobListItem';
+import JobsListItem from './JobsListItem';
 
 export default function JobsListPopover(props) {
   const { open, jobs, anchorEl, onClose, onMoreClicked } = props;
@@ -25,10 +25,10 @@ export default function JobsListPopover(props) {
     >
       <List dense>
         {recentJobs.map((job) => (
-          <JobListItem job={job} />
+          <JobsListItem key={job.jobId} job={job} />
         ))}
         <Divider />
-        <ListItemButton onClick={onMoreClicked}>
+        <ListItemButton onClick={onMoreClicked} data-testid="more-details-button">
           <ListItemText primary="More details" />
         </ListItemButton>
       </List>

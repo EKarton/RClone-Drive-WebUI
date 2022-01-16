@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`InfoCard should render data correctly given there is no data in its size api call 1`] = `
+<body>
+  <div>
+    <div
+      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1v5z4dq-MuiPaper-root-MuiCard-root"
+    >
+      <button
+        class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+        tabindex="0"
+        type="button"
+      >
+        <div
+          class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+        >
+          <div
+            class="MuiTypography-root MuiTypography-h6 remote-base-card__name css-2ulfj5-MuiTypography-root"
+          >
+            googledrive
+          </div>
+          <p
+            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            Type: crypt
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+          >
+            NA / NA used, NA in trash
+          </p>
+        </div>
+        <span
+          class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+        />
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`InfoCard should render data correctly when api call finishes 1`] = `
 <body>
   <div>
@@ -27,7 +69,7 @@ exports[`InfoCard should render data correctly when api call finishes 1`] = `
           <p
             class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
           >
-            126 GB / 161 GB used, 0 B in trash
+            126 GB / 161 GB used, NA in trash
           </p>
         </div>
         <span

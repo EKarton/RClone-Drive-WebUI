@@ -6960,6 +6960,11 @@ minimist@^1.1.1, minimist@^1.2.0, minimist@^1.2.5:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
 
+mitt@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/mitt/-/mitt-2.1.0.tgz#f740577c23176c6205b121b2973514eade1b2230"
+  integrity sha512-ILj2TpLiysu2wkBbWjAmww7TkZb65aiQO+DkVdUTBpBXq+MHYiETENkKFMtsJZX1Lf4pe4QOrTSjIfUwN5lRdg==
+
 mkdirp@^0.5.5, mkdirp@~0.5.1:
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.5.tgz#d91cefd62d1436ca0f41620e251288d420099def"
@@ -10353,6 +10358,13 @@ worker-loader@^0.8.0:
   dependencies:
     loader-utils "^1.0.2"
     schema-utils "^0.3.0"
+
+workerloader-jest-transformer@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/workerloader-jest-transformer/-/workerloader-jest-transformer-0.0.5.tgz#07be0a4853045c15f19ed95640ed6074fdaed660"
+  integrity sha512-9vOEaFNoYEpF6SlFlro4reRdFAaOMz3+sC5FIdIit2jSU4NSuKx6ac9UTRlkbp1Xq/bS3vPXBSaz/lYso9UFSw==
+  dependencies:
+    mitt "^2.1.0"
 
 wrap-ansi@^6.2.0:
   version "6.2.0"

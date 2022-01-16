@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render the header and jobs section given no jobs and mock remote and path 1`] = `
+<body>
+  <div>
+    <div
+      class="header"
+    >
+      <nav
+        aria-label="breadcrumb"
+        class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root"
+      >
+        <ol
+          class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+        >
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+              href="/files"
+            >
+              My Files
+            </a>
+          </li>
+          <li
+            aria-hidden="true"
+            class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+          >
+            /
+          </li>
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+              href="/files/Z2RyaXZlOg=="
+            >
+              gdrive
+            </a>
+          </li>
+          <li
+            aria-hidden="true"
+            class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+          >
+            /
+          </li>
+          <li
+            class="MuiBreadcrumbs-li"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1 css-1gqyz35-MuiTypography-root"
+            >
+              Documents
+            </p>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</body>
+`;

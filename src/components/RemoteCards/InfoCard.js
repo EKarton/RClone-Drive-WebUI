@@ -43,9 +43,10 @@ export default function InfoCard({ remote, onClick }) {
       return 'Unable to get space information';
     }
 
-    const totalSpace = prettyBytes(sizeResult.data?.total);
-    const spaceUsed = prettyBytes(sizeResult.data?.used);
-    const trashUsed = prettyBytes(sizeResult.data?.trashed);
+    const { total, used, trashed } = sizeResult.data;
+    const totalSpace = total ? prettyBytes(total) : 'NA';
+    const spaceUsed = used ? prettyBytes(used) : 'NA';
+    const trashUsed = trashed ? prettyBytes(trashed) : 'NA';
 
     return `${spaceUsed} / ${totalSpace} used, ${trashUsed} in trash`;
   };

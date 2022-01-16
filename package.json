@@ -60,7 +60,8 @@
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
     "stylelint": "^14.2.0",
-    "stylelint-config-standard-scss": "^3.0.0"
+    "stylelint-config-standard-scss": "^3.0.0",
+    "workerloader-jest-transformer": "^0.0.5"
   },
   "browserslist": {
     "production": [
@@ -93,6 +94,9 @@
         "lines": 100,
         "statements": 100
       }
+    },
+    "transform": {
+      "^.+\\.worker.[t|j]sx?$": "workerloader-jest-transformer"
     }
   }
 }

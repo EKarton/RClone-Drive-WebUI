@@ -3,27 +3,39 @@ import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 import { ColorModeProvider } from 'contexts/ColorMode/index';
-import { FileUploadCountsProvider } from 'contexts/FileUploadCounts/index';
+import { JobQueueProvider } from 'contexts/JobQueue/index';
+import { JobsListDialogProvider } from 'contexts/JobsListDialog/index';
 import { RCloneInfoProvider } from 'contexts/RCloneInfo';
 import { RecentPicturesProvider } from 'contexts/RecentPicturesList';
+import { SnackbarProvider } from '../../node_modules/notistack/dist/index';
 
 const customRender = (
   component,
-  { initialRCloneInfoState, initialRecentPicturesState } = {},
+  { initialRCloneInfoState, initialRecentPicturesState, initialJobQueueState } = {},
   { route = '/' } = {}
 ) => {
   const history = createMemoryHistory({ initialEntries: [route] });
 
   const renderedComponent = render(
-    <RCloneInfoProvider defaultState={initialRCloneInfoState}>
-      <RecentPicturesProvider defaultState={initialRecentPicturesState}>
-        <Router location={history.location} navigator={history}>
+    <Router location={history.location} navigator={history}>
+      <RCloneInfoProvider defaultState={initialRCloneInfoState}>
+        <RecentPicturesProvider defaultState={initialRecentPicturesState}>
           <ColorModeProvider>
-            <FileUploadCountsProvider>{component}</FileUploadCountsProvider>
+            <JobQueueProvider defaultState={initialJobQueueState}>
+              <JobsListDialogProvider>
+                <SnackbarProvider
+                  maxSnack={3}
+                  anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+                  autoHideDuration={3000}
+                >
+                  {component}
+                </SnackbarProvider>
+              </JobsListDialogProvider>
+            </JobQueueProvider>
           </ColorModeProvider>
-        </Router>
-      </RecentPicturesProvider>
-    </RCloneInfoProvider>
+        </RecentPicturesProvider>
+      </RCloneInfoProvider>
+    </Router>
   );
 
   return {

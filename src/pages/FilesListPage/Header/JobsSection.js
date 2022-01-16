@@ -24,7 +24,11 @@ export default function JobsSection() {
 
   return (
     <>
-      <JobsButton statusCounts={statusCounts} onClick={handleClick} />
+      <JobsButton
+        statusCounts={statusCounts}
+        onClick={handleClick}
+        data-testid="job-button"
+      />
       <JobsListPopover
         open={anchorEl !== null}
         jobs={jobs}

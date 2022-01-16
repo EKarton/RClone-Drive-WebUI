@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { JobStatus } from 'services/RCloneJobTracker/constants';
 import { getFullPath } from 'utils/filename-utils';
 
-export default function JobListItem({ job }) {
+export default function JobsListItem({ job }) {
   const [status, setStatus] = useState(null);
 
   useEffect(() => {
@@ -53,7 +53,6 @@ export default function JobListItem({ job }) {
 
   const getRenameMessage = () => {
     const { src, target } = job;
-    const remotePath = `${src.remote}:${src.dirPath}`;
 
     if (status === JobStatus.ERROR) {
       return `Failed to rename ${src.name}`;
