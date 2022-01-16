@@ -7,10 +7,10 @@ import { useEffect, useState } from 'react';
 import { BehaviorSubject } from 'rxjs';
 import { JobStatus } from 'services/RCloneJobTracker/constants';
 import './TableRow.scss';
-import TableRowDescription from './TableRowDescription';
 import TableRowIcon from './TableRowIcon';
+import TableRowDescription from './TableRowJobDescription';
 
-export default function TableRow({ job }) {
+export default function TableRow({ job, ...props }) {
   const [status, setStatus] = useState(null);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function TableRow({ job }) {
   };
 
   return (
-    <MuiTableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+    <MuiTableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }} {...props}>
       <TableCell className="table-row__file-type-cell">
         <TableRowIcon jobType={job.jobType} />
       </TableCell>
@@ -40,10 +40,10 @@ export default function TableRow({ job }) {
       </TableCell>
       <TableCell align="right" className="table-row__cancel-button-cell">
         <IconButton
-          aria-label="cancel upload"
+          aria-label="cancel job"
           onClick={handleCancelButtonClick}
-          disabled={status !== JobStatus.UPLOADING}
-          data-testid="cancel-upload-button"
+          disabled={status !== JobStatus.ONGOING}
+          data-testid="cancel-job-button"
         >
           <CancelIcon />
         </IconButton>

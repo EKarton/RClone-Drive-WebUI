@@ -35,7 +35,7 @@ export default function Table({ jobs }) {
         >
           <MuiTableBody>
             {rowsToDisplay.map((job) => (
-              <TableRow key={jobs.jobId} job={job} />
+              <TableRow key={job.jobId} job={job} data-testid={`job-id-${job.jobId}`} />
             ))}
           </MuiTableBody>
         </MuiTable>

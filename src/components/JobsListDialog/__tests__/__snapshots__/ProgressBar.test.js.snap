@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressBar should match snapshot given numSuccess is 0 and numOngoing is 0 1`] = `
+<body>
+  <div>
+    <div
+      class="progress-bar MuiBox-root css-0"
+    >
+      <div
+        class="progress-bar__bar-wrapper MuiBox-root css-0"
+      >
+        <span
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="NaN"
+          class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate css-eglki6-MuiLinearProgress-root"
+          role="progressbar"
+        >
+          <span
+            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate css-5xe99f-MuiLinearProgress-bar1"
+            style="transform: translateX(NaN%);"
+          />
+        </span>
+      </div>
+      <div
+        class="MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body2 progress-bar__text css-r40f8v-MuiTypography-root"
+        >
+          NaN
+           %
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`ProgressBar should match snapshot given numSuccess is 0 and numOngoing is 10 1`] = `
+<body>
+  <div>
+    <div
+      class="progress-bar MuiBox-root css-0"
+    >
+      <div
+        class="progress-bar__bar-wrapper MuiBox-root css-0"
+      >
+        <span
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="0"
+          class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate css-eglki6-MuiLinearProgress-root"
+          role="progressbar"
+        >
+          <span
+            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate css-5xe99f-MuiLinearProgress-bar1"
+            style="transform: translateX(-100%);"
+          />
+        </span>
+      </div>
+      <div
+        class="MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body2 progress-bar__text css-r40f8v-MuiTypography-root"
+        >
+          0
+           %
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`ProgressBar should match snapshot given numSuccess is 9 and numOngoing is 10 1`] = `
+<body>
+  <div>
+    <div
+      class="progress-bar MuiBox-root css-0"
+    >
+      <div
+        class="progress-bar__bar-wrapper MuiBox-root css-0"
+      >
+        <span
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="47"
+          class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate css-eglki6-MuiLinearProgress-root"
+          role="progressbar"
+        >
+          <span
+            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate css-5xe99f-MuiLinearProgress-bar1"
+            style="transform: translateX(-52.631578947368425%);"
+          />
+        </span>
+      </div>
+      <div
+        class="MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body2 progress-bar__text css-r40f8v-MuiTypography-root"
+        >
+          47
+           %
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`ProgressBar should match snapshot given numSuccess is 19 and numOngoing is 0 1`] = `
+<body>
+  <div>
+    <div
+      class="progress-bar MuiBox-root css-0"
+    >
+      <div
+        class="progress-bar__bar-wrapper MuiBox-root css-0"
+      >
+        <span
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="100"
+          class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate css-eglki6-MuiLinearProgress-root"
+          role="progressbar"
+        >
+          <span
+            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate css-5xe99f-MuiLinearProgress-bar1"
+            style="transform: translateX(0%);"
+          />
+        </span>
+      </div>
+      <div
+        class="MuiBox-root css-0"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body2 progress-bar__text css-r40f8v-MuiTypography-root"
+        >
+          100
+           %
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;

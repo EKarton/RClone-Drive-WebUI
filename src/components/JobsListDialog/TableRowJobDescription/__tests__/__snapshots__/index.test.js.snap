@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableRowJobDescription should contain expected string given job type is MOVE_FILE 1`] = `
+<body>
+  <div>
+    <span>
+      Moving file from 
+      undefined:undefined
+       to 
+      undefined:undefined
+    </span>
+  </div>
+</body>
+`;
+
+exports[`TableRowJobDescription should contain expected string given job type is MOVE_FOLDER 1`] = `
+<body>
+  <div>
+    <span>
+      Moving folder from 
+      undefined:undefined
+       to 
+      undefined:undefined
+    </span>
+  </div>
+</body>
+`;
+
+exports[`TableRowJobDescription should contain expected string given job type is RENAME_FILE 1`] = `
+<body>
+  <div>
+    <span>
+      Renaming file 
+       to 
+       in 
+      :
+    </span>
+  </div>
+</body>
+`;
+
+exports[`TableRowJobDescription should contain expected string given job type is RENAME_FOLDER 1`] = `
+<body>
+  <div>
+    <span>
+      Renaming folder 
+       to 
+       in 
+      :
+    </span>
+  </div>
+</body>
+`;
+
+exports[`TableRowJobDescription should contain expected string given job type is Random job 1`] = `
+<body>
+  <div>
+    <span>
+      Job ongoing
+    </span>
+  </div>
+</body>
+`;
+
+exports[`TableRowJobDescription should contain expected string given job type is UPLOAD_FILE 1`] = `
+<body>
+  <div>
+    <span>
+      Uploading file 
+      
+       to 
+      
+      :
+      
+    </span>
+  </div>
+</body>
+`;

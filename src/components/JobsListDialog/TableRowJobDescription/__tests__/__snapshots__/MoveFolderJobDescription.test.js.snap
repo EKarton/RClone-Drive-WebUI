@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoveFolderJobDescription should match snapshot given status is ERROR 1`] = `
+<body>
+  <div>
+    <span>
+      Failed to move folder from 
+      gdrive:Documents/Dog.png
+       to 
+      box:Archives/Dog.png
+    </span>
+  </div>
+</body>
+`;
+
+exports[`MoveFolderJobDescription should match snapshot given status is ONGOING 1`] = `
+<body>
+  <div>
+    <span>
+      Moving folder from 
+      gdrive:Documents/Dog.png
+       to 
+      box:Archives/Dog.png
+    </span>
+  </div>
+</body>
+`;
+
+exports[`MoveFolderJobDescription should match snapshot given status is SUCCESS 1`] = `
+<body>
+  <div>
+    <span>
+      Moved folder from 
+      gdrive:Documents/Dog.png
+       to 
+      box:Archives/Dog.png
+    </span>
+  </div>
+</body>
+`;

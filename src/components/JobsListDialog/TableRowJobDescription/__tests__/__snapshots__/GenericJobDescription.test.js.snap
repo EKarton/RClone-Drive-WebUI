@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GenericJobDescription should match snapshot given status is ERROR 1`] = `
+<body>
+  <div>
+    <span>
+      Job failed
+    </span>
+  </div>
+</body>
+`;
+
+exports[`GenericJobDescription should match snapshot given status is ONGOING 1`] = `
+<body>
+  <div>
+    <span>
+      Job ongoing
+    </span>
+  </div>
+</body>
+`;
+
+exports[`GenericJobDescription should match snapshot given status is SUCCESS 1`] = `
+<body>
+  <div>
+    <span>
+      Job succeeded
+    </span>
+  </div>
+</body>
+`;
