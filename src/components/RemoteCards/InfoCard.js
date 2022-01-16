@@ -44,9 +44,9 @@ export default function InfoCard({ remote, onClick }) {
     }
 
     const { total, used, trashed } = sizeResult.data;
-    const totalSpace = total ? prettyBytes(total) : 'NA';
-    const spaceUsed = used ? prettyBytes(used) : 'NA';
-    const trashUsed = trashed ? prettyBytes(trashed) : 'NA';
+    const totalSpace = Number.isInteger(total) ? prettyBytes(total) : 'NA';
+    const spaceUsed = Number.isInteger(used) ? prettyBytes(used) : 'NA';
+    const trashUsed = Number.isInteger(trashed) ? prettyBytes(trashed) : 'NA';
 
     return `${spaceUsed} / ${totalSpace} used, ${trashUsed} in trash`;
   };
