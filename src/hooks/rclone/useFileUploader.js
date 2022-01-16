@@ -1,8 +1,7 @@
 import { useSnackbar } from 'notistack';
 import { useContext } from 'react';
 import { startWith, pairwise } from 'rxjs/operators';
-import { ActionTypes } from 'contexts/JobQueue/actionTypes';
-import { JobQueueContext } from 'contexts/JobQueue/index';
+import { JobQueueContext, ActionTypes } from 'contexts/JobQueue';
 import FileUploader from 'services/FileUploader/index';
 import { getFullPath } from 'utils/filename-utils';
 import useRCloneInfo from './useRCloneInfo';

@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useReducer } from 'react';
 import { reducer } from './reducer';
 
 export const InitialState = {
@@ -22,7 +22,4 @@ export const JobQueueProvider = ({ children, defaultState = InitialState }) => {
   );
 };
 
-export const useJobQueueInfo = () => {
-  const { state } = useContext(JobQueueContext);
-  return state;
-};
+export * from './actionTypes';

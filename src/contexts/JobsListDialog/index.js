@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 import JobsListDialog from 'components/JobsListDialog/index';
 
-export const JobsListDialogContext = createContext();
+const JobsListDialogContext = createContext();
 
 export function JobsListDialogProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false);

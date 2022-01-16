@@ -11,13 +11,13 @@ export function reducer(state, action) {
 
       return { ...state, jobs: newJobs };
     }
-    case ActionTypes.REMOVE_JOB: {
-      const newJobs = state.jobs.filter((job) => job.jobId !== action.payload);
+    case ActionTypes.ADD_JOBS: {
+      const newJobs = [...action.payload, ...state.jobs];
 
       return { ...state, jobs: newJobs };
     }
-    case ActionTypes.ADD_JOBS: {
-      const newJobs = [...action.payload, ...state.jobs];
+    case ActionTypes.REMOVE_JOB: {
+      const newJobs = state.jobs.filter((job) => job.jobId !== action.payload);
 
       return { ...state, jobs: newJobs };
     }
@@ -43,6 +43,10 @@ function incrementValue(state, status, amount) {
     [JobStatus.SUCCESS]: 'numSuccessful',
     [JobStatus.ERROR]: 'numFailed',
   };
+
+  if (!statusToCountField[status]) {
+    throw new Error(`Unknown job status ${status}`);
+  }
 
   const oldValue = state.statusCounts[statusToCountField[status]];
 

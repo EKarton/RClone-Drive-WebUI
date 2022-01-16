@@ -1,38 +1,37 @@
 import { useSnackbar } from 'notistack';
 import { useContext } from 'react';
 import { startWith, pairwise } from 'rxjs/operators';
-import { ActionTypes } from 'contexts/JobQueue/actionTypes';
-import { JobQueueContext } from 'contexts/JobQueue/index';
-import { rCloneJobTracker } from 'contexts/JobQueue/useJobQueue';
+import { JobQueueContext, ActionTypes } from 'contexts/JobQueue';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import useRCloneInfo from 'hooks/rclone/useRCloneInfo';
+import rCloneJobTracker from 'services/RCloneJobTracker/singleton';
 
-export default function useFileRenamer() {
+export default function useFileMover() {
   const { rCloneInfo } = useRCloneInfo();
   const { enqueueSnackbar } = useSnackbar();
   const rCloneClient = useRCloneClient();
   const { dispatch } = useContext(JobQueueContext);
 
-  const renameFolder = async (remote, dirPath, oldName, newName) => {
-    const src = { remote, dirPath, name: oldName };
-    const target = { remote, dirPath, name: newName };
-
-    const response = await rCloneClient.move(src, target, { isAsync: true });
-    const jobId = response.data.jobid;
-
-    enqueueJob(jobId, 'RENAME_FOLDER', src, target);
-    enqueueSnackbar(`Renaming folder ${src.name} to ${target.name}`);
-  };
-
-  const renameFile = async (remote, dirPath, oldName, newName) => {
-    const src = { remote, dirPath, name: oldName };
-    const target = { remote, dirPath, name: newName };
-
+  const moveFile = async (src, target) => {
     const response = await rCloneClient.moveFile(src, target, { isAsync: true });
     const jobId = response.data.jobid;
 
-    enqueueJob(jobId, 'RENAME_FILE', src, target);
-    enqueueSnackbar(`Renaming file ${src.name} to ${target.name}`);
+    enqueueJob(jobId, 'MOVE_FILE', src, target);
+    enqueueSnackbar(`Moving file ${src.name} in the background`);
+  };
+
+  const moveFolder = async (src, target) => {
+    const opts = {
+      createEmptySrcDirs: true,
+      deleteEmptySrcDirs: true,
+      isAsync: true,
+    };
+
+    const response = await rCloneClient.move(src, target, opts);
+    const jobId = response.data.jobid;
+
+    enqueueJob(jobId, 'MOVE_FOLDER', src, target);
+    enqueueSnackbar(`Moving directory ${src.name} in the background`);
   };
 
   const enqueueJob = (jobId, jobType, src, target) => {
@@ -58,5 +57,5 @@ export default function useFileRenamer() {
       });
   };
 
-  return { renameFile, renameFolder };
+  return { moveFile, moveFolder };
 }

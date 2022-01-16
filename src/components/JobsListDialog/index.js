@@ -1,7 +1,7 @@
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useJobQueueInfo } from 'contexts/JobQueue/index';
+import useJobQueueInfo from 'hooks/jobs/useJobQueueInfo';
 import ProgressBar from './ProgressBar';
 import Table from './Table';
 

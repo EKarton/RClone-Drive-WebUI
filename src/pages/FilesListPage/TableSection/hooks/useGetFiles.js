@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BehaviorSubject } from 'rxjs';
-import { useJobQueueInfo } from 'contexts/JobQueue/index';
 import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
+import useJobQueueInfo from 'hooks/jobs/useJobQueueInfo';
 import { JobStatus } from 'services/RCloneJobTracker/constants';
 import { ImageMimeTypes, StatusTypes } from 'utils/constants';
 

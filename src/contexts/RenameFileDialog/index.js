@@ -1,6 +1,6 @@
 import { createContext, useRef, useState } from 'react';
 import RenameFileDialog from 'components/RenameFileDialog';
-import useFileRenamer from './useFileRenamer';
+import useFileRenamer from 'hooks/rclone/useFileRenamer';
 
 export const RenameFileDialogContext = createContext();
 

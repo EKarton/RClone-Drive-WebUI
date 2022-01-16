@@ -1,6 +1,6 @@
 import { createContext, useRef, useState } from 'react';
 import MoveFileDialog from 'components/MoveFileDialog';
-import useFileMover from './useFileMover';
+import useFileMover from 'hooks/rclone/useFileMover';
 
 export const MoveFileDialogContext = createContext();
 

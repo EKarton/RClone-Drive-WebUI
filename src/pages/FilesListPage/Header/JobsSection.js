@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useJobQueueInfo } from 'contexts/JobQueue';
-import { useJobsListDialog } from 'contexts/JobsListDialog/index';
+import { useJobsListDialog } from 'contexts/JobsListDialog';
+import useJobQueueInfo from 'hooks/jobs/useJobQueueInfo';
 import JobsButton from './JobsButton';
 import JobsListPopover from './JobsListPopover';
 
