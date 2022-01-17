@@ -21,7 +21,7 @@ export const RenameFileDialogProvider = ({ children }) => {
           newFileName
         );
       } else {
-        await fileRenamer.renameFileJob(
+        await fileRenamer.renameFile(
           fileToRename.remote,
           fileToRename.dirPath,
           fileToRename.name,
@@ -29,21 +29,22 @@ export const RenameFileDialogProvider = ({ children }) => {
         );
       }
 
-      setFileToRename(undefined);
-      setIsOpen(false);
+      closeDialog();
       awaitingPromiseRef.current?.resolve();
     } catch (error) {
-      setFileToRename(undefined);
-      setIsOpen(false);
+      closeDialog();
       awaitingPromiseRef.current?.reject(error);
     }
   };
 
   const handleCancel = () => {
+    closeDialog();
+    awaitingPromiseRef.current?.reject();
+  };
+
+  const closeDialog = () => {
     setFileToRename(undefined);
     setIsOpen(false);
-
-    awaitingPromiseRef.current?.reject();
   };
 
   const renameFile = (file) => {

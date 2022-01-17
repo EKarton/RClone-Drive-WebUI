@@ -3,7 +3,7 @@ import { ActionTypes, JobStatus } from './constants';
 
 export default class RCloneJobTracker {
   constructor() {
-    this.worker = new Worker(new URL('./worker.js', import.meta.url));
+    this.worker = new Worker('./worker.js');
     this.jobIdToObject = new Map();
 
     this.worker.onmessage = ({ data }) => {

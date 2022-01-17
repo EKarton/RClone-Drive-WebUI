@@ -1,22 +1,22 @@
-import { useState } from 'react';
-import useRCloneClient from 'hooks/rclone/useRCloneClient';
-import useRenameFileDialog from 'hooks/utils/useRenameFileDialog';
+import { useContext, useState } from 'react';
+import useFileRenamer from 'hooks/rclone/useFileRenamer';
 import { render, userEvent, fireEvent, screen } from 'test-utils/react';
 import { waitForElementToBeRemoved } from 'test-utils/react';
-import { RenameFileDialogProvider } from '../index';
+import { RenameFileDialogContext, RenameFileDialogProvider } from '../index';
 
-jest.mock('hooks/rclone/useRCloneClient');
+jest.mock('hooks/rclone/useFileRenamer');
 
-describe('RenameFileDialog', () => {
-  const move = jest.fn();
-  const moveFile = jest.fn();
+describe('RenameFileDialogProvider', () => {
+  const renameFolder = jest.fn();
+  const renameFile = jest.fn();
 
   beforeEach(() => {
-    move.mockResolvedValue();
-    moveFile.mockResolvedValue();
-    useRCloneClient.mockReturnValue({
-      move,
-      moveFile,
+    renameFolder.mockResolvedValue();
+    renameFile.mockResolvedValue();
+
+    useFileRenamer.mockReturnValue({
+      renameFolder,
+      renameFile,
     });
   });
 
@@ -38,10 +38,7 @@ describe('RenameFileDialog', () => {
     await waitForElementToBeRemoved(() => screen.queryByTestId('rename-file-dialog'));
 
     await screen.findByText('File renamed!');
-    expect(moveFile).toBeCalledWith(
-      { remote: 'gdrive', dirPath: 'Pictures', fileName: 'dog.png' },
-      { remote: 'gdrive', dirPath: 'Pictures', fileName: 'cat.png' }
-    );
+    expect(renameFile).toBeCalledWith('gdrive', 'Pictures', 'dog.png', 'cat.png');
   });
 
   it('should open the dialog, call RCloneClient correctly, and close the dialog when user opens the dialog and renames a folder', async () => {
@@ -62,11 +59,7 @@ describe('RenameFileDialog', () => {
     await waitForElementToBeRemoved(() => screen.queryByTestId('rename-file-dialog'));
 
     await screen.findByText('File renamed!');
-    expect(move).toBeCalledWith(
-      { remote: 'gdrive', dirPath: 'Pictures', fileName: '2021' },
-      { remote: 'gdrive', dirPath: 'Pictures', fileName: '2022' },
-      true
-    );
+    expect(renameFolder).toBeCalledWith('gdrive', 'Pictures', '2021', '2022');
   });
 
   it('should close the dialog when user opens the dialog and clicks on the Cancel button', async () => {
@@ -85,12 +78,12 @@ describe('RenameFileDialog', () => {
     await waitForElementToBeRemoved(() => screen.queryByTestId('rename-file-dialog'));
 
     await screen.findByText('File rename aborted');
-    expect(move).not.toBeCalled();
-    expect(moveFile).not.toBeCalled();
+    expect(renameFile).not.toBeCalled();
+    expect(renameFolder).not.toBeCalled();
   });
 
   it('should throw an exception when RClone throws an exception', async () => {
-    move.mockRejectedValue(new Error('Random error'));
+    renameFolder.mockRejectedValue(new Error('Random error'));
 
     renderComponent({
       remote: 'gdrive',
@@ -118,7 +111,7 @@ describe('RenameFileDialog', () => {
   };
 
   const MockPage = ({ fileToRename }) => {
-    const renameFileDialog = useRenameFileDialog();
+    const renameFileDialog = useContext(RenameFileDialogContext);
     const [text, setText] = useState('');
 
     const handleClick = () => {
