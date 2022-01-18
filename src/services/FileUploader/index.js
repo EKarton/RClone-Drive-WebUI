@@ -4,7 +4,7 @@ import { JobStatus } from 'services/RCloneJobTracker/constants';
 
 export default class FileUploader {
   constructor() {
-    this.worker = new Worker('./worker.js');
+    this.worker = new Worker(new URL('./worker.js', import.meta.url));
     this.jobIdToObject = new Map();
 
     this.worker.onmessage = ({ data }) => {
