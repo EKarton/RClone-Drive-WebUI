@@ -2,11 +2,9 @@ import { useSnackbar } from 'notistack';
 import { useContext } from 'react';
 import { startWith, pairwise } from 'rxjs/operators';
 import { JobQueueContext, ActionTypes } from 'contexts/JobQueue';
-import FileUploader from 'services/FileUploader/index';
+import fileUploader from 'services/FileUploader/singleton';
 import { getFullPath } from 'utils/filename-utils';
 import useRCloneInfo from './useRCloneInfo';
-
-const fileUploader = new FileUploader();
 
 export default function useFileUploader() {
   const { rCloneInfo } = useRCloneInfo();

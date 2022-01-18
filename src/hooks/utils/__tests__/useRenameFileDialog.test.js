@@ -1,10 +1,15 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { RenameFileDialogProvider } from 'contexts/RenameFileDialog/index';
+import useFileRenamer from 'hooks/rclone/useFileRenamer';
 import useRenameFileDialog from '../useRenameFileDialog';
 
-jest.mock('hooks/rclone/useRCloneClient');
+jest.mock('hooks/rclone/useFileRenamer');
 
 describe('useRenameFileDialog()', () => {
+  beforeEach(() => {
+    useFileRenamer.mockReturnValue({});
+  });
+
   it('should return a method for renaming files', () => {
     const { result } = renderHook(() => useRenameFileDialog(), {
       wrapper: RenameFileDialogProvider,

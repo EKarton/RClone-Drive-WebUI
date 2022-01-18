@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useJobQueueInfo() should return the correct info given it is wrapped in <JobQueueProvider> 1`] = `
+<body>
+  <div>
+    <div>
+      []
+    </div>
+    <div>
+      {"numOngoing":0,"numSuccessful":0,"numFailed":0}
+    </div>
+  </div>
+</body>
+`;
