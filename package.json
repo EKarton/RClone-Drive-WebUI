@@ -44,6 +44,7 @@
     "yarn": "^1.22.17"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.16.7",
     "@commitlint/cli": "^16.0.2",
     "@commitlint/config-conventional": "^16.0.0",
     "@testing-library/dom": "^8.11.1",
@@ -52,6 +53,8 @@
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
     "@trivago/prettier-plugin-sort-imports": "^3.1.1",
+    "babel-plugin-transform-import-meta": "^2.1.0",
+    "babel-preset-react-app": "^10.0.1",
     "blob-polyfill": "^6.0.20211015",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -60,8 +63,7 @@
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
     "stylelint": "^14.2.0",
-    "stylelint-config-standard-scss": "^3.0.0",
-    "workerloader-jest-transformer": "^0.0.5"
+    "stylelint-config-standard-scss": "^3.0.0"
   },
   "browserslist": {
     "production": [
@@ -96,7 +98,7 @@
       }
     },
     "transform": {
-      "^.+\\.worker.[t|j]sx?$": "workerloader-jest-transformer"
+      "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/jest-transformer.js"
     }
   }
 }

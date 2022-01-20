@@ -11,9 +11,9 @@ The RClone Drive Web UI is a RClone client that provides an easy-to-use web inte
 - [x] Navigate and see files in directories and remotes
 - [x] See images and files in detail
 - [x] View and scroll through all pictures recursively (like Google Photos) with lazy-loading
-- [x] Upload files and folders easily via drag-and-drop
-- [x] Copy and move files between and within remotes
-- [x] Delete files
+- [x] Upload files and folders easily via drag-and-drop with good performance (using web workers)
+- [x] Copy and move files between and within remotes with good performance (using web workers)
+- [x] Delete files with good performance (using web workers)
 - [x] Set theme to dark mode
 - [x] Clear trash can on selected cloud providers and remotes
 - [ ] Search for files and images across remotes
