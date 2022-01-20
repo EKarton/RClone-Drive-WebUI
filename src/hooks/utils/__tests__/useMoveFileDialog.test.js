@@ -1,10 +1,18 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { MoveFileDialogProvider } from 'contexts/MoveFileDialog/index';
+import MoveFileDialog from 'components/MoveFileDialog';
+import { MoveFileDialogProvider } from 'contexts/MoveFileDialog';
+import useFileMover from 'hooks/rclone/useFileMover';
 import useMoveFileDialog from '../useMoveFileDialog';
 
-jest.mock('hooks/rclone/useRCloneClient');
+jest.mock('hooks/rclone/useFileMover');
+jest.mock('components/MoveFileDialog');
 
 describe('useMoveFileDialog()', () => {
+  beforeEach(() => {
+    useFileMover.mockReturnValue({});
+    MoveFileDialog.mockReturnValue(null);
+  });
+
   it('should return a method for renaming files', () => {
     const { result } = renderHook(() => useMoveFileDialog(), {
       wrapper: MoveFileDialogProvider,

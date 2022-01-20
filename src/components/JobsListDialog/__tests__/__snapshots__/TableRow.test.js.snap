@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableRow should match snapshot given sample job 1`] = `
+<body>
+  <div>
+    <tr
+      class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+    >
+      <td
+        class="MuiTableCell-root MuiTableCell-sizeMedium table-row__file-type-cell css-bsph2u-MuiTableCell-root"
+      >
+        <span
+          aria-label="UPLOAD_FILE"
+          class=""
+          data-mui-internal-clone-element="true"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="BackupIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
+            />
+          </svg>
+        </span>
+      </td>
+      <td
+        class="table-row__file-name-cell MuiTableCell-root MuiTableCell-sizeMedium css-bsph2u-MuiTableCell-root"
+      >
+        <span>
+          Uploading file 
+          dog.png
+           to 
+          gdrive
+          :
+          Documents
+        </span>
+      </td>
+      <td
+        class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-sizeMedium table-row__status-cell css-r7oxtk-MuiTableCell-root"
+      >
+        ONGOING
+      </td>
+      <td
+        class="MuiTableCell-root MuiTableCell-alignRight MuiTableCell-sizeMedium table-row__cancel-button-cell css-r7oxtk-MuiTableCell-root"
+      >
+        <button
+          aria-label="cancel job"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+          data-testid="cancel-job-button"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CancelIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </td>
+    </tr>
+  </div>
+</body>
+`;

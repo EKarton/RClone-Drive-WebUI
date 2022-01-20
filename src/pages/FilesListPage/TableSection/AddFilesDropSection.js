@@ -1,22 +1,21 @@
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useFileUploader } from 'contexts/FileUploader';
-import { getFullPath } from 'utils/filename-utils';
+import useFileUploader from 'hooks/rclone/useFileUploader';
 import './AddFilesDropSection.scss';
 
 /**
  * This component is responsible for adding files to a remote via drag-and-drop
  */
 export default function AddFilesDropSection({ remote, dirPath, children }) {
-  const { uploadFiles } = useFileUploader();
+  const { uploadFileEntries } = useFileUploader();
   const [isDraggingFile, setIsDraggingFile] = useState(false);
 
   const handleDrop = async (e) => {
     e.preventDefault();
     setIsDraggingFile(false);
 
-    const readEntriesPromise = (directoryReader) => {
+    const readEntriesPromisified = (directoryReader) => {
       return new Promise((resolve, reject) => {
         directoryReader.readEntries(resolve, reject);
       });
@@ -24,20 +23,14 @@ export default function AddFilesDropSection({ remote, dirPath, children }) {
 
     const readAllDirectoryEntries = async (directoryReader) => {
       const entries = [];
-      let readEntries = await readEntriesPromise(directoryReader);
+      let readEntries = await readEntriesPromisified(directoryReader);
 
       while (readEntries.length > 0) {
         entries.push(...readEntries);
-        readEntries = await readEntriesPromise(directoryReader);
+        readEntries = await readEntriesPromisified(directoryReader);
       }
 
       return entries;
-    };
-
-    const readFileFromFileEntry = (fileEntry) => {
-      return new Promise((resolve, reject) => {
-        fileEntry.file(resolve, reject);
-      });
     };
 
     const getFileEntries = async (dataTransferItemList) => {
@@ -61,21 +54,7 @@ export default function AddFilesDropSection({ remote, dirPath, children }) {
     };
 
     const fileEntries = await getFileEntries(e.dataTransfer.items);
-    const filesToUpload = await Promise.all(
-      fileEntries.map(async (fileEntry) => {
-        const relPath = fileEntry.fullPath
-          .split('/')
-          .filter((item) => item.length > 0)
-          .slice(0, -1)
-          .join('/');
-
-        const file = await readFileFromFileEntry(fileEntry);
-
-        return { remote, dirPath: getFullPath(dirPath, relPath), file };
-      })
-    );
-
-    uploadFiles(filesToUpload);
+    await uploadFileEntries(remote, dirPath, fileEntries);
   };
 
   const handleDragEnter = (e) => {

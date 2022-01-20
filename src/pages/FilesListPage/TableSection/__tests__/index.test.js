@@ -1,13 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
 import { BehaviorSubject } from 'rxjs';
-import { FileUploaderProvider } from 'contexts/FileUploader/index';
+import { JobQueueProvider } from 'contexts/JobQueue/index';
 import useFileCopier from 'hooks/utils/useFileCopier';
 import useFileDownloader from 'hooks/utils/useFileDownloader';
 import useFileRemover from 'hooks/utils/useFileRemover';
 import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
 import useMoveFileDialog from 'hooks/utils/useMoveFileDialog';
 import useRenameFileDialog from 'hooks/utils/useRenameFileDialog';
-import { StatusTypes, UploadStatusTypes } from 'utils/constants';
+import { StatusTypes, JobStatus, JobTypes } from 'utils/constants';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import { customRender, fireEvent, userEvent, screen } from 'test-utils/react';
 import useGetFiles from '../hooks/useGetFiles';
@@ -76,12 +76,11 @@ describe('TableSection', () => {
         ],
         uploadingFiles: [
           {
+            jobStatus: JobTypes.UPLOAD_FILE,
+            status: new BehaviorSubject(JobStatus.ONGOING),
             remote,
             dirPath: '',
-            path: '.rclone',
             name: '.rclone',
-            isDirectory: true,
-            uploadStatus: new BehaviorSubject(UploadStatusTypes.UPLOADING),
           },
         ],
       },
@@ -236,9 +235,9 @@ describe('TableSection', () => {
         <Route
           path="/files/:id"
           element={
-            <FileUploaderProvider>
+            <JobQueueProvider>
               <TableSection remote={remote} path="" />
-            </FileUploaderProvider>
+            </JobQueueProvider>
           }
         />
       </Routes>

@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RenameFileJobDescription should match snapshot given status is ERROR 1`] = `
+<body>
+  <div>
+    <span>
+      Failed to rename file 
+      Dog.png
+       to 
+      Dog.png
+       in 
+      gdrive
+      :
+      Documents
+    </span>
+  </div>
+</body>
+`;
+
+exports[`RenameFileJobDescription should match snapshot given status is ONGOING 1`] = `
+<body>
+  <div>
+    <span>
+      Renaming file 
+      Dog.png
+       to 
+      Dog.png
+       in 
+      gdrive
+      :
+      Documents
+    </span>
+  </div>
+</body>
+`;
+
+exports[`RenameFileJobDescription should match snapshot given status is SUCCESS 1`] = `
+<body>
+  <div>
+    <span>
+      Renamed file 
+      Dog.png
+       to 
+      Dog.png
+       in 
+      gdrive
+      :
+      Documents
+    </span>
+  </div>
+</body>
+`;

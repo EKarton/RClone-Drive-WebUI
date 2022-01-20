@@ -1,5 +1,3 @@
-import { FileUploadDialogProvider } from 'contexts/FileUploadDialog';
-import { FileUploaderProvider } from 'contexts/FileUploader';
 import { FileViewerDialogProvider } from 'contexts/FileViewerDialog';
 import { MoveFileDialogProvider } from 'contexts/MoveFileDialog';
 import { RenameFileDialogProvider } from 'contexts/RenameFileDialog';
@@ -17,14 +15,10 @@ export default function FilesListPage() {
       <FileViewerDialogProvider>
         <MoveFileDialogProvider>
           <RenameFileDialogProvider>
-            <FileUploaderProvider>
-              <FileUploadDialogProvider>
-                <div className="filelist-page__container">
-                  <Header remote={remote} path={path} />
-                  <TableSection remote={remote} path={path} />
-                </div>
-              </FileUploadDialogProvider>
-            </FileUploaderProvider>
+            <div className="filelist-page__container">
+              <Header remote={remote} path={path} />
+              <TableSection remote={remote} path={path} />
+            </div>
           </RenameFileDialogProvider>
         </MoveFileDialogProvider>
       </FileViewerDialogProvider>

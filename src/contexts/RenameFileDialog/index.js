@@ -1,43 +1,50 @@
 import { createContext, useRef, useState } from 'react';
 import RenameFileDialog from 'components/RenameFileDialog';
-import useRCloneClient from 'hooks/rclone/useRCloneClient';
+import useFileRenamer from 'hooks/rclone/useFileRenamer';
 
 export const RenameFileDialogContext = createContext();
 
 export const RenameFileDialogProvider = ({ children }) => {
-  const rCloneClient = useRCloneClient();
   const [isOpen, setIsOpen] = useState(false);
   const [fileToRename, setFileToRename] = useState({});
+  const fileRenamer = useFileRenamer();
 
   const awaitingPromiseRef = useRef();
 
   const handleOk = async (newFileName) => {
     try {
-      const { remote, dirPath, name: oldFileName, isDirectory } = fileToRename;
-
-      const src = { remote, dirPath, fileName: oldFileName };
-      const target = { remote, dirPath, fileName: newFileName };
-
-      if (isDirectory) {
-        await rCloneClient.move(src, target, true);
+      if (fileToRename.isDirectory) {
+        await fileRenamer.renameFolder(
+          fileToRename.remote,
+          fileToRename.dirPath,
+          fileToRename.name,
+          newFileName
+        );
       } else {
-        await rCloneClient.moveFile(src, target);
+        await fileRenamer.renameFile(
+          fileToRename.remote,
+          fileToRename.dirPath,
+          fileToRename.name,
+          newFileName
+        );
       }
 
-      setFileToRename(undefined);
-      setIsOpen(false);
-
+      closeDialog();
       awaitingPromiseRef.current?.resolve();
     } catch (error) {
+      closeDialog();
       awaitingPromiseRef.current?.reject(error);
     }
   };
 
   const handleCancel = () => {
+    closeDialog();
+    awaitingPromiseRef.current?.reject();
+  };
+
+  const closeDialog = () => {
     setFileToRename(undefined);
     setIsOpen(false);
-
-    awaitingPromiseRef.current?.reject();
   };
 
   const renameFile = (file) => {

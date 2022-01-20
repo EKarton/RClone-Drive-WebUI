@@ -95,13 +95,10 @@ Object {
     ],
     "uploadingFiles": Array [
       Object {
-        "dirPath": "",
         "isDirectory": true,
         "name": "Apps",
-        "path": "Apps",
-        "remote": "gdrive",
-        "uploadStatus": BehaviorSubject {
-          "_value": "Uploading",
+        "status": BehaviorSubject {
+          "_value": "ONGOING",
           "closed": false,
           "hasError": false,
           "isStopped": false,
@@ -212,19 +209,34 @@ Object {
     ],
     "uploadingFiles": Array [
       Object {
-        "dirPath": "",
         "isDirectory": false,
-        "mimeType": undefined,
         "name": "backup-locally.sh",
-        "path": "backup-locally.sh",
-        "remote": "gdrive",
-        "size": undefined,
-        "uploadStatus": BehaviorSubject {
-          "_value": "Uploading",
+        "status": BehaviorSubject {
+          "_value": "ONGOING",
           "closed": false,
           "hasError": false,
           "isStopped": false,
-          "observers": Array [],
+          "observers": Array [
+            SafeSubscriber {
+              "_parentage": null,
+              "_teardowns": Array [
+                Subscription {
+                  "_parentage": [Circular],
+                  "_teardowns": null,
+                  "closed": false,
+                  "initialTeardown": [Function],
+                },
+              ],
+              "closed": false,
+              "destination": Object {
+                "complete": [Function],
+                "error": [Function],
+                "next": [Function],
+              },
+              "initialTeardown": undefined,
+              "isStopped": false,
+            },
+          ],
           "thrownError": null,
         },
       },

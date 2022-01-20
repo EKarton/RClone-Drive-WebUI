@@ -13,10 +13,6 @@ export default function MoveFileDialog({ open, fileName, onCancel, onOk }) {
   const [remotePath, setRemotePath] = useState('');
   const { status, data } = useFetchRemotes();
 
-  const handleSelectedItem = (remotePath) => {
-    setRemotePath(remotePath);
-  };
-
   const handleOk = () => {
     if (remotePath === '') {
       onCancel();
@@ -33,6 +29,10 @@ export default function MoveFileDialog({ open, fileName, onCancel, onOk }) {
     if (status === StatusTypes.LOADING) {
       return <div>Loading...</div>;
     }
+
+    const handleSelectedItem = (remotePath) => {
+      setRemotePath(remotePath);
+    };
 
     return <FolderTree remotes={data} onSelect={handleSelectedItem} />;
   };

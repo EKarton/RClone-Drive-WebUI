@@ -1,15 +1,15 @@
-import { useFileUploader } from 'contexts/FileUploader';
+import useFileUploader from 'hooks/rclone/useFileUploader';
 import { customRender, fireEvent, waitFor, screen } from 'test-utils/react';
 import AddFilesDropSection from '../AddFilesDropSection';
 
-jest.mock('contexts/FileUploader');
+jest.mock('hooks/rclone/useFileUploader');
 
 describe('AddFilesDropSection', () => {
-  const uploadFiles = jest.fn();
+  const uploadFileEntries = jest.fn();
 
   beforeEach(() => {
     useFileUploader.mockReturnValue({
-      uploadFiles,
+      uploadFileEntries,
     });
   });
 
@@ -40,16 +40,16 @@ describe('AddFilesDropSection', () => {
     fireEvent.dragEnd(dropSection);
 
     await waitFor(() => {
-      expect(uploadFiles).toBeCalledWith([
+      expect(uploadFileEntries).toBeCalledWith('gdrive', 'Documents', [
         {
-          remote: 'gdrive',
-          dirPath: 'Documents/Pictures',
-          file: expect.any(File),
+          isFile: true,
+          isDirectory: false,
+          fullPath: 'Pictures/dog.png',
         },
         {
-          remote: 'gdrive',
-          dirPath: 'Documents/Pictures/2021',
-          file: expect.any(File),
+          isFile: true,
+          isDirectory: false,
+          fullPath: 'Pictures/2021/fireworks.png',
         },
       ]);
     });
@@ -63,7 +63,6 @@ describe('AddFilesDropSection', () => {
             isFile: true,
             isDirectory: false,
             fullPath: item.fullPath,
-            file: (resolve) => resolve(item.file),
           }),
         };
       }

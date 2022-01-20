@@ -1,4 +1,4 @@
-import RCloneClient from 'utils/RCloneClient';
+import RCloneClient from 'services/RCloneClient';
 import useRCloneInfo from './useRCloneInfo';
 
 let rCloneInstance = null;
@@ -20,11 +20,7 @@ export default function useRCloneClient() {
     return rCloneInstance;
   }
 
-  rCloneInstance = new RCloneClient(
-    rCloneInfo.endpoint,
-    rCloneInfo.username,
-    rCloneInfo.password
-  );
+  rCloneInstance = new RCloneClient(rCloneInfo, rCloneInfo, rCloneInfo);
 
   return rCloneInstance;
 }

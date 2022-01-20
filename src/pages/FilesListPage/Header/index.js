@@ -1,12 +1,12 @@
 import Breadcrumbs from 'components/Breadcrumbs';
-import UploadStatusButton from './UploadStatusButton';
+import JobsSection from './JobsSection';
 import './index.scss';
 
 export default function Header({ remote, path }) {
   return (
     <div className="header">
       <Breadcrumbs remote={remote} path={path} homeText="My Files" homePath="/files" />
-      <UploadStatusButton />
+      <JobsSection />
     </div>
   );
 }

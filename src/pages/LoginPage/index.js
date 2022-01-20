@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { LoginHelpDialogProvider } from 'contexts/LoginHelpDialog';
 import useRCloneInfo from 'hooks/rclone/useRCloneInfo';
-import RCloneClient from 'utils/RCloneClient';
+import RCloneClient from 'services/RCloneClient';
 import Form from './Form';
 import Header from './Header';
 import './index.scss';
@@ -24,7 +24,7 @@ export default function LoginPage() {
 
     try {
       // To test if connection is correct, call RClone to fetch remotes
-      await new RCloneClient(endpoint, username, password).fetchRemotes();
+      await new RCloneClient({ endpoint, username, password }).fetchRemotes();
 
       setRCloneInfo({ endpoint, username, password });
       navigate(redirectPath);

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JobQueueProvider should render initial state given mock component renders state 1`] = `
+<body>
+  <div>
+    <div>
+      {"jobs":[],"statusCounts":{"numOngoing":0,"numSuccessful":0,"numFailed":0}}
+    </div>
+  </div>
+</body>
+`;
+
+exports[`JobQueueProvider should update state given mock component dispatches event 1`] = `
+<body>
+  <div>
+    <div>
+      {"jobs":[{"jobId":"123"}],"statusCounts":{"numOngoing":1,"numSuccessful":0,"numFailed":0}}
+    </div>
+    <div>
+      Num jobs: 
+      1
+    </div>
+    <button>
+      Update state
+    </button>
+  </div>
+</body>
+`;

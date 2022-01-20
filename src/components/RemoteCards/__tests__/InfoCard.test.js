@@ -51,6 +51,22 @@ describe('InfoCard', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
+  it('should render data correctly given there is no data in its size api call', async () => {
+    useFetchRemoteSpaceInfo.mockReturnValue({
+      status: StatusTypes.SUCCESS,
+      data: {
+        total: undefined,
+        used: undefined,
+        trashed: undefined,
+      },
+      refetchData: jest.fn(),
+    });
+
+    const { baseElement } = customRender(<InfoCard remote="googledrive" />);
+
+    expect(baseElement).toMatchSnapshot();
+  });
+
   it('should render error messages correctly when api calls fail', async () => {
     useFetchRemoteSpaceInfo.mockReturnValue({
       status: StatusTypes.ERROR,

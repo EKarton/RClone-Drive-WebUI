@@ -1,5 +1,3 @@
-export const AuthenticatedPaths = ['/files', '/pictures'];
-
 export const ICON_SIZE = Object.freeze({
   SMALL: 'small',
   MEDIUM: 'medium',
@@ -12,12 +10,18 @@ export const StatusTypes = Object.freeze({
   ERROR: 'error',
 });
 
-export const UploadStatusTypes = Object.freeze({
-  NOT_STARTED: 'Not started',
-  UPLOADING: 'Uploading',
-  SUCCESS: 'Success',
-  FAILED: 'Failed',
-  CANCELLED: 'Cancelled',
+export const JobStatus = Object.freeze({
+  ONGOING: 'ONGOING',
+  SUCCESS: 'SUCCESS',
+  ERROR: 'ERROR',
+});
+
+export const JobTypes = Object.freeze({
+  UPLOAD_FILE: 'UPLOAD_FILE',
+  MOVE_FILE: 'MOVE_FILE',
+  MOVE_FOLDER: 'MOVE_FOLDER',
+  RENAME_FILE: 'RENAME_FILE',
+  RENAME_FOLDER: 'RENAME_FOLDER',
 });
 
 export const COLOR_MODE = Object.freeze({

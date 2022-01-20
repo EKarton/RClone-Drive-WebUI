@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JobsListItem should match snapshot given job type is MOVE_FILE and current status is ERROR 1`] = `
+<body>
+  <div>
+    <li
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+    >
+      <div
+        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      >
+        <span
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+        >
+          Failed to move gdrive:Documents/Dog.png
+        </span>
+      </div>
+    </li>
+  </div>
+</body>
+`;
+
+exports[`JobsListItem should match snapshot given job type is MOVE_FILE and current status is ONGOING 1`] = `
+<body>
+  <div>
+    <li
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+    >
+      <div
+        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      >
+        <span
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+        >
+          Moving gdrive:Documents/Dog.png
+        </span>
+      </div>
+    </li>
+  </div>
+</body>
+`;
+
+exports[`JobsListItem should match snapshot given job type is MOVE_FILE and current status is SUCCESS 1`] = `
+<body>
+  <div>
+    <li
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+    >
+      <div
+        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      >
+        <span
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+        >
+          Moved gdrive:Documents/Dog.png
+        </span>
+      </div>
+    </li>
+  </div>
+</body>
+`;
+
+exports[`JobsListItem should match snapshot given job type is RENAME_FILE and current status is ERROR 1`] = `
+<body>
+  <div>
+    <li
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+    >
+      <div
+        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      >
+        <span
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+        >
+          Failed to rename Dog.png
+        </span>
+      </div>
+    </li>
+  </div>
+</body>
+`;
+
+exports[`JobsListItem should match snapshot given job type is RENAME_FILE and current status is ONGOING 1`] = `
+<body>
+  <div>
+    <li
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+    >
+      <div
+        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      >
+        <span
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+        >
+          Renaming Dog.png to Dog.png
+        </span>
+      </div>
+    </li>
+  </div>
+</body>
+`;
+
+exports[`JobsListItem should match snapshot given job type is RENAME_FILE and current status is SUCCESS 1`] = `
+<body>
+  <div>
+    <li
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+    >
+      <div
+        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      >
+        <span
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+        >
+          Renamed Dog.png to Dog.png
+        </span>
+      </div>
+    </li>
+  </div>
+</body>
+`;
+
+exports[`JobsListItem should match snapshot given job type is UPLOAD_FILE and current status is ERROR 1`] = `
+<body>
+  <div>
+    <li
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+    >
+      <div
+        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      >
+        <span
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+        >
+          Failed to upload Dog.png
+        </span>
+      </div>
+    </li>
+  </div>
+</body>
+`;
+
+exports[`JobsListItem should match snapshot given job type is UPLOAD_FILE and current status is ONGOING 1`] = `
+<body>
+  <div>
+    <li
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+    >
+      <div
+        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      >
+        <span
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+        >
+          Uploading Dog.png
+        </span>
+      </div>
+    </li>
+  </div>
+</body>
+`;
+
+exports[`JobsListItem should match snapshot given job type is UPLOAD_FILE and current status is SUCCESS 1`] = `
+<body>
+  <div>
+    <li
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+    >
+      <div
+        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      >
+        <span
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+        >
+          Uploaded Dog.png
+        </span>
+      </div>
+    </li>
+  </div>
+</body>
+`;
+
+exports[`JobsListItem should match snapshot given unknown job type and current status is ERROR 1`] = `
+<body>
+  <div>
+    <li
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+    >
+      <div
+        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      >
+        <span
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+        >
+          Failed job
+        </span>
+      </div>
+    </li>
+  </div>
+</body>
+`;
+
+exports[`JobsListItem should match snapshot given unknown job type and current status is ONGOING 1`] = `
+<body>
+  <div>
+    <li
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+    >
+      <div
+        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      >
+        <span
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+        >
+          Job running
+        </span>
+      </div>
+    </li>
+  </div>
+</body>
+`;
+
+exports[`JobsListItem should match snapshot given unknown job type and current status is SUCCESS 1`] = `
+<body>
+  <div>
+    <li
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+    >
+      <div
+        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+      >
+        <span
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+        >
+          Job succeeded
+        </span>
+      </div>
+    </li>
+  </div>
+</body>
+`;

@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UploadJobDescription should match snapshot given status is ERROR 1`] = `
+<body>
+  <div>
+    <span>
+      Failed to upload file 
+      dog.png
+       to 
+      gdrive
+      :
+      Documents
+    </span>
+  </div>
+</body>
+`;
+
+exports[`UploadJobDescription should match snapshot given status is ONGOING 1`] = `
+<body>
+  <div>
+    <span>
+      Uploading file 
+      dog.png
+       to 
+      gdrive
+      :
+      Documents
+    </span>
+  </div>
+</body>
+`;
+
+exports[`UploadJobDescription should match snapshot given status is SUCCESS 1`] = `
+<body>
+  <div>
+    <span>
+      Uploaded file 
+      dog.png
+       to 
+      gdrive
+      :
+      Documents
+    </span>
+  </div>
+</body>
+`;

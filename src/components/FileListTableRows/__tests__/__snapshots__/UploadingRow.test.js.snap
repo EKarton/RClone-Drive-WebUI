@@ -87,12 +87,12 @@ exports[`UploadingRow should match snapshot given a file 1`] = `
           <svg
             aria-hidden="true"
             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="ImageIcon"
+            data-testid="DescriptionIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
             <path
-              d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
+              d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"
             />
           </svg>
           <div>
@@ -133,14 +133,14 @@ exports[`UploadingRow should match snapshot given a file 1`] = `
       <td
         class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       >
-        10 kB
+        -
       </td>
     </tr>
   </div>
 </body>
 `;
 
-exports[`UploadingRow should match snapshot given the upload status is Cancelled 1`] = `
+exports[`UploadingRow should match snapshot given job status is ERROR 1`] = `
 <body>
   <div>
     <tr
@@ -157,57 +157,12 @@ exports[`UploadingRow should match snapshot given the upload status is Cancelled
           <svg
             aria-hidden="true"
             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="ImageIcon"
+            data-testid="DescriptionIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
             <path
-              d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
-            />
-          </svg>
-          <div>
-            dog.png
-          </div>
-        </div>
-      </td>
-      <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
-      >
-        Upload cancelled
-      </td>
-      <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
-      >
-        10 kB
-      </td>
-    </tr>
-  </div>
-</body>
-`;
-
-exports[`UploadingRow should match snapshot given the upload status is Failed 1`] = `
-<body>
-  <div>
-    <tr
-      class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
-      tabindex="0"
-    >
-      <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
-      >
-        <div
-          class="filelist-table-base-row__file-cell"
-          data-testid="dog.png"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="ImageIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
+              d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"
             />
           </svg>
           <div>
@@ -223,14 +178,14 @@ exports[`UploadingRow should match snapshot given the upload status is Failed 1`
       <td
         class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       >
-        10 kB
+        -
       </td>
     </tr>
   </div>
 </body>
 `;
 
-exports[`UploadingRow should match snapshot given the upload status is Not started 1`] = `
+exports[`UploadingRow should match snapshot given job status is ONGOING 1`] = `
 <body>
   <div>
     <tr
@@ -247,102 +202,12 @@ exports[`UploadingRow should match snapshot given the upload status is Not start
           <svg
             aria-hidden="true"
             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="ImageIcon"
+            data-testid="DescriptionIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
             <path
-              d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
-            />
-          </svg>
-          <div>
-            dog.png
-          </div>
-        </div>
-      </td>
-      <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
-      >
-        Scheduled to be uploaded
-      </td>
-      <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
-      >
-        10 kB
-      </td>
-    </tr>
-  </div>
-</body>
-`;
-
-exports[`UploadingRow should match snapshot given the upload status is Success 1`] = `
-<body>
-  <div>
-    <tr
-      class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
-      tabindex="0"
-    >
-      <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
-      >
-        <div
-          class="filelist-table-base-row__file-cell"
-          data-testid="dog.png"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="ImageIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
-            />
-          </svg>
-          <div>
-            dog.png
-          </div>
-        </div>
-      </td>
-      <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
-      >
-        Uploaded just now
-      </td>
-      <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
-      >
-        10 kB
-      </td>
-    </tr>
-  </div>
-</body>
-`;
-
-exports[`UploadingRow should match snapshot given the upload status is Uploading 1`] = `
-<body>
-  <div>
-    <tr
-      class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
-      tabindex="0"
-    >
-      <td
-        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
-      >
-        <div
-          class="filelist-table-base-row__file-cell"
-          data-testid="dog.png"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="ImageIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
+              d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"
             />
           </svg>
           <div>
@@ -383,7 +248,52 @@ exports[`UploadingRow should match snapshot given the upload status is Uploading
       <td
         class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       >
-        10 kB
+        -
+      </td>
+    </tr>
+  </div>
+</body>
+`;
+
+exports[`UploadingRow should match snapshot given job status is SUCCESS 1`] = `
+<body>
+  <div>
+    <tr
+      class="MuiTableRow-root filelist-table-base-row css-1q1u3t4-MuiTableRow-root"
+      tabindex="0"
+    >
+      <td
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
+      >
+        <div
+          class="filelist-table-base-row__file-cell"
+          data-testid="dog.png"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="DescriptionIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"
+            />
+          </svg>
+          <div>
+            dog.png
+          </div>
+        </div>
+      </td>
+      <td
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
+      >
+        Uploaded just now
+      </td>
+      <td
+        class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
+      >
+        -
       </td>
     </tr>
   </div>
@@ -407,12 +317,12 @@ exports[`UploadingRow should update snapshot when file status updates 1`] = `
           <svg
             aria-hidden="true"
             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="ImageIcon"
+            data-testid="DescriptionIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
             <path
-              d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
+              d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"
             />
           </svg>
           <div>
@@ -428,7 +338,7 @@ exports[`UploadingRow should update snapshot when file status updates 1`] = `
       <td
         class="MuiTableCell-root MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-bsph2u-MuiTableCell-root"
       >
-        10 kB
+        -
       </td>
     </tr>
   </div>

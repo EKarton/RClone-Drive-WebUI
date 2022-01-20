@@ -1,5 +1,5 @@
 import LRUCache from 'lru-cache';
-import ImageFetcher from 'utils/ImageFetcher';
+import ImageFetcher from 'services/ImageFetcher';
 import useRCloneClient from './useRCloneClient';
 
 let imageFetcher = null;
