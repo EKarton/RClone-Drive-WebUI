@@ -59,6 +59,13 @@ jobs:
       - name: Run all test cases
         run: yarn test --maxWorkers=100%
 
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_SECRET }}
+          directory: ./coverage/
+          flags: unittests
+
   build:
     name: Builds the app
     runs-on: ubuntu-latest

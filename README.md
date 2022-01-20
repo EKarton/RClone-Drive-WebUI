@@ -1,6 +1,6 @@
 # RClone Drive Web UI
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e431cc05-9841-4b26-9092-78783424de4b/deploy-status)](https://app.netlify.com/sites/silly-mirzakhani-2a7996/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e431cc05-9841-4b26-9092-78783424de4b/deploy-status)](https://app.netlify.com/sites/silly-mirzakhani-2a7996/deploys) [![codecov](https://codecov.io/gh/EKarton/RClone-Drive-WebUI/branch/main/graph/badge.svg?token=IK7IKBHD45)](https://codecov.io/gh/EKarton/RClone-Drive-WebUI)
 
 ### Description:
 
@@ -11,9 +11,9 @@ The RClone Drive Web UI is a RClone client that provides an easy-to-use web inte
 - [x] Navigate and see files in directories and remotes
 - [x] See images and files in detail
 - [x] View and scroll through all pictures recursively (like Google Photos) with lazy-loading
-- [x] Upload files and folders easily via drag-and-drop with good performance (using web workers)
-- [x] Copy and move files between and within remotes with good performance (using web workers)
-- [x] Delete files with good performance (using web workers)
+- [x] Upload files and folders easily via drag-and-drop with web workers
+- [x] Copy and move files between and within remotes asynchronously with web workers
+- [x] Delete files asynchronously with web workers
 - [x] Set theme to dark mode
 - [x] Clear trash can on selected cloud providers and remotes
 - [ ] Search for files and images across remotes
