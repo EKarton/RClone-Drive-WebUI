@@ -37,7 +37,7 @@
     "react-virtualized-auto-sizer": "^1.0.6",
     "react-window": "^1.8.6",
     "rxjs": "^7.5.2",
-    "sass": "^1.47.0",
+    "sass": "^1.49.0",
     "web-vitals": "^2.1.2",
     "yarn": "^1.22.17"
   },
