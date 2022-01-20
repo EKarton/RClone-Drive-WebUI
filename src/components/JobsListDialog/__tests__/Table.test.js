@@ -1,13 +1,13 @@
 import times from 'lodash/times';
 import { BehaviorSubject } from 'rxjs';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus, JobTypes } from 'utils/constants';
 import { render, screen, userEvent } from 'test-utils/react';
 import Table from '../Table';
 
 const mockJobs = Array.from({ length: 100 }, (_, i) => ({
   jobId: i,
-  jobType: 'UPLOAD_FILE',
-  status: new BehaviorSubject(JobStatus.UPLOADING),
+  jobType: JobTypes.UPLOAD_FILE,
+  status: new BehaviorSubject(JobStatus.ONGOING),
   cancelJob: jest.fn(),
   remote: 'gdrive',
   dirPath: 'Documents',

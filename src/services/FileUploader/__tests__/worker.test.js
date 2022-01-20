@@ -1,15 +1,16 @@
 import axios from 'axios';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
-import RCloneClient from 'utils/RCloneClient';
+import RCloneClient from 'services/RCloneClient';
+import { JobStatus } from 'utils/constants';
 import { waitFor } from 'test-utils/react';
+import { ActionTypes } from '../constants';
 import { createFileUploaderWorker } from '../worker';
 
-jest.mock('utils/RCloneClient');
+jest.mock('services/RCloneClient');
 
 describe('createFileUploaderWorker()', () => {
   const createUploadMessage = (jobId) => ({
     data: {
-      actionType: 'UPLOAD_FILE',
+      actionType: ActionTypes.UPLOAD_FILE,
       payload: {
         jobId,
         remote: 'gdrive',
@@ -118,7 +119,7 @@ describe('createFileUploaderWorker()', () => {
 
     const worker = createFileUploaderWorker(jest.fn());
     worker.onMessage(createUploadMessage('123'));
-    worker.onMessage({ data: { actionType: 'CANCEL_UPLOAD', payload: '123' } });
+    worker.onMessage({ data: { actionType: ActionTypes.CANCEL_UPLOAD, payload: '123' } });
 
     expect(token.cancel).toBeCalled();
   });

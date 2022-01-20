@@ -4,8 +4,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { BehaviorSubject } from 'rxjs';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
-import { ICON_SIZE } from 'utils/constants';
+import { ICON_SIZE, JobStatus } from 'utils/constants';
 import BaseRow from './BaseRow';
 import './UploadingRow.scss';
 

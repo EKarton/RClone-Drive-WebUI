@@ -1,4 +1,4 @@
-import RCloneClient from 'utils/RCloneClient';
+import RCloneClient from 'services/RCloneClient';
 import useRCloneInfo from './useRCloneInfo';
 
 let rCloneInstance = null;

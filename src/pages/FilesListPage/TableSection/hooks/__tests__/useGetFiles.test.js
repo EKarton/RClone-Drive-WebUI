@@ -2,8 +2,7 @@ import { renderHook, act } from '@testing-library/react-hooks';
 import { BehaviorSubject } from 'rxjs';
 import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
 import useJobQueueInfo from 'hooks/jobs/useJobQueueInfo';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
-import { StatusTypes } from 'utils/constants';
+import { StatusTypes, JobStatus, JobTypes } from 'utils/constants';
 import { mockFiles } from 'test-utils/mock-responses';
 import { waitFor } from 'test-utils/react';
 import useGetFiles from '../useGetFiles';
@@ -41,7 +40,7 @@ describe('useGetFiles()', () => {
     useJobQueueInfo.mockReturnValue({
       jobs: [
         {
-          jobType: 'UPLOAD_FILE',
+          jobType: JobTypes.UPLOAD_FILE,
           status: new BehaviorSubject(JobStatus.ONGOING),
           remote: 'gdrive',
           dirPath: '',
@@ -65,14 +64,14 @@ describe('useGetFiles()', () => {
     useJobQueueInfo.mockReturnValue({
       jobs: [
         {
-          jobType: 'UPLOAD_FILE',
+          jobType: JobTypes.UPLOAD_FILE,
           status: new BehaviorSubject(JobStatus.ONGOING),
           remote: 'gdrive',
           dirPath: 'Pictures',
           name: 'dog.png',
         },
         {
-          jobType: 'UPLOAD_FILE',
+          jobType: JobTypes.UPLOAD_FILE,
           status: new BehaviorSubject(JobStatus.ONGOING),
           remote: 'gdrive',
           dirPath: 'Pictures',
@@ -95,7 +94,7 @@ describe('useGetFiles()', () => {
     useJobQueueInfo.mockReturnValue({
       jobs: [
         {
-          jobType: 'UPLOAD_FILE',
+          jobType: JobTypes.UPLOAD_FILE,
           status: new BehaviorSubject(JobStatus.ONGOING),
           remote: 'gdrive',
           dirPath: '',
@@ -118,14 +117,14 @@ describe('useGetFiles()', () => {
     useJobQueueInfo.mockReturnValue({
       jobs: [
         {
-          jobType: 'UPLOAD_FILE',
+          jobType: JobTypes.UPLOAD_FILE,
           status: new BehaviorSubject(JobStatus.ONGOING),
           remote: 'gdrive',
           dirPath: 'Apps',
           name: 'Messenger.apk',
         },
         {
-          jobType: 'UPLOAD_FILE',
+          jobType: JobTypes.UPLOAD_FILE,
           status: new BehaviorSubject(JobStatus.ONGOING),
           remote: 'gdrive',
           dirPath: 'Apps',
@@ -149,21 +148,21 @@ describe('useGetFiles()', () => {
     useJobQueueInfo.mockReturnValue({
       jobs: [
         {
-          jobType: 'UPLOAD_FILE',
+          jobType: JobTypes.UPLOAD_FILE,
           status: new BehaviorSubject(JobStatus.ONGOING),
           remote: 'onedrive',
           dirPath: '',
           name: 'document.txt',
         },
         {
-          jobType: 'UPLOAD_FILE',
+          jobType: JobTypes.UPLOAD_FILE,
           status: new BehaviorSubject(JobStatus.SUCCESS),
           remote: 'gdrive',
           dirPath: 'Documents/Apps',
           name: 'YouTube.apk',
         },
         {
-          jobType: 'UPLOAD_FILE',
+          jobType: JobTypes.UPLOAD_FILE,
           status: new BehaviorSubject(JobStatus.ONGOING),
           remote: 'gdrive',
           dirPath: 'Pictures',
@@ -186,14 +185,14 @@ describe('useGetFiles()', () => {
     const refetchData = jest.fn();
     const jobs = [
       {
-        jobType: 'UPLOAD_FILE',
+        jobType: JobTypes.UPLOAD_FILE,
         status: new BehaviorSubject(JobStatus.ONGOING),
         remote: 'gdrive',
         dirPath: '',
         name: 'backup-locally.sh',
       },
       {
-        jobType: 'UPLOAD_FILE',
+        jobType: JobTypes.UPLOAD_FILE,
         status: new BehaviorSubject(JobStatus.ONGOING),
         remote: 'gdrive',
         dirPath: 'Apps',
@@ -220,7 +219,7 @@ describe('useGetFiles()', () => {
     const refetchData = jest.fn();
     const jobs = [
       {
-        jobType: 'MOVE_FILE',
+        jobType: JobTypes.MOVE_FILE,
         status: new BehaviorSubject(JobStatus.ONGOING),
         src: {
           remote: 'gdrive',

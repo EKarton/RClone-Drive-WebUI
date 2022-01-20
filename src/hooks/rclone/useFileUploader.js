@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { startWith, pairwise } from 'rxjs/operators';
 import { JobQueueContext, ActionTypes } from 'contexts/JobQueue';
 import fileUploader from 'services/FileUploader/singleton';
+import { JobTypes } from 'utils/constants';
 import { getFullPath } from 'utils/filename-utils';
 import useRCloneInfo from './useRCloneInfo';
 
@@ -29,7 +30,7 @@ export default function useFileUploader() {
         const fileObj = fileUploader.uploadFile(remote, newDirPath, file, rCloneInfo);
         const newJobObj = {
           ...fileObj,
-          jobType: 'UPLOAD_FILE',
+          jobType: JobTypes.UPLOAD_FILE,
           remote,
           dirPath: newDirPath,
           name: fileName,

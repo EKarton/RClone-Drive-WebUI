@@ -4,19 +4,20 @@ import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutli
 import TaskIcon from '@mui/icons-material/Task';
 import Tooltip from '@mui/material/Tooltip';
 import PropTypes from 'prop-types';
+import { JobTypes } from 'utils/constants';
 
 export default function TableRowIcon({ jobType }) {
   const renderIcon = () => {
     switch (jobType) {
-      case 'UPLOAD_FILE': {
+      case JobTypes.UPLOAD_FILE: {
         return <BackupIcon />;
       }
-      case 'MOVE_FILE':
-      case 'MOVE_FOLDER': {
+      case JobTypes.MOVE_FILE:
+      case JobTypes.MOVE_FOLDER: {
         return <DriveFileMoveIcon />;
       }
-      case 'RENAME_FILE':
-      case 'RENAME_FOLDER': {
+      case JobTypes.RENAME_FILE:
+      case JobTypes.RENAME_FOLDER: {
         return <DriveFileRenameOutlineIcon />;
       }
       default: {

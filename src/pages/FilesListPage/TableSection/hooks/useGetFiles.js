@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import { BehaviorSubject } from 'rxjs';
 import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
 import useJobQueueInfo from 'hooks/jobs/useJobQueueInfo';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
-import { ImageMimeTypes, StatusTypes } from 'utils/constants';
+import { ImageMimeTypes, StatusTypes, JobStatus } from 'utils/constants';
 import { getFileNames, getFolderNames } from './utils';
 import { getUploadingFiles, getUploadingFolders, getMovingJobs } from './utils';
 

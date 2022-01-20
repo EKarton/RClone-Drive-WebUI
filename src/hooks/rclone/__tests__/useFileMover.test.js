@@ -5,8 +5,8 @@ import { JobQueueProvider } from 'contexts/JobQueue/index';
 import useJobQueueInfo from 'hooks/jobs/useJobQueueInfo';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import useRCloneInfo from 'hooks/rclone/useRCloneInfo';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
 import rCloneJobTracker from 'services/RCloneJobTracker/singleton';
+import { JobStatus } from 'utils/constants';
 import useFileMover from '../useFileMover';
 
 jest.mock('services/RCloneJobTracker/singleton');

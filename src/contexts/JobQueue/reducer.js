@@ -1,4 +1,4 @@
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus } from 'utils/constants';
 import { ActionTypes } from './actionTypes';
 
 export function reducer(state, action) {

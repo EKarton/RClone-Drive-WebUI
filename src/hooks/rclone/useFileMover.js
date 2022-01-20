@@ -5,6 +5,7 @@ import { JobQueueContext, ActionTypes } from 'contexts/JobQueue';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import useRCloneInfo from 'hooks/rclone/useRCloneInfo';
 import rCloneJobTracker from 'services/RCloneJobTracker/singleton';
+import { JobTypes } from 'utils/constants';
 
 export default function useFileMover() {
   const { rCloneInfo } = useRCloneInfo();
@@ -16,7 +17,7 @@ export default function useFileMover() {
     const response = await rCloneClient.moveFile(src, target, { isAsync: true });
     const jobId = response.data.jobid;
 
-    enqueueJob(jobId, 'MOVE_FILE', src, target);
+    enqueueJob(jobId, JobTypes.MOVE_FILE, src, target);
     enqueueSnackbar(`Moving file ${src.name} in the background`);
   };
 
@@ -30,7 +31,7 @@ export default function useFileMover() {
     const response = await rCloneClient.move(src, target, opts);
     const jobId = response.data.jobid;
 
-    enqueueJob(jobId, 'MOVE_FOLDER', src, target);
+    enqueueJob(jobId, JobTypes.MOVE_FOLDER, src, target);
     enqueueSnackbar(`Moving directory ${src.name} in the background`);
   };
 

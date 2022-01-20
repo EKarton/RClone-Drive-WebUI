@@ -1,7 +1,7 @@
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import { useEffect, useState } from 'react';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus, JobTypes } from 'utils/constants';
 import { getFullPath } from 'utils/filename-utils';
 
 export default function JobsListItem({ job }) {
@@ -19,15 +19,15 @@ export default function JobsListItem({ job }) {
 
   const getMessage = () => {
     switch (job.jobType) {
-      case 'MOVE_FILE':
-      case 'MOVE_FOLDER': {
+      case JobTypes.MOVE_FILE:
+      case JobTypes.MOVE_FOLDER: {
         return getMoveMessage();
       }
-      case 'RENAME_FILE':
-      case 'RENAME_FOLDER': {
+      case JobTypes.RENAME_FILE:
+      case JobTypes.RENAME_FOLDER: {
         return getRenameMessage();
       }
-      case 'UPLOAD_FILE': {
+      case JobTypes.UPLOAD_FILE: {
         return getUploadMessage();
       }
       default: {

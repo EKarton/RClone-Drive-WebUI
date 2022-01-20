@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getFullPath } from './filename-utils';
+import { getFullPath } from 'utils/filename-utils';
 
 const ImageIncludeRules = [
   '*.png',

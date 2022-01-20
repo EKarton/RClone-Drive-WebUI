@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
+import { JobStatus } from 'utils/constants';
 import { waitFor } from 'test-utils/react';
-import { JobStatus } from '../constants';
 import RCloneJobTracker from '../index';
 
 describe('RCloneJobTracker', () => {

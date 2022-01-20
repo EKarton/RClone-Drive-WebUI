@@ -7,8 +7,7 @@ import useFileRemover from 'hooks/utils/useFileRemover';
 import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
 import useMoveFileDialog from 'hooks/utils/useMoveFileDialog';
 import useRenameFileDialog from 'hooks/utils/useRenameFileDialog';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
-import { StatusTypes } from 'utils/constants';
+import { StatusTypes, JobStatus, JobTypes } from 'utils/constants';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import { customRender, fireEvent, userEvent, screen } from 'test-utils/react';
 import useGetFiles from '../hooks/useGetFiles';
@@ -77,7 +76,7 @@ describe('TableSection', () => {
         ],
         uploadingFiles: [
           {
-            jobStatus: 'UPLOAD_FILE',
+            jobStatus: JobTypes.UPLOAD_FILE,
             status: new BehaviorSubject(JobStatus.ONGOING),
             remote,
             dirPath: '',

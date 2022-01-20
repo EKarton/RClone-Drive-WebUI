@@ -1,11 +1,11 @@
 import { BehaviorSubject } from 'rxjs';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus, JobTypes } from 'utils/constants';
 import { render, screen, userEvent } from 'test-utils/react';
 import TableRow from '../TableRow';
 
 describe('TableRow', () => {
   const createJob = () => ({
-    jobType: 'UPLOAD_FILE',
+    jobType: JobTypes.UPLOAD_FILE,
     status: new BehaviorSubject(JobStatus.ONGOING),
     cancelJob: jest.fn(),
     remote: 'gdrive',

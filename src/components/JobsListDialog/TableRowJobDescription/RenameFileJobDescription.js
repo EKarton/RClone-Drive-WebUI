@@ -1,4 +1,4 @@
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus } from 'utils/constants';
 
 export default function RenameFileJobDescription({ status, job }) {
   if (status === JobStatus.ERROR) {

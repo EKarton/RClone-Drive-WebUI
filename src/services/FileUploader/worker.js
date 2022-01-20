@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
-import RCloneClient from 'utils/RCloneClient';
+import RCloneClient from 'services/RCloneClient';
+import { JobStatus } from 'utils/constants';
+import { ActionTypes } from './constants';
 
 export function createFileUploaderWorker(onPostMessage) {
   const cancelTokens = new Map();
@@ -13,12 +14,12 @@ export function createFileUploaderWorker(onPostMessage) {
     const { actionType, payload } = data;
 
     switch (actionType) {
-      case 'UPLOAD_FILE': {
+      case ActionTypes.UPLOAD_FILE: {
         uploadFileQueue.push(payload);
         tryUpload();
         break;
       }
-      case 'CANCEL_UPLOAD': {
+      case ActionTypes.CANCEL_UPLOAD: {
         cancelTokens.get(payload).cancel();
         break;
       }

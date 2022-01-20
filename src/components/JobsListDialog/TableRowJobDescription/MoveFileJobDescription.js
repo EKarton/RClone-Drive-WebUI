@@ -1,4 +1,4 @@
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus } from 'utils/constants';
 import { getFullPath } from 'utils/filename-utils';
 
 export default function MoveFileJobDescription({ status, job }) {

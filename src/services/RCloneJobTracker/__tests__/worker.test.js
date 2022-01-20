@@ -1,9 +1,10 @@
-import RCloneClient from 'utils/RCloneClient';
+import RCloneClient from 'services/RCloneClient';
+import { JobStatus } from 'utils/constants';
 import { waitFor } from 'test-utils/react';
-import { ActionTypes, JobStatus } from '../constants';
+import { ActionTypes } from '../constants';
 import { createRCloneJobTrackerWorker } from '../worker';
 
-jest.mock('utils/RCloneClient');
+jest.mock('services/RCloneClient');
 
 describe('createRCloneJobTrackerWorker()', () => {
   const getJobStatus = jest.fn();

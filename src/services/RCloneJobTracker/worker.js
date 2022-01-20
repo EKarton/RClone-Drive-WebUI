@@ -1,5 +1,6 @@
-import RCloneClient from 'utils/RCloneClient';
-import { ActionTypes, JobStatus } from './constants';
+import RCloneClient from 'services/RCloneClient';
+import { JobStatus } from 'utils/constants';
+import { ActionTypes } from './constants';
 
 export const createRCloneJobTrackerWorker = (postMessage) => {
   const jobs = new Map();

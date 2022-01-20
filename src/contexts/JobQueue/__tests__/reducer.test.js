@@ -1,5 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus } from 'utils/constants';
 import { ActionTypes } from '../actionTypes';
 import { InitialState } from '../index';
 import { reducer } from '../reducer';

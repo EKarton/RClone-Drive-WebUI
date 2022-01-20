@@ -1,4 +1,4 @@
-import RCloneClient from 'utils/RCloneClient';
+import RCloneClient from 'services/RCloneClient';
 import useImageFetcher from '../useImageFetcher';
 import useRCloneClient from '../useRCloneClient';
 

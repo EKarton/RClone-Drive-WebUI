@@ -5,7 +5,7 @@ import MuiTableRow from '@mui/material/TableRow';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { BehaviorSubject } from 'rxjs';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus } from 'utils/constants';
 import './TableRow.scss';
 import TableRowIcon from './TableRowIcon';
 import TableRowDescription from './TableRowJobDescription';

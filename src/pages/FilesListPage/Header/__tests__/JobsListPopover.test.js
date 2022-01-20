@@ -1,6 +1,6 @@
 import { times } from 'lodash';
 import { BehaviorSubject } from 'rxjs';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus, JobTypes } from 'utils/constants';
 import { render, screen } from 'test-utils/react';
 import JobsListPopover from '../JobsListPopover';
 
@@ -8,7 +8,7 @@ describe('JobsListPopover', () => {
   it('should display the last 4 jobs given more than 4 jobs', async () => {
     const jobs = times(10).map((i) => ({
       status: new BehaviorSubject(JobStatus.ONGOING),
-      jobType: 'UPLOAD_FILE',
+      jobType: JobTypes.UPLOAD_FILE,
       remote: 'gdrive',
       dirPath: 'Documents',
       name: `Job ${i}.png`,
@@ -36,7 +36,7 @@ describe('JobsListPopover', () => {
   it('should display all jobs given there are less than 4 jobs', async () => {
     const jobs = times(3).map((i) => ({
       status: new BehaviorSubject(JobStatus.ONGOING),
-      jobType: 'UPLOAD_FILE',
+      jobType: JobTypes.UPLOAD_FILE,
       remote: 'gdrive',
       dirPath: 'Documents',
       name: `Job ${i}.png`,

@@ -1,4 +1,4 @@
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus } from 'utils/constants';
 import { render } from 'test-utils/react';
 import RenameFileJobDescription from '../RenameFileJobDescription';
 

@@ -5,7 +5,7 @@ import { JobQueueProvider } from 'contexts/JobQueue/index';
 import useJobQueueInfo from 'hooks/jobs/useJobQueueInfo';
 import useRCloneInfo from 'hooks/rclone/useRCloneInfo';
 import fileUploader from 'services/FileUploader/singleton';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus } from 'utils/constants';
 import useFileUploader from '../useFileUploader';
 
 jest.mock('services/FileUploader/singleton');

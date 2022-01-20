@@ -1,5 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus } from 'utils/constants';
 import { render, act } from 'test-utils/react';
 import UploadingRow from '../UploadingRow';
 

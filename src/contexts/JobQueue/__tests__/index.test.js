@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus } from 'utils/constants';
 import { render, userEvent, screen } from 'test-utils/react';
 import { ActionTypes } from '../actionTypes';
 import { JobQueueContext, JobQueueProvider } from '../index';

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { LoginHelpDialogProvider } from 'contexts/LoginHelpDialog';
 import useRCloneInfo from 'hooks/rclone/useRCloneInfo';
-import RCloneClient from 'utils/RCloneClient';
+import RCloneClient from 'services/RCloneClient';
 import Form from './Form';
 import Header from './Header';
 import './index.scss';

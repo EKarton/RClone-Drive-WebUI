@@ -1,8 +1,8 @@
-import RCloneClient from 'utils/RCloneClient';
+import RCloneClient from 'services/RCloneClient';
 import { customRender, userEvent, waitFor, screen } from 'test-utils/react';
 import LoginPage from '..';
 
-jest.mock('utils/RCloneClient');
+jest.mock('services/RCloneClient');
 
 describe('LoginPage', () => {
   const fetchRemotes = jest.fn();

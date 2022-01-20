@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus, JobTypes } from 'utils/constants';
 
 export default class FileUploader {
   constructor() {
@@ -34,7 +34,7 @@ export default class FileUploader {
 
     this.jobIdToObject.set(jobId, fileObj);
     this.worker.postMessage({
-      actionType: 'UPLOAD_FILE',
+      actionType: JobTypes.UPLOAD_FILE,
       payload: {
         jobId,
         remote,

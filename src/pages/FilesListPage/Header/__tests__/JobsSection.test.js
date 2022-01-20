@@ -1,5 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus, JobTypes } from 'utils/constants';
 import { customRender, userEvent, screen } from 'test-utils/react';
 import { waitForElementToBeRemoved } from 'test-utils/react';
 import JobsSection from '../JobsSection';
@@ -9,7 +9,7 @@ describe('JobsSection', () => {
     jobs: [
       {
         status: new BehaviorSubject(JobStatus.ONGOING),
-        jobType: 'UPLOAD_FILE',
+        jobType: JobTypes.UPLOAD_FILE,
         remote: 'gdrive',
         dirPath: 'Documents',
         name: 'Dog.png',

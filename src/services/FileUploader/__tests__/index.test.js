@@ -1,5 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus } from 'utils/constants';
 import { waitFor } from 'test-utils/react';
 import FileUploader from '../index';
 

@@ -1,4 +1,4 @@
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus, JobTypes } from 'utils/constants';
 
 export function getFileNames(data) {
   return new Set(data.filter((file) => !file.IsDir).map((file) => file.Name));
@@ -11,7 +11,7 @@ export function getFolderNames(data) {
 export function getUploadingJobs(jobs, remote, path) {
   return jobs.filter(
     (job) =>
-      job.jobType === 'UPLOAD_FILE' &&
+      job.jobType === JobTypes.UPLOAD_FILE &&
       job.remote === remote &&
       job.dirPath.startsWith(path) &&
       job.status.value !== JobStatus.SUCCESS
@@ -28,10 +28,10 @@ export function getUploadingFolders(jobs, remote, path) {
 
 export function getMovingJobs(jobs, remote, path) {
   const supportedJobTypes = new Set([
-    'MOVE_FILE',
-    'MOVE_FILES',
-    'RENAME_FILE',
-    'RENAME_FILES',
+    JobTypes.MOVE_FILE,
+    JobTypes.MOVE_FOLDER,
+    JobTypes.RENAME_FILE,
+    JobTypes.RENAME_FOLDER,
   ]);
 
   return jobs.filter((job) => {

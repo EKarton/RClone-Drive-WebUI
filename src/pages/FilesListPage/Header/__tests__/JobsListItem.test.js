@@ -1,5 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
-import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { JobStatus, JobTypes } from 'utils/constants';
 import { render } from 'test-utils/react';
 import JobsListItem from '../JobsListItem';
 
@@ -11,7 +11,7 @@ describe('JobsListItem', () => {
         <JobsListItem
           job={{
             status: new BehaviorSubject(status),
-            jobType: 'UPLOAD_FILE',
+            jobType: JobTypes.UPLOAD_FILE,
             remote: 'gdrive',
             dirPath: 'Documents',
             name: 'Dog.png',
@@ -30,7 +30,7 @@ describe('JobsListItem', () => {
         <JobsListItem
           job={{
             status: new BehaviorSubject(status),
-            jobType: 'MOVE_FILE',
+            jobType: JobTypes.MOVE_FILE,
             src: {
               remote: 'gdrive',
               dirPath: 'Documents',
@@ -56,7 +56,7 @@ describe('JobsListItem', () => {
         <JobsListItem
           job={{
             status: new BehaviorSubject(status),
-            jobType: 'RENAME_FILE',
+            jobType: JobTypes.RENAME_FILE,
             src: {
               remote: 'gdrive',
               dirPath: 'Documents',

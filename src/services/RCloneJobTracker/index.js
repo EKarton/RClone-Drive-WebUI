@@ -1,5 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
-import { ActionTypes, JobStatus } from './constants';
+import { JobStatus } from 'utils/constants';
+import { ActionTypes } from './constants';
 
 export default class RCloneJobTracker {
   constructor() {

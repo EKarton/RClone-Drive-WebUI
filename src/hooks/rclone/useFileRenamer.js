@@ -5,6 +5,7 @@ import { JobQueueContext, ActionTypes } from 'contexts/JobQueue';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import useRCloneInfo from 'hooks/rclone/useRCloneInfo';
 import rCloneJobTracker from 'services/RCloneJobTracker/singleton';
+import { JobTypes } from 'utils/constants';
 
 export default function useFileRenamer() {
   const { rCloneInfo } = useRCloneInfo();
@@ -19,7 +20,7 @@ export default function useFileRenamer() {
     const response = await rCloneClient.move(src, target, { isAsync: true });
     const jobId = response.data.jobid;
 
-    enqueueJob(jobId, 'RENAME_FOLDER', src, target);
+    enqueueJob(jobId, JobTypes.RENAME_FOLDER, src, target);
     enqueueSnackbar(`Renaming folder ${src.name} to ${target.name}`);
   };
 
@@ -30,7 +31,7 @@ export default function useFileRenamer() {
     const response = await rCloneClient.moveFile(src, target, { isAsync: true });
     const jobId = response.data.jobid;
 
-    enqueueJob(jobId, 'RENAME_FILE', src, target);
+    enqueueJob(jobId, JobTypes.RENAME_FILE, src, target);
     enqueueSnackbar(`Renaming file ${src.name} to ${target.name}`);
   };
 
