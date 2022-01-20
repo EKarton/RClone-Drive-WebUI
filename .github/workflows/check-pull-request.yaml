@@ -60,9 +60,11 @@ jobs:
         run: yarn test --maxWorkers=100%
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/clover.xml
+          flags: unittests
 
   build:
     name: Builds the app
