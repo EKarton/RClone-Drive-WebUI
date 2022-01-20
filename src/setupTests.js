@@ -19,9 +19,9 @@ global.localStorage = {
 };
 
 // Mock console
-jest.spyOn(console, 'error').mockImplementation(() => {});
-jest.spyOn(console, 'warn').mockImplementation(() => {});
-jest.spyOn(console, 'log').mockImplementation(() => {});
+// jest.spyOn(console, 'error').mockImplementation(() => {});
+// jest.spyOn(console, 'warn').mockImplementation(() => {});
+// jest.spyOn(console, 'log').mockImplementation(() => {});
 
 // Mock web workers
 // Derived from https://github.com/nodejs/help/issues/2058

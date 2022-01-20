@@ -4,6 +4,8 @@ import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
 import useJobQueueInfo from 'hooks/jobs/useJobQueueInfo';
 import { JobStatus } from 'services/RCloneJobTracker/constants';
 import { ImageMimeTypes, StatusTypes } from 'utils/constants';
+import { getFileNames, getFolderNames } from './utils';
+import { getUploadingFiles, getUploadingFolders, getMovingJobs } from './utils';
 
 export default function useGetFiles(remote, path) {
   const { jobs } = useJobQueueInfo();
@@ -20,16 +22,8 @@ export default function useGetFiles(remote, path) {
       return;
     }
 
-    const existingFileNames = new Set();
-    const existingFolderNames = new Set();
-
-    for (const existingFile of data) {
-      if (existingFile.IsDir) {
-        existingFolderNames.add(existingFile.Name);
-      } else {
-        existingFileNames.add(existingFile.Name);
-      }
-    }
+    const existingFileNames = getFileNames(data);
+    const existingFolderNames = getFolderNames(data);
 
     setUploadingFiles([]);
 
@@ -37,121 +31,70 @@ export default function useGetFiles(remote, path) {
     const folderNamesToFileObj = new Map();
     const subscribers = [];
 
-    for (const file of jobs) {
-      if (file.jobType !== 'UPLOAD_FILE') {
-        continue;
-      }
+    for (const fileJob of getUploadingFiles(jobs, remote, path)) {
+      if (!fileNamesToFileObj.has(fileJob.name) && !existingFileNames.has(fileJob.name)) {
+        const subscriber = fileJob.status.subscribe((status) => {
+          if (status === JobStatus.SUCCESS) {
+            refetchData();
+          }
+        });
 
-      if (file.remote !== remote || !file.dirPath.startsWith(path)) {
-        continue;
-      }
-
-      if (file.status.value === JobStatus.SUCCESS) {
-        continue;
-      }
-
-      if (file.dirPath === path && !fileNamesToFileObj.has(file.name)) {
-        if (existingFileNames.has(file.name)) {
-          continue;
-        }
-
-        const fileObj = {
-          name: file.name,
+        subscribers.push(subscriber);
+        fileNamesToFileObj.set(fileJob.name, {
+          name: fileJob.name,
           isDirectory: false,
-          status: file.status,
-        };
-
-        const subscriber = file.status.subscribe((status) => {
-          if (status === JobStatus.SUCCESS) {
-            refetchData();
-          }
+          status: fileJob.status,
         });
-
-        fileNamesToFileObj.set(file.name, fileObj);
-        subscribers.push(subscriber);
-      } else {
-        const parts = file.dirPath
-          .slice(path.length)
-          .split('/')
-          .filter((part) => part.length > 0);
-
-        const folderName = parts[0];
-
-        if (existingFolderNames.has(folderName)) {
-          continue;
-        }
-
-        const fileObj = folderNamesToFileObj.get(folderName) || {
-          name: folderName,
-          isDirectory: true,
-          status: new BehaviorSubject(file.status.value),
-        };
-
-        const subscriber = file.status.subscribe((status) => {
-          if (status === JobStatus.SUCCESS) {
-            refetchData();
-          }
-
-          fileObj.status.next(status);
-        });
-
-        if (!folderNamesToFileObj.has(folderName)) {
-          folderNamesToFileObj.set(folderName, fileObj);
-        }
-        subscribers.push(subscriber);
       }
     }
 
-    const mergedFileObjs = [
-      ...fileNamesToFileObj.values(),
-      ...folderNamesToFileObj.values(),
-    ];
+    for (const folderJob of getUploadingFolders(jobs, remote, path)) {
+      const firstFolderName = folderJob.dirPath
+        .slice(path.length)
+        .split('/')
+        .filter((part) => part.length > 0)[0];
 
-    setUploadingFiles(mergedFileObjs);
+      if (existingFolderNames.has(firstFolderName)) {
+        continue;
+      }
 
-    return () => {
-      subscribers.forEach((subscriber) => subscriber.unsubscribe());
-    };
+      const fileObj = folderNamesToFileObj.get(firstFolderName) || {
+        name: firstFolderName,
+        isDirectory: true,
+        status: new BehaviorSubject(folderJob.status.value),
+      };
+
+      const subscriber = folderJob.status.subscribe((status) => {
+        if (status === JobStatus.SUCCESS) {
+          refetchData();
+        }
+
+        fileObj.status.next(status);
+      });
+
+      if (!folderNamesToFileObj.has(firstFolderName)) {
+        folderNamesToFileObj.set(firstFolderName, fileObj);
+      }
+      subscribers.push(subscriber);
+    }
+
+    setUploadingFiles([...fileNamesToFileObj.values(), ...folderNamesToFileObj.values()]);
+    return () => subscribers.forEach((subscriber) => subscriber.unsubscribe());
   }, [data, jobs, path, refetchData, remote, status]);
 
   useEffect(() => {
-    const supportedJobTypes = new Set([
-      'MOVE_FILE',
-      'MOVE_FILES',
-      'RENAME_FILE',
-      'RENAME_FILES',
-    ]);
-
     const subscribers = [];
 
-    for (const job of jobs) {
-      if (!supportedJobTypes.has(job.jobType)) {
-        continue;
-      }
-
-      if (job.status.value !== JobStatus.ONGOING) {
-        continue;
-      }
-
-      const isMatchSrc = job.src.remote === remote && job.src.dirPath === path;
-      const isMatchTarget = job.target.remote === remote && job.target.dirPath === path;
-
-      if (!isMatchSrc && !isMatchTarget) {
-        continue;
-      }
-
+    for (const job of getMovingJobs(jobs, remote, path)) {
       const subscriber = job.status.subscribe((status) => {
         if (status === JobStatus.SUCCESS) {
           refetchData();
         }
       });
-
       subscribers.push(subscriber);
     }
 
-    return () => {
-      subscribers.forEach((sub) => sub.unsubscribe());
-    };
+    return () => subscribers.forEach((sub) => sub.unsubscribe());
   });
 
   if (status !== StatusTypes.SUCCESS) {

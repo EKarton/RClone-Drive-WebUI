@@ -1,20 +1,21 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 import { BehaviorSubject } from 'rxjs';
-import { useFileUploader } from 'contexts/FileUploader';
 import useFetchFiles from 'hooks/fetch-data/useFetchFiles';
-import { StatusTypes, UploadStatusTypes } from 'utils/constants';
+import useJobQueueInfo from 'hooks/jobs/useJobQueueInfo';
+import { JobStatus } from 'services/RCloneJobTracker/constants';
+import { StatusTypes } from 'utils/constants';
 import { mockFiles } from 'test-utils/mock-responses';
 import { waitFor } from 'test-utils/react';
 import useGetFiles from '../useGetFiles';
 
-jest.mock('contexts/FileUploader');
+jest.mock('hooks/jobs/useJobQueueInfo');
 jest.mock('hooks/fetch-data/useFetchFiles');
 
 describe('useGetFiles()', () => {
   it.each([StatusTypes.LOADING, StatusTypes.ERROR])(
     'should return correct object given data fetching status is %s',
     (status) => {
-      useFileUploader.mockReturnValue({ files: [] });
+      useJobQueueInfo.mockReturnValue({ jobs: [] });
       useFetchFiles.mockReturnValue({ status });
 
       const { result } = renderHook(() => useGetFiles('gdrive', ''));
@@ -24,7 +25,7 @@ describe('useGetFiles()', () => {
   );
 
   it('should return correct object given data fetching is successful and there are no uploading files', () => {
-    useFileUploader.mockReturnValue({ files: [] });
+    useJobQueueInfo.mockReturnValue({ jobs: [] });
     useFetchFiles.mockReturnValue({
       status: StatusTypes.SUCCESS,
       data: mockFiles.list,
@@ -37,13 +38,14 @@ describe('useGetFiles()', () => {
   });
 
   it('should return correct object given data fetching is successful and there are new files uploading under the same dir path', () => {
-    useFileUploader.mockReturnValue({
-      files: [
+    useJobQueueInfo.mockReturnValue({
+      jobs: [
         {
+          jobType: 'UPLOAD_FILE',
+          status: new BehaviorSubject(JobStatus.ONGOING),
           remote: 'gdrive',
           dirPath: '',
           name: 'backup-locally.sh',
-          status: new BehaviorSubject(UploadStatusTypes.UPLOADING),
         },
       ],
     });
@@ -60,19 +62,21 @@ describe('useGetFiles()', () => {
   });
 
   it('should return correct object given data fetching is successful and there are new files uploading under an existing folder', () => {
-    useFileUploader.mockReturnValue({
-      files: [
+    useJobQueueInfo.mockReturnValue({
+      jobs: [
         {
+          jobType: 'UPLOAD_FILE',
+          status: new BehaviorSubject(JobStatus.ONGOING),
           remote: 'gdrive',
           dirPath: 'Pictures',
           name: 'dog.png',
-          status: new BehaviorSubject(UploadStatusTypes.UPLOADING),
         },
         {
+          jobType: 'UPLOAD_FILE',
+          status: new BehaviorSubject(JobStatus.ONGOING),
           remote: 'gdrive',
           dirPath: 'Pictures',
           name: 'cat.png',
-          status: new BehaviorSubject(UploadStatusTypes.UPLOADING),
         },
       ],
     });
@@ -88,13 +92,14 @@ describe('useGetFiles()', () => {
   });
 
   it('should return correct object given data fetching is successful and an existing file is being overwritten', () => {
-    useFileUploader.mockReturnValue({
-      files: [
+    useJobQueueInfo.mockReturnValue({
+      jobs: [
         {
+          jobType: 'UPLOAD_FILE',
+          status: new BehaviorSubject(JobStatus.ONGOING),
           remote: 'gdrive',
           dirPath: '',
           name: 'backup.sh',
-          status: new BehaviorSubject(UploadStatusTypes.UPLOADING),
         },
       ],
     });
@@ -110,19 +115,21 @@ describe('useGetFiles()', () => {
   });
 
   it('should return correct object given data fetching is successful and there are is a new folder being uploaded in the same dir path', () => {
-    useFileUploader.mockReturnValue({
-      files: [
+    useJobQueueInfo.mockReturnValue({
+      jobs: [
         {
+          jobType: 'UPLOAD_FILE',
+          status: new BehaviorSubject(JobStatus.ONGOING),
           remote: 'gdrive',
           dirPath: 'Apps',
           name: 'Messenger.apk',
-          status: new BehaviorSubject(UploadStatusTypes.UPLOADING),
         },
         {
+          jobType: 'UPLOAD_FILE',
+          status: new BehaviorSubject(JobStatus.ONGOING),
           remote: 'gdrive',
           dirPath: 'Apps',
           name: 'YouTube.apk',
-          status: new BehaviorSubject(UploadStatusTypes.UPLOADING),
         },
       ],
     });
@@ -139,25 +146,28 @@ describe('useGetFiles()', () => {
   });
 
   it('should not return uploading files whose uploading file statuses are not uploading and are not in the current dir path / remote', () => {
-    useFileUploader.mockReturnValue({
-      files: [
+    useJobQueueInfo.mockReturnValue({
+      jobs: [
         {
+          jobType: 'UPLOAD_FILE',
+          status: new BehaviorSubject(JobStatus.ONGOING),
           remote: 'onedrive',
           dirPath: '',
           name: 'document.txt',
-          status: new BehaviorSubject(UploadStatusTypes.UPLOADING),
         },
         {
+          jobType: 'UPLOAD_FILE',
+          status: new BehaviorSubject(JobStatus.SUCCESS),
           remote: 'gdrive',
           dirPath: 'Documents/Apps',
           name: 'YouTube.apk',
-          status: new BehaviorSubject(UploadStatusTypes.SUCCESS),
         },
         {
+          jobType: 'UPLOAD_FILE',
+          status: new BehaviorSubject(JobStatus.ONGOING),
           remote: 'gdrive',
           dirPath: 'Pictures',
           name: 'dog.png',
-          status: new BehaviorSubject(UploadStatusTypes.UPLOADING),
         },
       ],
     });
@@ -174,22 +184,24 @@ describe('useGetFiles()', () => {
 
   it('should call refreshData() when new files and folders has successfully been uploaded', async () => {
     const refetchData = jest.fn();
-    const uploadingFiles = [
+    const jobs = [
       {
+        jobType: 'UPLOAD_FILE',
+        status: new BehaviorSubject(JobStatus.ONGOING),
         remote: 'gdrive',
         dirPath: '',
         name: 'backup-locally.sh',
-        status: new BehaviorSubject(UploadStatusTypes.UPLOADING),
       },
       {
+        jobType: 'UPLOAD_FILE',
+        status: new BehaviorSubject(JobStatus.ONGOING),
         remote: 'gdrive',
         dirPath: 'Apps',
         name: 'Messenger.apk',
-        status: new BehaviorSubject(UploadStatusTypes.UPLOADING),
       },
     ];
 
-    useFileUploader.mockReturnValue({ files: uploadingFiles });
+    useJobQueueInfo.mockReturnValue({ jobs });
     useFetchFiles.mockReturnValue({
       status: StatusTypes.SUCCESS,
       data: mockFiles.list,
@@ -198,9 +210,42 @@ describe('useGetFiles()', () => {
 
     renderHook(() => useGetFiles('gdrive', ''));
 
-    act(() => uploadingFiles[0].status.next(UploadStatusTypes.SUCCESS));
-    act(() => uploadingFiles[1].status.next(UploadStatusTypes.SUCCESS));
+    act(() => jobs[0].status.next(JobStatus.SUCCESS));
+    act(() => jobs[1].status.next(JobStatus.SUCCESS));
 
     await waitFor(() => expect(refetchData).toBeCalledTimes(2));
+  });
+
+  it('should call refreshData() when new moving files in the remote and path are complete', async () => {
+    const refetchData = jest.fn();
+    const jobs = [
+      {
+        jobType: 'MOVE_FILE',
+        status: new BehaviorSubject(JobStatus.ONGOING),
+        src: {
+          remote: 'gdrive',
+          dirPath: '',
+          name: 'backup-locally.sh',
+        },
+        target: {
+          remote: 'gdrive',
+          dirPath: 'Documents',
+          name: 'backup-locally.sh',
+        },
+      },
+    ];
+
+    useJobQueueInfo.mockReturnValue({ jobs });
+    useFetchFiles.mockReturnValue({
+      status: StatusTypes.SUCCESS,
+      data: mockFiles.list,
+      refetchData,
+    });
+
+    renderHook(() => useGetFiles('gdrive', 'Documents'));
+
+    act(() => jobs[0].status.next(JobStatus.SUCCESS));
+
+    await waitFor(() => expect(refetchData).toBeCalledTimes(1));
   });
 });
