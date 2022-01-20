@@ -7,13 +7,19 @@ import RCloneClient from '../RCloneClient';
 jest.mock('axios');
 
 describe('RCloneClient', () => {
+  const rCloneInfo = {
+    endpoint: 'http://localhost:5572',
+    username: 'admin',
+    password: '1234',
+  };
+
   beforeEach(() => {
     axios.create.mockReturnThis();
   });
 
   describe('constructor', () => {
     it('should create the axios instance correctly given auth', () => {
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const client = new RCloneClient(rCloneInfo);
 
       expect(client).toBeInstanceOf(RCloneClient);
       expect(axios.create).toBeCalledWith({
@@ -29,7 +35,7 @@ describe('RCloneClient', () => {
     it('should return data and call axios.post() correctly', async () => {
       axios.post.mockResolvedValue({ data: mockRemotes });
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const client = new RCloneClient(rCloneInfo);
       const remotes = await client.fetchRemotes();
 
       expect(axios.post).toBeCalledWith('config/listremotes', undefined, {});
@@ -41,7 +47,7 @@ describe('RCloneClient', () => {
     it('should return data and call axios.post() correctly', async () => {
       axios.post.mockResolvedValue({ data: mockFiles });
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const client = new RCloneClient(rCloneInfo);
       const files = await client.fetchFiles('googledrive', 'Documents');
 
       const expectedPayload = {
@@ -63,7 +69,7 @@ describe('RCloneClient', () => {
 
       axios.post.mockResolvedValue({ data: mockDirectories });
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const client = new RCloneClient(rCloneInfo);
       const subFolders = await client.fetchSubFolders('googledrive', 'Documents');
 
       const expectedPayload = {
@@ -81,7 +87,7 @@ describe('RCloneClient', () => {
     it('should return data and call axios.post() correctly', async () => {
       axios.post.mockResolvedValue({ data: mockPictures });
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const client = new RCloneClient(rCloneInfo);
       const pictures = await client.fetchPictures('googledrive', 'Pictures');
 
       const expectedBody = {
@@ -116,7 +122,7 @@ describe('RCloneClient', () => {
     it('should return data and call axios.post() correctly', async () => {
       axios.get.mockResolvedValue('data');
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const client = new RCloneClient(rCloneInfo);
       const response = await client.fetchFileContents(
         'googledrive',
         'Documents',
@@ -134,7 +140,7 @@ describe('RCloneClient', () => {
     it('should return data and call axios.post() correctly', async () => {
       axios.post.mockResolvedValue({ data: mockOperationsAboutResponse });
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const client = new RCloneClient(rCloneInfo);
       const response = await client.fetchRemoteSpaceInfo('googledrive');
 
       const expectedBody = { fs: 'googledrive:' };
@@ -148,7 +154,7 @@ describe('RCloneClient', () => {
     it('should return data and call axios.post() correctly', async () => {
       axios.post.mockResolvedValue({ data: { item: mockPictures.list[0] } });
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const client = new RCloneClient(rCloneInfo);
       const response = await client.fetchFullPathInfo('googledrive', 'Pictures/2021');
 
       const expectedBody = {
@@ -162,7 +168,7 @@ describe('RCloneClient', () => {
     it('should throw an error when item is null', async () => {
       axios.post.mockResolvedValue({ data: { item: null } });
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const client = new RCloneClient(rCloneInfo);
       const pendingResponse = client.fetchFullPathInfo('googledrive', 'Pictures/2021');
 
       await expect(pendingResponse).rejects.toThrowError();
@@ -173,7 +179,7 @@ describe('RCloneClient', () => {
     it('should return data and call axios.post() correctly', async () => {
       axios.post.mockResolvedValue({ data: mockConfigGetResponse });
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const client = new RCloneClient(rCloneInfo);
       const response = await client.fetchRemoteInfo('googledrive');
 
       const expectedBody = { name: 'googledrive' };
@@ -187,7 +193,7 @@ describe('RCloneClient', () => {
     it('should call axios.post() correctly given data', async () => {
       axios.post.mockResolvedValue({});
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const client = new RCloneClient(rCloneInfo);
       const file = new File(['foo'], 'foo.txt', { type: 'text/plain' });
       await client.uploadFiles('gdrive', 'Pictures', file);
 
@@ -200,12 +206,26 @@ describe('RCloneClient', () => {
     it('should call axios.post() correctly', async () => {
       axios.post.mockResolvedValue({});
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const client = new RCloneClient(rCloneInfo);
       await client.deleteDirectory('gdrive', 'Pictures', '2021');
 
       expect(axios.post).toBeCalledWith('operations/purge', {
         fs: 'gdrive:',
         remote: 'Pictures/2021',
+        _async: false,
+      });
+    });
+
+    it('should call axios.post() correctly given isAsync is true', async () => {
+      axios.post.mockResolvedValue({});
+
+      const client = new RCloneClient(rCloneInfo);
+      await client.deleteDirectory('gdrive', 'Pictures', '2021', { isAsync: true });
+
+      expect(axios.post).toBeCalledWith('operations/purge', {
+        fs: 'gdrive:',
+        remote: 'Pictures/2021',
+        _async: true,
       });
     });
   });
@@ -214,12 +234,13 @@ describe('RCloneClient', () => {
     it('should call axios.post() correctly', async () => {
       axios.post.mockResolvedValue({});
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const client = new RCloneClient(rCloneInfo);
       await client.deleteFile('gdrive', 'Pictures', 'dog.png');
 
       expect(axios.post).toBeCalledWith('operations/deletefile', {
         fs: 'gdrive:',
         remote: 'Pictures/dog.png',
+        _async: false,
       });
     });
   });
@@ -228,7 +249,7 @@ describe('RCloneClient', () => {
     it('should call axios.post() correctly', async () => {
       axios.post.mockResolvedValue({});
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const client = new RCloneClient(rCloneInfo);
       const src = { remote: 'gdrive', dirPath: 'Pictures', fileName: '2021' };
       const target = { remote: 'onedrive', dirPath: 'Archives', fileName: 'Pictures' };
       await client.copyDirectoryContents(src, target);
@@ -244,7 +265,7 @@ describe('RCloneClient', () => {
     it('should call axios.post() correctly', async () => {
       axios.post.mockResolvedValue({});
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const client = new RCloneClient(rCloneInfo);
       const src = { remote: 'gdrive', dirPath: 'Pictures', fileName: 'dog.png' };
       const target = { remote: 'onedrive', dirPath: 'Archives', fileName: 'dog2.png' };
       await client.copyFile(src, target);
@@ -262,9 +283,9 @@ describe('RCloneClient', () => {
     it('should call axios.post() correctly', async () => {
       axios.post.mockResolvedValue({});
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
-      const src = { remote: 'gdrive', dirPath: 'Pictures', fileName: 'dog.png' };
-      const target = { remote: 'onedrive', dirPath: 'Archives', fileName: 'dog2.png' };
+      const client = new RCloneClient(rCloneInfo);
+      const src = { remote: 'gdrive', dirPath: 'Pictures', name: 'dog.png' };
+      const target = { remote: 'onedrive', dirPath: 'Archives', name: 'dog2.png' };
       await client.moveFile(src, target);
 
       expect(axios.post).toBeCalledWith('operations/movefile', {
@@ -272,6 +293,25 @@ describe('RCloneClient', () => {
         srcRemote: 'Pictures/dog.png',
         dstFs: 'onedrive:',
         dstRemote: 'Archives/dog2.png',
+        _async: false,
+      });
+    });
+
+    it('should call axios.post() correctly given isAsync is true', async () => {
+      axios.post.mockResolvedValue({});
+
+      const client = new RCloneClient(rCloneInfo);
+      const src = { remote: 'gdrive', dirPath: 'Pictures', name: 'dog.png' };
+      const target = { remote: 'onedrive', dirPath: 'Archives', name: 'dog2.png' };
+      const opts = { isAsync: true };
+      await client.moveFile(src, target, opts);
+
+      expect(axios.post).toBeCalledWith('operations/movefile', {
+        srcFs: 'gdrive:',
+        srcRemote: 'Pictures/dog.png',
+        dstFs: 'onedrive:',
+        dstRemote: 'Archives/dog2.png',
+        _async: true,
       });
     });
   });
@@ -280,14 +320,35 @@ describe('RCloneClient', () => {
     it('should call axios.post() correctly', async () => {
       axios.post.mockResolvedValue({});
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
-      const src = { remote: 'gdrive', dirPath: 'Pictures', fileName: '2021' };
-      const target = { remote: 'onedrive', dirPath: 'Archives', fileName: '2021' };
+      const client = new RCloneClient(rCloneInfo);
+      const src = { remote: 'gdrive', dirPath: 'Pictures', name: '2021' };
+      const target = { remote: 'onedrive', dirPath: 'Archives', name: '2021' };
       await client.move(src, target);
 
       expect(axios.post).toBeCalledWith('sync/move', {
         srcFs: 'gdrive:Pictures/2021',
         dstFs: 'onedrive:Archives/2021',
+        createEmptySrcDirs: false,
+        deleteEmptySrcDirs: false,
+        _async: false,
+      });
+    });
+
+    it('should call axios.post() correctly given options', async () => {
+      axios.post.mockResolvedValue({});
+
+      const client = new RCloneClient(rCloneInfo);
+      const src = { remote: 'gdrive', dirPath: 'Pictures', name: '2021' };
+      const target = { remote: 'onedrive', dirPath: 'Archives', name: '2021' };
+      const opts = { isAsync: true, createEmptySrcDirs: true, deleteEmptySrcDirs: true };
+      await client.move(src, target, opts);
+
+      expect(axios.post).toBeCalledWith('sync/move', {
+        srcFs: 'gdrive:Pictures/2021',
+        dstFs: 'onedrive:Archives/2021',
+        createEmptySrcDirs: true,
+        deleteEmptySrcDirs: true,
+        _async: true,
       });
     });
   });
@@ -296,7 +357,7 @@ describe('RCloneClient', () => {
     it('should call axios.post() correctly', async () => {
       axios.post.mockResolvedValue({});
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const client = new RCloneClient(rCloneInfo);
       await client.mkdir('gdrive', 'Archives/Pictures/2021/Trip to Big Sur');
 
       expect(axios.post).toBeCalledWith('operations/mkdir', {
@@ -310,11 +371,37 @@ describe('RCloneClient', () => {
     it('should call axios.post() correctly', async () => {
       axios.post.mockResolvedValue({});
 
-      const client = new RCloneClient('http://localhost:5572', 'admin', '1234');
+      const client = new RCloneClient(rCloneInfo);
       await client.emptyTrashCan('gdrive');
 
       expect(axios.post).toBeCalledWith('operations/cleanup', {
         fs: 'gdrive:',
+      });
+    });
+  });
+
+  describe('getJobStatus()', () => {
+    it('should call axios.post() correctly', async () => {
+      axios.post.mockResolvedValue({});
+
+      const client = new RCloneClient(rCloneInfo);
+      await client.getJobStatus('123');
+
+      expect(axios.post).toBeCalledWith('job/status', {
+        jobid: '123',
+      });
+    });
+  });
+
+  describe('stopJob()', () => {
+    it('should call axios.post() correctly', async () => {
+      axios.post.mockResolvedValue({});
+
+      const client = new RCloneClient(rCloneInfo);
+      await client.stopJob('123');
+
+      expect(axios.post).toBeCalledWith('job/stop', {
+        jobid: '123',
       });
     });
   });

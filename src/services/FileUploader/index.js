@@ -7,7 +7,7 @@ export default class FileUploader {
     this.worker = new Worker(new URL('./worker.js', import.meta.url));
     this.jobIdToObject = new Map();
 
-    this.worker.onmessage = ({ data }) => {
+    this.worker.addEventListener('message', ({ data }) => {
       const { jobId, status, error, isCancelled } = data;
       const jobObj = this.jobIdToObject.get(jobId);
 
@@ -18,16 +18,17 @@ export default class FileUploader {
       jobObj.status.next(status);
       jobObj.error = error;
       jobObj.isCancelled = isCancelled;
-    };
+    });
   }
 
   uploadFile(remote, dirPath, file, rCloneInfo) {
     const jobId = uuidv4();
+    const webWorker = this.worker;
     const fileObj = {
       status: new BehaviorSubject(JobStatus.ONGOING),
       error: undefined,
-      cancelUpload: function () {
-        this.worker.postMessage({ actionType: 'CANCEL_UPLOAD', payload: jobId });
+      cancelJob: function () {
+        webWorker.postMessage({ actionType: 'CANCEL_UPLOAD', payload: jobId });
       },
     };
 

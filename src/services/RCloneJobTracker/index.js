@@ -6,7 +6,7 @@ export default class RCloneJobTracker {
     this.worker = new Worker(new URL('./worker.js', import.meta.url));
     this.jobIdToObject = new Map();
 
-    this.worker.onmessage = ({ data }) => {
+    this.worker.addEventListener('message', ({ data }) => {
       const { jobId, status, error, startTime, duration, progress, output } = data;
       const jobObj = this.jobIdToObject.get(jobId);
 
@@ -20,7 +20,7 @@ export default class RCloneJobTracker {
       jobObj.duration = duration;
       jobObj.progress = progress;
       jobObj.output = output;
-    };
+    });
   }
 
   trackNewJob(jobId, rCloneInfo) {
@@ -54,9 +54,5 @@ export default class RCloneJobTracker {
     });
 
     this.jobIdToObject.delete(jobId);
-  }
-
-  cleanup() {
-    this.worker.terminate();
   }
 }

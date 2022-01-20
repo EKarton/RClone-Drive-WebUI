@@ -281,7 +281,7 @@ export default class RCloneClient {
    * @param {string} baseName the name of the folder to delete
    */
   async deleteDirectory(remote, directoryPath, baseName, opts = {}) {
-    const { isAsync } = opts;
+    const { isAsync = false } = opts;
 
     return this.axiosInstance.post('operations/purge', {
       fs: `${remote}:`,
@@ -290,10 +290,13 @@ export default class RCloneClient {
     });
   }
 
-  async deleteFile(remote, dirPath, fileName) {
+  async deleteFile(remote, dirPath, fileName, opts = {}) {
+    const { isAsync = false } = opts;
+
     return this.axiosInstance.post('operations/deletefile', {
       fs: `${remote}:`,
       remote: getFullPath(dirPath, fileName),
+      _async: isAsync,
     });
   }
 
@@ -395,7 +398,8 @@ export default class RCloneClient {
    * @param {object} target the target file, with the shape above
    */
   async move(source, target, opts = {}) {
-    const { createEmptySrcDirs, deleteEmptySrcDirs, isAsync } = opts;
+    const { createEmptySrcDirs = false, deleteEmptySrcDirs = false } = opts;
+    const { isAsync = false } = opts;
     const srcRemote = getFullPath(source.dirPath, source.name);
     const targetRemote = getFullPath(target.dirPath, target.name);
 
