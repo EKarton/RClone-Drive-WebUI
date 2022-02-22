@@ -228,10 +228,12 @@ Object {
                 },
               ],
               "closed": false,
-              "destination": Object {
-                "complete": [Function],
-                "error": [Function],
-                "next": [Function],
+              "destination": ConsumerObserver {
+                "partialObserver": Object {
+                  "complete": undefined,
+                  "error": undefined,
+                  "next": [Function],
+                },
               },
               "initialTeardown": undefined,
               "isStopped": false,

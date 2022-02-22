@@ -722,6 +722,7 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
         </p>
         <div
           class="MuiInputBase-root MuiInputBase-colorPrimary css-16c50h-MuiInputBase-root-MuiTablePagination-select"
+          variant="standard"
         >
           <div
             aria-expanded="false"
