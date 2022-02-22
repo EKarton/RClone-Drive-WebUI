@@ -13,6 +13,7 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const { setRCloneInfo } = useRCloneInfo();
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -24,11 +25,14 @@ export default function LoginPage() {
 
     try {
       // To test if connection is correct, call RClone to fetch remotes
+      setIsLoading(true);
       await new RCloneClient({ endpoint, username, password }).fetchRemotes();
 
+      setIsLoading(false);
       setRCloneInfo({ endpoint, username, password });
       navigate(redirectPath);
     } catch (error) {
+      setIsLoading(false);
       setError(error);
     }
   };
@@ -37,7 +41,7 @@ export default function LoginPage() {
     <LoginHelpDialogProvider>
       <Box className="login-page">
         <Header />
-        <Form error={error} onFormSubmit={handleFormSubmit} />
+        <Form error={error} isLoading={isLoading} onFormSubmit={handleFormSubmit} />
       </Box>
     </LoginHelpDialogProvider>
   );

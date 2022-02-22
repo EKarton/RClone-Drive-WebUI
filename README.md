@@ -34,13 +34,13 @@ Refer to [this doc](docs/Walkthrough.md) for a detailed walkthrough. However, he
    1. If your RClone config is in its [default location](https://rclone.org/docs/#:~:text=The%20exact%20default%20is%20a%20bit%20complex%20to%20describe%2C%20due%20to%20changes%20introduced%20through%20different%20versions%20of%20rclone%20while%20preserving%20backwards%20compatibility%2C%20but%20in%20most%20cases%20it%20is%20as%20simple%20as%3A), run:
 
       ```
-      rclone rcd --rc-allow-origin '*' --rc-user='local' --rc-pass="1234" --rc-serve
+      rclone rcd --rc-allow-origin 'http://localhost:3000' --rc-user='local' --rc-pass="1234" --rc-serve
       ```
 
    2. Else, if it is in a different location, run:
 
       ```
-      rclone rcd --rc-allow-origin '*' --rc-user='local' --rc-pass="1234" --rc-serve --config <Path to RClone config>
+      rclone rcd --rc-allow-origin 'http://localhost:3000' --rc-user='local' --rc-pass="1234" --rc-serve --config <Path to RClone config>
       ```
 
    More info is at the [RClone docs](https://rclone.org/commands/rclone_rcd/)

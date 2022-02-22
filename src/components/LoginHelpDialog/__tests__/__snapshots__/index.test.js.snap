@@ -184,9 +184,9 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
                         <code>
                           rclone rcd \\ 
                           <br />
-                          --rc-allow-origin '*' \\ 
+                          --rc-allow-origin 'https://silly-mirzakhani-2a7996.netlify.app' \\ 
                           <br />
-                          --rc-user='admin' \\ 
+                          --rc-user='local' \\ 
                           <br />
                           --rc-pass="1234" \\ 
                           <br />
@@ -285,7 +285,7 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
                       <p
                         class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
                       >
-                        From step (2), your RClone instance configuration is:
+                        From step (2), enter these in the Login form:
                         <ol>
                           <li>
                             Endpoint: 
@@ -296,7 +296,7 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
                           <li>
                             Username: 
                             <code>
-                              admin
+                              local
                             </code>
                           </li>
                           <li>
@@ -306,7 +306,6 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
                             </code>
                           </li>
                         </ol>
-                        Enter those in the login form
                       </p>
                     </div>
                   </div>

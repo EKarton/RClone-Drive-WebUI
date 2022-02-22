@@ -36,8 +36,8 @@ export default function LoginHelpDialog({ open, onClose }) {
               <Typography className="login-help-dialog__code-block">
                 <code>
                   rclone rcd \ <br />
-                  --rc-allow-origin '*' \ <br />
-                  --rc-user='admin' \ <br />
+                  --rc-allow-origin 'https://silly-mirzakhani-2a7996.netlify.app' \ <br />
+                  --rc-user='local' \ <br />
                   --rc-pass="1234" \ <br />
                   --rc-serve \ <br />
                   --config Your_RClone_Config_File <br />
@@ -57,19 +57,18 @@ export default function LoginHelpDialog({ open, onClose }) {
             <StepLabel>Enter your RClone Endpoints</StepLabel>
             <StepContent>
               <Typography>
-                From step (2), your RClone instance configuration is:
+                From step (2), enter these in the Login form:
                 <ol>
                   <li>
                     Endpoint: <code>http://localhost:5572</code>
                   </li>
                   <li>
-                    Username: <code>admin</code>
+                    Username: <code>local</code>
                   </li>
                   <li>
                     Password: <code>1234</code>
                   </li>
                 </ol>
-                Enter those in the login form
               </Typography>
             </StepContent>
           </Step>
