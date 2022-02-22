@@ -1,3 +1,5 @@
+import LoginIcon from '@mui/icons-material/Login';
+import LoadingButton from '@mui/lab/LoadingButton';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -8,7 +10,7 @@ import cx from 'classnames';
 import { useLoginHelpDialog } from 'contexts/LoginHelpDialog';
 import './Form.scss';
 
-export default function Form({ error, onFormSubmit }) {
+export default function Form({ error, isLoading, onFormSubmit }) {
   const { openDialog } = useLoginHelpDialog();
   const hasError = error !== null;
 
@@ -54,9 +56,16 @@ export default function Form({ error, onFormSubmit }) {
           />
         </CardContent>
         <CardActions>
-          <Button variant="contained" data-testid="login-button" type="submit">
+          <LoadingButton
+            loading={isLoading}
+            loadingPosition="start"
+            startIcon={<LoginIcon />}
+            variant="contained"
+            data-testid="login-button"
+            type="submit"
+          >
             Login
-          </Button>
+          </LoadingButton>
           <Button data-testid="help-button" onClick={openDialog}>
             Help
           </Button>
