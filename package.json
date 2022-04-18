@@ -16,7 +16,7 @@
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.4.2",
     "@mui/lab": "^5.0.0-alpha.70",
-    "@mui/material": "^5.4.3",
+    "@mui/material": "^5.6.2",
     "axios": "^0.26.0",
     "buffer": "^6.0.3",
     "classnames": "^2.3.1",
