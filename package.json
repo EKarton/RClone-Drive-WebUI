@@ -12,7 +12,7 @@
     "test": "react-scripts test --watchAll=false --coverage"
   },
   "dependencies": {
-    "@emotion/react": "^11.8.1",
+    "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.4.2",
     "@mui/lab": "^5.0.0-alpha.103",
