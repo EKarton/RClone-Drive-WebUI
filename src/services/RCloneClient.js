@@ -31,6 +31,7 @@ export default class RCloneClient {
         username: rCloneInfo.username,
         password: rCloneInfo.password,
       },
+      withCredentials: true,
     });
   }
 

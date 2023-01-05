@@ -7,12 +7,14 @@ import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import TextField from '@mui/material/TextField';
 import cx from 'classnames';
+import { useState, useEffect } from 'react';
 import { useLoginHelpDialog } from 'contexts/LoginHelpDialog';
 import './Form.scss';
 
-export default function Form({ error, isLoading, onFormSubmit }) {
+export default function Form({ initialValues = {}, error, isLoading, onFormSubmit }) {
   const { openDialog } = useLoginHelpDialog();
   const hasError = error !== null;
+  const [values, setValues] = useState({});
 
   const cardSubHeader = (
     <span className={cx({ 'login-page-form__header--red': error })}>
@@ -20,13 +22,29 @@ export default function Form({ error, isLoading, onFormSubmit }) {
     </span>
   );
 
+  useEffect(() => {
+    setValues(initialValues);
+  }, [initialValues]);
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    onFormSubmit(values);
+  };
+
   return (
     <Card variant="outlined" className="login-page-form">
-      <form onSubmit={onFormSubmit}>
+      <form onSubmit={handleFormSubmit}>
         <CardHeader title="Login" subheader={cardSubHeader} />
         <CardContent className="login-page-form__contents">
           <TextField
             required
+            value={values.endpoint}
+            onChange={(newValue) =>
+              setValues({
+                ...values,
+                endpoint: newValue.target.value,
+              })
+            }
             name="endpoint"
             label="RClone RC Endpoint"
             variant="outlined"
@@ -37,6 +55,13 @@ export default function Form({ error, isLoading, onFormSubmit }) {
           />
           <TextField
             required
+            value={values.username}
+            onChange={(newValue) =>
+              setValues({
+                ...values,
+                username: newValue.target.value,
+              })
+            }
             name="username"
             label="Username"
             variant="outlined"
@@ -46,6 +71,13 @@ export default function Form({ error, isLoading, onFormSubmit }) {
           />
           <TextField
             required
+            value={values.password}
+            onChange={(newValue) =>
+              setValues({
+                ...values,
+                password: newValue.target.value,
+              })
+            }
             name="password"
             label="Password"
             variant="outlined"
