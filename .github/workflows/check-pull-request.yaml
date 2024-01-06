@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node JS
         uses: actions/setup-node@v3
@@ -24,7 +24,7 @@ jobs:
           node-version: '16'
 
       - name: Cache dependencies
-        uses: actions/cache@v3.0.11
+        uses: actions/cache@v3.3.1
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node JS
         uses: actions/setup-node@v3
@@ -48,7 +48,7 @@ jobs:
           node-version: '16'
 
       - name: Cache dependencies
-        uses: actions/cache@v3.0.11
+        uses: actions/cache@v3.3.1
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
@@ -60,7 +60,7 @@ jobs:
         run: yarn test --maxWorkers=100%
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_SECRET }}
           directory: ./coverage/
@@ -71,7 +71,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node JS
         uses: actions/setup-node@v3
@@ -79,7 +79,7 @@ jobs:
           node-version: '16'
 
       - name: Cache dependencies
-        uses: actions/cache@v3.0.11
+        uses: actions/cache@v3.3.1
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
