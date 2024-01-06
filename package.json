@@ -12,7 +12,7 @@
     "test": "react-scripts test --watchAll=false --coverage"
   },
   "dependencies": {
-    "@emotion/react": "^11.8.1",
+    "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.4.2",
     "@mui/lab": "^5.0.0-alpha.103",
@@ -30,7 +30,7 @@
     "react-dom": "^17.0.2",
     "react-error-boundary": "^3.1.4",
     "react-file-viewer": "^1.2.1",
-    "react-intersection-observer": "^8.33.1",
+    "react-intersection-observer": "^9.4.1",
     "react-pdf": "^5.7.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.0",
@@ -38,14 +38,14 @@
     "react-virtualized-auto-sizer": "^1.0.6",
     "react-window": "^1.8.6",
     "rxjs": "^7.5.2",
-    "sass": "^1.48.0",
+    "sass": "^1.55.0",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.4",
     "yarn": "^1.22.17"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.16.7",
-    "@commitlint/cli": "^16.0.2",
+    "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^16.0.0",
     "@testing-library/dom": "^8.11.3",
     "@testing-library/jest-dom": "^5.16.1",
