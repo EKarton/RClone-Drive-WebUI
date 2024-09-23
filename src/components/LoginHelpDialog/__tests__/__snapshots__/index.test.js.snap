@@ -184,7 +184,7 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
                         <code>
                           rclone rcd \\ 
                           <br />
-                          --rc-allow-origin 'https://silly-mirzakhani-2a7996.netlify.app' \\ 
+                          --rc-allow-origin 'https://rclonedrive.netlify.app' \\ 
                           <br />
                           --rc-user='local' \\ 
                           <br />

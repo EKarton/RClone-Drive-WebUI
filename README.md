@@ -1,6 +1,6 @@
 # RClone Drive Web UI
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e431cc05-9841-4b26-9092-78783424de4b/deploy-status)](https://app.netlify.com/sites/silly-mirzakhani-2a7996/deploys) [![codecov](https://codecov.io/gh/EKarton/RClone-Drive-WebUI/branch/main/graph/badge.svg?token=IK7IKBHD45)](https://codecov.io/gh/EKarton/RClone-Drive-WebUI)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e431cc05-9841-4b26-9092-78783424de4b/deploy-status)](https://app.netlify.com/sites/rclonedrive/deploys) [![codecov](https://codecov.io/gh/EKarton/RClone-Drive-WebUI/branch/main/graph/badge.svg?token=IK7IKBHD45)](https://codecov.io/gh/EKarton/RClone-Drive-WebUI)
 
 ### Description:
 
