@@ -60,8 +60,8 @@ describe('JobsSection', () => {
     userEvent.click(screen.getByTestId('job-button'));
     await userEvent.keyboard('{Escape}');
 
-    await waitFor(() => {
-      expect(screen.queryByTestId('jobs-list-dialog')).not.toBeInTheDocument();
+    await waitFor(async () => {
+      expect(screen.queryByRole('dialog')).not.toBeVisible();
     });
   });
 
