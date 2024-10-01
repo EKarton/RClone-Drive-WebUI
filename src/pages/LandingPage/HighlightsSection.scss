@@ -18,7 +18,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .highlights-section {
     flex-direction: column;
   }

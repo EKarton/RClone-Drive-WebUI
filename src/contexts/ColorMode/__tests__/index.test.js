@@ -2,7 +2,7 @@ import Button from '@mui/material/Button';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import useColorMode from 'hooks/utils/useColorMode';
 import { COLOR_MODE } from 'utils/constants';
-import { render, userEvent, waitFor, screen } from 'test-utils/react';
+import { render, userEvent, screen } from 'test-utils/react';
 import { ColorModeProvider } from '../index';
 
 jest.mock('@mui/material/useMediaQuery');
