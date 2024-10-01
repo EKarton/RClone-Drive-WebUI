@@ -6,18 +6,22 @@ exports[`FolderTree should match snapshot given list of remotes 1`] = `
     <ul
       aria-label="file tree navigator"
       aria-multiselectable="false"
-      class="MuiTreeView-root css-161j9ok-MuiTreeView-root"
+      class="MuiSimpleTreeView-root css-rejl51-MuiSimpleTreeView-root"
+      defaultcollapseicon="[object Object]"
+      defaultexpandicon="[object Object]"
+      id=":r0:"
       role="tree"
-      tabindex="0"
+      style="--TreeView-itemChildrenIndentation: 12px;"
     >
       <li
         class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
         data-testid="googledrive"
+        id=":r0:-googledrive"
         role="treeitem"
-        tabindex="-1"
+        tabindex="0"
       >
         <div
-          class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+          class="css-53rj3a-MuiTreeItem-content MuiTreeItem-content"
         >
           <div
             class="MuiTreeItem-iconContainer"
@@ -32,11 +36,12 @@ exports[`FolderTree should match snapshot given list of remotes 1`] = `
       <li
         class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
         data-testid="onedrive"
+        id=":r0:-onedrive"
         role="treeitem"
         tabindex="-1"
       >
         <div
-          class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+          class="css-53rj3a-MuiTreeItem-content MuiTreeItem-content"
         >
           <div
             class="MuiTreeItem-iconContainer"
@@ -51,11 +56,12 @@ exports[`FolderTree should match snapshot given list of remotes 1`] = `
       <li
         class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
         data-testid="icloud"
+        id=":r0:-icloud"
         role="treeitem"
         tabindex="-1"
       >
         <div
-          class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+          class="css-53rj3a-MuiTreeItem-content MuiTreeItem-content"
         >
           <div
             class="MuiTreeItem-iconContainer"

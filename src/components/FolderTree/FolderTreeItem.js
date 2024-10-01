@@ -1,6 +1,6 @@
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import TreeItem from '@mui/lab/TreeItem';
+import { TreeItem } from '@mui/x-tree-view/TreeItem';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
@@ -66,7 +66,7 @@ export default function FolderTreeItem({ remote, curPath, label }) {
 
   return (
     <TreeItem
-      nodeId={`${remote}:${curPath}`}
+      itemId={`${remote}:${curPath}`}
       label={label}
       onClick={handleTreeItemClicked}
       expandIcon={<ChevronRightIcon />}

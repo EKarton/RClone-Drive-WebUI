@@ -36,7 +36,7 @@ export default function LoginHelpDialog({ open, onClose }) {
               <Typography className="login-help-dialog__code-block">
                 <code>
                   rclone rcd \ <br />
-                  --rc-allow-origin 'https://silly-mirzakhani-2a7996.netlify.app' \ <br />
+                  --rc-allow-origin 'https://rclonedrive.netlify.app' \ <br />
                   --rc-user='local' \ <br />
                   --rc-pass="1234" \ <br />
                   --rc-serve \ <br />

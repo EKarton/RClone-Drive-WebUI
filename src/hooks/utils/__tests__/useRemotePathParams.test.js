@@ -1,8 +1,21 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { createMemoryHistory } from 'history';
-import { Router, Routes, Route } from 'react-router';
+import { MemoryRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router';
 import { hashRemotePath } from 'utils/remote-paths-url';
 import useRemotePathParams from '../useRemotePathParams';
+
+jest.mock('react-pdf', () => ({
+  Document: jest.fn(() => null),
+  Page: jest.fn(() => null),
+  pdfjs: {
+    GlobalWorkerOptions: {
+      workerSrc: 'mockedWorkerSrc',
+    },
+  },
+}));
+
+jest.mock('react-pdf/dist/Page/AnnotationLayer.css', () => ({}), { virtual: true });
+jest.mock('react-pdf/dist/Page/TextLayer.css', () => ({}), { virtual: true });
 
 describe('useRemotePathParams()', () => {
   it('should return correct values given url contains remote and full path', () => {
@@ -25,14 +38,12 @@ describe('useRemotePathParams()', () => {
 
   const renderCustomHook = (route) => {
     const wrapper = ({ children }) => {
-      const history = createMemoryHistory({ initialEntries: [route] });
-
       return (
-        <Router location={history.location} navigator={history}>
+        <MemoryRouter initialEntries={[route]}>
           <Routes>
             <Route path="/files/:id" element={children} />
           </Routes>
-        </Router>
+        </MemoryRouter>
       );
     };
 

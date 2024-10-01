@@ -5,26 +5,30 @@ exports[`FolderTreeItem should make api calls match snapshots when user clicks o
   <div>
     <ul
       aria-multiselectable="false"
-      class="MuiTreeView-root css-161j9ok-MuiTreeView-root"
+      class="MuiSimpleTreeView-root css-rejl51-MuiSimpleTreeView-root"
+      id=":r0:"
       role="tree"
-      tabindex="0"
+      style="--TreeView-itemChildrenIndentation: 12px;"
     >
       <li
         aria-expanded="false"
         class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+        collapseicon="[object Object]"
+        expandicon="[object Object]"
+        id=":r0:-gdrive:"
         role="treeitem"
-        tabindex="-1"
+        tabindex="0"
       >
         <div
-          class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+          class="css-53rj3a-MuiTreeItem-content MuiTreeItem-content"
         >
           <div
             class="MuiTreeItem-iconContainer"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-              data-testid="ChevronRightIcon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
+              data-testid="TreeViewExpandIconIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -50,27 +54,31 @@ exports[`FolderTreeItem should make api calls match snapshots when user clicks o
   <div>
     <ul
       aria-multiselectable="false"
-      class="MuiTreeView-root css-161j9ok-MuiTreeView-root"
+      class="MuiSimpleTreeView-root css-rejl51-MuiSimpleTreeView-root"
+      id=":r0:"
       role="tree"
-      tabindex="0"
+      style="--TreeView-itemChildrenIndentation: 12px;"
     >
       <li
         aria-expanded="true"
         aria-selected="true"
         class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+        collapseicon="[object Object]"
+        expandicon="[object Object]"
+        id=":r0:-gdrive:"
         role="treeitem"
-        tabindex="-1"
+        tabindex="0"
       >
         <div
-          class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content Mui-expanded Mui-selected Mui-focused"
+          class="css-53rj3a-MuiTreeItem-content MuiTreeItem-content Mui-expanded Mui-selected Mui-focused"
         >
           <div
             class="MuiTreeItem-iconContainer"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-              data-testid="ExpandMoreIcon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
+              data-testid="TreeViewCollapseIconIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -86,7 +94,7 @@ exports[`FolderTreeItem should make api calls match snapshots when user clicks o
           </div>
         </div>
         <ul
-          class="MuiCollapse-root MuiCollapse-vertical MuiTreeItem-group css-riv8k6-MuiCollapse-root-MuiTreeItem-group"
+          class="MuiCollapse-root MuiCollapse-vertical MuiTreeItem-groupTransition css-ugkyyp-MuiCollapse-root-MuiTreeItem-groupTransition"
           role="group"
           style="min-height: 0px; height: 0px; transition-duration: 300ms;"
         >
@@ -99,19 +107,22 @@ exports[`FolderTreeItem should make api calls match snapshots when user clicks o
               <li
                 aria-expanded="false"
                 class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+                collapseicon="[object Object]"
+                expandicon="[object Object]"
+                id=":r0:-gdrive:.rclone"
                 role="treeitem"
                 tabindex="-1"
               >
                 <div
-                  class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+                  class="css-53rj3a-MuiTreeItem-content MuiTreeItem-content"
                 >
                   <div
                     class="MuiTreeItem-iconContainer"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                      data-testid="ChevronRightIcon"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
+                      data-testid="TreeViewExpandIconIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -130,19 +141,22 @@ exports[`FolderTreeItem should make api calls match snapshots when user clicks o
               <li
                 aria-expanded="false"
                 class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+                collapseicon="[object Object]"
+                expandicon="[object Object]"
+                id=":r0:-gdrive:Documents"
                 role="treeitem"
                 tabindex="-1"
               >
                 <div
-                  class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+                  class="css-53rj3a-MuiTreeItem-content MuiTreeItem-content"
                 >
                   <div
                     class="MuiTreeItem-iconContainer"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                      data-testid="ChevronRightIcon"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
+                      data-testid="TreeViewExpandIconIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -172,26 +186,30 @@ exports[`FolderTreeItem should make api calls match snapshots when user clicks o
   <div>
     <ul
       aria-multiselectable="false"
-      class="MuiTreeView-root css-161j9ok-MuiTreeView-root"
+      class="MuiSimpleTreeView-root css-rejl51-MuiSimpleTreeView-root"
+      id=":r0:"
       role="tree"
-      tabindex="0"
+      style="--TreeView-itemChildrenIndentation: 12px;"
     >
       <li
         aria-expanded="true"
         class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+        collapseicon="[object Object]"
+        expandicon="[object Object]"
+        id=":r0:-gdrive:"
         role="treeitem"
         tabindex="-1"
       >
         <div
-          class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content Mui-expanded"
+          class="css-53rj3a-MuiTreeItem-content MuiTreeItem-content Mui-expanded"
         >
           <div
             class="MuiTreeItem-iconContainer"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-              data-testid="ExpandMoreIcon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
+              data-testid="TreeViewCollapseIconIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -207,7 +225,7 @@ exports[`FolderTreeItem should make api calls match snapshots when user clicks o
           </div>
         </div>
         <ul
-          class="MuiCollapse-root MuiCollapse-vertical MuiTreeItem-group css-riv8k6-MuiCollapse-root-MuiTreeItem-group"
+          class="MuiCollapse-root MuiCollapse-vertical MuiTreeItem-groupTransition css-ugkyyp-MuiCollapse-root-MuiTreeItem-groupTransition"
           role="group"
           style="min-height: 0px; height: 0px; transition-duration: 300ms;"
         >
@@ -220,19 +238,22 @@ exports[`FolderTreeItem should make api calls match snapshots when user clicks o
               <li
                 aria-expanded="false"
                 class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+                collapseicon="[object Object]"
+                expandicon="[object Object]"
+                id=":r0:-gdrive:.rclone"
                 role="treeitem"
                 tabindex="-1"
               >
                 <div
-                  class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+                  class="css-53rj3a-MuiTreeItem-content MuiTreeItem-content"
                 >
                   <div
                     class="MuiTreeItem-iconContainer"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                      data-testid="ChevronRightIcon"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
+                      data-testid="TreeViewExpandIconIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -252,19 +273,22 @@ exports[`FolderTreeItem should make api calls match snapshots when user clicks o
                 aria-expanded="true"
                 aria-selected="true"
                 class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+                collapseicon="[object Object]"
+                expandicon="[object Object]"
+                id=":r0:-gdrive:Documents"
                 role="treeitem"
-                tabindex="-1"
+                tabindex="0"
               >
                 <div
-                  class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content Mui-expanded Mui-selected Mui-focused"
+                  class="css-53rj3a-MuiTreeItem-content MuiTreeItem-content Mui-expanded Mui-selected Mui-focused"
                 >
                   <div
                     class="MuiTreeItem-iconContainer"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                      data-testid="ExpandMoreIcon"
+                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
+                      data-testid="TreeViewCollapseIconIcon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -280,7 +304,7 @@ exports[`FolderTreeItem should make api calls match snapshots when user clicks o
                   </div>
                 </div>
                 <ul
-                  class="MuiCollapse-root MuiCollapse-vertical MuiTreeItem-group css-riv8k6-MuiCollapse-root-MuiTreeItem-group"
+                  class="MuiCollapse-root MuiCollapse-vertical MuiTreeItem-groupTransition css-ugkyyp-MuiCollapse-root-MuiTreeItem-groupTransition"
                   role="group"
                   style="min-height: 0px; height: 0px; transition-duration: 300ms;"
                 >
@@ -293,19 +317,22 @@ exports[`FolderTreeItem should make api calls match snapshots when user clicks o
                       <li
                         aria-expanded="false"
                         class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+                        collapseicon="[object Object]"
+                        expandicon="[object Object]"
+                        id=":r0:-gdrive:Work"
                         role="treeitem"
                         tabindex="-1"
                       >
                         <div
-                          class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+                          class="css-53rj3a-MuiTreeItem-content MuiTreeItem-content"
                         >
                           <div
                             class="MuiTreeItem-iconContainer"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                              data-testid="ChevronRightIcon"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
+                              data-testid="TreeViewExpandIconIcon"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -324,19 +351,22 @@ exports[`FolderTreeItem should make api calls match snapshots when user clicks o
                       <li
                         aria-expanded="false"
                         class="MuiTreeItem-root css-16alkdk-MuiTreeItem-root"
+                        collapseicon="[object Object]"
+                        expandicon="[object Object]"
+                        id=":r0:-gdrive:Personal"
                         role="treeitem"
                         tabindex="-1"
                       >
                         <div
-                          class="css-1g86id8-MuiTreeItem-content MuiTreeItem-content"
+                          class="css-53rj3a-MuiTreeItem-content MuiTreeItem-content"
                         >
                           <div
                             class="MuiTreeItem-iconContainer"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                              data-testid="ChevronRightIcon"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
+                              data-testid="TreeViewExpandIconIcon"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >

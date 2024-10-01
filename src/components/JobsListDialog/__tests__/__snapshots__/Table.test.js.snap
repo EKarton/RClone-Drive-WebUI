@@ -18,7 +18,7 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
             data-testid="job-id-0"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-1397gws-MuiTableCell-root"
             >
               <span
                 aria-label="UPLOAD_FILE"
@@ -27,19 +27,19 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="BackupIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
+                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96M14 13v4h-4v-4H7l5-5 5 5z"
                   />
                 </svg>
               </span>
             </td>
             <td
-              class="table-row__file-name-cell MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root table-row__file-name-cell MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-1397gws-MuiTableCell-root"
             >
               <span>
                 Uploading file 
@@ -51,34 +51,31 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1xt9p6r-MuiTableCell-root"
             >
               ONGOING
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1xt9p6r-MuiTableCell-root"
             >
               <button
                 aria-label="cancel job"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1wjzr1s-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="cancel-job-button"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="CancelIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2m5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12z"
                   />
                 </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </button>
             </td>
           </tr>
@@ -87,7 +84,7 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
             data-testid="job-id-1"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-1397gws-MuiTableCell-root"
             >
               <span
                 aria-label="UPLOAD_FILE"
@@ -96,19 +93,19 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="BackupIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
+                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96M14 13v4h-4v-4H7l5-5 5 5z"
                   />
                 </svg>
               </span>
             </td>
             <td
-              class="table-row__file-name-cell MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root table-row__file-name-cell MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-1397gws-MuiTableCell-root"
             >
               <span>
                 Uploading file 
@@ -120,34 +117,31 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1xt9p6r-MuiTableCell-root"
             >
               ONGOING
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1xt9p6r-MuiTableCell-root"
             >
               <button
                 aria-label="cancel job"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1wjzr1s-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="cancel-job-button"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="CancelIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2m5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12z"
                   />
                 </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </button>
             </td>
           </tr>
@@ -156,7 +150,7 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
             data-testid="job-id-2"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-1397gws-MuiTableCell-root"
             >
               <span
                 aria-label="UPLOAD_FILE"
@@ -165,19 +159,19 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="BackupIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
+                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96M14 13v4h-4v-4H7l5-5 5 5z"
                   />
                 </svg>
               </span>
             </td>
             <td
-              class="table-row__file-name-cell MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root table-row__file-name-cell MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-1397gws-MuiTableCell-root"
             >
               <span>
                 Uploading file 
@@ -189,34 +183,31 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1xt9p6r-MuiTableCell-root"
             >
               ONGOING
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1xt9p6r-MuiTableCell-root"
             >
               <button
                 aria-label="cancel job"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1wjzr1s-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="cancel-job-button"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="CancelIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2m5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12z"
                   />
                 </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </button>
             </td>
           </tr>
@@ -225,7 +216,7 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
             data-testid="job-id-3"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-1397gws-MuiTableCell-root"
             >
               <span
                 aria-label="UPLOAD_FILE"
@@ -234,19 +225,19 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="BackupIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
+                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96M14 13v4h-4v-4H7l5-5 5 5z"
                   />
                 </svg>
               </span>
             </td>
             <td
-              class="table-row__file-name-cell MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root table-row__file-name-cell MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-1397gws-MuiTableCell-root"
             >
               <span>
                 Uploading file 
@@ -258,34 +249,31 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1xt9p6r-MuiTableCell-root"
             >
               ONGOING
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1xt9p6r-MuiTableCell-root"
             >
               <button
                 aria-label="cancel job"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1wjzr1s-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="cancel-job-button"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="CancelIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2m5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12z"
                   />
                 </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </button>
             </td>
           </tr>
@@ -294,7 +282,7 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
             data-testid="job-id-4"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-1397gws-MuiTableCell-root"
             >
               <span
                 aria-label="UPLOAD_FILE"
@@ -303,19 +291,19 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="BackupIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
+                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96M14 13v4h-4v-4H7l5-5 5 5z"
                   />
                 </svg>
               </span>
             </td>
             <td
-              class="table-row__file-name-cell MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root table-row__file-name-cell MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-1397gws-MuiTableCell-root"
             >
               <span>
                 Uploading file 
@@ -327,34 +315,31 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1xt9p6r-MuiTableCell-root"
             >
               ONGOING
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1xt9p6r-MuiTableCell-root"
             >
               <button
                 aria-label="cancel job"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1wjzr1s-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="cancel-job-button"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="CancelIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2m5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12z"
                   />
                 </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </button>
             </td>
           </tr>
@@ -363,7 +348,7 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
             data-testid="job-id-5"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-1397gws-MuiTableCell-root"
             >
               <span
                 aria-label="UPLOAD_FILE"
@@ -372,19 +357,19 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="BackupIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
+                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96M14 13v4h-4v-4H7l5-5 5 5z"
                   />
                 </svg>
               </span>
             </td>
             <td
-              class="table-row__file-name-cell MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root table-row__file-name-cell MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-1397gws-MuiTableCell-root"
             >
               <span>
                 Uploading file 
@@ -396,34 +381,31 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1xt9p6r-MuiTableCell-root"
             >
               ONGOING
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1xt9p6r-MuiTableCell-root"
             >
               <button
                 aria-label="cancel job"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1wjzr1s-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="cancel-job-button"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="CancelIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2m5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12z"
                   />
                 </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </button>
             </td>
           </tr>
@@ -432,7 +414,7 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
             data-testid="job-id-6"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-1397gws-MuiTableCell-root"
             >
               <span
                 aria-label="UPLOAD_FILE"
@@ -441,19 +423,19 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="BackupIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
+                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96M14 13v4h-4v-4H7l5-5 5 5z"
                   />
                 </svg>
               </span>
             </td>
             <td
-              class="table-row__file-name-cell MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root table-row__file-name-cell MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-1397gws-MuiTableCell-root"
             >
               <span>
                 Uploading file 
@@ -465,34 +447,31 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1xt9p6r-MuiTableCell-root"
             >
               ONGOING
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1xt9p6r-MuiTableCell-root"
             >
               <button
                 aria-label="cancel job"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1wjzr1s-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="cancel-job-button"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="CancelIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2m5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12z"
                   />
                 </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </button>
             </td>
           </tr>
@@ -501,7 +480,7 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
             data-testid="job-id-7"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-1397gws-MuiTableCell-root"
             >
               <span
                 aria-label="UPLOAD_FILE"
@@ -510,19 +489,19 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="BackupIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
+                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96M14 13v4h-4v-4H7l5-5 5 5z"
                   />
                 </svg>
               </span>
             </td>
             <td
-              class="table-row__file-name-cell MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root table-row__file-name-cell MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-1397gws-MuiTableCell-root"
             >
               <span>
                 Uploading file 
@@ -534,34 +513,31 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1xt9p6r-MuiTableCell-root"
             >
               ONGOING
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1xt9p6r-MuiTableCell-root"
             >
               <button
                 aria-label="cancel job"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1wjzr1s-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="cancel-job-button"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="CancelIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2m5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12z"
                   />
                 </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </button>
             </td>
           </tr>
@@ -570,7 +546,7 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
             data-testid="job-id-8"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-1397gws-MuiTableCell-root"
             >
               <span
                 aria-label="UPLOAD_FILE"
@@ -579,19 +555,19 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="BackupIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
+                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96M14 13v4h-4v-4H7l5-5 5 5z"
                   />
                 </svg>
               </span>
             </td>
             <td
-              class="table-row__file-name-cell MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root table-row__file-name-cell MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-1397gws-MuiTableCell-root"
             >
               <span>
                 Uploading file 
@@ -603,34 +579,31 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1xt9p6r-MuiTableCell-root"
             >
               ONGOING
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1xt9p6r-MuiTableCell-root"
             >
               <button
                 aria-label="cancel job"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1wjzr1s-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="cancel-job-button"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="CancelIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2m5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12z"
                   />
                 </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </button>
             </td>
           </tr>
@@ -639,7 +612,7 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
             data-testid="job-id-9"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__file-type-cell css-1397gws-MuiTableCell-root"
             >
               <span
                 aria-label="UPLOAD_FILE"
@@ -648,19 +621,19 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="BackupIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"
+                    d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96M14 13v4h-4v-4H7l5-5 5 5z"
                   />
                 </svg>
               </span>
             </td>
             <td
-              class="table-row__file-name-cell MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-11w94w9-MuiTableCell-root"
+              class="MuiTableCell-root table-row__file-name-cell MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeMedium css-1397gws-MuiTableCell-root"
             >
               <span>
                 Uploading file 
@@ -672,34 +645,31 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
               </span>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__status-cell css-1xt9p6r-MuiTableCell-root"
             >
               ONGOING
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1154xc7-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-paddingNone MuiTableCell-sizeMedium table-row__cancel-button-cell css-1xt9p6r-MuiTableCell-root"
             >
               <button
                 aria-label="cancel job"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1wjzr1s-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="cancel-job-button"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                   data-testid="CancelIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2m5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12z"
                   />
                 </svg>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
               </button>
             </td>
           </tr>
@@ -710,7 +680,7 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
       class="MuiTablePagination-root css-jtlhu6-MuiTablePagination-root"
     >
       <div
-        class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar css-11bfvty-MuiToolbar-root-MuiTablePagination-toolbar"
+        class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar css-16og44m-MuiToolbar-root-MuiTablePagination-toolbar"
       >
         <div
           class="MuiTablePagination-spacer css-1psng7p-MuiTablePagination-spacer"
@@ -721,27 +691,27 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
           Rows per page:
         </p>
         <div
-          class="MuiInputBase-root MuiInputBase-colorPrimary css-16c50h-MuiInputBase-root-MuiTablePagination-select"
-          variant="standard"
+          class="MuiInputBase-root MuiInputBase-colorPrimary MuiTablePagination-input css-16c50h-MuiInputBase-root-MuiTablePagination-select"
         >
           <div
             aria-expanded="false"
             aria-haspopup="listbox"
-            class="MuiTablePagination-select MuiSelect-select MuiSelect-standard MuiInputBase-input css-194a1fa-MuiSelect-select-MuiInputBase-input"
-            role="button"
+            class="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input css-141c2s2-MuiSelect-select-MuiInputBase-input"
+            role="combobox"
             tabindex="0"
           >
             10
           </div>
           <input
             aria-hidden="true"
+            aria-invalid="false"
             class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
             tabindex="-1"
             value="10"
           />
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTablePagination-selectIcon MuiSelect-icon MuiSelect-iconStandard css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiTablePagination-selectIcon MuiSelect-iconStandard css-rm9hue-MuiSvgIcon-root-MuiSelect-icon"
             data-testid="ArrowDropDownIcon"
             focusable="false"
             viewBox="0 0 24 24"
@@ -761,7 +731,7 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
         >
           <button
             aria-label="Go to previous page"
-            class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-colorInherit MuiIconButton-sizeMedium css-zylse7-MuiButtonBase-root-MuiIconButton-root"
+            class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-colorInherit MuiIconButton-sizeMedium css-1kcqes5-MuiButtonBase-root-MuiIconButton-root"
             disabled=""
             tabindex="-1"
             title="Go to previous page"
@@ -769,7 +739,7 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
               data-testid="KeyboardArrowLeftIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -781,14 +751,14 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
           </button>
           <button
             aria-label="Go to next page"
-            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeMedium css-zylse7-MuiButtonBase-root-MuiIconButton-root"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeMedium css-1kcqes5-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
             title="Go to next page"
             type="button"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
               data-testid="KeyboardArrowRightIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -797,9 +767,6 @@ exports[`Table should match snapshot given a list of jobs 1`] = `
                 d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
               />
             </svg>
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>

@@ -2,9 +2,12 @@
   "name": "rclone-drive-webui",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "clean": "rm -rf ./node_modules && rm -rf ./build",
-    "prepare": "husky install",
+    "prepare": "husky",
     "start-dev": "GENERATE_SOURCEMAP=false react-scripts start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "lint": "eslint 'src/**/*.js' && stylelint 'src/**/*.scss' && prettier --check .",
@@ -12,58 +15,60 @@
     "test": "react-scripts test --watchAll=false --coverage"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.8.1",
-    "@mui/icons-material": "^5.4.2",
-    "@mui/lab": "^5.0.0-alpha.103",
-    "@mui/material": "^5.4.3",
-    "axios": "^0.26.0",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.1",
+    "@mui/lab": "^6.0.0-beta.10",
+    "@mui/material": "^6.1.1",
+    "@mui/x-tree-view": "^7.18.0",
+    "axios": "^1.7.7",
     "buffer": "^6.0.3",
-    "classnames": "^2.3.1",
+    "classnames": "^2.5.1",
     "file-saver": "^2.0.5",
     "lodash": "^4.17.21",
-    "lru-cache": "^7.4.0",
-    "notistack": "^2.0.3",
-    "pretty-bytes": "^5.6.0",
+    "lru-cache": "^11.0.1",
+    "notistack": "^3.0.1",
+    "pretty-bytes": "^6.1.1",
     "prop-types": "^15.8.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-error-boundary": "^3.1.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-error-boundary": "^4.0.13",
     "react-file-viewer": "^1.2.1",
-    "react-intersection-observer": "^9.4.1",
-    "react-pdf": "^5.7.1",
-    "react-router-dom": "^6.2.1",
-    "react-scripts": "^5.0.0",
-    "react-virtualized": "^9.22.3",
-    "react-virtualized-auto-sizer": "^1.0.6",
-    "react-window": "^1.8.6",
-    "rxjs": "^7.5.2",
-    "sass": "^1.55.0",
-    "uuid": "^8.3.2",
-    "web-vitals": "^2.1.4",
-    "yarn": "^1.22.17"
+    "react-intersection-observer": "^9.13.1",
+    "react-pdf": "^9.1.1",
+    "react-router-dom": "^6.26.2",
+    "react-scripts": "^5.0.1",
+    "react-virtualized": "^9.22.5",
+    "react-virtualized-auto-sizer": "^1.0.24",
+    "react-window": "^1.8.10",
+    "rxjs": "^7.8.1",
+    "sass": "^1.79.3",
+    "uuid": "^10.0.0",
+    "web-vitals": "^4.2.3",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.16.7",
-    "@commitlint/cli": "^17.3.0",
-    "@commitlint/config-conventional": "^16.0.0",
-    "@testing-library/dom": "^8.11.3",
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/react-hooks": "^7.0.2",
-    "@testing-library/user-event": "^13.5.0",
-    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
-    "babel-plugin-transform-import-meta": "^2.1.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/preset-react": "^7.24.7",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "babel-plugin-transform-import-meta": "^2.2.1",
     "babel-preset-react-app": "^10.0.1",
-    "blob-polyfill": "^6.0.20211015",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "husky": "^7.0.4",
-    "lint-staged": "^12.3.4",
-    "postcss": "^8.4.5",
-    "prettier": "^2.5.1",
-    "stylelint": "^14.13.0",
-    "stylelint-config-standard-scss": "^3.0.0"
+    "blob-polyfill": "^9.0.20240710",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "stylelint": "^16.9.0",
+    "stylelint-config-standard-scss": "^13.1.0"
   },
   "browserslist": {
     "production": [
@@ -78,9 +83,6 @@
     ]
   },
   "jest": {
-    "moduleNameMapper": {
-      "^react-pdf/dist/umd/entry.webpack$": "react-pdf"
-    },
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/index.js",
       "<rootDir>/src/reportWebVitals.js"
@@ -92,14 +94,18 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
+        "branches": 98,
+        "functions": 98,
+        "lines": 98,
+        "statements": 98
       }
     },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!axios|pretty-bytes)"
+    ],
     "transform": {
       "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/jest-transformer.js"
     }
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

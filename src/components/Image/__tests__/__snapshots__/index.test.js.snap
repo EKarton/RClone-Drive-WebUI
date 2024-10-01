@@ -35,7 +35,7 @@ exports[`Image should render spinner when api call is in flight 1`] = `
 <body>
   <div>
     <span
-      class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse image css-58ftfq-MuiSkeleton-root"
+      class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse image css-ob4eb1-MuiSkeleton-root"
       data-testid="image-spinner"
       style="width: 20px; height: 20px;"
     />

@@ -1,7 +1,7 @@
 import times from 'lodash/times';
 import { BehaviorSubject } from 'rxjs';
 import { JobStatus, JobTypes } from 'utils/constants';
-import { render, screen, userEvent } from 'test-utils/react';
+import { render, screen, waitFor, userEvent } from 'test-utils/react';
 import Table from '../Table';
 
 const mockJobs = Array.from({ length: 100 }, (_, i) => ({
@@ -34,6 +34,9 @@ describe('Table', () => {
     render(<Table jobs={mockJobs} />);
 
     userEvent.click(screen.getByText('10'));
+    await waitFor(() => {
+      expect(screen.getByText('25')).toBeInTheDocument();
+    });
     userEvent.click(screen.getByText('25'));
 
     await waitForRecordsToExist(times(25));

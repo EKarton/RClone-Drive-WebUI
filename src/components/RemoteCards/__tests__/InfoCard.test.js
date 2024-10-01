@@ -4,7 +4,7 @@ import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { StatusTypes } from 'utils/constants';
 import { mockOperationsAboutResponse } from 'test-utils/mock-responses';
 import { mockConfigGetResponse } from 'test-utils/mock-responses';
-import { customRender, screen, fireEvent, userEvent } from 'test-utils/react';
+import { customRender, screen, fireEvent, waitFor, userEvent } from 'test-utils/react';
 import InfoCard from '../InfoCard';
 
 jest.mock('hooks/fetch-data/useFetchRemoteSpaceInfo');
@@ -84,12 +84,12 @@ describe('InfoCard', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('should call RCloneClient.emptyTrashCan() when user right-clicks on card and selects Clear Trash', () => {
+  it('should call RCloneClient.emptyTrashCan() when user right-clicks on card and selects Clear Trash', async () => {
     customRender(<InfoCard remote="googledrive" />);
 
     fireEvent.contextMenu(screen.getByRole('button'));
     userEvent.click(screen.getByTestId('clear-trash-button'));
 
-    expect(emptyTrashCan).toBeCalledWith('googledrive');
+    await waitFor(() => expect(emptyTrashCan).toBeCalledWith('googledrive'));
   });
 });
