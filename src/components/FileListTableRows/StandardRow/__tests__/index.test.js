@@ -1,4 +1,4 @@
-import { render, userEvent, fireEvent, screen } from 'test-utils/react';
+import { render, userEvent, fireEvent, waitFor, screen } from 'test-utils/react';
 import StandardRow from '..';
 
 describe('StandardRow', () => {
@@ -53,72 +53,72 @@ describe('StandardRow', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('should call onFileOpen() when user double-clicks on the row', () => {
+  it('should call onFileOpen() when user double-clicks on the row', async () => {
     const handleOpen = jest.fn();
     render(<StandardRow file={file} onFileOpen={handleOpen} />);
 
     userEvent.dblClick(screen.getByRole('row'));
 
-    expect(handleOpen).toBeCalled();
+    await waitFor(() => expect(handleOpen).toBeCalled());
   });
 
-  it('should call onFileOpen() when user right-clicks on the row and selects Open', () => {
+  it('should call onFileOpen() when user right-clicks on the row and selects Open', async () => {
     const handleOpen = jest.fn();
     render(<StandardRow file={file} onFileOpen={handleOpen} />);
 
     fireEvent.contextMenu(screen.getByRole('row'));
     userEvent.click(screen.getByText('Open'));
 
-    expect(handleOpen).toBeCalled();
+    await waitFor(() => expect(handleOpen).toBeCalled());
   });
 
-  it('should call onFileRename() when user right-clicks on the row and selects Rename', () => {
+  it('should call onFileRename() when user right-clicks on the row and selects Rename', async () => {
     const handleRename = jest.fn();
     render(<StandardRow file={file} onFileRename={handleRename} />);
 
     fireEvent.contextMenu(screen.getByRole('row'));
     userEvent.click(screen.getByText('Rename'));
 
-    expect(handleRename).toBeCalled();
+    await waitFor(() => expect(handleRename).toBeCalled());
   });
 
-  it('should call onFileCopy() when user right-clicks on the row and selects Copy', () => {
+  it('should call onFileCopy() when user right-clicks on the row and selects Copy', async () => {
     const handleCopy = jest.fn();
     render(<StandardRow file={file} onFileCopy={handleCopy} />);
 
     fireEvent.contextMenu(screen.getByRole('row'));
     userEvent.click(screen.getByText('Copy'));
 
-    expect(handleCopy).toBeCalled();
+    await waitFor(() => expect(handleCopy).toBeCalled());
   });
 
-  it('should call onFileDelete() when user right-clicks on the row and selects Delete', () => {
+  it('should call onFileDelete() when user right-clicks on the row and selects Delete', async () => {
     const handleDelete = jest.fn();
     render(<StandardRow file={file} onFileDelete={handleDelete} />);
 
     fireEvent.contextMenu(screen.getByRole('row'));
     userEvent.click(screen.getByText('Delete'));
 
-    expect(handleDelete).toBeCalled();
+    await waitFor(() => expect(handleDelete).toBeCalled());
   });
 
-  it('should call onFileDownload() when user right-clicks on the row and selects Download', () => {
+  it('should call onFileDownload() when user right-clicks on the row and selects Download', async () => {
     const handleDownload = jest.fn();
     render(<StandardRow file={file} onFileDownload={handleDownload} />);
 
     fireEvent.contextMenu(screen.getByRole('row'));
     userEvent.click(screen.getByText('Download'));
 
-    expect(handleDownload).toBeCalled();
+    await waitFor(() => expect(handleDownload).toBeCalled());
   });
 
-  it('should call onFileMove() when user right-clicks on the row and selects Move', () => {
+  it('should call onFileMove() when user right-clicks on the row and selects Move', async () => {
     const handleMove = jest.fn();
     render(<StandardRow file={file} onFileMove={handleMove} />);
 
     fireEvent.contextMenu(screen.getByRole('row'));
     userEvent.click(screen.getByText('Move to'));
 
-    expect(handleMove).toBeCalled();
+    await waitFor(() => expect(handleMove).toBeCalled());
   });
 });

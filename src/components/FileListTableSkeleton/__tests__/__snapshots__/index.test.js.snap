@@ -4,8 +4,9 @@ exports[`FileListTableSkeleton should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root file-list-table css-11xur9t-MuiPaper-root-MuiTableContainer-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root file-list-table css-v73c9r-MuiPaper-root-MuiTableContainer-root"
       data-testid="files-list-table-skeleton"
+      style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
     >
       <table
         class="MuiTable-root css-rqglhn-MuiTable-root"
@@ -17,19 +18,19 @@ exports[`FileListTableSkeleton should match snapshot 1`] = `
             class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
           >
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1t7lzbz-MuiTableCell-root"
               scope="col"
             >
               Name
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1t7lzbz-MuiTableCell-root"
               scope="col"
             >
               Date Modified
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1t7lzbz-MuiTableCell-root"
               scope="col"
             >
               File Size
@@ -43,11 +44,11 @@ exports[`FileListTableSkeleton should match snapshot 1`] = `
             class="MuiTableRow-root file-list-table-skeleton__row css-1q1u3t4-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-10ukr6t-MuiTableCell-root"
               colspan="3"
             >
               <span
-                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1k2v1y0-MuiSkeleton-root"
               />
             </td>
           </tr>
@@ -55,11 +56,11 @@ exports[`FileListTableSkeleton should match snapshot 1`] = `
             class="MuiTableRow-root file-list-table-skeleton__row css-1q1u3t4-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-10ukr6t-MuiTableCell-root"
               colspan="3"
             >
               <span
-                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1k2v1y0-MuiSkeleton-root"
               />
             </td>
           </tr>
@@ -67,11 +68,11 @@ exports[`FileListTableSkeleton should match snapshot 1`] = `
             class="MuiTableRow-root file-list-table-skeleton__row css-1q1u3t4-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-10ukr6t-MuiTableCell-root"
               colspan="3"
             >
               <span
-                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1k2v1y0-MuiSkeleton-root"
               />
             </td>
           </tr>
@@ -79,11 +80,11 @@ exports[`FileListTableSkeleton should match snapshot 1`] = `
             class="MuiTableRow-root file-list-table-skeleton__row css-1q1u3t4-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-10ukr6t-MuiTableCell-root"
               colspan="3"
             >
               <span
-                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1k2v1y0-MuiSkeleton-root"
               />
             </td>
           </tr>
@@ -91,11 +92,11 @@ exports[`FileListTableSkeleton should match snapshot 1`] = `
             class="MuiTableRow-root file-list-table-skeleton__row css-1q1u3t4-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-10ukr6t-MuiTableCell-root"
               colspan="3"
             >
               <span
-                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1dk1h2u-MuiSkeleton-root"
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1k2v1y0-MuiSkeleton-root"
               />
             </td>
           </tr>

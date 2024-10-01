@@ -6,6 +6,11 @@ exports[`LogoutPage should render page correctly, clearRCloneInfo(), redirect us
     <div>
       Logging out...
     </div>
+    <div
+      data-testid="location-display"
+    >
+      /
+    </div>
   </div>
 </body>
 `;

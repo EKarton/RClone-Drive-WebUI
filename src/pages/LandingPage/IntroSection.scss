@@ -25,7 +25,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .intro-section {
     flex-direction: column;
     justify-content: center;

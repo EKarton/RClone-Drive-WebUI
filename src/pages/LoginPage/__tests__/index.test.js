@@ -1,5 +1,6 @@
 import RCloneClient from 'services/RCloneClient';
 import { customRender, userEvent, waitFor, screen } from 'test-utils/react';
+import { useLocation } from 'react-router-dom';
 import LoginPage from '..';
 
 jest.mock('services/RCloneClient');
@@ -21,7 +22,12 @@ describe('LoginPage', () => {
   });
 
   it('should go to the files page when user enters rclone info and clicks Login', async () => {
-    const view = customRender(<LoginPage />);
+    customRender(
+      <>
+        <LoginPage />
+        <LocationDisplay />
+      </>
+    );
 
     userEvent.type(screen.getByTestId('endpoint-field'), 'http://localhost:5572');
     userEvent.type(screen.getByTestId('username-field'), 'admin');
@@ -29,13 +35,22 @@ describe('LoginPage', () => {
 
     userEvent.click(screen.getByTestId('login-button'));
 
-    await waitFor(() => expect(view.history.location.pathname).toEqual('/files'));
+    await waitFor(() => {
+      expect(screen.getByTestId('location-display')).toHaveTextContent('/files');
+    });
   });
 
   it('should go to the redirect_path when user enters rclone info and clicks Login', async () => {
     const redirectPath = '/files/T25lZHJpdmU6';
     const route = `/login?redirect_path=${redirectPath}`;
-    const view = customRender(<LoginPage />, {}, { route });
+    customRender(
+      <>
+        <LoginPage />
+        <LocationDisplay />
+      </>,
+      {},
+      { route }
+    );
 
     userEvent.type(screen.getByTestId('endpoint-field'), 'http://localhost:5572');
     userEvent.type(screen.getByTestId('username-field'), 'admin');
@@ -43,7 +58,9 @@ describe('LoginPage', () => {
 
     userEvent.click(screen.getByTestId('login-button'));
 
-    await waitFor(() => expect(view.history.location.pathname).toEqual(redirectPath));
+    await waitFor(() => {
+      expect(screen.getByTestId('location-display')).toHaveTextContent(redirectPath);
+    });
   });
 
   it('should show an error message when when user enters rclone info and rclone throws an error', async () => {
@@ -68,3 +85,8 @@ describe('LoginPage', () => {
     await screen.findByTestId('login-help-dialog');
   });
 });
+
+function LocationDisplay() {
+  const location = useLocation();
+  return <div data-testid="location-display">{location.pathname}</div>;
+}

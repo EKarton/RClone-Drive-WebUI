@@ -11,7 +11,7 @@ exports[`FilesListPage should match snapshot 1`] = `
       >
         <nav
           aria-label="breadcrumb"
-          class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root"
+          class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-8yvas4-MuiTypography-root-MuiBreadcrumbs-root"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -20,7 +20,7 @@ exports[`FilesListPage should match snapshot 1`] = `
               class="MuiBreadcrumbs-li"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dyz36p-MuiTypography-root-MuiLink-root"
                 href="/files"
               >
                 My Files
@@ -36,7 +36,7 @@ exports[`FilesListPage should match snapshot 1`] = `
               class="MuiBreadcrumbs-li"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dyz36p-MuiTypography-root-MuiLink-root"
                 href="/files/Z2RyaXZlOg=="
               >
                 gdrive
@@ -52,7 +52,7 @@ exports[`FilesListPage should match snapshot 1`] = `
               class="MuiBreadcrumbs-li"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dyz36p-MuiTypography-root-MuiLink-root"
                 href="/files/Z2RyaXZlOlBpY3R1cmVz"
               >
                 Pictures
@@ -68,7 +68,7 @@ exports[`FilesListPage should match snapshot 1`] = `
               class="MuiBreadcrumbs-li"
             >
               <p
-                class="MuiTypography-root MuiTypography-body1 css-1gqyz35-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-1f6v1q3-MuiTypography-root"
               >
                 2021
               </p>
@@ -84,8 +84,9 @@ exports[`FilesListPage should match snapshot 1`] = `
           class="add-files-context-area"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root file-list-table css-11xur9t-MuiPaper-root-MuiTableContainer-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root file-list-table css-v73c9r-MuiPaper-root-MuiTableContainer-root"
             data-testid="file-list-table"
+            style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
           >
             <table
               class="MuiTable-root css-rqglhn-MuiTable-root"
@@ -97,19 +98,19 @@ exports[`FilesListPage should match snapshot 1`] = `
                   class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1t7lzbz-MuiTableCell-root"
                     scope="col"
                   >
                     Name
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1t7lzbz-MuiTableCell-root"
                     scope="col"
                   >
                     Date Modified
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1t7lzbz-MuiTableCell-root"
                     scope="col"
                   >
                     File Size
@@ -124,7 +125,7 @@ exports[`FilesListPage should match snapshot 1`] = `
                   tabindex="0"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     <div
                       class="filelist-table-base-row__file-cell"
@@ -132,13 +133,13 @@ exports[`FilesListPage should match snapshot 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                         data-testid="FolderIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8z"
                         />
                       </svg>
                       <div>
@@ -147,12 +148,12 @@ exports[`FilesListPage should match snapshot 1`] = `
                     </div>
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     2021-11-01T21:09:05.237Z
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     -
                   </td>
@@ -162,7 +163,7 @@ exports[`FilesListPage should match snapshot 1`] = `
                   tabindex="0"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     <div
                       class="filelist-table-base-row__file-cell"
@@ -170,13 +171,13 @@ exports[`FilesListPage should match snapshot 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                         data-testid="FolderIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8z"
                         />
                       </svg>
                       <div>
@@ -185,12 +186,12 @@ exports[`FilesListPage should match snapshot 1`] = `
                     </div>
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     2021-09-28T01:51:05.982Z
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     -
                   </td>
@@ -200,7 +201,7 @@ exports[`FilesListPage should match snapshot 1`] = `
                   tabindex="0"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     <div
                       class="filelist-table-base-row__file-cell"
@@ -208,13 +209,13 @@ exports[`FilesListPage should match snapshot 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                         data-testid="FolderIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8z"
                         />
                       </svg>
                       <div>
@@ -223,12 +224,12 @@ exports[`FilesListPage should match snapshot 1`] = `
                     </div>
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     2021-09-28T05:14:59.237Z
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     -
                   </td>
@@ -238,7 +239,7 @@ exports[`FilesListPage should match snapshot 1`] = `
                   tabindex="0"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     <div
                       class="filelist-table-base-row__file-cell"
@@ -246,13 +247,13 @@ exports[`FilesListPage should match snapshot 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                         data-testid="FolderIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8z"
                         />
                       </svg>
                       <div>
@@ -261,12 +262,12 @@ exports[`FilesListPage should match snapshot 1`] = `
                     </div>
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     2021-09-29T07:10:05.059Z
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     -
                   </td>
@@ -276,7 +277,7 @@ exports[`FilesListPage should match snapshot 1`] = `
                   tabindex="0"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     <div
                       class="filelist-table-base-row__file-cell"
@@ -284,13 +285,13 @@ exports[`FilesListPage should match snapshot 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                         data-testid="FolderIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8z"
                         />
                       </svg>
                       <div>
@@ -299,12 +300,12 @@ exports[`FilesListPage should match snapshot 1`] = `
                     </div>
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     2021-09-28T03:39:11.850Z
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     -
                   </td>
@@ -314,7 +315,7 @@ exports[`FilesListPage should match snapshot 1`] = `
                   tabindex="0"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     <div
                       class="filelist-table-base-row__file-cell"
@@ -322,13 +323,13 @@ exports[`FilesListPage should match snapshot 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                         data-testid="FolderIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8z"
                         />
                       </svg>
                       <div>
@@ -337,12 +338,12 @@ exports[`FilesListPage should match snapshot 1`] = `
                     </div>
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     2021-09-28T03:45:02.471Z
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     -
                   </td>
@@ -352,7 +353,7 @@ exports[`FilesListPage should match snapshot 1`] = `
                   tabindex="0"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     <div
                       class="filelist-table-base-row__file-cell"
@@ -360,13 +361,13 @@ exports[`FilesListPage should match snapshot 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                         data-testid="FolderIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+                          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8z"
                         />
                       </svg>
                       <div>
@@ -375,12 +376,12 @@ exports[`FilesListPage should match snapshot 1`] = `
                     </div>
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     2021-09-28T04:22:24.997Z
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     -
                   </td>
@@ -390,7 +391,7 @@ exports[`FilesListPage should match snapshot 1`] = `
                   tabindex="0"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     <div
                       class="filelist-table-base-row__file-cell"
@@ -398,13 +399,13 @@ exports[`FilesListPage should match snapshot 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root"
                         data-testid="DescriptionIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"
+                          d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8zm2 16H8v-2h8zm0-4H8v-2h8zm-3-5V3.5L18.5 9z"
                         />
                       </svg>
                       <div>
@@ -413,12 +414,12 @@ exports[`FilesListPage should match snapshot 1`] = `
                     </div>
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     2021-11-14T18:58:44.655Z
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-1ex1afd-MuiTableCell-root"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium filelist-table-base-row__table-cell css-10ukr6t-MuiTableCell-root"
                   >
                     1.11 kB
                   </td>
