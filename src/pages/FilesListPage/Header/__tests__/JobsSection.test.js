@@ -58,13 +58,10 @@ describe('JobsSection', () => {
     customRender(<JobsSection />, { initialJobQueueState });
 
     userEvent.click(screen.getByTestId('job-button'));
-    userEvent.keyboard('{esc}');
+    await userEvent.keyboard('{Escape}');
 
     await waitFor(() => {
-      expect(screen.queryByText('Uploading Dog.png')).not.toBeInTheDocument();
-    });
-    await waitFor(() => {
-      expect(screen.queryByText('Uploading Dog.png')).not.toBeInTheDocument();
+      expect(screen.queryByTestId('jobs-list-dialog')).not.toBeInTheDocument();
     });
   });
 

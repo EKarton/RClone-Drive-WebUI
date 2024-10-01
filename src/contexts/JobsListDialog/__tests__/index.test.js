@@ -39,7 +39,7 @@ describe('<JobsListDialogProvider> and useJobsListDialog()', () => {
     );
 
     userEvent.click(screen.getByText('Show dialog'));
-    userEvent.keyboard('{esc}');
+    await userEvent.keyboard('{Escape}');
 
     await waitFor(() => {
       expect(screen.queryByTestId('jobs-list-dialog')).not.toBeInTheDocument();
