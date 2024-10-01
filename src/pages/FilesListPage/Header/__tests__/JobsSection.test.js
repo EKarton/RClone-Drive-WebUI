@@ -1,8 +1,20 @@
 import { BehaviorSubject } from 'rxjs';
 import { JobStatus, JobTypes } from 'utils/constants';
-import { customRender, userEvent, screen } from 'test-utils/react';
-import { waitForElementToBeRemoved } from 'test-utils/react';
+import { customRender, userEvent, waitFor, screen } from 'test-utils/react';
 import JobsSection from '../JobsSection';
+
+jest.mock('react-pdf', () => ({
+  Document: jest.fn(() => null),
+  Page: jest.fn(() => null),
+  pdfjs: {
+    GlobalWorkerOptions: {
+      workerSrc: 'mockedWorkerSrc',
+    },
+  },
+}));
+
+jest.mock('react-pdf/dist/Page/AnnotationLayer.css', () => ({}), { virtual: true });
+jest.mock('react-pdf/dist/Page/TextLayer.css', () => ({}), { virtual: true });
 
 describe('JobsSection', () => {
   const initialJobQueueState = {
@@ -48,13 +60,19 @@ describe('JobsSection', () => {
     userEvent.click(screen.getByTestId('job-button'));
     userEvent.keyboard('{esc}');
 
-    await waitForElementToBeRemoved(() => screen.queryByText('Uploading Dog.png'));
+    await waitFor(() => {
+      expect(screen.queryByText('Uploading Dog.png')).not.toBeInTheDocument();
+    });
+    await waitFor(() => {
+      expect(screen.queryByText('Uploading Dog.png')).not.toBeInTheDocument();
+    });
   });
 
   it('should open jobs list dialog when user clicks on the jobs button and presses More Details button', async () => {
     customRender(<JobsSection />, { initialJobQueueState });
 
     userEvent.click(screen.getByTestId('job-button'));
+    await screen.findByTestId('more-details-button');
     userEvent.click(screen.getByTestId('more-details-button'));
 
     await screen.findByTestId('jobs-list-dialog');

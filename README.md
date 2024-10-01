@@ -51,7 +51,7 @@ Refer to [this doc](docs/Walkthrough.md) for a detailed walkthrough. However, he
 
 1. `yarn test`
 
-   Runs all test cases
+   Runs all test cases. To run only one test case, specify the relative path to the test like `yarn test src/pages/FilesPage/__tests__/index.test.js`
 
 2. `yarn build`
 

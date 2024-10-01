@@ -2,7 +2,7 @@ import Button from '@mui/material/Button';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import useColorMode from 'hooks/utils/useColorMode';
 import { COLOR_MODE } from 'utils/constants';
-import { render, userEvent, screen } from 'test-utils/react';
+import { render, userEvent, waitFor, screen } from 'test-utils/react';
 import { ColorModeProvider } from '../index';
 
 jest.mock('@mui/material/useMediaQuery');
@@ -12,36 +12,36 @@ describe('ColorMode', () => {
     useMediaQuery.mockReturnValue(true);
   });
 
-  it('should match snapshot and set theme to dark mode given system theme is dark mode', () => {
+  it('should match snapshot and set theme to dark mode given system theme is dark mode', async () => {
     renderComponent();
 
-    expect(screen.getByText('Value: dark')).toBeInTheDocument();
+    await screen.findByText('Value: dark');
   });
 
-  it('should match snapshot and set theme to light mode given system theme is light mode', () => {
+  it('should match snapshot and set theme to light mode given system theme is light mode', async () => {
     useMediaQuery.mockReturnValue(false);
 
     renderComponent();
 
-    expect(screen.getByText('Value: light')).toBeInTheDocument();
+    await screen.findByText('Value: light');
   });
 
-  it('should change theme to dark mode when user clicks on "Toggle Color Mode" button given theme is light mode', () => {
+  it('should change theme to dark mode when user clicks on "Toggle Color Mode" button given theme is light mode', async () => {
     useMediaQuery.mockReturnValue(false);
 
     renderComponent();
 
     userEvent.click(screen.getByText('Toggle Color Mode'));
 
-    expect(screen.getByText('Value: dark')).toBeInTheDocument();
+    await screen.findByText('Value: dark');
   });
 
-  it('should change theme to light mode when user clicks on "Toggle Color Mode" given theme is dark mode', () => {
+  it('should change theme to light mode when user clicks on "Toggle Color Mode" given theme is dark mode', async () => {
     renderComponent();
 
     userEvent.click(screen.getByText('Toggle Color Mode'));
 
-    expect(screen.getByText('Value: light')).toBeInTheDocument();
+    await screen.findByText('Value: light');
   });
 
   const renderComponent = () => {

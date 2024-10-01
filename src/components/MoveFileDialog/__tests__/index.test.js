@@ -2,7 +2,7 @@ import useFetchRemotes from 'hooks/fetch-data/useFetchRemotes';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { StatusTypes } from 'utils/constants';
 import { mockFiles, mockRemotes } from 'test-utils/mock-responses';
-import { customRender, userEvent, fireEvent, screen } from 'test-utils/react';
+import { customRender, userEvent, fireEvent, waitFor, screen } from 'test-utils/react';
 import MoveFileDialog from '..';
 
 jest.mock('hooks/fetch-data/useFetchRemotes');
@@ -55,14 +55,14 @@ describe('MoveFileDialog', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('should call onCancel() when user clicks on Cancel button', () => {
+  it('should call onCancel() when user clicks on Cancel button', async () => {
     customRender(
       <MoveFileDialog open fileName="dog.png" onCancel={onCancel} onOk={onOk} />
     );
 
     userEvent.click(screen.getByTestId('cancel-button'));
 
-    expect(onCancel).toBeCalled();
+    await waitFor(() => expect(onCancel).toBeCalled());
   });
 
   it('should call onOk() when user selects a subfolder and clicks on the Ok button', async () => {
@@ -75,7 +75,7 @@ describe('MoveFileDialog', () => {
     fireEvent.click(screen.getByText('googledrive'));
     userEvent.click(screen.getByTestId('ok-button'));
 
-    expect(onOk).toBeCalledWith('googledrive:');
+    await waitFor(() => expect(onOk).toBeCalledWith('googledrive:'));
   });
 
   it('should call onCancel() when user did not select anything and clicks on the Ok button', async () => {
@@ -85,6 +85,6 @@ describe('MoveFileDialog', () => {
 
     userEvent.click(screen.getByTestId('ok-button'));
 
-    expect(onCancel).toBeCalled();
+    await waitFor(() => expect(onCancel).toBeCalled());
   });
 });

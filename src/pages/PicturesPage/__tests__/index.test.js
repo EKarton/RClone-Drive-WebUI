@@ -2,13 +2,27 @@ import RemotesListSection from 'components/RemotesListSection';
 import { FileViewerDialogProvider } from 'contexts/FileViewerDialog';
 import PicturesPage from 'pages/PicturesPage';
 import { hashRemotePath } from 'utils/remote-paths-url';
-import { act, customRender, waitFor } from 'test-utils/react';
+import { act, customRender, waitFor, screen } from 'test-utils/react';
 import FolderBrowserDialog from '../FolderBrowserDialog';
 import RecentPicturesSection from '../RecentPicturesSection';
+import { useLocation } from 'react-router-dom';
 
 jest.mock('components/RemotesListSection');
 jest.mock('../FolderBrowserDialog');
 jest.mock('../RecentPicturesSection');
+
+jest.mock('react-pdf', () => ({
+  Document: jest.fn(() => null),
+  Page: jest.fn(() => null),
+  pdfjs: {
+    GlobalWorkerOptions: {
+      workerSrc: 'mockedWorkerSrc',
+    },
+  },
+}));
+
+jest.mock('react-pdf/dist/Page/AnnotationLayer.css', () => ({}), { virtual: true });
+jest.mock('react-pdf/dist/Page/TextLayer.css', () => ({}), { virtual: true });
 
 describe('PicturesPage', () => {
   beforeEach(() => {
@@ -43,13 +57,13 @@ describe('PicturesPage', () => {
       return null;
     });
 
-    const view = renderComponent();
+    renderComponent();
 
     act(() => jest.runAllTimers());
 
     await waitFor(() => {
       const expectedPath = `/pictures/${hashRemotePath('googledrive:Pictures')}`;
-      expect(view.history.location.pathname).toEqual(expectedPath);
+      expect(screen.getByTestId('location-display')).toHaveTextContent(expectedPath);
     });
   });
 
@@ -97,13 +111,17 @@ describe('PicturesPage', () => {
     const componentToRender = (
       <FileViewerDialogProvider>
         <PicturesPage />
+        <LocationDisplay />
       </FileViewerDialogProvider>
     );
 
-    const view = customRender(componentToRender, {
+    return customRender(componentToRender, {
       initialRCloneInfoState,
     });
-
-    return view;
   };
 });
+
+function LocationDisplay() {
+  const location = useLocation();
+  return <div data-testid="location-display">{location.pathname}</div>;
+}

@@ -1,5 +1,5 @@
 import { mockPictures } from 'test-utils/mock-responses';
-import { customRender, userEvent, screen } from 'test-utils/react';
+import { customRender, userEvent, waitFor, screen } from 'test-utils/react';
 import LazyImageList from '..';
 
 jest.mock('components/LazyImage', () => () => null);
@@ -47,7 +47,7 @@ describe('LazyImageList', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('should call onImageClicked() correctly when clicked on an image', () => {
+  it('should call onImageClicked() correctly when clicked on an image', async () => {
     Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
       configurable: true,
       value: 800,
@@ -66,15 +66,17 @@ describe('LazyImageList', () => {
 
     userEvent.click(screen.getByTestId('20120517_171428.JPG'));
 
-    expect(onImageClicked).toBeCalledWith({
-      remote,
-      dirPath: 'Pictures/2012',
-      fileName: '20120517_171428.JPG',
-      dateTaken: {
-        year: 2012,
-        month: 5,
-        day: 17,
-      },
+    await waitFor(() => {
+      expect(onImageClicked).toBeCalledWith({
+        remote,
+        dirPath: 'Pictures/2012',
+        fileName: '20120517_171428.JPG',
+        dateTaken: {
+          year: 2012,
+          month: 5,
+          day: 17,
+        },
+      });
     });
   });
 });

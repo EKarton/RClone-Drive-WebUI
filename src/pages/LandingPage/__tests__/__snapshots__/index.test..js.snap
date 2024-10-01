@@ -17,7 +17,7 @@ exports[`LandingPage should match snapshot 1`] = `
           class="landing-page-app-bar__right-items"
         >
           <span
-            class="MuiSwitch-root MuiSwitch-sizeSmall css-ds9z5m-MuiSwitch-root"
+            class="MuiSwitch-root MuiSwitch-sizeSmall css-gucfxu-MuiSwitch-root"
           >
             <span
               class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase"
@@ -329,7 +329,7 @@ exports[`LandingPage should match snapshot when user scrolls down on the page 1`
           class="landing-page-app-bar__right-items"
         >
           <span
-            class="MuiSwitch-root MuiSwitch-sizeSmall css-ds9z5m-MuiSwitch-root"
+            class="MuiSwitch-root MuiSwitch-sizeSmall css-gucfxu-MuiSwitch-root"
           >
             <span
               class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase"
