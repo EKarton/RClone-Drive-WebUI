@@ -11,8 +11,9 @@ exports[`TableSection should render a no files illustration when there are no up
         class="add-files-context-area"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root file-list-table css-11xur9t-MuiPaper-root-MuiTableContainer-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root file-list-table css-v73c9r-MuiPaper-root-MuiTableContainer-root"
           data-testid="file-list-table"
+          style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
         >
           <table
             class="MuiTable-root css-rqglhn-MuiTable-root"
@@ -24,19 +25,19 @@ exports[`TableSection should render a no files illustration when there are no up
                 class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
               >
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1t7lzbz-MuiTableCell-root"
                   scope="col"
                 >
                   Name
                 </th>
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1t7lzbz-MuiTableCell-root"
                   scope="col"
                 >
                   Date Modified
                 </th>
                 <th
-                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1ygcj2i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium file-list-table__header-cell css-1t7lzbz-MuiTableCell-root"
                   scope="col"
                 >
                   File Size
@@ -64,12 +65,12 @@ exports[`TableSection should render a no files illustration when there are no up
               class="no-files-illustration__text"
             >
               <p
-                class="MuiTypography-root MuiTypography-body1 css-1gqyz35-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-1f6v1q3-MuiTypography-root"
               >
                 There are no files in this folder.
               </p>
               <p
-                class="MuiTypography-root MuiTypography-body1 css-1gqyz35-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-1f6v1q3-MuiTypography-root"
               >
                 Drag and drop to add files to this folder.
               </p>
@@ -77,6 +78,11 @@ exports[`TableSection should render a no files illustration when there are no up
           </div>
         </div>
       </div>
+    </div>
+    <div
+      data-testid="location-display"
+    >
+      /files/Z2RyaXZlOg==
     </div>
   </div>
 </body>

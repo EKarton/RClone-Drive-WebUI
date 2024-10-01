@@ -1,4 +1,4 @@
-import { TreeView } from '@mui/lab';
+import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
 import useRCloneClient from 'hooks/rclone/useRCloneClient';
 import { customRender, fireEvent, screen } from 'test-utils/react';
 import FolderTreeItem from '../FolderTreeItem';
@@ -68,9 +68,9 @@ describe('FolderTreeItem', () => {
     });
 
     const { baseElement } = customRender(
-      <TreeView>
+      <SimpleTreeView>
         <FolderTreeItem remote="gdrive" curPath="" label="/" />
-      </TreeView>
+      </SimpleTreeView>
     );
 
     await screen.findByText('/');
@@ -101,9 +101,9 @@ describe('FolderTreeItem', () => {
     });
 
     customRender(
-      <TreeView>
+      <SimpleTreeView>
         <FolderTreeItem remote="gdrive" curPath="" label="/" />
-      </TreeView>
+      </SimpleTreeView>
     );
 
     await screen.findByText('/');
@@ -119,9 +119,9 @@ describe('FolderTreeItem', () => {
     fetchSubFoldersFn.mockRejectedValue(new Error('Random error'));
 
     customRender(
-      <TreeView>
+      <SimpleTreeView>
         <FolderTreeItem remote="gdrive" curPath="" label="/" />
-      </TreeView>
+      </SimpleTreeView>
     );
 
     await screen.findByText('/');
@@ -134,9 +134,9 @@ describe('FolderTreeItem', () => {
     fetchSubFoldersFn.mockResolvedValue([]);
 
     customRender(
-      <TreeView>
+      <SimpleTreeView>
         <FolderTreeItem remote="gdrive" curPath="" label="/" />
-      </TreeView>
+      </SimpleTreeView>
     );
 
     await screen.findByText('/');

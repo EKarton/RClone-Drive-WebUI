@@ -21,10 +21,11 @@ exports[`RecentPicturesSection should render correctly if screen width is < 800 
           style="width: 800px; height: 800px;"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-6fm6rz-MuiPaper-root-MuiCard-root"
+            style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
           >
             <button
-              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               data-testid="20100918_091219.jpg"
               tabindex="0"
               type="button"
@@ -32,16 +33,14 @@ exports[`RecentPicturesSection should render correctly if screen width is < 800 
               <span
                 class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
               />
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </button>
           </div>
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-6fm6rz-MuiPaper-root-MuiCard-root"
+            style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
           >
             <button
-              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               data-testid="20101009_105344.jpg"
               tabindex="0"
               type="button"
@@ -49,16 +48,14 @@ exports[`RecentPicturesSection should render correctly if screen width is < 800 
               <span
                 class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
               />
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </button>
           </div>
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-6fm6rz-MuiPaper-root-MuiCard-root"
+            style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
           >
             <button
-              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               data-testid="20100918_091229.jpg"
               tabindex="0"
               type="button"
@@ -66,25 +63,20 @@ exports[`RecentPicturesSection should render correctly if screen width is < 800 
               <span
                 class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
               />
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </button>
           </div>
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-6fm6rz-MuiPaper-root-MuiCard-root"
+            style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
           >
             <button
-              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               data-testid="20100918_091209.jpg"
               tabindex="0"
               type="button"
             >
               <span
                 class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-              />
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </button>
           </div>
@@ -130,10 +122,11 @@ exports[`RecentPicturesSection should render correctly if screen width is > 1920
           style="width: 2000px; height: 800px;"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-6fm6rz-MuiPaper-root-MuiCard-root"
+            style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
           >
             <button
-              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               data-testid="20100918_091219.jpg"
               tabindex="0"
               type="button"
@@ -141,16 +134,14 @@ exports[`RecentPicturesSection should render correctly if screen width is > 1920
               <span
                 class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
               />
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </button>
           </div>
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-6fm6rz-MuiPaper-root-MuiCard-root"
+            style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
           >
             <button
-              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               data-testid="20101009_105344.jpg"
               tabindex="0"
               type="button"
@@ -158,16 +149,14 @@ exports[`RecentPicturesSection should render correctly if screen width is > 1920
               <span
                 class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
               />
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </button>
           </div>
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-6fm6rz-MuiPaper-root-MuiCard-root"
+            style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
           >
             <button
-              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               data-testid="20100918_091229.jpg"
               tabindex="0"
               type="button"
@@ -175,16 +164,14 @@ exports[`RecentPicturesSection should render correctly if screen width is > 1920
               <span
                 class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
               />
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </button>
           </div>
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-6fm6rz-MuiPaper-root-MuiCard-root"
+            style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
           >
             <button
-              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               data-testid="20100918_091209.jpg"
               tabindex="0"
               type="button"
@@ -192,16 +179,14 @@ exports[`RecentPicturesSection should render correctly if screen width is > 1920
               <span
                 class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
               />
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </button>
           </div>
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-6fm6rz-MuiPaper-root-MuiCard-root"
+            style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
           >
             <button
-              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               data-testid="20101009_1053283.jpg"
               tabindex="0"
               type="button"
@@ -209,25 +194,20 @@ exports[`RecentPicturesSection should render correctly if screen width is > 1920
               <span
                 class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
               />
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </button>
           </div>
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-bhp9pd-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root recently-viewed-image__card css-6fm6rz-MuiPaper-root-MuiCard-root"
+            style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
           >
             <button
-              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root recently-viewed-image__card-area css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
               data-testid="20100918_0912434.jpg"
               tabindex="0"
               type="button"
             >
               <span
                 class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-              />
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </button>
           </div>

@@ -7,6 +7,18 @@ import FilesListPage from '../index';
 
 jest.mock('hooks/fetch-data/useFetchFiles');
 jest.mock('hooks/rclone/useRCloneClient');
+jest.mock('react-pdf', () => ({
+  Document: jest.fn(() => null),
+  Page: jest.fn(() => null),
+  pdfjs: {
+    GlobalWorkerOptions: {
+      workerSrc: 'mockedWorkerSrc',
+    },
+  },
+}));
+
+jest.mock('react-pdf/dist/Page/AnnotationLayer.css', () => ({}), { virtual: true });
+jest.mock('react-pdf/dist/Page/TextLayer.css', () => ({}), { virtual: true });
 
 describe('FilesListPage', () => {
   beforeEach(() => {

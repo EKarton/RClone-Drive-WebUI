@@ -4,10 +4,10 @@ exports[`SkeletonCard should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1v5z4dq-MuiPaper-root-MuiCard-root"
+      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-91svcj-MuiPaper-root-MuiCard-root"
     >
       <button
-        class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+        class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
         tabindex="0"
         type="button"
       >
@@ -15,32 +15,29 @@ exports[`SkeletonCard should match snapshot 1`] = `
           class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h6 remote-base-card__name css-2ulfj5-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h6 remote-base-card__name css-8zgow4-MuiTypography-root"
           >
             <span
-              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1x8pdvj-MuiSkeleton-root"
             />
           </div>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-atovpb-MuiTypography-root"
           >
             <span
-              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1x8pdvj-MuiSkeleton-root"
             />
           </p>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-atovpb-MuiTypography-root"
           >
             <span
-              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1x8pdvj-MuiSkeleton-root"
             />
           </p>
         </div>
         <span
           class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
     </div>

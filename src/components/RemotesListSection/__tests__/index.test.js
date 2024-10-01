@@ -6,7 +6,7 @@ import { StatusTypes } from 'utils/constants';
 import { mockConfigGetResponse } from 'test-utils/mock-responses';
 import { mockOperationsAboutResponse } from 'test-utils/mock-responses';
 import { mockRemotes } from 'test-utils/mock-responses';
-import { customRender, userEvent, screen } from 'test-utils/react';
+import { customRender, userEvent, waitFor, screen } from 'test-utils/react';
 import RemotesListSection from '..';
 
 jest.mock('hooks/fetch-data/useFetchRemotes');
@@ -69,7 +69,7 @@ describe('RemotesListSection', () => {
 
     userEvent.click(screen.getByText('googledrive'));
 
-    expect(view.onRemoteCardClicked).toBeCalledWith('googledrive');
+    await waitFor(() => expect(view.onRemoteCardClicked).toBeCalledWith('googledrive'));
   });
 
   const renderComponent = () => {

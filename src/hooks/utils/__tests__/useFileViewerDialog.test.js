@@ -3,6 +3,19 @@ import { FileViewerDialogProvider } from 'contexts/FileViewerDialog/index';
 import { RCloneInfoProvider } from 'contexts/RCloneInfo/index';
 import useFileViewerDialog from '../useFileViewerDialog';
 
+jest.mock('react-pdf', () => ({
+  Document: jest.fn(() => null),
+  Page: jest.fn(() => null),
+  pdfjs: {
+    GlobalWorkerOptions: {
+      workerSrc: 'mockedWorkerSrc',
+    },
+  },
+}));
+
+jest.mock('react-pdf/dist/Page/AnnotationLayer.css', () => ({}), { virtual: true });
+jest.mock('react-pdf/dist/Page/TextLayer.css', () => ({}), { virtual: true });
+
 describe('useFileViewerDialog', () => {
   it('should not throw an error and return a show() function given it is wrapped in FileViewerDialogProvider', () => {
     const { result } = renderHook(() => useFileViewerDialog(), {

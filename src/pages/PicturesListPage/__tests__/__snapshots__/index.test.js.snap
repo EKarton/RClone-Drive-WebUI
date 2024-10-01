@@ -5,7 +5,7 @@ exports[`PicturesListPage should not throw an error when the api call succeeds 1
   <div>
     <nav
       aria-label="breadcrumb"
-      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root pictures-list-page__header css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root"
+      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root pictures-list-page__header css-8yvas4-MuiTypography-root-MuiBreadcrumbs-root"
     >
       <ol
         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -14,7 +14,7 @@ exports[`PicturesListPage should not throw an error when the api call succeeds 1
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dyz36p-MuiTypography-root-MuiLink-root"
             href="/pictures"
           >
             My Pictures
@@ -30,7 +30,7 @@ exports[`PicturesListPage should not throw an error when the api call succeeds 1
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dyz36p-MuiTypography-root-MuiLink-root"
             href="/pictures/Z29vZ2xlZHJpdmU6"
           >
             googledrive

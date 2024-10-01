@@ -1,6 +1,6 @@
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import TreeView from '@mui/lab/TreeView';
+import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
 import PropTypes from 'prop-types';
 import FolderTreeItem from './FolderTreeItem';
 
@@ -10,16 +10,16 @@ export default function FolderTree({ remotes, onSelect }) {
   };
 
   return (
-    <TreeView
+    <SimpleTreeView
       aria-label="file tree navigator"
       defaultCollapseIcon={<ExpandMoreIcon />}
       defaultExpandIcon={<ChevronRightIcon />}
-      onNodeSelect={handleNodeSelect}
+      onItemClick={handleNodeSelect}
     >
       {remotes.map((remote) => (
         <FolderTreeItem remote={remote} curPath="" label={remote} key={remote} />
       ))}
-    </TreeView>
+    </SimpleTreeView>
   );
 }
 

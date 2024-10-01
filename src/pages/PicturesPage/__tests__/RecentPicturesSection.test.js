@@ -2,7 +2,7 @@ import Image from 'components/Image';
 import useFileViewerDialog from 'hooks/utils/useFileViewerDialog';
 import useRecentlyViewedImages from 'hooks/utils/useRecentlyViewedImages';
 import getExistingPictures from 'utils/getExistingPictures';
-import { customRender, userEvent, screen } from 'test-utils/react';
+import { customRender, userEvent, waitFor, screen } from 'test-utils/react';
 import RecentPicturesSection from '../RecentPicturesSection';
 
 const recentPictures = [
@@ -48,6 +48,19 @@ jest.mock('hooks/utils/useFileViewerDialog');
 jest.mock('hooks/utils/useRecentlyViewedImages');
 jest.mock('hooks/rclone/useRCloneClient');
 jest.mock('utils/getExistingPictures');
+
+jest.mock('react-pdf', () => ({
+  Document: jest.fn(() => null),
+  Page: jest.fn(() => null),
+  pdfjs: {
+    GlobalWorkerOptions: {
+      workerSrc: 'mockedWorkerSrc',
+    },
+  },
+}));
+
+jest.mock('react-pdf/dist/Page/AnnotationLayer.css', () => ({}), { virtual: true });
+jest.mock('react-pdf/dist/Page/TextLayer.css', () => ({}), { virtual: true });
 
 describe('RecentPicturesSection', () => {
   // Derived from https://github.com/bvaughn/react-virtualized/issues/493#issuecomment-447014986
@@ -138,8 +151,8 @@ describe('RecentPicturesSection', () => {
     await screen.findByTestId(recentPictures[0].fileName);
     userEvent.click(screen.getByTestId(recentPictures[0].fileName));
 
-    expect(addImageFn).toBeCalledWith(recentPictures[0]);
-    expect(fileViewerShowFn).toBeCalledWith(recentPictures[0]);
+    await waitFor(() => expect(addImageFn).toBeCalledWith(recentPictures[0]));
+    await waitFor(() => expect(fileViewerShowFn).toBeCalledWith(recentPictures[0]));
   });
 
   it('should render nothing when there are no recent pictures', async () => {

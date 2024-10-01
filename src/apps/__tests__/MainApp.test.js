@@ -18,6 +18,19 @@ jest.mock('pages/PicturesPage');
 jest.mock('pages/PicturesListPage');
 jest.mock('pages/ErrorPages/NotFoundErrorPage');
 
+jest.mock('react-pdf', () => ({
+  Document: jest.fn(() => null),
+  Page: jest.fn(() => null),
+  pdfjs: {
+    GlobalWorkerOptions: {
+      workerSrc: 'mockedWorkerSrc',
+    },
+  },
+}));
+
+jest.mock('react-pdf/dist/Page/AnnotationLayer.css', () => ({}), { virtual: true });
+jest.mock('react-pdf/dist/Page/TextLayer.css', () => ({}), { virtual: true });
+
 describe('MainApp', () => {
   it('should match snapshot given valid route', () => {
     LandingPage.mockReturnValue(null);

@@ -9,7 +9,8 @@ import useMoveFileDialog from 'hooks/utils/useMoveFileDialog';
 import useRenameFileDialog from 'hooks/utils/useRenameFileDialog';
 import { StatusTypes, JobStatus, JobTypes } from 'utils/constants';
 import { hashRemotePath } from 'utils/remote-paths-url';
-import { customRender, fireEvent, userEvent, screen } from 'test-utils/react';
+import { customRender, fireEvent, userEvent, waitFor, screen } from 'test-utils/react';
+import { useLocation } from 'react-router-dom';
 import useGetFiles from '../hooks/useGetFiles';
 import TableSection from '../index';
 
@@ -20,6 +21,19 @@ jest.mock('hooks/utils/useFileDownloader');
 jest.mock('hooks/utils/useFileRemover');
 jest.mock('hooks/utils/useFileCopier');
 jest.mock('hooks/utils/useRenameFileDialog');
+
+jest.mock('react-pdf', () => ({
+  Document: jest.fn(() => null),
+  Page: jest.fn(() => null),
+  pdfjs: {
+    GlobalWorkerOptions: {
+      workerSrc: 'mockedWorkerSrc',
+    },
+  },
+}));
+
+jest.mock('react-pdf/dist/Page/AnnotationLayer.css', () => ({}), { virtual: true });
+jest.mock('react-pdf/dist/Page/TextLayer.css', () => ({}), { virtual: true });
 
 describe('TableSection', () => {
   const remote = 'gdrive';
@@ -127,99 +141,113 @@ describe('TableSection', () => {
     expect(renderComponent).toThrowError();
   });
 
-  it('should call fileViewer.show() when user right-clicks on a file and selects Open', () => {
+  it('should call fileViewer.show() when user right-clicks on a file and selects Open', async () => {
     renderComponent();
 
     fireEvent.contextMenu(screen.getByTestId('backup.sh'));
     userEvent.click(screen.getByTestId('open'));
 
-    expect(show).toBeCalledWith({ remote, dirPath: '', fileName: 'backup.sh' });
+    await waitFor(() =>
+      expect(show).toBeCalledWith({ remote, dirPath: '', fileName: 'backup.sh' })
+    );
   });
 
-  it('should redirect the user to the correct route when user right-clicks on a directory and selects Open', () => {
-    const view = renderComponent();
+  it('should redirect the user to the correct route when user right-clicks on a directory and selects Open', async () => {
+    renderComponent();
 
     fireEvent.contextMenu(screen.getByTestId('Documents'));
     userEvent.click(screen.getByTestId('open'));
 
     // Check that user went to the correct page
     const expectedPath = `/files/${hashRemotePath(`${remote}:Documents`)}`;
-    expect(view.history.location.pathname).toEqual(expectedPath);
+    await waitFor(() => {
+      expect(screen.getByTestId('location-display')).toHaveTextContent(expectedPath);
+    });
   });
 
-  it('should download the file when user right-clicks on a file and selects Download', () => {
+  it('should download the file when user right-clicks on a file and selects Download', async () => {
     renderComponent();
 
     fireEvent.contextMenu(screen.getByTestId('backup.sh'));
     userEvent.click(screen.getByTestId('download'));
 
-    expect(downloadFile).toHaveBeenCalledWith(
-      expect.objectContaining({
-        dirPath: '',
-        name: 'backup.sh',
-        remote: 'gdrive',
-      })
-    );
+    await waitFor(() => {
+      expect(downloadFile).toHaveBeenCalledWith(
+        expect.objectContaining({
+          dirPath: '',
+          name: 'backup.sh',
+          remote: 'gdrive',
+        })
+      );
+    });
   });
 
-  it('should delete the file when user right-clicks on a file and selects Delete', () => {
+  it('should delete the file when user right-clicks on a file and selects Delete', async () => {
     renderComponent();
 
     fireEvent.contextMenu(screen.getByTestId('backup.sh'));
     userEvent.click(screen.getByTestId('delete'));
 
-    expect(deleteFile).toHaveBeenCalledWith(
-      expect.objectContaining({
-        dirPath: '',
-        name: 'backup.sh',
-        remote: 'gdrive',
-      })
-    );
+    await waitFor(() => {
+      expect(deleteFile).toHaveBeenCalledWith(
+        expect.objectContaining({
+          dirPath: '',
+          name: 'backup.sh',
+          remote: 'gdrive',
+        })
+      );
+    });
   });
 
-  it('should copy the file when user right-clicks on a file and selects Copy', () => {
+  it('should copy the file when user right-clicks on a file and selects Copy', async () => {
     renderComponent();
 
     fireEvent.contextMenu(screen.getByTestId('backup.sh'));
     userEvent.click(screen.getByTestId('copy'));
 
-    expect(copyFile).toHaveBeenCalledWith(
-      expect.objectContaining({
-        dirPath: '',
-        name: 'backup.sh',
-        remote: 'gdrive',
-      })
-    );
+    await waitFor(() => {
+      expect(copyFile).toHaveBeenCalledWith(
+        expect.objectContaining({
+          dirPath: '',
+          name: 'backup.sh',
+          remote: 'gdrive',
+        })
+      );
+    });
   });
 
-  it('should rename the file when user right-clicks on the file and selects Rename', () => {
+  it('should rename the file when user right-clicks on the file and selects Rename', async () => {
     renderComponent();
 
     fireEvent.contextMenu(screen.getByTestId('backup.sh'));
     userEvent.click(screen.getByTestId('rename'));
 
-    expect(renameFile).toHaveBeenCalledWith(
-      expect.objectContaining({
-        dirPath: '',
-        name: 'backup.sh',
-        remote: 'gdrive',
-      })
-    );
+    await waitFor(() => {
+      expect(renameFile).toHaveBeenCalledWith(
+        expect.objectContaining({
+          dirPath: '',
+          name: 'backup.sh',
+          remote: 'gdrive',
+        })
+      );
+    });
   });
 
-  it('should move the file and refetch the data when user right-clicks on a file and selects Move', () => {
+  it('should move the file and refetch the data when user right-clicks on a file and selects Move', async () => {
     renderComponent();
 
     fireEvent.contextMenu(screen.getByTestId('backup.sh'));
     userEvent.click(screen.getByTestId('move'));
 
-    expect(moveFile).toHaveBeenCalledWith(
-      expect.objectContaining({
-        dirPath: '',
-        name: 'backup.sh',
-        remote: 'gdrive',
-      })
-    );
+    await waitFor(() => {
+      expect(moveFile).toHaveBeenCalledWith(
+        expect.objectContaining({
+          dirPath: '',
+          name: 'backup.sh',
+          remote: 'gdrive',
+        })
+      );
+    });
   });
 
   const renderComponent = () => {
@@ -231,18 +259,26 @@ describe('TableSection', () => {
 
     const route = `/files/${hashRemotePath('gdrive:')}`;
     const component = (
-      <Routes>
-        <Route
-          path="/files/:id"
-          element={
-            <JobQueueProvider>
-              <TableSection remote={remote} path="" />
-            </JobQueueProvider>
-          }
-        />
-      </Routes>
+      <>
+        <Routes>
+          <Route
+            path="/files/:id"
+            element={
+              <JobQueueProvider>
+                <TableSection remote={remote} path="" />
+              </JobQueueProvider>
+            }
+          />
+        </Routes>
+        <LocationDisplay />
+      </>
     );
 
     return customRender(component, { initialRCloneInfoState }, { route });
   };
 });
+
+function LocationDisplay() {
+  const location = useLocation();
+  return <div data-testid="location-display">{location.pathname}</div>;
+}
