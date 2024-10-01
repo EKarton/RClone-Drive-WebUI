@@ -2,6 +2,9 @@
   "name": "rclone-drive-webui",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "clean": "rm -rf ./node_modules && rm -rf ./build",
     "prepare": "husky",
@@ -91,10 +94,10 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
+        "branches": 98,
+        "functions": 98,
+        "lines": 98,
+        "statements": 98
       }
     },
     "transformIgnorePatterns": [

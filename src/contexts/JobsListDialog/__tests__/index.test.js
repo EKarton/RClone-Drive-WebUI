@@ -1,5 +1,5 @@
 import { JobQueueProvider } from 'contexts/JobQueue/index';
-import { render, screen, userEvent, waitFor } from 'test-utils/react';
+import { render, screen, userEvent, fireEvent, waitFor } from 'test-utils/react';
 import { JobsListDialogProvider, useJobsListDialog } from '../index';
 
 describe('<JobsListDialogProvider> and useJobsListDialog()', () => {
@@ -39,10 +39,10 @@ describe('<JobsListDialogProvider> and useJobsListDialog()', () => {
     );
 
     userEvent.click(screen.getByText('Show dialog'));
-    await userEvent.keyboard('{Escape}');
+    fireEvent.keyDown(document.body, { key: 'Escape', code: 'Escape' });
 
     await waitFor(async () => {
-      expect(screen.queryByRole('dialog')).not.toBeVisible();
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     });
   });
 

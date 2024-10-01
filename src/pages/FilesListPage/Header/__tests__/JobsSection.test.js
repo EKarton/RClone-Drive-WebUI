@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
 import { JobStatus, JobTypes } from 'utils/constants';
-import { customRender, userEvent, waitFor, screen } from 'test-utils/react';
+import { customRender, userEvent, waitFor, fireEvent, screen } from 'test-utils/react';
 import JobsSection from '../JobsSection';
 
 jest.mock('react-pdf', () => ({
@@ -58,10 +58,10 @@ describe('JobsSection', () => {
     customRender(<JobsSection />, { initialJobQueueState });
 
     userEvent.click(screen.getByTestId('job-button'));
-    await userEvent.keyboard('{Escape}');
+    fireEvent.keyDown(document.body, { key: 'Escape', code: 'Escape' });
 
     await waitFor(async () => {
-      expect(screen.queryByRole('dialog')).not.toBeVisible();
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     });
   });
 
