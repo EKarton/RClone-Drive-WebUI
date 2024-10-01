@@ -1,9 +1,22 @@
 import FolderTree from 'components/FolderTree';
 import { mockRemotes } from 'test-utils/mock-responses';
-import { act, customRender, userEvent, screen } from 'test-utils/react';
+import { act, customRender, userEvent, waitFor, screen } from 'test-utils/react';
 import FolderBrowserDialog from '../FolderBrowserDialog';
 
 jest.mock('components/FolderTree');
+
+jest.mock('react-pdf', () => ({
+  Document: jest.fn(() => null),
+  Page: jest.fn(() => null),
+  pdfjs: {
+    GlobalWorkerOptions: {
+      workerSrc: 'mockedWorkerSrc',
+    },
+  },
+}));
+
+jest.mock('react-pdf/dist/Page/AnnotationLayer.css', () => ({}), { virtual: true });
+jest.mock('react-pdf/dist/Page/TextLayer.css', () => ({}), { virtual: true });
 
 describe('FolderBrowserDialog', () => {
   it('should render FolderTree and call handleOk() once correctly if user selects an item from the FolderTree', async () => {
@@ -33,9 +46,9 @@ describe('FolderBrowserDialog', () => {
 
     userEvent.click(screen.getByTestId('ok-button'));
 
-    expect(onOkFn).toBeCalledTimes(1);
-    expect(onOkFn).toBeCalledWith('googledrive:Pictures');
-    expect(onCancelFn).not.toBeCalled();
+    await waitFor(() => expect(onOkFn).toBeCalledTimes(1));
+    await waitFor(() => expect(onOkFn).toBeCalledWith('googledrive:Pictures'));
+    await waitFor(() => expect(onCancelFn).not.toBeCalled());
   });
 
   it('should call handleCancel() when the Folder Tree clicks on onSelect() with no data', async () => {
@@ -63,8 +76,8 @@ describe('FolderBrowserDialog', () => {
 
     userEvent.click(screen.getByTestId('ok-button'));
 
-    expect(onCancelFn).toBeCalledTimes(1);
-    expect(onOkFn).not.toBeCalled();
+    await waitFor(() => expect(onCancelFn).toBeCalledTimes(1));
+    await waitFor(() => expect(onOkFn).not.toBeCalled());
   });
 
   it('should call handleCancel() when the user clicks on the Cancel button', async () => {
@@ -84,7 +97,7 @@ describe('FolderBrowserDialog', () => {
 
     userEvent.click(screen.getByTestId('cancel-button'));
 
-    expect(onCancelFn).toBeCalledTimes(1);
-    expect(onOkFn).not.toBeCalled();
+    await waitFor(() => expect(onCancelFn).toBeCalledTimes(1));
+    await waitFor(() => expect(onOkFn).not.toBeCalled());
   });
 });

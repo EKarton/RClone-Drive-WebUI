@@ -1,5 +1,4 @@
-import { createMemoryHistory } from 'history';
-import { Router } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import { MissingRCloneInfoError } from 'hooks/rclone/useRCloneClient';
 import { InvalidRemotePathError } from 'hooks/utils/useRemotePathParams';
 import InternalErrorPage from 'pages/ErrorPages/InternalServerErrorPage';
@@ -66,14 +65,12 @@ describe('PageErrorBoundary', () => {
   });
 
   const renderComponent = (error) => {
-    const history = createMemoryHistory({ initialEntries: ['/pictures'] });
-
     return render(
-      <Router location={history.location} navigator={history}>
+      <MemoryRouter initialEntries={['/pictures']}>
         <PageErrorBoundary NotFoundComponent={NotFoundErrorPage}>
           <ErrorThrowingComponent error={error} />
         </PageErrorBoundary>
-      </Router>
+      </MemoryRouter>
     );
   };
 

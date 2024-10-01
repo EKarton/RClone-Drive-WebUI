@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
 import { JobStatus, JobTypes } from 'utils/constants';
-import { render, screen, userEvent } from 'test-utils/react';
+import { render, screen, waitFor, userEvent } from 'test-utils/react';
 import TableRow from '../TableRow';
 
 describe('TableRow', () => {
@@ -30,12 +30,12 @@ describe('TableRow', () => {
     await screen.findByText('SUCCESS');
   });
 
-  it('should call cancelJob when user clicks on the cancel job button', () => {
+  it('should call cancelJob when user clicks on the cancel job button', async () => {
     const job = createJob();
     render(<TableRow job={job} />);
 
     userEvent.click(screen.getByTestId('cancel-job-button'));
 
-    expect(job.cancelJob).toBeCalled();
+    await waitFor(() => expect(job.cancelJob).toBeCalled());
   });
 });

@@ -1,5 +1,5 @@
 import { JobQueueProvider } from 'contexts/JobQueue/index';
-import { render, screen, userEvent, waitForElementToBeRemoved } from 'test-utils/react';
+import { render, screen, userEvent, fireEvent, waitFor } from 'test-utils/react';
 import { JobsListDialogProvider, useJobsListDialog } from '../index';
 
 describe('<JobsListDialogProvider> and useJobsListDialog()', () => {
@@ -39,9 +39,11 @@ describe('<JobsListDialogProvider> and useJobsListDialog()', () => {
     );
 
     userEvent.click(screen.getByText('Show dialog'));
-    userEvent.keyboard('{esc}');
+    fireEvent.keyDown(document.body, { key: 'Escape', code: 'Escape' });
 
-    await waitForElementToBeRemoved(() => screen.queryByTestId('jobs-list-dialog'));
+    await waitFor(async () => {
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    });
   });
 
   it('should throw an error when Mock component uses useJobsListDialog() without the jobs list provider', () => {

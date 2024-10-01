@@ -1,6 +1,7 @@
 import RemotesListSection from 'components/RemotesListSection';
 import { hashRemotePath } from 'utils/remote-paths-url';
-import { customRender, waitFor } from 'test-utils/react';
+import { customRender, waitFor, screen } from 'test-utils/react';
+import { useLocation } from 'react-router-dom';
 import FilesPage from '../index';
 
 jest.mock('components/RemotesListSection');
@@ -23,13 +24,23 @@ describe('FilesPage', () => {
       return null;
     });
 
-    const view = customRender(<FilesPage />);
+    customRender(
+      <>
+        <FilesPage />
+        <LocationDisplay />
+      </>
+    );
 
     jest.runAllTimers();
 
     const expectedPath = `/files/${hashRemotePath('gdrive:')}`;
     await waitFor(() => {
-      expect(view.history.location.pathname).toEqual(expectedPath);
+      expect(screen.getByTestId('location-display')).toHaveTextContent(expectedPath);
     });
   });
 });
+
+function LocationDisplay() {
+  const location = useLocation();
+  return <div data-testid="location-display">{location.pathname}</div>;
+}

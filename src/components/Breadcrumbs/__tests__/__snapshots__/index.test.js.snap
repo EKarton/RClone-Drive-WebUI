@@ -5,7 +5,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
   <div>
     <nav
       aria-label="breadcrumb"
-      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root"
+      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-8yvas4-MuiTypography-root-MuiBreadcrumbs-root"
     >
       <ol
         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -14,7 +14,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dyz36p-MuiTypography-root-MuiLink-root"
             href="/files"
           >
             My Files
@@ -30,7 +30,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dyz36p-MuiTypography-root-MuiLink-root"
             href="/files/Z29vZ2xlZHJpdmU6"
           >
             googledrive
@@ -46,7 +46,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dyz36p-MuiTypography-root-MuiLink-root"
             href="/files/Z29vZ2xlZHJpdmU6"
           />
         </li>
@@ -61,7 +61,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
   <div>
     <nav
       aria-label="breadcrumb"
-      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root"
+      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-8yvas4-MuiTypography-root-MuiBreadcrumbs-root"
     >
       <ol
         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -70,7 +70,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dyz36p-MuiTypography-root-MuiLink-root"
             href="/files"
           >
             My Files
@@ -86,7 +86,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dyz36p-MuiTypography-root-MuiLink-root"
             href="/files/Z29vZ2xlZHJpdmU6"
           >
             googledrive
@@ -102,7 +102,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
           class="MuiBreadcrumbs-li"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1 css-1gqyz35-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 css-1f6v1q3-MuiTypography-root"
           >
             Documents
           </p>
@@ -118,7 +118,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
   <div>
     <nav
       aria-label="breadcrumb"
-      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root"
+      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-8yvas4-MuiTypography-root-MuiBreadcrumbs-root"
     >
       <ol
         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -127,7 +127,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dyz36p-MuiTypography-root-MuiLink-root"
             href="/files"
           >
             My Files
@@ -143,7 +143,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dyz36p-MuiTypography-root-MuiLink-root"
             href="/files/Z29vZ2xlZHJpdmU6"
           >
             googledrive
@@ -159,7 +159,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dyz36p-MuiTypography-root-MuiLink-root"
             href="/files/Z29vZ2xlZHJpdmU6RG9jdW1lbnRz"
           >
             Documents
@@ -175,7 +175,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
           class="MuiBreadcrumbs-li"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1 css-1gqyz35-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 css-1f6v1q3-MuiTypography-root"
           >
             Work
           </p>
@@ -191,7 +191,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
   <div>
     <nav
       aria-label="breadcrumb"
-      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-63vwl1-MuiTypography-root-MuiBreadcrumbs-root"
+      class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-8yvas4-MuiTypography-root-MuiBreadcrumbs-root"
     >
       <ol
         class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -200,7 +200,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dyz36p-MuiTypography-root-MuiLink-root"
             href="/files"
           >
             My Files
@@ -216,7 +216,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dyz36p-MuiTypography-root-MuiLink-root"
             href="/files/Z29vZ2xlZHJpdmU6"
           >
             googledrive
@@ -237,7 +237,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1b4s3wq-MuiSvgIcon-root"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ojem8g-MuiSvgIcon-root"
               data-testid="MoreHorizIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -246,9 +246,6 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
                 d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
               />
             </svg>
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
           </button>
         </li>
         <li
@@ -261,7 +258,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
           class="MuiBreadcrumbs-li"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1kgfegd-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1dyz36p-MuiTypography-root-MuiLink-root"
             href="/files/Z29vZ2xlZHJpdmU6RG9jdW1lbnRzL1dvcmsvQ29tcGFueS9Qcm9qZWN0cy9Qcm9qZWN0IFg="
           >
             Project X
@@ -277,7 +274,7 @@ exports[`Breadcrumbs should match snapshot given remote = googledrive and path =
           class="MuiBreadcrumbs-li"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1 css-1gqyz35-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 css-1f6v1q3-MuiTypography-root"
           >
             Files
           </p>

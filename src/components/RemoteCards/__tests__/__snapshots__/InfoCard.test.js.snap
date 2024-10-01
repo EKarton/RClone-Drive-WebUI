@@ -4,10 +4,10 @@ exports[`InfoCard should render data correctly given there is no data in its siz
 <body>
   <div>
     <div
-      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1v5z4dq-MuiPaper-root-MuiCard-root"
+      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-91svcj-MuiPaper-root-MuiCard-root"
     >
       <button
-        class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+        class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
         tabindex="0"
         type="button"
       >
@@ -15,26 +15,23 @@ exports[`InfoCard should render data correctly given there is no data in its siz
           class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h6 remote-base-card__name css-2ulfj5-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h6 remote-base-card__name css-8zgow4-MuiTypography-root"
           >
             googledrive
           </div>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-atovpb-MuiTypography-root"
           >
             Type: crypt
           </p>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-atovpb-MuiTypography-root"
           >
             NA / NA used, NA in trash
           </p>
         </div>
         <span
           class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
     </div>
@@ -46,10 +43,10 @@ exports[`InfoCard should render data correctly when api call finishes 1`] = `
 <body>
   <div>
     <div
-      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1v5z4dq-MuiPaper-root-MuiCard-root"
+      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-91svcj-MuiPaper-root-MuiCard-root"
     >
       <button
-        class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+        class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
         tabindex="0"
         type="button"
       >
@@ -57,26 +54,23 @@ exports[`InfoCard should render data correctly when api call finishes 1`] = `
           class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h6 remote-base-card__name css-2ulfj5-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h6 remote-base-card__name css-8zgow4-MuiTypography-root"
           >
             googledrive
           </div>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-atovpb-MuiTypography-root"
           >
             Type: crypt
           </p>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-atovpb-MuiTypography-root"
           >
             126 GB / 161 GB used, 0 B in trash
           </p>
         </div>
         <span
           class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
     </div>
@@ -88,10 +82,10 @@ exports[`InfoCard should render error messages correctly when api calls fail 1`]
 <body>
   <div>
     <div
-      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1v5z4dq-MuiPaper-root-MuiCard-root"
+      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-91svcj-MuiPaper-root-MuiCard-root"
     >
       <button
-        class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+        class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
         tabindex="0"
         type="button"
       >
@@ -99,26 +93,23 @@ exports[`InfoCard should render error messages correctly when api calls fail 1`]
           class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h6 remote-base-card__name css-2ulfj5-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h6 remote-base-card__name css-8zgow4-MuiTypography-root"
           >
             googledrive
           </div>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-atovpb-MuiTypography-root"
           >
             Unable to get remote details
           </p>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-atovpb-MuiTypography-root"
           >
             Unable to get space information
           </p>
         </div>
         <span
           class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
     </div>
@@ -130,10 +121,10 @@ exports[`InfoCard should render spinners when api call is in flight 1`] = `
 <body>
   <div>
     <div
-      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1v5z4dq-MuiPaper-root-MuiCard-root"
+      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-91svcj-MuiPaper-root-MuiCard-root"
     >
       <button
-        class="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+        class="MuiButtonBase-root MuiCardActionArea-root css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root"
         tabindex="0"
         type="button"
       >
@@ -141,32 +132,29 @@ exports[`InfoCard should render spinners when api call is in flight 1`] = `
           class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h6 remote-base-card__name css-2ulfj5-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h6 remote-base-card__name css-8zgow4-MuiTypography-root"
           >
             googledrive
           </div>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-atovpb-MuiTypography-root"
           >
             <span
-              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1x8pdvj-MuiSkeleton-root"
               data-testid="remote-info-skeleton"
             />
           </p>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-r40f8v-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-atovpb-MuiTypography-root"
           >
             <span
-              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1x8pdvj-MuiSkeleton-root"
               data-testid="remote-space-skeleton"
             />
           </p>
         </div>
         <span
           class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
     </div>

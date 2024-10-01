@@ -9,7 +9,7 @@
   }
 }
 
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .global-app-bar {
     &__nav-button {
       display: none !important;

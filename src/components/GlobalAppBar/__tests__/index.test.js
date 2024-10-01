@@ -1,4 +1,4 @@
-import { customRender, userEvent, screen } from 'test-utils/react';
+import { customRender, userEvent, waitFor, screen } from 'test-utils/react';
 import GlobalAppBar from '..';
 
 describe('GlobalAppBar', () => {
@@ -10,13 +10,13 @@ describe('GlobalAppBar', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('should call match snapshot', () => {
+  it('should call match snapshot', async () => {
     const onDrawerButttonClicked = jest.fn();
 
     customRender(<GlobalAppBar onDrawerButttonClicked={onDrawerButttonClicked} />);
 
     userEvent.click(screen.getByTestId('nav-button'));
 
-    expect(onDrawerButttonClicked).toBeCalled();
+    await waitFor(() => expect(onDrawerButttonClicked).toBeCalled());
   });
 });

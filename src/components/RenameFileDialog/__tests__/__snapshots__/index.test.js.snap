@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FolderBrowserDialog should render FolderTree and call handleOk() once correctly if user selects an item from the FolderTree 1`] = `
+exports[`RenameFileDialog should match snapshot when dialog is open 1`] = `
 <body
   style="padding-right: 1024px; overflow: hidden;"
 >
@@ -8,7 +8,8 @@ exports[`FolderBrowserDialog should render FolderTree and call handleOk() once c
     aria-hidden="true"
   />
   <div
-    class="MuiDialog-root MuiModal-root css-1lxu39g-MuiModal-root-MuiDialog-root"
+    class="MuiDialog-root MuiModal-root css-zw3mfo-MuiModal-root-MuiDialog-root"
+    data-testid="rename-file-dialog"
     role="presentation"
   >
     <div
@@ -27,24 +28,60 @@ exports[`FolderBrowserDialog should render FolderTree and call handleOk() once c
       tabindex="-1"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthXs css-1xjy3w9-MuiPaper-root-MuiDialog-paper"
+        aria-describedby="rename-file-dialog-description"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthXs MuiDialog-paperFullWidth css-u3mvvq-MuiPaper-root-MuiDialog-paper"
         role="dialog"
         style="--Paper-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);"
       >
         <h2
           class="MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-ks0ey5-MuiTypography-root-MuiDialogTitle-root"
+          id="rename-file-dialog-title"
         >
-          Title
+          Rename 
+          <strong>
+            dog.png
+          </strong>
+           to:
         </h2>
         <div
-          class="MuiDialogContent-root MuiDialogContent-dividers css-zuz0dm-MuiDialogContent-root"
-        />
+          class="MuiDialogContent-root css-1kxd7on-MuiDialogContent-root"
+        >
+          <div
+            class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-y4n9bg-MuiFormControl-root-MuiTextField-root"
+            data-testid="rename-textbox"
+          >
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall css-1o0kqxp-MuiInputBase-root-MuiOutlinedInput-root"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1sh6wjw-MuiInputBase-input-MuiOutlinedInput-input"
+                type="text"
+                value="dog.png"
+              />
+              <fieldset
+                aria-hidden="true"
+                class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="css-gpjuor"
+                >
+                  <span
+                    class="notranslate"
+                  >
+                    ​
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
         <div
           class="MuiDialogActions-root MuiDialogActions-spacing css-19kok5i-MuiDialogActions-root"
         >
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1apkmlw-MuiButtonBase-root-MuiButton-root"
-            data-testid="cancel-button"
+            data-testid="cancel"
             tabindex="0"
             type="button"
           >
@@ -52,7 +89,7 @@ exports[`FolderBrowserDialog should render FolderTree and call handleOk() once c
           </button>
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1apkmlw-MuiButtonBase-root-MuiButton-root"
-            data-testid="ok-button"
+            data-testid="ok"
             tabindex="0"
             type="button"
           >

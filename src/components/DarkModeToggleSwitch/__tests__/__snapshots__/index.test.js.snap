@@ -4,21 +4,18 @@ exports[`DarkModeToggleSwitch should match snapshot given theme is dark 1`] = `
 <body>
   <div>
     <span
-      class="MuiSwitch-root MuiSwitch-sizeSmall css-dnh7b9-MuiSwitch-root"
+      class="MuiSwitch-root MuiSwitch-sizeSmall css-gucfxu-MuiSwitch-root"
     >
       <span
-        class="MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked PrivateSwitchBase-root Mui-checked css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase"
+        class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked Mui-checked css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase"
       >
         <input
           checked=""
-          class="MuiSwitch-input PrivateSwitchBase-input css-1m9pwf3"
+          class="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
           type="checkbox"
         />
         <span
           class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </span>
       <span
@@ -33,20 +30,17 @@ exports[`DarkModeToggleSwitch should match snapshot given theme is light 1`] = `
 <body>
   <div>
     <span
-      class="MuiSwitch-root MuiSwitch-sizeSmall css-dnh7b9-MuiSwitch-root"
+      class="MuiSwitch-root MuiSwitch-sizeSmall css-gucfxu-MuiSwitch-root"
     >
       <span
-        class="MuiSwitch-switchBase MuiSwitch-colorPrimary MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase"
+        class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase"
       >
         <input
-          class="MuiSwitch-input PrivateSwitchBase-input css-1m9pwf3"
+          class="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
           type="checkbox"
         />
         <span
           class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </span>
       <span

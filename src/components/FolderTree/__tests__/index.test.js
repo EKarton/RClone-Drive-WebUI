@@ -1,4 +1,4 @@
-import { TreeItem } from '@mui/lab';
+import { TreeItem } from '@mui/x-tree-view/TreeItem';
 import { mockRemotes } from 'test-utils/mock-responses';
 import { customRender, fireEvent, screen } from 'test-utils/react';
 import FolderTreeItem from '../FolderTreeItem';
@@ -9,7 +9,7 @@ jest.mock('../FolderTreeItem');
 describe('FolderTree', () => {
   beforeEach(() => {
     FolderTreeItem.mockImplementation(({ remote }) => {
-      return <TreeItem nodeId={remote} label={remote} data-testid={remote} />;
+      return <TreeItem itemId={remote} label={remote} data-testid={remote} />;
     });
   });
 
