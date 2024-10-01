@@ -57,6 +57,14 @@ Refer to [this doc](docs/Walkthrough.md) for a detailed walkthrough. However, he
 
    Builds the app in production mode
 
+3. `yarn lint`
+
+   Checks code formatting. To automatically fix code formatting, run `yarn lint:fix`
+
+4. `yarn start-dev`:
+
+   Starts the app in development mode
+
 ### Usage
 
 Please note that this project is used for educational purposes and is not intended to be used commercially. We are not liable for any damages/changes/lost data done by this project.
