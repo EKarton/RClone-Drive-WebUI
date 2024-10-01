@@ -1,4 +1,4 @@
-import LRUCache from 'lru-cache';
+import { LRUCache } from 'lru-cache';
 import ImageFetcher from 'services/ImageFetcher';
 import useRCloneClient from './useRCloneClient';
 

@@ -17,13 +17,13 @@ exports[`LazyImageListSkeleton should match snapshot given width is 800 1`] = `
             style="position: absolute; left: 0px; top: 0px; height: 266px; width: 100%;"
           >
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
           </div>
           <div
@@ -31,13 +31,13 @@ exports[`LazyImageListSkeleton should match snapshot given width is 800 1`] = `
             style="position: absolute; left: 0px; top: 266px; height: 266px; width: 100%;"
           >
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
           </div>
           <div
@@ -45,13 +45,13 @@ exports[`LazyImageListSkeleton should match snapshot given width is 800 1`] = `
             style="position: absolute; left: 0px; top: 532px; height: 266px; width: 100%;"
           >
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
           </div>
           <div
@@ -59,13 +59,13 @@ exports[`LazyImageListSkeleton should match snapshot given width is 800 1`] = `
             style="position: absolute; left: 0px; top: 798px; height: 266px; width: 100%;"
           >
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
           </div>
         </div>
@@ -106,19 +106,19 @@ exports[`LazyImageListSkeleton should match snapshot given width is 2000 1`] = `
             style="position: absolute; left: 0px; top: 0px; height: 400px; width: 100%;"
           >
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
           </div>
           <div
@@ -126,19 +126,19 @@ exports[`LazyImageListSkeleton should match snapshot given width is 2000 1`] = `
             style="position: absolute; left: 0px; top: 400px; height: 400px; width: 100%;"
           >
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
             <span
-              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-58ftfq-MuiSkeleton-root"
+              class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse imagelist-skeleton__img css-ob4eb1-MuiSkeleton-root"
             />
           </div>
         </div>

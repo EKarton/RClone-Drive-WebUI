@@ -8,52 +8,53 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
     aria-hidden="true"
   />
   <div
-    class="MuiModal-root MuiDialog-root css-zw3mfo-MuiModal-root-MuiDialog-root"
+    class="MuiDialog-root MuiModal-root css-zw3mfo-MuiModal-root-MuiDialog-root"
     data-testid="login-help-dialog"
     role="presentation"
   >
     <div
       aria-hidden="true"
-      class="MuiBackdrop-root css-yiavyu-MuiBackdrop-root-MuiDialog-backdrop"
+      class="MuiBackdrop-root MuiModal-backdrop css-yiavyu-MuiBackdrop-root-MuiDialog-backdrop"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
-      class="MuiDialog-container MuiDialog-scrollPaper css-hz1bth-MuiDialog-container"
+      class="MuiDialog-container MuiDialog-scrollPaper css-1cvd0nv-MuiDialog-container"
       role="presentation"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm css-1t1j96h-MuiPaper-root-MuiDialog-paper"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation24 MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm css-rsks93-MuiPaper-root-MuiDialog-paper"
         role="dialog"
+        style="--Paper-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-bdhsul-MuiTypography-root-MuiDialogTitle-root"
+          class="MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-ks0ey5-MuiTypography-root-MuiDialogTitle-root"
         >
           Setting up and Login to RClone
         </h2>
         <div
-          class="MuiDialogContent-root css-ypiqx9-MuiDialogContent-root"
+          class="MuiDialogContent-root css-1kxd7on-MuiDialogContent-root"
         >
           <div
-            class="MuiStepper-root MuiStepper-vertical css-9tmuzo-MuiStepper-root"
+            class="MuiStepper-root MuiStepper-vertical css-3lful5-MuiStepper-root"
           >
             <div
               class="MuiStep-root MuiStep-vertical css-8wcvy5-MuiStep-root"
             >
               <span
-                class="MuiStepLabel-root MuiStepLabel-vertical css-14sza3e-MuiStepLabel-root"
+                class="MuiStepLabel-root MuiStepLabel-vertical css-ifbt3e-MuiStepLabel-root"
               >
                 <span
-                  class="MuiStepLabel-iconContainer css-vnkopk-MuiStepLabel-iconContainer"
+                  class="MuiStepLabel-iconContainer Mui-active css-vnkopk-MuiStepLabel-iconContainer"
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiStepIcon-root Mui-active css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiStepIcon-root Mui-active css-15rfbsb-MuiSvgIcon-root-MuiStepIcon-root"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -64,19 +65,20 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
                     />
                     <text
                       class="MuiStepIcon-text css-117w1su-MuiStepIcon-text"
+                      dominant-baseline="central"
                       text-anchor="middle"
                       x="12"
-                      y="16"
+                      y="12"
                     >
                       1
                     </text>
                   </svg>
                 </span>
                 <span
-                  class="MuiStepLabel-labelContainer css-16ubnlw-MuiStepLabel-labelContainer"
+                  class="MuiStepLabel-labelContainer css-1vyamtt-MuiStepLabel-labelContainer"
                 >
                   <span
-                    class="MuiStepLabel-label Mui-active css-qivjh0-MuiStepLabel-label"
+                    class="MuiStepLabel-label Mui-active css-1hv8oq8-MuiStepLabel-label"
                   >
                     Install and Setup RClone
                   </span>
@@ -86,7 +88,7 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
                 class="MuiStepContent-root css-14yr603-MuiStepContent-root"
               >
                 <div
-                  class="MuiCollapse-root MuiCollapse-vertical MuiStepContent-transition MuiCollapse-entered css-1rw7nzj-MuiCollapse-root-MuiStepContent-transition"
+                  class="MuiCollapse-root MuiCollapse-vertical MuiStepContent-transition MuiCollapse-entered css-7hxsq1-MuiCollapse-root-MuiStepContent-transition"
                   style="min-height: 0px;"
                 >
                   <div
@@ -96,11 +98,11 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
                       class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 css-1edfpdg-MuiTypography-root"
                       >
                         Go to 
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1iwtne7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ruuf8c-MuiTypography-root-MuiLink-root"
                           href="https://rclone.org/docs"
                         >
                           https://rclone.org/docs
@@ -114,24 +116,24 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
               </div>
             </div>
             <div
-              class="MuiStepConnector-root MuiStepConnector-vertical Mui-active Mui-disabled css-1pe7n21-MuiStepConnector-root"
+              class="MuiStepConnector-root MuiStepConnector-vertical Mui-active Mui-disabled css-8orou1-MuiStepConnector-root"
             >
               <span
-                class="MuiStepConnector-line MuiStepConnector-lineVertical css-8t49rw-MuiStepConnector-line"
+                class="MuiStepConnector-line MuiStepConnector-lineVertical css-18ltxn-MuiStepConnector-line"
               />
             </div>
             <div
               class="MuiStep-root MuiStep-vertical css-8wcvy5-MuiStep-root"
             >
               <span
-                class="MuiStepLabel-root MuiStepLabel-vertical Mui-disabled css-14sza3e-MuiStepLabel-root"
+                class="MuiStepLabel-root MuiStepLabel-vertical Mui-disabled css-ifbt3e-MuiStepLabel-root"
               >
                 <span
-                  class="MuiStepLabel-iconContainer css-vnkopk-MuiStepLabel-iconContainer"
+                  class="MuiStepLabel-iconContainer Mui-active Mui-disabled css-vnkopk-MuiStepLabel-iconContainer"
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiStepIcon-root Mui-active css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiStepIcon-root Mui-active css-15rfbsb-MuiSvgIcon-root-MuiStepIcon-root"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -142,19 +144,20 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
                     />
                     <text
                       class="MuiStepIcon-text css-117w1su-MuiStepIcon-text"
+                      dominant-baseline="central"
                       text-anchor="middle"
                       x="12"
-                      y="16"
+                      y="12"
                     >
                       2
                     </text>
                   </svg>
                 </span>
                 <span
-                  class="MuiStepLabel-labelContainer css-16ubnlw-MuiStepLabel-labelContainer"
+                  class="MuiStepLabel-labelContainer css-1vyamtt-MuiStepLabel-labelContainer"
                 >
                   <span
-                    class="MuiStepLabel-label Mui-active Mui-disabled css-qivjh0-MuiStepLabel-label"
+                    class="MuiStepLabel-label Mui-active Mui-disabled css-1hv8oq8-MuiStepLabel-label"
                   >
                     Run RClone in RCD Mode
                   </span>
@@ -164,7 +167,7 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
                 class="MuiStepContent-root css-14yr603-MuiStepContent-root"
               >
                 <div
-                  class="MuiCollapse-root MuiCollapse-vertical MuiStepContent-transition MuiCollapse-entered css-1rw7nzj-MuiCollapse-root-MuiStepContent-transition"
+                  class="MuiCollapse-root MuiCollapse-vertical MuiStepContent-transition MuiCollapse-entered css-7hxsq1-MuiCollapse-root-MuiStepContent-transition"
                   style="min-height: 0px;"
                 >
                   <div
@@ -174,12 +177,12 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
                       class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 css-1edfpdg-MuiTypography-root"
                       >
                         Run these commands to run RClone in remote-control mode:
                       </p>
                       <p
-                        class="MuiTypography-root MuiTypography-body1 login-help-dialog__code-block css-ahj2mt-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 login-help-dialog__code-block css-1edfpdg-MuiTypography-root"
                       >
                         <code>
                           rclone rcd \\ 
@@ -197,7 +200,7 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
                         </code>
                       </p>
                       <p
-                        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 css-1edfpdg-MuiTypography-root"
                       >
                         where 
                         <code>
@@ -206,12 +209,12 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
                          is the location of your RClone config file.
                       </p>
                       <p
-                        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 css-1edfpdg-MuiTypography-root"
                       >
                         More info is at
                          
                         <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1iwtne7-MuiTypography-root-MuiLink-root"
+                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ruuf8c-MuiTypography-root-MuiLink-root"
                           href="https://rclone.org/rc"
                         >
                           https://rclone.org/rc/
@@ -223,24 +226,24 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
               </div>
             </div>
             <div
-              class="MuiStepConnector-root MuiStepConnector-vertical Mui-active Mui-disabled css-1pe7n21-MuiStepConnector-root"
+              class="MuiStepConnector-root MuiStepConnector-vertical Mui-active Mui-disabled css-8orou1-MuiStepConnector-root"
             >
               <span
-                class="MuiStepConnector-line MuiStepConnector-lineVertical css-8t49rw-MuiStepConnector-line"
+                class="MuiStepConnector-line MuiStepConnector-lineVertical css-18ltxn-MuiStepConnector-line"
               />
             </div>
             <div
               class="MuiStep-root MuiStep-vertical css-8wcvy5-MuiStep-root"
             >
               <span
-                class="MuiStepLabel-root MuiStepLabel-vertical Mui-disabled css-14sza3e-MuiStepLabel-root"
+                class="MuiStepLabel-root MuiStepLabel-vertical Mui-disabled css-ifbt3e-MuiStepLabel-root"
               >
                 <span
-                  class="MuiStepLabel-iconContainer css-vnkopk-MuiStepLabel-iconContainer"
+                  class="MuiStepLabel-iconContainer Mui-active Mui-disabled css-vnkopk-MuiStepLabel-iconContainer"
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiStepIcon-root Mui-active css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiStepIcon-root Mui-active css-15rfbsb-MuiSvgIcon-root-MuiStepIcon-root"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -251,29 +254,30 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
                     />
                     <text
                       class="MuiStepIcon-text css-117w1su-MuiStepIcon-text"
+                      dominant-baseline="central"
                       text-anchor="middle"
                       x="12"
-                      y="16"
+                      y="12"
                     >
                       3
                     </text>
                   </svg>
                 </span>
                 <span
-                  class="MuiStepLabel-labelContainer css-16ubnlw-MuiStepLabel-labelContainer"
+                  class="MuiStepLabel-labelContainer css-1vyamtt-MuiStepLabel-labelContainer"
                 >
                   <span
-                    class="MuiStepLabel-label Mui-active Mui-disabled css-qivjh0-MuiStepLabel-label"
+                    class="MuiStepLabel-label Mui-active Mui-disabled css-1hv8oq8-MuiStepLabel-label"
                   >
                     Enter your RClone Endpoints
                   </span>
                 </span>
               </span>
               <div
-                class="MuiStepContent-root MuiStepContent-last css-1mz1l2x-MuiStepContent-root"
+                class="MuiStepContent-root MuiStepContent-last css-pikvia-MuiStepContent-root"
               >
                 <div
-                  class="MuiCollapse-root MuiCollapse-vertical MuiStepContent-transition MuiCollapse-entered css-1rw7nzj-MuiCollapse-root-MuiStepContent-transition"
+                  class="MuiCollapse-root MuiCollapse-vertical MuiStepContent-transition MuiCollapse-entered css-7hxsq1-MuiCollapse-root-MuiStepContent-transition"
                   style="min-height: 0px;"
                 >
                   <div
@@ -283,7 +287,7 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
                       class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                     >
                       <p
-                        class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-body1 css-1edfpdg-MuiTypography-root"
                       >
                         From step (2), enter these in the Login form:
                         <ol>
@@ -315,24 +319,21 @@ exports[`LoginHelpDialog should match snapshot given dialog is open 1`] = `
           </div>
         </div>
         <div
-          class="MuiDialogActions-root MuiDialogActions-spacing css-hlj6pa-MuiDialogActions-root"
+          class="MuiDialogActions-root MuiDialogActions-spacing css-19kok5i-MuiDialogActions-root"
         >
           <button
-            class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root  css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1apkmlw-MuiButtonBase-root-MuiButton-root"
             data-testid="close-button"
             tabindex="0"
             type="button"
           >
             Close
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>

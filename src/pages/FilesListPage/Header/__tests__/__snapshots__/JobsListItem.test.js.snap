@@ -4,13 +4,13 @@ exports[`JobsListItem should match snapshot given job type is MOVE_FILE and curr
 <body>
   <div>
     <li
-      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-193q0wg-MuiListItem-root"
     >
       <div
-        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+        class="MuiListItemText-root css-1y2w5y4-MuiListItemText-root"
       >
         <span
-          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1edfpdg-MuiTypography-root"
         >
           Failed to move gdrive:Documents/Dog.png
         </span>
@@ -24,13 +24,13 @@ exports[`JobsListItem should match snapshot given job type is MOVE_FILE and curr
 <body>
   <div>
     <li
-      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-193q0wg-MuiListItem-root"
     >
       <div
-        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+        class="MuiListItemText-root css-1y2w5y4-MuiListItemText-root"
       >
         <span
-          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1edfpdg-MuiTypography-root"
         >
           Moving gdrive:Documents/Dog.png
         </span>
@@ -44,13 +44,13 @@ exports[`JobsListItem should match snapshot given job type is MOVE_FILE and curr
 <body>
   <div>
     <li
-      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-193q0wg-MuiListItem-root"
     >
       <div
-        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+        class="MuiListItemText-root css-1y2w5y4-MuiListItemText-root"
       >
         <span
-          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1edfpdg-MuiTypography-root"
         >
           Moved gdrive:Documents/Dog.png
         </span>
@@ -64,13 +64,13 @@ exports[`JobsListItem should match snapshot given job type is RENAME_FILE and cu
 <body>
   <div>
     <li
-      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-193q0wg-MuiListItem-root"
     >
       <div
-        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+        class="MuiListItemText-root css-1y2w5y4-MuiListItemText-root"
       >
         <span
-          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1edfpdg-MuiTypography-root"
         >
           Failed to rename Dog.png
         </span>
@@ -84,13 +84,13 @@ exports[`JobsListItem should match snapshot given job type is RENAME_FILE and cu
 <body>
   <div>
     <li
-      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-193q0wg-MuiListItem-root"
     >
       <div
-        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+        class="MuiListItemText-root css-1y2w5y4-MuiListItemText-root"
       >
         <span
-          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1edfpdg-MuiTypography-root"
         >
           Renaming Dog.png to Dog.png
         </span>
@@ -104,13 +104,13 @@ exports[`JobsListItem should match snapshot given job type is RENAME_FILE and cu
 <body>
   <div>
     <li
-      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-193q0wg-MuiListItem-root"
     >
       <div
-        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+        class="MuiListItemText-root css-1y2w5y4-MuiListItemText-root"
       >
         <span
-          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1edfpdg-MuiTypography-root"
         >
           Renamed Dog.png to Dog.png
         </span>
@@ -124,13 +124,13 @@ exports[`JobsListItem should match snapshot given job type is UPLOAD_FILE and cu
 <body>
   <div>
     <li
-      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-193q0wg-MuiListItem-root"
     >
       <div
-        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+        class="MuiListItemText-root css-1y2w5y4-MuiListItemText-root"
       >
         <span
-          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1edfpdg-MuiTypography-root"
         >
           Failed to upload Dog.png
         </span>
@@ -144,13 +144,13 @@ exports[`JobsListItem should match snapshot given job type is UPLOAD_FILE and cu
 <body>
   <div>
     <li
-      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-193q0wg-MuiListItem-root"
     >
       <div
-        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+        class="MuiListItemText-root css-1y2w5y4-MuiListItemText-root"
       >
         <span
-          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1edfpdg-MuiTypography-root"
         >
           Uploading Dog.png
         </span>
@@ -164,13 +164,13 @@ exports[`JobsListItem should match snapshot given job type is UPLOAD_FILE and cu
 <body>
   <div>
     <li
-      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-193q0wg-MuiListItem-root"
     >
       <div
-        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+        class="MuiListItemText-root css-1y2w5y4-MuiListItemText-root"
       >
         <span
-          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1edfpdg-MuiTypography-root"
         >
           Uploaded Dog.png
         </span>
@@ -184,13 +184,13 @@ exports[`JobsListItem should match snapshot given unknown job type and current s
 <body>
   <div>
     <li
-      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-193q0wg-MuiListItem-root"
     >
       <div
-        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+        class="MuiListItemText-root css-1y2w5y4-MuiListItemText-root"
       >
         <span
-          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1edfpdg-MuiTypography-root"
         >
           Failed job
         </span>
@@ -204,13 +204,13 @@ exports[`JobsListItem should match snapshot given unknown job type and current s
 <body>
   <div>
     <li
-      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-193q0wg-MuiListItem-root"
     >
       <div
-        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+        class="MuiListItemText-root css-1y2w5y4-MuiListItemText-root"
       >
         <span
-          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1edfpdg-MuiTypography-root"
         >
           Job running
         </span>
@@ -224,13 +224,13 @@ exports[`JobsListItem should match snapshot given unknown job type and current s
 <body>
   <div>
     <li
-      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-1p823my-MuiListItem-root"
+      class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-193q0wg-MuiListItem-root"
     >
       <div
-        class="MuiListItemText-root css-tlelie-MuiListItemText-root"
+        class="MuiListItemText-root css-1y2w5y4-MuiListItemText-root"
       >
         <span
-          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-1edfpdg-MuiTypography-root"
         >
           Job succeeded
         </span>
