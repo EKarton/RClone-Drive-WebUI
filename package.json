@@ -19,7 +19,7 @@
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^6.1.1",
     "@mui/lab": "^6.0.0-beta.10",
-    "@mui/material": "^6.1.1",
+    "@mui/material": "^6.1.2",
     "@mui/x-tree-view": "^7.18.0",
     "axios": "^1.7.7",
     "buffer": "^6.0.3",
