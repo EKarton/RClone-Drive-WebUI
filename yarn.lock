@@ -2136,10 +2136,10 @@
     "@babel/runtime" "^7.25.6"
     "@mui/utils" "^5.16.6"
 
-"@mui/x-tree-view@^7.18.0":
-  version "7.18.0"
-  resolved "https://registry.yarnpkg.com/@mui/x-tree-view/-/x-tree-view-7.18.0.tgz#ed9bef84527fb74905f9f90154586c414ba049e0"
-  integrity sha512-3UJAYtBquc0SzKxEEdM68XlKOuuCl70ktZPqqI3z4wTZ0HK445XXc32t/s0VPIL94kRxWQcGPpgWFauScDwhug==
+"@mui/x-tree-view@^7.19.0":
+  version "7.19.0"
+  resolved "https://registry.yarnpkg.com/@mui/x-tree-view/-/x-tree-view-7.19.0.tgz#ff42eda290d54e839cb21f15a1df2bb4d6746f09"
+  integrity sha512-yjEapbEUNvgLoBzK7B9ISsMt6EdqCaSqJaRN9YghXq3u9ZIXBD1qtJUmWOhkon8gwNpL1iOnONN4PO7FuxLCRQ==
   dependencies:
     "@babel/runtime" "^7.25.6"
     "@mui/utils" "^5.16.6"
